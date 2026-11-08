@@ -107,7 +107,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$branch"
           git add catalog.json
-          printf '%s\n\nFrom #%s, checked by elekloader's packaging/submit_mod.py.\n' "$title" "$ISSUE" > "$RUNNER_TEMP/message.txt"
+          printf '%s\n\nFrom #%s, checked by packaging/submit_mod.py (elekloader).\n' "$title" "$ISSUE" > "$RUNNER_TEMP/message.txt"
           git commit -q -F "$RUNNER_TEMP/message.txt"
           git push -q -f origin "$branch"
           if [ "$MODE" = remove ]; then
