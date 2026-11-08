@@ -1,0 +1,143 @@
+# The shop's mods, kept up to date from their authors' releases (elekloader's packaging/shop_updates.py):
+# 1. Once a day, it lists the repositories the shop takes mods from that have published newer releases (not those
+#    whose authors opted out: "auto_update": false in the entry).
+# 2. For each, it updates catalog.json from those releases on a branch of its own (shop-update/<owner>-<name>),
+#    with the same checks as a submission, and opens a pull request (or refreshes the one already open).
+# 3. When every change is a newer file of a mod that repository already has in the shop (no new mod, no clash, no
+#    core, no held entry), it runs the unit tests and merges the pull request itself, then redeploys the site.
+#    Anything else waits for a maintainer. The repository variable SHOP_AUTO_MERGE set to false stops the merging;
+#    "hold" on an entry in catalog.json keeps that mod where it is. The daily run waits for the repository
+#    variable SHOP_LIVE=true (set when elekloader reads this list); by hand it always runs.
+#
+# Its pushes and merges use the workflow's token, which starts no other workflow. So it runs the unit tests itself
+# before merging, starts the check workflow on a pull request it leaves for review, and starts elekloader's pages after a merge.
+# The repository needs Settings > Actions > General > "Allow GitHub Actions to create and approve pull requests".
+#
+# This repository holds only the list (catalog.json, sections.json); the scripts are elekloader's, from its main,
+# checked out into el/. A merge here starts elekloader's pages workflow with the secret SITE_DISPATCH (a token that
+# may only start workflows in elekloader/elekloader); without it the site picks the change up at its next build.
+name: Shop updates
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      repo:
+        description: Only this repository (owner/name)
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: shop-updates
+  cancel-in-progress: false
+
+jobs:
+  updates:
+    if: github.event_name != 'schedule' || vars.SHOP_LIVE == 'true'
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      AUTO_MERGE: ${{ vars.SHOP_AUTO_MERGE != 'false' }}
+      ONLY: ${{ inputs.repo }}
+      BASE: ${{ github.event.repository.default_branch }}
+      ELEKLOADER_CATALOG: ${{ github.workspace }}/catalog.json
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/checkout@v7
+        with:
+          repository: elekloader/elekloader
+          ref: main
+          path: el
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: The repositories with newer releases
+        id: list
+        run: |
+          python el/packaging/shop_updates.py --list --catalog catalog.json ${ONLY:+--repo "$ONLY"} > "$RUNNER_TEMP/repos.txt"
+          cat "$RUNNER_TEMP/repos.txt"
+          if [ -s "$RUNNER_TEMP/repos.txt" ]; then echo "any=yes" >> "$GITHUB_OUTPUT"; fi
+      - name: The cores, from the latest release
+        if: steps.list.outputs.any
+        run: |
+          tag=$(gh release view --repo elekloader/elekloader --json tagName --jq .tagName)
+          gh release download "$tag" --repo elekloader/elekloader --pattern "core-*.elemod" --dir build/core
+      - name: The shop's files, to compare with
+        if: steps.list.outputs.any
+        run: |
+          mkdir -p build/shop
+          python el/packaging/build_web.py --catalog-list catalog.json | while read -r how repo ref path; do
+            if [ "$how" = commit ]; then
+              out="build/shop/${path##*/}"
+              gh api "repos/$repo/contents/$path?ref=$ref" -H "Accept: application/vnd.github.raw" > "$out.part" \
+                && mv "$out.part" "$out" || rm -f "$out.part"
+            else
+              gh release download "$ref" --repo "$repo" --pattern "$path" --dir build/shop --clobber || true
+            fi
+          done
+      - name: Update the shop, and merge the authors' own updates
+        if: steps.list.outputs.any
+        env:
+          SITE_DISPATCH: ${{ secrets.SITE_DISPATCH }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          result="$RUNNER_TEMP/result.json"
+          merged=
+          while read -r repo <&3; do
+            branch="shop-update/$(printf '%s' "$repo" | tr '/A-Z' '-a-z')"
+            git fetch -q origin "$BASE"
+            git checkout -q -B "$branch" "origin/$BASE"
+            set +e
+            python el/packaging/shop_updates.py --apply "$repo" --catalog catalog.json --files-dir build/shop --cores-dir build/core \
+              --report "$RUNNER_TEMP/report.md" --result "$result"
+            status=$?
+            set -e
+            url=$(gh pr list --head "$branch" --state open --json url --jq '.[0].url // empty')
+            if git diff --quiet -- catalog.json; then
+              # nothing left to update: a pull request still open for these releases is stale
+              if [ -n "$url" ] && [ "$status" = 2 ]; then
+                gh pr close "$url" --delete-branch --comment "Nothing left to update: $BASE has these files now."
+              fi
+              continue
+            fi
+            title=$(python -c "import json, sys; r = json.load(open(sys.argv[1])); print('The shop: %s from %s (%s)' % (', '.join(r['titles']) or 'updates', r['repo'], ', '.join(r['tags'])))" "$result")
+            same=$(python -c "import json, sys; print('yes' if json.load(open(sys.argv[1]))['same_repo_update'] else '')" "$result")
+            git add catalog.json
+            printf '%s\n\nFound and checked by the shop-updates workflow (elekloader's packaging/shop_updates.py).\n' "$title" > "$RUNNER_TEMP/message.txt"
+            git commit -q -F "$RUNNER_TEMP/message.txt"
+            git push -q -f origin "$branch"
+            { printf 'Newer releases of mods the shop takes from %s, found and checked by the shop-updates workflow.\n\n' "$repo"
+              cat "$RUNNER_TEMP/report.md"; } > "$RUNNER_TEMP/pr.md"
+            if [ -n "$url" ]; then
+              gh pr edit "$url" --title "$title" --body-file "$RUNNER_TEMP/pr.md" >/dev/null
+            else
+              url=$(gh pr create --base "$BASE" --head "$branch" --title "$title" --body-file "$RUNNER_TEMP/pr.md")
+            fi
+            if [ "$AUTO_MERGE" = true ] && [ -n "$same" ]; then
+              if python el/tests/test_units.py > "$RUNNER_TEMP/units.txt" 2>&1; then
+                gh pr comment "$url" --body "Merged by the workflow: every change is a newer file of a mod $repo already has in the shop, and the unit tests passed." >/dev/null
+                gh pr merge "$url" --squash --delete-branch
+                merged=yes
+                continue
+              fi
+              tail -n 40 "$RUNNER_TEMP/units.txt"
+              gh pr comment "$url" --body "The unit tests failed on this branch, so it waits for a maintainer." >/dev/null
+            fi
+            gh workflow run check.yml --ref "$branch"
+          done 3< "$RUNNER_TEMP/repos.txt"
+          if [ -n "$merged" ]; then
+            if [ -n "$SITE_DISPATCH" ]; then
+              GH_TOKEN="$SITE_DISPATCH" gh workflow run pages.yml --repo elekloader/elekloader --ref main
+            else
+              echo "::warning::no SITE_DISPATCH secret: elekloader's pages workflow was not started"
+            fi
+          fi

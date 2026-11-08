@@ -1,0 +1,36 @@
+# The list, checked by elekloader's unit tests (its main), as elekloader's own tests checked web/catalog.json:
+# its layout (the form's bot writes it), its sections, and every rule the tests hold the shop's list to.
+#
+# A pull request the form's bot or the daily updates open starts no workflow by itself (the workflow's token
+# starts none), so they start this one by hand on their branch.
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    env:
+      ELEKLOADER_CATALOG: ${{ github.workspace }}/catalog.json
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: elekloader/elekloader
+          ref: main
+          path: el
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: elekloader's unit tests, on this list
+        run: python el/tests/test_units.py
