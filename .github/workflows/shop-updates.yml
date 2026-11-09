@@ -135,6 +135,7 @@ jobs:
             gh workflow run check.yml --ref "$branch"
           done 3< "$RUNNER_TEMP/repos.txt"
           if [ -n "$merged" ]; then
+            gh workflow run pages.yml --ref main     # this repository's own site (its token may start it by hand)
             if [ -n "$SITE_DISPATCH" ]; then
               GH_TOKEN="$SITE_DISPATCH" gh workflow run pages.yml --repo elekloader/elekloader --ref main
             else
