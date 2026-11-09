@@ -1,0 +1,32 @@
+# A change to the list on main (a maintainer's merge, or a push) redeploys elekloader's site: it starts
+# elekloader/elekloader's pages workflow with the secret SITE_DISPATCH (a token that may only start workflows
+# there). The bots' own merges (mod-submission.yml, shop-updates.yml) start pages themselves: a push made with
+# a workflow's token starts no workflow, so this never runs twice for one merge.
+name: Redeploy the site
+
+on:
+  push:
+    branches: [main]
+    paths: [catalog.json, sections.json]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  pages:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Start elekloader's pages
+        env:
+          SITE_DISPATCH: ${{ secrets.SITE_DISPATCH }}
+        run: |
+          if [ -z "$SITE_DISPATCH" ]; then
+            echo "::warning::no SITE_DISPATCH secret: elekloader's pages workflow was not started"
+            exit 0
+          fi
+          GH_TOKEN="$SITE_DISPATCH" gh workflow run pages.yml --repo elekloader/elekloader --ref main
+          echo "Started pages in elekloader/elekloader."
