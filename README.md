@@ -29,7 +29,8 @@ the layout the checks expect.
   `packaging/submit_mod.py` and `packaging/shop_updates.py` on this `catalog.json`.
 - `.github/workflows/check.yml` runs elekloader's unit tests on this list for every pull request.
 - elekloader's `pages.yml` reads this repository's `main` (its repository variable `SHOP_REPO`) when it builds the
-  site, and a merge here starts it (the secret `SITE_DISPATCH`).
+  site, and a merge here starts it with the secret `SITE_DISPATCH`: the bots' own merges start it themselves, and
+  `site.yml` starts it for any other change to the list on `main` (or by hand: Actions > Redeploy the site).
 
 The list's history up to the move is kept: `git log catalog.json` goes back to the shop's first day in elekloader,
 and `elekloader/elekloader#N` in the older messages are that repository's pull requests.
