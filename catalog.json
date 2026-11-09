@@ -264,6 +264,66 @@
       "on_unit": "DA27 was installed and tested on a physical Digitone MK1 by its owner. MIDI arpeggiation, native panel controls, graphical step editor, track settings and additional modes are largely functional. One held key with transport stopped can intermittently produce unintended extra pitches; see the release known limitations. Emulator and SDK checks are recorded in TEST_RESULTS.md. Further hardware validation is welcome."
     },
     {
+      "repo": "irpina/digiarpmenu", "tag": "v0.1", "file": "arpmenu-0.1-os1.44.elemod",
+      "device": "digitone-mk1", "needs_core": "5.0.1",
+      "sha256": "61ec1ee6f1e55469d60fcb2860ba41975eca12608d71aa4a5ba98f19cb142ca7",
+      "summary": "A long press of FUNC + KEYBOARD opens the ARP menu, as FUNC + SYN1 does; a quick press still turns the arp on and off."
+    },
+    {
+      "repo": "irpina/digiarpmenu", "tag": "v0.1", "file": "arpmenu-0.1.elemod",
+      "device": "digitone-mk1", "needs_core": "5.0.1",
+      "sha256": "a73963e963a760a2370df594732084135eaeec378a898d187df82b5ff2456314",
+      "summary": "A long press of FUNC + KEYBOARD opens the ARP menu, as FUNC + SYN1 does; a quick press still turns the arp on and off."
+    },
+    {
+      "repo": "irpina/digisolo", "tag": "v0.2", "file": "solo-0.2-os1.44.elemod",
+      "device": "digitone-mk1", "needs_core": "5.0.1",
+      "sha256": "84db1c437e06ba13fcf42bda6913dc727b6006bb1d5965ee092282888333046a",
+      "summary": "Hold PAGE and press a track key to solo that track among its four, and store and recall four mute groups from the Mod Menu."
+    },
+    {
+      "repo": "irpina/digisolo", "tag": "v0.2", "file": "solo-0.2.elemod",
+      "device": "digitone-mk1", "needs_core": "5.0.1",
+      "sha256": "455683fa0d11bb261ef7032eca48169c6fc05199e443f2360e248d2c60d90025",
+      "summary": "Hold PAGE and press a track key to solo that track among its four, and store and recall four mute groups from the Mod Menu."
+    },
+    {
+      "repo": "irpina/digiloop", "tag": "v0.2", "file": "loopback-0.2-os1.44.elemod",
+      "device": "digitone-mk1", "needs_core": "5.1",
+      "sha256": "8624656edf31f5de7031317fb18ed7ee79d7941fca5b44674f943f1bcdb6dd7b",
+      "summary": "An internal MIDI cable: a MIDI track with LOOP on (knob E on its TRIG page, per pattern) plays the Digitone's own tracks and master effects instead of MIDI out."
+    },
+    {
+      "repo": "irpina/digiloop", "tag": "v0.2", "file": "loopback-0.2.elemod",
+      "device": "digitone-mk1", "needs_core": "5.1",
+      "sha256": "c4a2099920ed3e1e137f6accb4d641984084c7b2faa422b40c6730d043e6b6f2",
+      "summary": "An internal MIDI cable: a MIDI track with LOOP on (knob E on its TRIG page, per pattern) plays the Digitone's own tracks and master effects instead of MIDI out."
+    },
+    {
+      "repo": "irpina/digipcsound", "tag": "v0.2", "file": "pcsound-0.2-os1.44.elemod",
+      "device": "digitone-mk1", "needs_core": "5.1",
+      "sha256": "b2003d7474e8b35efa180aeb51702a0e1f9b588017649e2fb2727b4e9632227e",
+      "summary": "A synth track loads a pool sound from a MIDI program change or from PRG on TRIG's second page, which you can p-lock per trig."
+    },
+    {
+      "repo": "irpina/digipcsound", "tag": "v0.2", "file": "pcsound-0.2.elemod",
+      "device": "digitone-mk1", "needs_core": "5.1",
+      "sha256": "c0d3db636ad76d33bdb27c007e0e63fcafce8255d8d71af33d33f36a72830c6c",
+      "summary": "A synth track loads a pool sound from a MIDI program change or from PRG on TRIG's second page, which you can p-lock per trig."
+    },
+    {
+      "repo": "irpina/digichoke", "tag": "v0.2", "file": "choke-0.2-os1.44.elemod",
+      "device": "digitone-mk1", "needs_core": "5.1",
+      "sha256": "dcfc5839f8db90293021574d196f805be89ebc4028ce87ee2c4e5d9bc9615cac",
+      "summary": "Choke groups: a note on one track silences the others in its group, set with CHK on TRIG's second page per pattern and p-lockable per trig."
+    },
+    {
+      "repo": "irpina/digichoke", "tag": "v0.2", "file": "choke-0.2.elemod",
+      "device": "digitone-mk1", "needs_core": "5.1",
+      "sha256": "58af5dc5ae99739f0c952a7f58febc36133e47e342f3a8a5cb93cc40700e0b66",
+      "summary": "Choke groups: a note on one track silences the others in its group, set with CHK on TRIG's second page per pattern and p-lockable per trig."
+    },
+    {
       "repo": "mbaumannn/mutiny", "tag": "v0.2.1", "file": "mutiny-0.2.1.elemod",
       "device": "digitone-mk1", "needs_core": "4.1",
       "sha256": "c77e2c42516787bd565c2f6351aee13581ca6a9ca52bd710d3221220e3b79f5a",
