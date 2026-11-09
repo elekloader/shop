@@ -147,6 +147,7 @@ jobs:
           if [ "$AUTO_MERGE" = true ] && [ -n "$OWN" ] && [ -n "$AUTO" ]; then
             if python el/tests/test_units.py > "$RUNNER_TEMP/units.txt" 2>&1; then
               gh pr merge "$PR" --squash --delete-branch
+              gh workflow run pages.yml --ref main     # this repository's own site (its token may start it by hand)
               if [ -n "$SITE_DISPATCH" ]; then
                 GH_TOKEN="$SITE_DISPATCH" gh workflow run pages.yml --repo elekloader/elekloader --ref main
               else

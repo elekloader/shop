@@ -1,0 +1,131 @@
+# The shop's own site, https://elekloader.github.io/shop/: elekloader's web page built with this repository's list.
+#
+# It checks out elekloader at the commit or tag elekloader.ref names (a pull request here moves it), so a deploy
+# never runs engine code nobody chose; takes the core mods from elekloader's latest release, each listed mod and
+# thumbnail from its author's release or commit (checked against the sha256 the list pins), and the pinned Pyodide;
+# assembles the site with elekloader's packaging/build_web.py, runs elekloader's tests under Pyodide on it
+# (tests/test_web.mjs), and deploys it.
+#
+# On every push to main (a maintainer's merge; a bot's merge starts it by hand, since a workflow's own push starts
+# no workflow) and by hand, optionally at another elekloader ref. No firmware reaches it: the page reads the user's
+# stock OS file only in their browser, and builds there.
+#
+# Pages must be on, with GitHub Actions as its source (Settings > Pages). The repository variable SHOP_THUMBS set
+# to false leaves every thumbnail out.
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "elekloader's commit or tag to build with (default: elekloader.ref)"
+        required: false
+
+permissions:
+  contents: read
+  pull-requests: read       # the merged pull requests' "Claims:" lines, for the leaderboard
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ELEKLOADER_CATALOG: ${{ github.workspace }}/catalog.json
+      SHOP_REPO: ${{ github.repository }}
+      SHOP_COMMIT: ${{ github.sha }}
+      ELEKLOADER_REPOSITORY: elekloader/elekloader
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: elekloader's ref
+        env:
+          INPUT_REF: ${{ inputs.ref }}
+        run: |
+          ref="${INPUT_REF:-$(tr -d '[:space:]' < elekloader.ref)}"
+          case "$ref" in *[!A-Za-z0-9._/-]*|'') echo "::error::not a commit or tag: $ref"; exit 1 ;; esac
+          echo "EL_REF=$ref" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v7
+        with:
+          repository: elekloader/elekloader
+          ref: ${{ env.EL_REF }}
+          path: el
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Unit tests (elekloader's, on this list)
+        working-directory: el
+        run: python tests/test_units.py
+      - name: The core mods, from elekloader's latest release
+        working-directory: el
+        run: |
+          tag=$(gh release view --repo elekloader/elekloader --json tagName --jq .tagName)
+          echo "TAG=$tag" >> "$GITHUB_ENV"
+          gh release download "$tag" --repo elekloader/elekloader --pattern "core-*.elemod" --dir ../build/core
+          # the tag, so the page can say whether its package is that release's
+          git fetch --depth=1 --no-tags origin "refs/tags/$tag:refs/tags/$tag"
+      - name: The mod shop's files, from their authors' releases and commits
+        run: |
+          # catalog.json pins each file's sha256 (build_web.py checks them); one that can't be fetched (a draft
+          # release) is listed as not available. Each card's thumbnail goes to thumbs/<sha256>.png.
+          mkdir -p build/shop/thumbs
+          python el/packaging/build_web.py --catalog-list catalog.json --thumbs | while read -r how repo ref path sum; do
+            if [ "$how" = thumb-commit ]; then
+              gh api "repos/$repo/contents/$path?ref=$ref" -H "Accept: application/vnd.github.raw" > "build/shop/thumbs/$sum.png" \
+                || { rm -f "build/shop/thumbs/$sum.png"; echo "::warning::$repo $ref $path: thumbnail not downloadable"; }
+            elif [ "$how" = thumb-release ]; then
+              gh release download "$ref" --repo "$repo" --pattern "$path" --output "build/shop/thumbs/$sum.png" --clobber \
+                || echo "::warning::$repo $ref $path: thumbnail not downloadable"
+            elif [ "$how" = commit ]; then
+              out="build/shop/${path##*/}"
+              gh api "repos/$repo/contents/$path?ref=$ref" -H "Accept: application/vnd.github.raw" > "$out.part" \
+                && mv "$out.part" "$out" \
+                || { rm -f "$out.part"; echo "::warning::$repo $ref $path: not downloadable; the shop lists it as not available"; }
+            else
+              gh release download "$ref" --repo "$repo" --pattern "$path" --dir build/shop --clobber \
+                || echo "::warning::$repo $ref $path: not downloadable; the shop lists it as not available"
+            fi
+          done
+      - name: The leaderboard's claims, from both repositories' merged pull requests
+        run: |
+          for r in elekloader/elekloader "$SHOP_REPO"; do
+            gh pr list --repo "$r" --state merged --limit 1000 --json number,title,body,author,mergedAt,url \
+              || { echo "::warning::$r's merged pull requests not listed: their claims are not counted" >&2; echo '[]'; }
+          done | jq -s add > build/prs.json
+      - name: Pyodide, the pinned release
+        run: curl -fsSL --retry 3 --create-dirs -o build/pyodide-core.tar.bz2 "$(python el/packaging/build_web.py --pyodide-url)"
+      - name: Assemble the site
+        working-directory: el
+        env:
+          SHOP_THUMBS: ${{ vars.SHOP_THUMBS }}
+        run: python packaging/build_web.py --pyodide ../build/pyodide-core.tar.bz2 --core ../build/core/core-*.elemod --release "$TAG" --catalog "$ELEKLOADER_CATALOG" --catalog-dir ../build/shop --prs ../build/prs.json --out ../build/site $([ "$SHOP_THUMBS" = false ] && echo --no-thumbs)
+      - name: The engine under Pyodide, from the assembled site
+        working-directory: el
+        run: node tests/test_web.mjs ../build/site
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
