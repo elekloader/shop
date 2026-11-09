@@ -4,14 +4,14 @@
 # never runs engine code nobody chose; takes the core mods from elekloader's latest release, each listed mod and
 # thumbnail from its author's release or commit (checked against the sha256 the list pins), and the pinned Pyodide;
 # assembles the site with elekloader's packaging/build_web.py, runs elekloader's tests under Pyodide on it
-# (tests/test_web.mjs), and deploys it.
+# (tests/test_web.mjs), checks every shop file against its sha256 again, and pushes it to the branch gh-pages.
 #
 # On every push to main (a maintainer's merge; a bot's merge starts it by hand, since a workflow's own push starts
 # no workflow) and by hand, optionally at another elekloader ref. No firmware reaches it: the page reads the user's
 # stock OS file only in their browser, and builds there.
 #
-# Pages must be on, with GitHub Actions as its source (Settings > Pages). The repository variable SHOP_THUMBS set
-# to false leaves every thumbnail out.
+# Pages must be on, deploying from the branch gh-pages (Settings > Pages), which this workflow replaces.
+# The repository variable SHOP_THUMBS set to false leaves every thumbnail out.
 name: pages
 
 on:
@@ -24,7 +24,8 @@ on:
         required: false
 
 permissions:
-  contents: read
+  contents: write           # to push the site to the gh-pages branch
+  pages: write              # to ask for a Pages build of it
   pull-requests: read       # the merged pull requests' "Claims:" lines, for the leaderboard
 
 concurrency:
@@ -113,19 +114,28 @@ jobs:
       - name: The engine under Pyodide, from the assembled site
         working-directory: el
         run: node tests/test_web.mjs ../build/site
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: build/site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-24.04
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Every shop file is the one the list pins
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, sys
+          site = 'build/site'
+          bad = [e['file'] for e in json.load(open(site + '/shop/index.json'))
+                 if e.get('available') and hashlib.sha256(open(os.path.join(site, 'shop', e['file']), 'rb').read()).hexdigest() != e['sha256']]
+          sys.exit('not the pinned file: ' + ', '.join(bad) if bad else 0)
+          PY
+      - name: Publish to the gh-pages branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # GitHub serves the site from the branch gh-pages (Settings > Pages: Deploy from a branch); Actions' own
+          # Pages deploy timed out for this repository. The branch holds one commit, replaced on every deploy, and
+          # every file is binary to git, so nothing is converted on the way.
+          cd build/site
+          touch .nojekyll
+          echo '* -text' > .gitattributes
+          git init -q -b gh-pages
+          git -c core.autocrlf=false add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -q -m "The shop's site: $GITHUB_SHA, elekloader $EL_REF"
+          git push -q -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+          # a workflow's push may not start a Pages build by itself
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" --jq .status || echo "::warning::Pages build not requested"
