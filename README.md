@@ -30,7 +30,8 @@ the layout the checks expect.
 - `.github/workflows/check.yml` runs elekloader's unit tests on this list for every pull request.
 - `.github/workflows/pages.yml` builds the shop's own site, <https://elekloader.github.io/shop/>: elekloader's web
   page, from a checkout of elekloader at the commit or tag in `elekloader.ref` (a pull request here moves it), with
-  this list. It runs on every push to `main`; the bots start it after their own merges.
+  this list, and pushes it to the branch `gh-pages`, which Pages serves (one commit, replaced on every deploy).
+  It runs on every push to `main`; the bots start it after their own merges.
 - elekloader's `pages.yml` still reads this repository's `main` (its repository variable `SHOP_REPO`) for
   <https://elekloader.github.io/elekloader/>, and a merge here starts it with the secret `SITE_DISPATCH`: the bots'
   own merges start it themselves, and `site.yml` starts it for any other change to the list on `main` (or by hand:
