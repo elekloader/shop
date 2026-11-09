@@ -1,6 +1,6 @@
 # The Elekloader Shop's list
 
-This repository holds the list of mods the [Elekloader Shop](https://elekloader.github.io/elekloader/) carries, and
+This repository holds the list of mods the [Elekloader Shop](https://elekloader.github.io/shop/) carries, and
 the forms that change it. The site, the loader and the scripts that check every file live in
 [elekloader/elekloader](https://github.com/elekloader/elekloader). This repository is only the data, so the shop's
 daily updates don't crowd the code's history.
@@ -12,7 +12,7 @@ daily updates don't crowd the code's history.
 
 ## Put your mod in the shop
 
-Use the **[Submit a mod](../../issues/new?template=submit-mod.yml)** form. A bot checks your release with
+**This is the place to submit a mod.** Use the **[Submit a mod](../../issues/new?template=submit-mod.yml)** form. A bot checks your release with
 elekloader's own tools, comments with the result and opens a pull request; an update to a mod you already have in the
 shop merges by itself. The whole guide is [docs/SHOP.md](https://github.com/elekloader/elekloader/blob/main/docs/SHOP.md).
 
