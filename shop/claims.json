@@ -1,0 +1,1067 @@
+{
+ "claims": [
+  {
+   "id": "octatrack@1.40C:0x4000dfd4",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000e746",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40010212",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40045918",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004fbde",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40050254",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40050e60",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400866cc",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400888aa",
+   "pr": 134,
+   "url": "https://github.com/elekloader/elekloader/pull/134",
+   "title": "intercepts 0.1: the Octatrack's intercepts, and octabam's quantizer and synth on them",
+   "login": "irpina",
+   "merged": "2026-10-18T21:05:51Z"
+  },
+  {
+   "id": "digitakt-mk1@1.53:0x40044acc",
+   "pr": 144,
+   "url": "https://github.com/elekloader/elekloader/pull/144",
+   "title": "core 4.1: the master output and the master pages (Digitakt mk1)",
+   "login": "gdeo607",
+   "merged": "2026-10-21T14:56:49Z"
+  },
+  {
+   "id": "digitakt-mk1@1.53:0x400721e6",
+   "pr": 144,
+   "url": "https://github.com/elekloader/elekloader/pull/144",
+   "title": "core 4.1: the master output and the master pages (Digitakt mk1)",
+   "login": "gdeo607",
+   "merged": "2026-10-21T14:56:49Z"
+  },
+  {
+   "id": "digitakt-mk1@1.53:0x40010154",
+   "pr": 149,
+   "url": "https://github.com/elekloader/elekloader/pull/149",
+   "title": "machine-pages 1.3: MIDI CC/NRPN take a page's knob range",
+   "login": "gdeo607",
+   "merged": "2026-10-21T14:59:43Z"
+  },
+  {
+   "id": "digitakt-mk1@1.53:0x40010d50",
+   "pr": 149,
+   "url": "https://github.com/elekloader/elekloader/pull/149",
+   "title": "machine-pages 1.3: MIDI CC/NRPN take a page's knob range",
+   "login": "gdeo607",
+   "merged": "2026-10-21T14:59:43Z"
+  },
+  {
+   "id": "digitakt-mk1@1.53:0x4007919e",
+   "pr": 158,
+   "url": "https://github.com/elekloader/elekloader/pull/158",
+   "title": "machine-pages 1.4: MIDI CCs for the extra SRC values",
+   "login": "simonjohansson",
+   "merged": "2026-10-24T04:45:18Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40002318",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400334d8",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4003a52e",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4003bff0",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4003c928",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4003cd98",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4003d718",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004c36a",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400585dc",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4005a616",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078678",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400786c8",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078c22",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078cb0",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078d2e",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078dee",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078e7c",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40079248",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40079904",
+   "pr": 161,
+   "url": "https://github.com/elekloader/elekloader/pull/161",
+   "title": "machines-ot 0.1: source machines for the Octatrack, several in one build",
+   "login": "irpina",
+   "merged": "2026-10-24T04:46:32Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000d99a",
+   "pr": 163,
+   "url": "https://github.com/elekloader/elekloader/pull/163",
+   "title": "core-ot 0.4: the frame's end and MIDI out (ev_frame_end, ev_midi_out, ev_midi_out_rt)",
+   "login": "irpina",
+   "merged": "2026-10-24T04:58:36Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400108b0",
+   "pr": 163,
+   "url": "https://github.com/elekloader/elekloader/pull/163",
+   "title": "core-ot 0.4: the frame's end and MIDI out (ev_frame_end, ev_midi_out, ev_midi_out_rt)",
+   "login": "irpina",
+   "merged": "2026-10-24T04:58:36Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40010bc8",
+   "pr": 163,
+   "url": "https://github.com/elekloader/elekloader/pull/163",
+   "title": "core-ot 0.4: the frame's end and MIDI out (ev_frame_end, ev_midi_out, ev_midi_out_rt)",
+   "login": "irpina",
+   "merged": "2026-10-24T04:58:36Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4001d4b2",
+   "pr": 164,
+   "url": "https://github.com/elekloader/elekloader/pull/164",
+   "title": "usb-ot 0.1: the Octatrack's USB companion, and USB MIDI as its first function",
+   "login": "irpina",
+   "merged": "2026-10-24T05:01:25Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4001d824",
+   "pr": 164,
+   "url": "https://github.com/elekloader/elekloader/pull/164",
+   "title": "usb-ot 0.1: the Octatrack's USB companion, and USB MIDI as its first function",
+   "login": "irpina",
+   "merged": "2026-10-24T05:01:25Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4001e030",
+   "pr": 164,
+   "url": "https://github.com/elekloader/elekloader/pull/164",
+   "title": "usb-ot 0.1: the Octatrack's USB companion, and USB MIDI as its first function",
+   "login": "irpina",
+   "merged": "2026-10-24T05:01:25Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4001e606",
+   "pr": 164,
+   "url": "https://github.com/elekloader/elekloader/pull/164",
+   "title": "usb-ot 0.1: the Octatrack's USB companion, and USB MIDI as its first function",
+   "login": "irpina",
+   "merged": "2026-10-24T05:01:25Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000aad0",
+   "pr": 169,
+   "url": "https://github.com/elekloader/elekloader/pull/169",
+   "title": "core-ot 0.5: the transport, the frame's head, main's end, a 120 Hz tick, a frame meter and exports",
+   "login": "irpina",
+   "merged": "2026-10-24T05:04:59Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4001fbd0",
+   "pr": 169,
+   "url": "https://github.com/elekloader/elekloader/pull/169",
+   "title": "core-ot 0.5: the transport, the frame's head, main's end, a 120 Hz tick, a frame meter and exports",
+   "login": "irpina",
+   "merged": "2026-10-24T05:04:59Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4009c038",
+   "pr": 169,
+   "url": "https://github.com/elekloader/elekloader/pull/169",
+   "title": "core-ot 0.5: the transport, the frame's head, main's end, a 120 Hz tick, a frame meter and exports",
+   "login": "irpina",
+   "merged": "2026-10-24T05:04:59Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000faf0",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40025808",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004a9c4",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004a9d0",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4008485e",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40084d4a",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40085176",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4008ee74",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4008f180",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40090504",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400905d4",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400917c8",
+   "pr": 173,
+   "url": "https://github.com/elekloader/elekloader/pull/173",
+   "title": "core-ot 0.6: the project's lifecycle, the engine task, project and card data, battery RAM",
+   "login": "irpina",
+   "merged": "2026-10-24T05:06:43Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40004c72",
+   "pr": 175,
+   "url": "https://github.com/elekloader/elekloader/pull/175",
+   "title": "core-ot 0.7: the voice events (start, release, kill, bind, seek, trig apply, DSP flags and record)",
+   "login": "irpina",
+   "merged": "2026-10-24T05:10:38Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000b2c8",
+   "pr": 175,
+   "url": "https://github.com/elekloader/elekloader/pull/175",
+   "title": "core-ot 0.7: the voice events (start, release, kill, bind, seek, trig apply, DSP flags and record)",
+   "login": "irpina",
+   "merged": "2026-10-24T05:10:38Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000c634",
+   "pr": 175,
+   "url": "https://github.com/elekloader/elekloader/pull/175",
+   "title": "core-ot 0.7: the voice events (start, release, kill, bind, seek, trig apply, DSP flags and record)",
+   "login": "irpina",
+   "merged": "2026-10-24T05:10:38Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000f834",
+   "pr": 175,
+   "url": "https://github.com/elekloader/elekloader/pull/175",
+   "title": "core-ot 0.7: the voice events (start, release, kill, bind, seek, trig apply, DSP flags and record)",
+   "login": "irpina",
+   "merged": "2026-10-24T05:10:38Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4009d1e8",
+   "pr": 168,
+   "url": "https://github.com/elekloader/elekloader/pull/168",
+   "title": "seq-events-ot: the Octatrack's step fire as events, the same API as the Digitone's and the Digitakt's",
+   "login": "irpina",
+   "merged": "2026-10-24T05:20:44Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000d310",
+   "pr": 171,
+   "url": "https://github.com/elekloader/elekloader/pull/171",
+   "title": "trig-events-ot: the Octatrack's trig dispatch as an event, ev_track_trig(track), which may veto",
+   "login": "irpina",
+   "merged": "2026-10-24T05:23:41Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4009d1de",
+   "pr": 172,
+   "url": "https://github.com/elekloader/elekloader/pull/172",
+   "title": "seq-events-ot 0.2: ev_step_built, the record the stock builder staged (stacked on #168)",
+   "login": "irpina",
+   "merged": "2026-10-24T05:27:19Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4005221e",
+   "pr": 186,
+   "url": "https://github.com/elekloader/elekloader/pull/186",
+   "title": "machines-ot 0.2: the machines' tick and page in the UI tick, the chooser's level, the slot assigner's commit, ev_machine_set",
+   "login": "irpina",
+   "merged": "2026-10-25T03:56:47Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40078886",
+   "pr": 186,
+   "url": "https://github.com/elekloader/elekloader/pull/186",
+   "title": "machines-ot 0.2: the machines' tick and page in the UI tick, the chooser's level, the slot assigner's commit, ev_machine_set",
+   "login": "irpina",
+   "merged": "2026-10-25T03:56:47Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40000512",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40005638",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40005a38",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4000685c",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40026eb0",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4002b654",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4002b962",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40036946",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40037840",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x40037bdc",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004aab4",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004bee2",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x4004c00c",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400621da",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "octatrack@1.40C:0x400909d8",
+   "pr": 184,
+   "url": "https://github.com/elekloader/elekloader/pull/184",
+   "title": "core-ot 0.8: the edits mods' data must follow, the voice's reset, the boot before the OS, the track icons and the SETUP knobs",
+   "login": "irpina",
+   "merged": "2026-10-25T05:32:14Z"
+  },
+  {
+   "id": "digitakt-mk1@1.53:0x400d553e",
+   "pr": 336,
+   "url": "https://github.com/elekloader/elekloader/pull/336",
+   "title": "Mono machines on the Digitakt mk1: core 4.2's played notes and machine-pages 1.8",
+   "login": "simonjohansson",
+   "merged": "2026-11-09T14:45:17Z"
+  }
+ ],
+ "board": [
+  {
+   "login": "irpina",
+   "points": 74,
+   "claims": [
+    {
+     "id": "octatrack@1.40C:0x4000e746",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000dfd4",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x40010212",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x40045918",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004fbde",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x40050254",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x40050e60",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x400866cc",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x400888aa",
+     "pr": 134,
+     "url": "https://github.com/elekloader/elekloader/pull/134"
+    },
+    {
+     "id": "octatrack@1.40C:0x40002318",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x400334d8",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4003a52e",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4003c928",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4003cd98",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4003d718",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x400585dc",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4005a616",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x400786c8",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004c36a",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4003bff0",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078678",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078c22",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078cb0",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078d2e",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078dee",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078e7c",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40079248",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x40079904",
+     "pr": 161,
+     "url": "https://github.com/elekloader/elekloader/pull/161"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000d99a",
+     "pr": 163,
+     "url": "https://github.com/elekloader/elekloader/pull/163"
+    },
+    {
+     "id": "octatrack@1.40C:0x40010bc8",
+     "pr": 163,
+     "url": "https://github.com/elekloader/elekloader/pull/163"
+    },
+    {
+     "id": "octatrack@1.40C:0x400108b0",
+     "pr": 163,
+     "url": "https://github.com/elekloader/elekloader/pull/163"
+    },
+    {
+     "id": "octatrack@1.40C:0x4001d4b2",
+     "pr": 164,
+     "url": "https://github.com/elekloader/elekloader/pull/164"
+    },
+    {
+     "id": "octatrack@1.40C:0x4001d824",
+     "pr": 164,
+     "url": "https://github.com/elekloader/elekloader/pull/164"
+    },
+    {
+     "id": "octatrack@1.40C:0x4001e030",
+     "pr": 164,
+     "url": "https://github.com/elekloader/elekloader/pull/164"
+    },
+    {
+     "id": "octatrack@1.40C:0x4001e606",
+     "pr": 164,
+     "url": "https://github.com/elekloader/elekloader/pull/164"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000aad0",
+     "pr": 169,
+     "url": "https://github.com/elekloader/elekloader/pull/169"
+    },
+    {
+     "id": "octatrack@1.40C:0x4001fbd0",
+     "pr": 169,
+     "url": "https://github.com/elekloader/elekloader/pull/169"
+    },
+    {
+     "id": "octatrack@1.40C:0x4009c038",
+     "pr": 169,
+     "url": "https://github.com/elekloader/elekloader/pull/169"
+    },
+    {
+     "id": "octatrack@1.40C:0x40090504",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x400905d4",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x400917c8",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x4008ee74",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x4008f180",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000faf0",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x40025808",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004a9c4",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004a9d0",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x4008485e",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x40085176",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x40084d4a",
+     "pr": 173,
+     "url": "https://github.com/elekloader/elekloader/pull/173"
+    },
+    {
+     "id": "octatrack@1.40C:0x40004c72",
+     "pr": 175,
+     "url": "https://github.com/elekloader/elekloader/pull/175"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000b2c8",
+     "pr": 175,
+     "url": "https://github.com/elekloader/elekloader/pull/175"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000c634",
+     "pr": 175,
+     "url": "https://github.com/elekloader/elekloader/pull/175"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000f834",
+     "pr": 175,
+     "url": "https://github.com/elekloader/elekloader/pull/175"
+    },
+    {
+     "id": "octatrack@1.40C:0x4009d1e8",
+     "pr": 168,
+     "url": "https://github.com/elekloader/elekloader/pull/168"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000d310",
+     "pr": 171,
+     "url": "https://github.com/elekloader/elekloader/pull/171"
+    },
+    {
+     "id": "octatrack@1.40C:0x4009d1de",
+     "pr": 172,
+     "url": "https://github.com/elekloader/elekloader/pull/172"
+    },
+    {
+     "id": "octatrack@1.40C:0x4005221e",
+     "pr": 186,
+     "url": "https://github.com/elekloader/elekloader/pull/186"
+    },
+    {
+     "id": "octatrack@1.40C:0x40078886",
+     "pr": 186,
+     "url": "https://github.com/elekloader/elekloader/pull/186"
+    },
+    {
+     "id": "octatrack@1.40C:0x40000512",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x40005638",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x40005a38",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x4000685c",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x40026eb0",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x4002b654",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x4002b962",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x40036946",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x40037840",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x40037bdc",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004aab4",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004bee2",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x4004c00c",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x400621da",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    },
+    {
+     "id": "octatrack@1.40C:0x400909d8",
+     "pr": 184,
+     "url": "https://github.com/elekloader/elekloader/pull/184"
+    }
+   ],
+   "first": "2026-10-18T21:05:51Z"
+  },
+  {
+   "login": "gdeo607",
+   "points": 4,
+   "claims": [
+    {
+     "id": "digitakt-mk1@1.53:0x400721e6",
+     "pr": 144,
+     "url": "https://github.com/elekloader/elekloader/pull/144"
+    },
+    {
+     "id": "digitakt-mk1@1.53:0x40044acc",
+     "pr": 144,
+     "url": "https://github.com/elekloader/elekloader/pull/144"
+    },
+    {
+     "id": "digitakt-mk1@1.53:0x40010d50",
+     "pr": 149,
+     "url": "https://github.com/elekloader/elekloader/pull/149"
+    },
+    {
+     "id": "digitakt-mk1@1.53:0x40010154",
+     "pr": 149,
+     "url": "https://github.com/elekloader/elekloader/pull/149"
+    }
+   ],
+   "first": "2026-10-21T14:56:49Z"
+  },
+  {
+   "login": "simonjohansson",
+   "points": 2,
+   "claims": [
+    {
+     "id": "digitakt-mk1@1.53:0x4007919e",
+     "pr": 158,
+     "url": "https://github.com/elekloader/elekloader/pull/158"
+    },
+    {
+     "id": "digitakt-mk1@1.53:0x400d553e",
+     "pr": 336,
+     "url": "https://github.com/elekloader/elekloader/pull/336"
+    }
+   ],
+   "first": "2026-10-24T04:45:18Z"
+  }
+ ]
+}

@@ -1,0 +1,249 @@
+{
+ "elemod": 2,
+ "id": "octabam-rlen-plen",
+ "version": "363861e",
+ "title": "RLEN PLEN",
+ "description": "ColdFire cave: RLEN value PLEN (past MAX) = one loop of the track's pattern on its own scale, so TRIG ONE + QREC PLEN records the next pass and stops. (octabam module rlen-plen, converted from 363861e)",
+ "category": "Machines and the sequencer",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 300,
+   "parts": [
+    [
+     "hex",
+     "712c000252800c8000000042660000ea"
+    ],
+    [
+     "stock",
+     "0x40092bf4",
+     8
+    ],
+    [
+     "hex",
+     "223980001814670000d07139"
+    ],
+    [
+     "stock",
+     "0x400a2282",
+     10
+    ],
+    [
+     "hex",
+     "4c020800"
+    ],
+    [
+     "stock",
+     "0x400a2542",
+     16
+    ],
+    [
+     "hex",
+     "d08241f9400eb0344a30080167000024242f00a4"
+    ],
+    [
+     "stock",
+     "0x4002d6ec",
+     8
+    ],
+    [
+     "stock",
+     "0x400a0fec",
+     8
+    ],
+    [
+     "hex",
+     "21e077302851753028506000000a77300800753008ff6c00000442830c83000000066f00000476060c82000000026c00000474020c82000000406f0000047440"
+    ],
+    [
+     "stock",
+     "0x4009dba2",
+     8
+    ],
+    [
+     "hex",
+     "3c004c032800203c00285ff026004c41000022404c010000968020024c0300002601e28bd0834c41000028094c024000d880"
+    ],
+    [
+     "stock",
+     "0x40092efe",
+     8
+    ],
+    [
+     "hex",
+     "588f4ef940006e18"
+    ],
+    [
+     "stock",
+     "0x40092efe",
+     8
+    ],
+    [
+     "hex",
+     "4e75201f2f04487a00062f00"
+    ],
+    [
+     "stock",
+     "0x4002cd3e",
+     10
+    ],
+    [
+     "hex",
+     "004166000012203c400b541c"
+    ],
+    [
+     "stock",
+     "0x4003b93e",
+     10
+    ],
+    [
+     "hex",
+     "4ef94002f2240000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "done": [
+   ".run",
+   248
+  ],
+  "keep": [
+   ".run",
+   240
+  ],
+  "patmode": [
+   ".run",
+   116
+  ],
+  "have": [
+   ".run",
+   124
+  ],
+  "sc0": [
+   ".run",
+   130
+  ],
+  "sc1": [
+   ".run",
+   142
+  ],
+  "ln0": [
+   ".run",
+   154
+  ],
+  "ln1": [
+   ".run",
+   166
+  ],
+  "stock": [
+   ".run",
+   292
+  ],
+  "ob_rlen_plen_rlen_plen_cave": [
+   ".run",
+   0
+  ],
+  "screen": [
+   ".run",
+   250
+  ],
+  "fmt": [
+   ".run",
+   262
+  ],
+  "cave": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "cave",
+  "fmt",
+  "ob_rlen_plen_rlen_plen_cave",
+  "screen"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x40006da6",
+   "len": 6,
+   "stock_sha256": "adbe8130ae1d5133f2979bca925db94b53bbf0cd04ab805d5e0b359c86ead9f8",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_rlen_plen_rlen_plen_cave",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002fb10",
+   "len": 6,
+   "stock_sha256": "1b8e08021ff89b5bc884ff3a2007e1314dece91eaab7bec9dba297cddd743779",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_rlen_plen_rlen_plen_cave",
+     250
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d3d4e",
+   "len": 4,
+   "stock_sha256": "03e3c2420f5066a5fa6e36735ed8cc4f6a251046263e1a6024f009deeee3b952",
+   "new": "00000042",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x40002c72",
+   "len": 2,
+   "stock_sha256": "031468276c29ec25fb600734e76eae95fcca9c3e144bdc5870a02bdfd33fd665",
+   "new": "7241",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x40002c78",
+   "len": 2,
+   "stock_sha256": "c9af79e3adbca032f900fc97ec56a8751efc38465145eaa97cfcf1fc8ca0b615",
+   "new": "7641",
+   "kind": "data",
+   "relocs": []
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_rlen_plen_rlen_plen_cave.s": "3f0cc7c4b514b5ce110288de8f9226e5a86f2aef341e741eb3416196943265cb"
+  }
+ },
+ "signature": null
+}

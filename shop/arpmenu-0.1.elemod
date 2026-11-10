@@ -1,0 +1,212 @@
+{
+ "elemod": 2,
+ "id": "arpmenu",
+ "version": "0.1",
+ "title": "ARP MENU (long press)",
+ "description": "A long press of the arpeggiator's on/off combo, FUNC + KEYBOARD, opens the ARP menu (what FUNC + SYN1 opens); a quick FUNC + KEYBOARD still turns the arp on and off, on its release. For the Digitone mk1 and Digitone Keys, OS 1.43 and 1.44 (it names no firmware address: its 1.44 port is empty). Needs core-dn1 5.0.1.",
+ "category": "Utility",
+ "author": "irpina",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk1",
+  "product": "Digitone mk1",
+  "os": "1.43",
+  "syx_sha256": "c5a54cc05b921f2e4bd814834c5365c2a5aa01d7772a9a2961fac1c3095bf9aa",
+  "section3_sha256": "3831a477a2a22befb23c42e47e782853da49566ef5d0a1767fcf6c30e6767414",
+  "section3_len": 2732208
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 344,
+   "parts": [
+    [
+     "hex",
+     "4fefffd82f0e2f02206f0038202800102228000c57814a81663c080000046728203900000000720142b900000000b280670000c27202"
+    ],
+    [
+     "stock",
+     "0x400523a4",
+     8
+    ],
+    [
+     "hex",
+     "241f2c5f4fef00284e7544c06b167403c082b480670000de4280241f2c5f4fef00284e752039000000007401b48066c64df9000000007002220f06810000001023c0000000002241204e22d8b1fc0000000066f6741570032f42001c2f012f2f003843f9000000002f4100142f4000282f4900104e91222f0014508f2041226f000820debdfc0000000066f6741570122f42001c2f012f2f00382f4000284e91508f2039000000007202"
+    ],
+    [
+     "stock",
+     "0x400523a4",
+     8
+    ],
+    [
+     "hex",
+     "6000ff4c203900000000220f06810000001041f900000000224122d8b1fc0000000066f674032f42001c2f012f4000242f2f00384eb900000000508f42806000ff28200806800000002043f90000000022d8b08866fa241f700123c0000000002c5f4fef00284e75"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 36
+  }
+ },
+ "symbols": {
+  "state": [
+   ".bss",
+   32
+  ],
+  "press": [
+   ".bss",
+   0
+  ],
+  "arpm_key": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "arpm_key"
+ ],
+ "imports": [
+  "fw_brain_key"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   34,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   42,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   100,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   112,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   128,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   140,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   162,
+   "abs32",
+   "sym:fw_brain_key",
+   0
+  ],
+  [
+   ".run",
+   196,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   226,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   246,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   260,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   270,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   294,
+   "abs32",
+   "sym:fw_brain_key",
+   0
+  ],
+  [
+   ".run",
+   316,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   332,
+   "abs32",
+   "sec:.bss",
+   32
+  ]
+ ],
+ "sites": [],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_key",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arpm_key",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "5.0.1"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "arpmenu.c": "0d5f610ba5464330805224a32af6fed3249c1229eb7ce2302ac6c31fb103f64c"
+  }
+ },
+ "signature": null
+}

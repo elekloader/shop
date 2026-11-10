@@ -1,0 +1,812 @@
+{
+ "elemod": 2,
+ "id": "core",
+ "version": "0.3.1",
+ "title": "core",
+ "description": "The boot copier and the hook bus for the Octatrack: it reserves the bottom of the sample and recorder memory for mods, only the 6 KB pages their RAM fills (0.2 took 10 MB), copies their code there at boot, and calls them on the UI tick, the screen, the keys, the encoders, MIDI in and the audio frame. Every linkable Octatrack mod needs it. On its own it changes nothing else the unit does.",
+ "category": "Framework",
+ "author": "irpina",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".boot": {
+   "align": 4,
+   "len": 78,
+   "parts": [
+    [
+     "hex",
+     "4eb940001e504feffff448d7030141f900000000227c00000000203c00000000670622d8538066fa227c00000000203c0000000067064299538066fa700113c0000000004cd703014fef000c4e75"
+    ]
+   ]
+  },
+  ".run": {
+   "align": 4,
+   "len": 216,
+   "parts": [
+    [
+     "hex",
+     "2f0a45f900000000201a670620404e9060f6245f4ef9400319702f0a45f900000000201a670e2f39400b971020404e90588f60ee245f2a79400b97104e752f0a45f9000000006126245f4a8066064ef9400317344e752f0a45f900000000610e245f4a8066064ef9400319444e75201a6712"
+    ],
+    [
+     "stock",
+     "0x40027d38",
+     8
+    ],
+    [
+     "hex",
+     "20404e90508f4a8067ea4e754feffff848d7040145f900000000201a67182f2f000c20404e90588f4a8067ee4cd704014fef00084e754cd704014fef000820720c004ed045f900000000201a670620404e9060f64ab946104d084e750000"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 16
+  }
+ },
+ "symbols": {
+  "ISR_FLAG": [
+   "abs",
+   1175473416
+  ],
+  "FRAME_PTR": [
+   "abs",
+   1074501392
+  ],
+  "ENCFN": [
+   "abs",
+   1073944900
+  ],
+  "KEYFN": [
+   "abs",
+   1073944372
+  ],
+  "TICK_NEXT": [
+   "abs",
+   1073944944
+  ],
+  "UNCACHED": [
+   "abs",
+   134217728
+  ],
+  "BOOT_CONTINUE": [
+   "abs",
+   1073749584
+  ],
+  "dispatch": [
+   ".run",
+   110
+  ],
+  "core_midi": [
+   ".run",
+   134
+  ],
+  "core_draw": [
+   ".run",
+   26
+  ],
+  "core_zero": [
+   ".bss",
+   0
+  ],
+  "core_key": [
+   ".run",
+   62
+  ],
+  "boot": [
+   ".boot",
+   0
+  ],
+  "core_up": [
+   "abs",
+   1074546432
+  ],
+  "core_draw_gate": [
+   "abs",
+   1074546410
+  ],
+  "core_tick": [
+   ".run",
+   0
+  ],
+  "core_frame": [
+   ".run",
+   190
+  ],
+  "core_enc": [
+   ".run",
+   86
+  ]
+ },
+ "exports": [
+  "boot",
+  "core_draw",
+  "core_draw_gate",
+  "core_enc",
+  "core_frame",
+  "core_key",
+  "core_midi",
+  "core_tick",
+  "core_up",
+  "core_zero"
+ ],
+ "imports": [
+  "__arena_clear",
+  "__arena_fill",
+  "__arena_pages",
+  "__bss_start",
+  "__bss_words",
+  "__run_load",
+  "__run_start",
+  "__run_words",
+  "arena_base",
+  "ev_draw",
+  "ev_enc",
+  "ev_frame",
+  "ev_key",
+  "ev_midi",
+  "ev_tick"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".boot",
+   16,
+   "abs32",
+   "sym:__run_load",
+   0
+  ],
+  [
+   ".boot",
+   22,
+   "abs32",
+   "sym:__run_start",
+   134217728
+  ],
+  [
+   ".boot",
+   28,
+   "abs32",
+   "sym:__run_words",
+   0
+  ],
+  [
+   ".boot",
+   42,
+   "abs32",
+   "sym:__bss_start",
+   134217728
+  ],
+  [
+   ".boot",
+   48,
+   "abs32",
+   "sym:__bss_words",
+   0
+  ],
+  [
+   ".boot",
+   64,
+   "abs32",
+   "abs",
+   1074546432
+  ],
+  [
+   ".run",
+   4,
+   "abs32",
+   "sym:ev_tick",
+   0
+  ],
+  [
+   ".run",
+   30,
+   "abs32",
+   "sym:ev_draw",
+   0
+  ],
+  [
+   ".run",
+   66,
+   "abs32",
+   "sym:ev_key",
+   0
+  ],
+  [
+   ".run",
+   90,
+   "abs32",
+   "sym:ev_enc",
+   0
+  ],
+  [
+   ".run",
+   144,
+   "abs32",
+   "sym:ev_midi",
+   0
+  ],
+  [
+   ".run",
+   192,
+   "abs32",
+   "sym:ev_frame",
+   0
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x400c46ea",
+   "len": 24,
+   "stock_sha256": "9d908ecfb6b256def8b49a7c504e6c889c4b0e41fe6ce3e01863dd7b61a20aa0",
+   "new": "4a390000000067064ef9000000002a79400b97104e750000",
+   "kind": "data",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "abs",
+     1074546432
+    ],
+    [
+     10,
+     "abs32",
+     "sec:.run",
+     26
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000050c",
+   "len": 6,
+   "stock_sha256": "6b0e3efa75bf69366735c849aace21a0b62eaf2df5a24eac4cd88b42b2dc21f4",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:boot",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40061e94",
+   "len": 6,
+   "stock_sha256": "99535f04de8e48485175b457ffdbc71cf99f863c341af6946f40bcdfcbfed9cf",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:core_tick",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40013cae",
+   "len": 6,
+   "stock_sha256": "7bab736d872b498c877bc8fff13026ea365d5ed1f2b355ffb839d5465dd96457",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:core_draw_gate",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40061dc8",
+   "len": 6,
+   "stock_sha256": "2e2a14a41dbb04978ad3a92e71e54569136ca2d768de528787218b5ba7d91b6e",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:core_key",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40061e00",
+   "len": 6,
+   "stock_sha256": "849fca9c62ab3c4b6af90c6499191f2a73117d19d4a57c74dcfab3420f337c4a",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:core_enc",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40005572",
+   "len": 6,
+   "stock_sha256": "f6e7a59609e064ba49feb211640fd68bfc3680cbcdac99bc7b57761562dd9f74",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:core_midi",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000d94e",
+   "len": 6,
+   "stock_sha256": "8b77b80e5cb6d0020b1575c0f50c9c7c1e36bb4e71b598fceeb1f1a5309e3df9",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:core_frame",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000045e",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000046c",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400004c8",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400072a8",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40007644",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000d5c2",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4006c108",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40093434",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40094a0c",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40094a3e",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40094a9e",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40095b2a",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40095bbc",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40095c1a",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40095c7a",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40095cc4",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4009618e",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400963c6",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4009700e",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40097620",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4009774a",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40098652",
+   "len": 4,
+   "stock_sha256": "45f463a7b67dad60bf24ca5d065f4f162d3368752de3ef167ce499e069f3476e",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40094a64",
+   "len": 4,
+   "stock_sha256": "91a2ae3c1b42dc822245742fbcce06b954d98d11f2510166c6b418bae269a7c6",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:arena_base",
+     6144
+    ]
+   ]
+  },
+  {
+   "addr": "0x40096f82",
+   "len": 4,
+   "stock_sha256": "1dae4439851659935fcbbd914774557d486dcac31058e74026a45cb7b73b7672",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:__arena_pages",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40096fac",
+   "len": 4,
+   "stock_sha256": "651e9c11c1f02941bb436ba8d7afb7285d15ae0c9bd60866b46fae960319ce41",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:__arena_fill",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40097008",
+   "len": 4,
+   "stock_sha256": "f282bbf052dd4f61eaedfb4bbd3d9b2f443d7152a0e1762771e3ae2b693fda97",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:__arena_clear",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40097126",
+   "len": 4,
+   "stock_sha256": "1dae4439851659935fcbbd914774557d486dcac31058e74026a45cb7b73b7672",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:__arena_pages",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {
+  "ev_tick": {
+   "entry": 4
+  },
+  "ev_draw": {
+   "entry": 4
+  },
+  "ev_key": {
+   "entry": 4
+  },
+  "ev_enc": {
+   "entry": 4
+  },
+  "ev_midi": {
+   "entry": 4
+  },
+  "ev_frame": {
+   "entry": 4
+  }
+ },
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "names": [
+   "arena:bottom"
+  ]
+ },
+ "requires": [],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "core-ot.s": "a7344fd97d97dcbf5472f7615aa311f09e62c400342fac7f646949e423e8de3d",
+   "bus.s": "43bbaa2a5949fe2ab1f0e7fae03b8706fc94c65b39c2c3b3bf0b66feea55f0f2"
+  }
+ },
+ "signature": null
+}

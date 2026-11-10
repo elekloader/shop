@@ -1,0 +1,164 @@
+{
+ "elemod": 2,
+ "id": "octabam-cc-feedback",
+ "version": "363861e",
+ "title": "CC FEEDBACK",
+ "description": "Every knob value change is transmitted as its CC (page 1: 16-45; page 2: CC MAP's 62-73), so a controller's encoders follow the unit. (octabam module cc-feedback, converted from 363861e)",
+ "category": "MIDI and USB",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 256,
+   "parts": [
+    [
+     "hex",
+     "6100000e487946c7e0e24ef940055962"
+    ],
+    [
+     "stock",
+     "0x400171a4",
+     8
+    ],
+    [
+     "hex",
+     "70001039"
+    ],
+    [
+     "stock",
+     "0x40033e4e",
+     8
+    ],
+    [
+     "hex",
+     "67764ab9460d17da676e7400143a0074200252807207c08113c00000000041f98000003f1630280049c36d4c200272484c01000045f980000810d5c02003ef8847f946c7bf2cd7c049fa003a7800181c7a001a1c6722700010324800720012335800b28067e62f002f05"
+    ],
+    [
+     "stock",
+     "0x4005e16a",
+     12
+    ],
+    [
+     "hex",
+     "60d4"
+    ],
+    [
+     "stock",
+     "0x40017222",
+     10
+    ],
+    [
+     "hex",
+     "000000100111021203130414051506160717081809190a1a0b1b0c1c0d1d0e1e0f1f10201121122213231424152516261727182819291a2a1b2b1c2c1d2d324433453446354736483749383e393f3a403b413c423d4300000000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "CCOUT": [
+   "abs",
+   2147483722
+  ],
+  "TRIGCH": [
+   "abs",
+   2147483711
+  ],
+  "LIVEB": [
+   "abs",
+   2147485712
+  ],
+  "CACHE": [
+   "abs",
+   1187495724
+  ],
+  "EMIT": [
+   "abs",
+   1073954364
+  ],
+  "EVENT": [
+   "abs",
+   1187504354
+  ],
+  "RESUME": [
+   "abs",
+   1074092386
+  ],
+  "ENGQ": [
+   "abs",
+   1175263182
+  ],
+  "cf_map": [
+   ".run",
+   168
+  ],
+  "cf_sweep": [
+   ".run",
+   16
+  ],
+  "cf_tick": [
+   ".run",
+   0
+  ],
+  "cf_track": [
+   ".run",
+   166
+  ]
+ },
+ "exports": [
+  "cf_map",
+  "cf_sweep",
+  "cf_tick",
+  "cf_track"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   62,
+   "abs32",
+   "sec:.run",
+   166
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x4005595c",
+   "len": 6,
+   "stock_sha256": "53246bfe2c00ea2279d0e61f82638d01d71894e746e79b632bca89a38632d809",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:cf_tick",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "cc_feedback.s": "e39a3020dd21f78bad67187ea1a944ec5a031a7d50b76abdea364f2e88d1800e"
+  }
+ },
+ "signature": null
+}

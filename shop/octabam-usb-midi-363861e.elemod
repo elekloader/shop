@@ -1,0 +1,603 @@
+{
+ "elemod": 2,
+ "id": "octabam-usb-midi",
+ "version": "363861e",
+ "title": "USB MIDI",
+ "description": "Class-compliant USB-MIDI in and out on the OT's own USB port, mirroring the DIN ports (markandrus/octemu). (octabam module usb-midi, converted from 363861e)",
+ "category": "MIDI and USB",
+ "author": "markandrus/octemu",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1664,
+   "parts": [
+    [
+     "stock",
+     "0x40000d7e",
+     8
+    ],
+    [
+     "hex",
+     "4eb94001d0e4"
+    ],
+    [
+     "stock",
+     "0x4001c9d4",
+     10
+    ],
+    [
+     "hex",
+     "0280000000037202b2806612203c2200000023c04ec9490023c04ec94940700113c000000000423900000000"
+    ],
+    [
+     "stock",
+     "0x40000d9a",
+     8
+    ],
+    [
+     "hex",
+     "4879400b98684ef94001d9d0303946c8ce0c240002c2484275c2727fc2827402b48166202239fc0b01c8088100000881001023c1fc0b01c84eb94001d5244ef94001de744ef94001daf24feffff048d70306"
+    ],
+    [
+     "stock",
+     "0x4001e646",
+     8
+    ],
+    [
+     "hex",
+     "00040004674423c0fc0b01bc08000012670e4239000000002f00610000d0201f08000002672422394ec953e44841028100007fff704090816f02612248794ecc90004eb94001d184588f4cd703064fef00102039fc0b01ac4ef94001e60c4fefffec48d70c3840c546fc270045f94ecc900047fa012e2600e4836f287192720fc08179b308006716740071b228012f004eb940092bbc588f5282b4846dec588a53836ed846c54cd70c384fef00144e754a806f3640c246fc270073fa00fa2601d6800c83000001006e1843fa00f2d3c112d8538066fa33c30000000046c26000000c52b90000000046c24e7540c146fc27004a3a00bf664071fa00bc673a740113c20000000033c00000000041fa00b043fa01ac12d8538066fa42790000000046c171fa009441fa01962f082f004eb94001d204508f4e7546c14e754a3a0074671c"
+    ],
+    [
+     "stock",
+     "0x40092bf4",
+     8
+    ],
+    [
+     "hex",
+     "202f001c206f00206100ff5c"
+    ],
+    [
+     "stock",
+     "0x40092efe",
+     8
+    ],
+    [
+     "stock",
+     "0x40005c7c",
+     8
+    ],
+    [
+     "hex",
+     "4ef940010bd04a3a00446724"
+    ],
+    [
+     "stock",
+     "0x40092bf4",
+     8
+    ],
+    [
+     "hex",
+     "102f001f13c00000000041fa002e70016100ff24"
+    ],
+    [
+     "stock",
+     "0x40092efe",
+     8
+    ],
+    [
+     "hex",
+     "2f02122f000b4ef9400108b600000203030102030303030302020301000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000022020c81000000006306223c000000004ef94001d86422020c81000000006306223c000000004ef94001d8a209027c000301"
+    ],
+    [
+     "stock",
+     "0x400e2022",
+     26
+    ],
+    [
+     "hex",
+     "090401000001010000092401000109000102090402000201030000072401000125000624020101000624020202000924030103010201000924030204010101000905020240000000000525010101090582024000000000052501010309027c000301"
+    ],
+    [
+     "stock",
+     "0x400e2022",
+     16
+    ],
+    [
+     "stock",
+     "0x400e2052",
+     10
+    ],
+    [
+     "hex",
+     "090401000001010000092401000109000102090402000201030000072401000125000624020101000624020202000924030103010201000924030204010101000905020200020000000525010101090582020002000000052501010309077c000301"
+    ],
+    [
+     "stock",
+     "0x400e2022",
+     26
+    ],
+    [
+     "hex",
+     "090401000001010000092401000109000102090402000201030000072401000125000624020101000624020202000924030103010201000924030204010101000905020240000000000525010101090582024000000000052501010309077c000301"
+    ],
+    [
+     "stock",
+     "0x400e2022",
+     16
+    ],
+    [
+     "stock",
+     "0x400e2052",
+     10
+    ],
+    [
+     "hex",
+     "0904010000010100000924010001090001020904020002010300000724010001250006240201010006240202020009240301030102010009240302040101010009050202000200000005250101010905820200020000000525010103"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "EP2_INIT": [
+   "abs",
+   1073860836
+  ],
+  "EP2_RX_PRIME": [
+   "abs",
+   1073860996
+  ],
+  "ENCODER": [
+   "abs",
+   1073861124
+  ],
+  "RX_ENQUEUE": [
+   "abs",
+   1074342844
+  ],
+  "RX_BUF": [
+   "abs",
+   1322029056
+  ],
+  "EP2_RX_TD": [
+   "abs",
+   1321817060
+  ],
+  "EPCOMPLETE": [
+   "abs",
+   4228579772
+  ],
+  "QH_EP2OUT_W0": [
+   "abs",
+   1321814272
+  ],
+  "QH_EP2IN_W0": [
+   "abs",
+   1321814336
+  ],
+  "PORTSC1": [
+   "abs",
+   4228579716
+  ],
+  "QH_SETUP_WIDX": [
+   "abs",
+   1187565068
+  ],
+  "ENDPTCTRL2": [
+   "abs",
+   4228579784
+  ],
+  "EP0_STATUS_IN": [
+   "abs",
+   1073861924
+  ],
+  "usbmidi_clrfeat_shim": [
+   ".run",
+   88
+  ],
+  "usbmidi_tx_kick": [
+   ".run",
+   402
+  ],
+  "usbmidi_rx_decode": [
+   ".run",
+   260
+  ],
+  "usbmidi_cin_len": [
+   ".run",
+   584
+  ],
+  "TX_CAP": [
+   "abs",
+   256
+  ],
+  "usbmidi_tx_append": [
+   ".run",
+   342
+  ],
+  "usbmidi_tx_acc_len": [
+   ".run",
+   604
+  ],
+  "usbmidi_tx_acc": [
+   ".run",
+   612
+  ],
+  "usbmidi_tx_snd_len": [
+   ".run",
+   606
+  ],
+  "usbmidi_tx_snd": [
+   ".run",
+   868
+  ],
+  "usbmidi_tmpbyte": [
+   ".run",
+   602
+  ],
+  "usbmidi_tx_busy": [
+   ".run",
+   601
+  ],
+  "usbmidi_setcfg_shim": [
+   ".run",
+   0
+  ],
+  "cfg_os_fs": [
+   ".run",
+   1416
+  ],
+  "usbmidi_tx_drops": [
+   ".run",
+   608
+  ],
+  "usbmidi_isr_shim": [
+   ".run",
+   150
+  ],
+  "cfg_os_hs": [
+   ".run",
+   1540
+  ],
+  "usbmidi_prio_shim": [
+   ".run",
+   530
+  ],
+  "cfg_len": [
+   "abs",
+   124
+  ],
+  "usbmidi_send_shim": [
+   ".run",
+   482
+  ],
+  "usbmidi_clamp2_shim": [
+   ".run",
+   1146
+  ],
+  "cfg_fs": [
+   ".run",
+   1168
+  ],
+  "usbmidi_up": [
+   ".run",
+   600
+  ],
+  "usbmidi_clamp1_shim": [
+   ".run",
+   1124
+  ],
+  "cfg_hs": [
+   ".run",
+   1292
+  ]
+ },
+ "exports": [
+  "cfg_fs",
+  "cfg_hs",
+  "cfg_len",
+  "cfg_os_fs",
+  "cfg_os_hs",
+  "usbmidi_clamp1_shim",
+  "usbmidi_clamp2_shim",
+  "usbmidi_isr_shim",
+  "usbmidi_prio_shim",
+  "usbmidi_send_shim",
+  "usbmidi_setcfg_shim",
+  "usbmidi_tx_busy",
+  "usbmidi_tx_drops",
+  "usbmidi_up"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   58,
+   "abs32",
+   "sec:.run",
+   600
+  ],
+  [
+   ".run",
+   64,
+   "abs32",
+   "sec:.run",
+   601
+  ],
+  [
+   ".run",
+   186,
+   "abs32",
+   "sec:.run",
+   601
+  ],
+  [
+   ".run",
+   382,
+   "abs32",
+   "sec:.run",
+   604
+  ],
+  [
+   ".run",
+   394,
+   "abs32",
+   "sec:.run",
+   608
+  ],
+  [
+   ".run",
+   424,
+   "abs32",
+   "sec:.run",
+   601
+  ],
+  [
+   ".run",
+   430,
+   "abs32",
+   "sec:.run",
+   606
+  ],
+  [
+   ".run",
+   450,
+   "abs32",
+   "sec:.run",
+   604
+  ],
+  [
+   ".run",
+   550,
+   "abs32",
+   "sec:.run",
+   602
+  ],
+  [
+   ".run",
+   1128,
+   "abs32",
+   "abs",
+   124
+  ],
+  [
+   ".run",
+   1136,
+   "abs32",
+   "abs",
+   124
+  ],
+  [
+   ".run",
+   1150,
+   "abs32",
+   "abs",
+   124
+  ],
+  [
+   ".run",
+   1158,
+   "abs32",
+   "abs",
+   124
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x4001d9ca",
+   "len": 6,
+   "stock_sha256": "65ff3635f24fa02328d135abf8590188c4ae5f1a399f6747c196a9f1c8b4f2db",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_setcfg_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001e606",
+   "len": 6,
+   "stock_sha256": "2fc3d5168f6ee3ffb4b419a9cbbe48a7837d42e9e47db7bb5bced5cd13b62dc0",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_isr_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40010bc8",
+   "len": 8,
+   "stock_sha256": "ba7573adceae0b4d98e7fca043628b41525f9bf3ec50663e051c89a57a79cb35",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_send_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400108b0",
+   "len": 6,
+   "stock_sha256": "48904c9ab44972c2a8aad8d9544735e58fe9a7e98b8ad8ddbff57f5abc16274b",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_prio_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001daec",
+   "len": 6,
+   "stock_sha256": "effa769bdedb0e393f0b05f3920eb7cc91977b77c87f424480b99748334893aa",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_clrfeat_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001d858",
+   "len": 6,
+   "stock_sha256": "ce8e3c8561e797040ed32749c3daacef88676d43c50fe2b7d0e65139e39ef86a",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_clamp1_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001d896",
+   "len": 6,
+   "stock_sha256": "ce8e3c8561e797040ed32749c3daacef88676d43c50fe2b7d0e65139e39ef86a",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:usbmidi_clamp2_shim",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001d882",
+   "len": 4,
+   "stock_sha256": "6bdb60e8603f738aa38d52d43182f5177f2bd19988415777bff8a5a89614487a",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:cfg_fs",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001d88a",
+   "len": 4,
+   "stock_sha256": "08d6ddf2a628a6940f2130909ff9f39811082e5df28aa6ae33af8bb01c898ced",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:cfg_hs",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001d8c0",
+   "len": 4,
+   "stock_sha256": "f46e45f7f363646014c69942a35d58edcf5fc6bb05aa27861dbadbbc75542a5f",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:cfg_os_hs",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001d8c8",
+   "len": 4,
+   "stock_sha256": "dbb899d65b857602679aae905ef92079dabab14ac7bd4bb8c08f35f7c340a5dd",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:cfg_os_fs",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [
+  "octabam-usb-audio-out-main",
+  "octabam-usb-audio-out-main-cue",
+  "octabam-usb-audio-out-master",
+  "octabam-usb-audio-out-tracks",
+  "octabam-usb-audio-out-tracks-main-cue"
+ ],
+ "build": {
+  "sources": {
+   "usbmidi.s": "97c7e161711e2a515b97558367e9226d019810ca3c1709e7e75d81289fe3dd6b",
+   "clamp.s": "2a5588143c00cd8d1b3e425ba3c6e12c3258083379f03e03f66fd2538dc85af2",
+   "cfg.s": "9b6b81e20c6d42b21a3165b7015fc197a8aa7f6a993f2e38d3986c2ce7ab9724"
+  }
+ },
+ "signature": null
+}

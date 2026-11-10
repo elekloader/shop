@@ -1,0 +1,1396 @@
+{
+ "elekloader": "0.10.0",
+ "commit": "dca7a03b8651a3c8324f793321eddbff31e77a9c",
+ "site_version": "3d5f3bc10719",
+ "repository": "elekloader/elekloader",
+ "shop_repository": "elekloader/shop",
+ "shop_commit": "b3d687d372e7adb194b6daaf238c2a43e10e20e9",
+ "page": "shop",
+ "shop_url": null,
+ "commit_date": "2026-11-09T23:31:25-06:00",
+ "package_changes_not_in_zip": false,
+ "package_tree": "b78fd8d356bece8493ef89433f3e8efacd6dce71",
+ "release": "v0.10.0",
+ "same_as_release": false,
+ "zip_sha256": "e209800620d5673658e943deb5a3d9ad02590e71fcbcce4b0987d67f411e150b",
+ "zip_files": 78,
+ "pyodide": "314.0.7",
+ "pyodide_tarball_sha256": "2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95",
+ "cores": [
+  {
+   "file": "core-2.1-os1.54.elemod",
+   "sha256": "8c1fe78ccd1427d6a93f181eaad9f064efb65cf6dd683192dbcc33e83dc548b9",
+   "id": "core",
+   "version": "2.1",
+   "device": "digitakt-mk1",
+   "os": "1.54",
+   "from": "irpina/digislicer v2.2"
+  },
+  {
+   "file": "core-2.1.elemod",
+   "sha256": "f38b0c193677a060b3fdb28fe71b9332be8a5e7d36ecaf91a3c86a61bab558eb",
+   "id": "core",
+   "version": "2.1",
+   "device": "digitakt-mk1",
+   "os": "1.53",
+   "from": "irpina/digislicer v2.2"
+  },
+  {
+   "file": "core-3.0-os1.54.elemod",
+   "sha256": "5bdefabdca61d344756a3d0448f414c715006937ab417eb002032a976e9196e7",
+   "id": "core",
+   "version": "3.0",
+   "device": "digitakt-mk1",
+   "os": "1.54",
+   "from": "irpina/elekloader core-v3.0"
+  },
+  {
+   "file": "core-3.0.elemod",
+   "sha256": "798a5e74b57a193c1b6d2a591dded79f5bb6828c08028e5c5db12f4443539385",
+   "id": "core",
+   "version": "3.0",
+   "device": "digitakt-mk1",
+   "os": "1.53",
+   "from": "irpina/elekloader core-v3.0"
+  },
+  {
+   "file": "core-4.0-os1.54.elemod",
+   "sha256": "8b6e5af584973f6eb3aaecffd8b6ab1825f15fabbb5e82eac38ba23aa5f49d39",
+   "id": "core",
+   "version": "4.0",
+   "device": "digitakt-mk1",
+   "os": "1.54",
+   "from": "irpina/elekloader core-v4.0"
+  },
+  {
+   "file": "core-4.0.elemod",
+   "sha256": "5f578843cf162621e09c92fdbfb5d92a162430eaa5f90c09d70d97ef7699fa61",
+   "id": "core",
+   "version": "4.0",
+   "device": "digitakt-mk1",
+   "os": "1.53",
+   "from": "irpina/elekloader core-v4.0"
+  },
+  {
+   "file": "core-4.1-os1.54.elemod",
+   "sha256": "1af47faadbbf2e4ec4ff293dc1f15adc476f3267b80fde07288b95455426e7da",
+   "id": "core",
+   "version": "4.1",
+   "device": "digitakt-mk1",
+   "os": "1.54"
+  },
+  {
+   "file": "core-4.1.elemod",
+   "sha256": "e5ddf64d15998239dd3c81b72fabd86c1e33f3a74dfb86f5dbcf67d7b227f6ee",
+   "id": "core",
+   "version": "4.1",
+   "device": "digitakt-mk1",
+   "os": "1.53"
+  },
+  {
+   "file": "core-a4-0.5.elemod",
+   "sha256": "f2473c7fb8de3c16a9113a371cf6e3e50bf87f34792effd0d344d94dda615235",
+   "id": "core",
+   "version": "0.5",
+   "device": "analog-four-mk2",
+   "os": "1.56"
+  },
+  {
+   "file": "core-ar2-0.11.elemod",
+   "sha256": "4c75b6eae2e36996dee23c986ad9b3b6851a2955dcb0e3b81adb3435c0a396f5",
+   "id": "core",
+   "version": "0.11",
+   "device": "analog-rytm-mk2",
+   "os": "1.74"
+  },
+  {
+   "file": "core-ar2-0.3.elemod",
+   "sha256": "6b97dfb3d65ca7d9d292e4ed61dd845e43b2d4f6dc71e7e7d235f27abc4b3e58",
+   "id": "core",
+   "version": "0.3",
+   "device": "analog-rytm-mk2",
+   "os": "1.74",
+   "from": "irpina/elekloader core-ar2-v0.3"
+  },
+  {
+   "file": "core-ar2-0.7.elemod",
+   "sha256": "f1e9cb2c39eb52af15e7cf8ad25596e46f550e4f748bc9dd60d63a44da2dd9c1",
+   "id": "core",
+   "version": "0.7",
+   "device": "analog-rytm-mk2",
+   "os": "1.74",
+   "from": "irpina/elekloader core-ar2-v0.7"
+  },
+  {
+   "file": "core-dn1-2.3-os1.44.elemod",
+   "sha256": "fb2af06001576c1ac1cf2c10e86be863866b612259344e79646b48e3ad8a08d5",
+   "id": "core",
+   "version": "2.3",
+   "device": "digitone-mk1",
+   "os": "1.44",
+   "from": "irpina/elekloader core-dn1-v2.3"
+  },
+  {
+   "file": "core-dn1-2.3.elemod",
+   "sha256": "51a32a2c3457e52a2aeb6ba7646081c0dbf8c3b4927d48aaa80c752369b722ba",
+   "id": "core",
+   "version": "2.3",
+   "device": "digitone-mk1",
+   "os": "1.43",
+   "from": "irpina/elekloader core-dn1-v2.3"
+  },
+  {
+   "file": "core-dn1-3.2-os1.44.elemod",
+   "sha256": "f2c6a28c3ff8c65d961afc78e87961b9378988d2d9b8b482f7033bc4362d08f6",
+   "id": "core",
+   "version": "3.2",
+   "device": "digitone-mk1",
+   "os": "1.44",
+   "from": "irpina/elekloader core-dn1-v3.2"
+  },
+  {
+   "file": "core-dn1-3.2.elemod",
+   "sha256": "999834c7fd2c62c65a05acfde3c815530cc7447898297e145540c84e545acfd3",
+   "id": "core",
+   "version": "3.2",
+   "device": "digitone-mk1",
+   "os": "1.43",
+   "from": "irpina/elekloader core-dn1-v3.2"
+  },
+  {
+   "file": "core-dn1-4.0-os1.44.elemod",
+   "sha256": "05bd7c0a505188380fcd2ccfd41ab03bbc77640c7186644862aed2db2a2bf13e",
+   "id": "core",
+   "version": "4.0",
+   "device": "digitone-mk1",
+   "os": "1.44",
+   "from": "irpina/elekloader core-dn1-v4.0"
+  },
+  {
+   "file": "core-dn1-4.0.elemod",
+   "sha256": "cbcb3cd26858bf5af9c1e70af326844877f3b1739d0138ce52ed7e98561a45d5",
+   "id": "core",
+   "version": "4.0",
+   "device": "digitone-mk1",
+   "os": "1.43",
+   "from": "irpina/elekloader core-dn1-v4.0"
+  },
+  {
+   "file": "core-dn1-4.1-os1.44.elemod",
+   "sha256": "616714428ca824824efd2bc67eb7b80155ae5547d83abdd60914b063a28b83a9",
+   "id": "core",
+   "version": "4.1",
+   "device": "digitone-mk1",
+   "os": "1.44",
+   "from": "irpina/elekloader core-dn1-v4.1"
+  },
+  {
+   "file": "core-dn1-4.1.elemod",
+   "sha256": "8d3fbe93a47ace1de40e3b08ade654d56a09e882df6b815fcb4659abbe5c2612",
+   "id": "core",
+   "version": "4.1",
+   "device": "digitone-mk1",
+   "os": "1.43",
+   "from": "irpina/elekloader core-dn1-v4.1"
+  },
+  {
+   "file": "core-dn1-5.2.1-os1.44.elemod",
+   "sha256": "28153cf9943ef784973cf1e16cc6ae9492d86e22da52709a46629bf06a183426",
+   "id": "core",
+   "version": "5.2.1",
+   "device": "digitone-mk1",
+   "os": "1.44"
+  },
+  {
+   "file": "core-dn1-5.2.1.elemod",
+   "sha256": "2e462f433e6a4afa8b79d6b84f7bd797a715448503caa70b979d0507a8ec36b0",
+   "id": "core",
+   "version": "5.2.1",
+   "device": "digitone-mk1",
+   "os": "1.43"
+  },
+  {
+   "file": "core-dn2-0.3.elemod",
+   "sha256": "3dd1ed7f5e3cac29338cc54dfcbccefee774aedb87cbe5d66161f7de8793d353",
+   "id": "core",
+   "version": "0.3",
+   "device": "digitone-mk2",
+   "os": "1.12"
+  },
+  {
+   "file": "core-dt2-1.0.elemod",
+   "sha256": "d3dbf3162d7fe09cb92a4382b0d78869b88ce3e32d667afcd1612f5b35a047b0",
+   "id": "core",
+   "version": "1.0",
+   "device": "digitakt-mk2",
+   "os": "1.17"
+  },
+  {
+   "file": "core-mc-0.3.elemod",
+   "sha256": "e214e171a8bfd13f67ceaac66ff3ce3b899372722fdc582274c43a6db74065c0",
+   "id": "core",
+   "version": "0.3",
+   "device": "model-cycles",
+   "os": "1.13"
+  },
+  {
+   "file": "core-ms-0.1.elemod",
+   "sha256": "41800911b62bc428065b9b6ae59d7defc9892ec6a067bd5f97b8e02ee8829238",
+   "id": "core",
+   "version": "0.1",
+   "device": "model-samples",
+   "os": "1.13"
+  },
+  {
+   "file": "core-ot-0.3.1.elemod",
+   "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06",
+   "id": "core",
+   "version": "0.3.1",
+   "device": "octatrack",
+   "os": "1.40C",
+   "from": "irpina/elekloader core-ot-v0.3.1"
+  },
+  {
+   "file": "core-ot-0.8.elemod",
+   "sha256": "bd56a98a40a9a3270da11c7261c8aadd947e51374ee1bf45aa4b7032b01f01c4",
+   "id": "core",
+   "version": "0.8",
+   "device": "octatrack",
+   "os": "1.40C"
+  }
+ ],
+ "shop": [
+  {
+   "file": "machine-pages-1.2.elemod",
+   "sha256": "8526d61694c798bc765ae07b48ff613126d071813e887df516281c17a56c6c94",
+   "available": true,
+   "from": "irpina/elekloader machine-pages-v1.2"
+  },
+  {
+   "file": "machine-pages-1.2-os1.54.elemod",
+   "sha256": "d716bbeb70c8f7c9e8acc8bdb81681217eb8eb25ce700fe9a6ab786fed02d1f0",
+   "available": true,
+   "from": "irpina/elekloader machine-pages-v1.2"
+  },
+  {
+   "file": "digislicer-2.5.elemod",
+   "sha256": "846a2ec329d5ebd490a5201169d053c7a9b4645a33469f4b33021a38167e658a",
+   "available": true,
+   "from": "irpina/digislicer v2.5"
+  },
+  {
+   "file": "digislicer-2.5-os1.54.elemod",
+   "sha256": "6dd4c6d97db4d2de14a1461175651155f2f344e4f4e39019810378fd145ad6f8",
+   "available": true,
+   "from": "irpina/digislicer v2.5"
+  },
+  {
+   "file": "digihealth-1.0.elemod",
+   "sha256": "b2ce4d6ad0bea1623f59b53c359860573f99ab1bfb55d20c224a623f27d135c2",
+   "available": true,
+   "from": "irpina/digihealth v1.1.1"
+  },
+  {
+   "file": "digihealth-1.0-os1.54.elemod",
+   "sha256": "84c39e08eff429dfc7766d09b91d323524275eba1df9de55a30074e7338863bb",
+   "available": true,
+   "from": "irpina/digihealth v1.1.1"
+  },
+  {
+   "file": "digihealth-1.1.elemod",
+   "sha256": "e30ddf521fd92d71b585a02cfcdc391a33ff841723b9c8ee5a30d026cd5cc319",
+   "available": true,
+   "from": "irpina/digihealth v1.1.1"
+  },
+  {
+   "file": "digihealth-1.1-os1.44.elemod",
+   "sha256": "b4b093b53a4865f737d5b31203a7c333f3c3d4cca64d5c4c3b3358fb114dd2a2",
+   "available": true,
+   "from": "irpina/digihealth v1.1.1"
+  },
+  {
+   "file": "machines-0.1.elemod",
+   "sha256": "4cd0962454c67b5045ee131a5da38725b9ca7f75c49471cc161e3407b65686bf",
+   "available": true,
+   "from": "irpina/elekloader machines-dn1-v0.1"
+  },
+  {
+   "file": "machines-0.1-os1.44.elemod",
+   "sha256": "5f5589daa6866265ca75d9ae53ed0f6ae6369dfc8a0c5ea3c8a264bf778f862e",
+   "available": true,
+   "from": "irpina/elekloader machines-dn1-v0.1"
+  },
+  {
+   "file": "fxkit-0.1.elemod",
+   "sha256": "427eeb94fa5c0cd65949ca26b2942758431eca6e2f1ac03145c5e9ea6a5cc043",
+   "available": true,
+   "from": "irpina/elekloader fxkit-v0.1"
+  },
+  {
+   "file": "fxkit-0.1-os1.44.elemod",
+   "sha256": "321c2135140a1f5c5a4152e7b73d3818de2f1bf6da3714d04c39dc8bdadf0dd4",
+   "available": true,
+   "from": "irpina/elekloader fxkit-v0.1"
+  },
+  {
+   "file": "digitables-1.3.elemod",
+   "sha256": "a9a2335d0f0c80c17103062bb731a3560af5aca3b05b1b4650713dd273ca5511",
+   "available": true,
+   "from": "irpina/digitables v1.3"
+  },
+  {
+   "file": "digiswarm-0.2.elemod",
+   "sha256": "1355e20b538631dd1c07111a4e0b764dd3d1dc4b4d2179fe977c2a7563c44fc2",
+   "available": true,
+   "from": "irpina/digiswarm v0.2"
+  },
+  {
+   "file": "digiswarm-0.2-os1.44.elemod",
+   "sha256": "d1efc7fd94ea3bb6137611d04a162cead75492a808c4f772731c378e7fe62aac",
+   "available": true,
+   "from": "irpina/digiswarm v0.2"
+  },
+  {
+   "file": "digiprism-0.2.elemod",
+   "sha256": "7243ab7ea3ad14f74aacb09f83d299bb41dbd27a43e2c1b9f529af99e446566d",
+   "available": true,
+   "from": "irpina/digiprism v0.2"
+  },
+  {
+   "file": "digiprism-0.2-os1.44.elemod",
+   "sha256": "da66c4101e7ab8ab08837a426ecc2b449dea4ea292781d198bc200660e4198b5",
+   "available": true,
+   "from": "irpina/digiprism v0.2"
+  },
+  {
+   "file": "digitide-0.2.elemod",
+   "sha256": "37b087b1b2de413f1c236821d96ed67126e104cf93dc69de44751185c5068f2a",
+   "available": true,
+   "from": "irpina/digitide v0.2"
+  },
+  {
+   "file": "digitide-0.2-os1.44.elemod",
+   "sha256": "9139d071e18a24b8d30012824f5a1db6adc2d8e6608503d7b29aadf33e4f8605",
+   "available": true,
+   "from": "irpina/digitide v0.2"
+  },
+  {
+   "file": "digitriad-0.2.elemod",
+   "sha256": "3a3459c3bd8ee469573f4dacc5706833837c7245aef4b4f4af4eb700a9e19a51",
+   "available": true,
+   "from": "irpina/digitriad v0.2"
+  },
+  {
+   "file": "digitriad-0.2-os1.44.elemod",
+   "sha256": "af56ad2e7cbfd1956b0b8d5a09ab3a72afee95d98f7f119c04fecf191f3d4cc1",
+   "available": true,
+   "from": "irpina/digitriad v0.2"
+  },
+  {
+   "file": "digireel-0.2.elemod",
+   "sha256": "cf833ca138037ff5f011f664776da9371ae466ba66898f5d4f4b479653eef19f",
+   "available": true,
+   "from": "irpina/digireel v0.2"
+  },
+  {
+   "file": "digireel-0.2-os1.44.elemod",
+   "sha256": "2e71c3feae3403954770a3d43268acea5e86b58b310eb5c3df0be0922bec224d",
+   "available": true,
+   "from": "irpina/digireel v0.2"
+  },
+  {
+   "file": "digihoard-0.2.elemod",
+   "sha256": "671b0d176cb75152a9d75686cd2af87b60257843d4016a74880e5a940d3f2aaf",
+   "available": true,
+   "from": "irpina/digihoard v0.2"
+  },
+  {
+   "file": "digihoard-0.2-os1.44.elemod",
+   "sha256": "2683e840e5afa1dd27f815a866929ebc9c1e7aefa3e123f57c5c77d235057a96",
+   "available": true,
+   "from": "irpina/digihoard v0.2"
+  },
+  {
+   "file": "digihalo-0.2.elemod",
+   "sha256": "0bf8f6a1b62399b6ee125674f24a09a3d4b6319c57a914201b4df76ade4a6147",
+   "available": true,
+   "from": "irpina/digihalo v0.2"
+  },
+  {
+   "file": "digihalo-0.2-os1.44.elemod",
+   "sha256": "4c4fc5552bd2f71eff15042e9d6520f825348e424bd290914d7e5c135eb81e21",
+   "available": true,
+   "from": "irpina/digihalo v0.2"
+  },
+  {
+   "file": "DigiArp-MIDI-DA27-0.9-dev11.elemod",
+   "sha256": "b82506a6adb3c39545eb6daa731e5e28d09e6c61a07dcedb312a65066b84ff58",
+   "available": true,
+   "from": "aleks-karachevtsev/Digitone-MIDI-Arpeggiator v0.9.0-beta"
+  },
+  {
+   "file": "arpmenu-0.1-os1.44.elemod",
+   "sha256": "61ec1ee6f1e55469d60fcb2860ba41975eca12608d71aa4a5ba98f19cb142ca7",
+   "available": true,
+   "from": "irpina/digiarpmenu v0.1"
+  },
+  {
+   "file": "arpmenu-0.1.elemod",
+   "sha256": "a73963e963a760a2370df594732084135eaeec378a898d187df82b5ff2456314",
+   "available": true,
+   "from": "irpina/digiarpmenu v0.1"
+  },
+  {
+   "file": "solo-0.2-os1.44.elemod",
+   "sha256": "84db1c437e06ba13fcf42bda6913dc727b6006bb1d5965ee092282888333046a",
+   "available": true,
+   "from": "irpina/digisolo v0.2"
+  },
+  {
+   "file": "solo-0.2.elemod",
+   "sha256": "455683fa0d11bb261ef7032eca48169c6fc05199e443f2360e248d2c60d90025",
+   "available": true,
+   "from": "irpina/digisolo v0.2"
+  },
+  {
+   "file": "loopback-0.2-os1.44.elemod",
+   "sha256": "8624656edf31f5de7031317fb18ed7ee79d7941fca5b44674f943f1bcdb6dd7b",
+   "available": true,
+   "from": "irpina/digiloop v0.2"
+  },
+  {
+   "file": "loopback-0.2.elemod",
+   "sha256": "c4a2099920ed3e1e137f6accb4d641984084c7b2faa422b40c6730d043e6b6f2",
+   "available": true,
+   "from": "irpina/digiloop v0.2"
+  },
+  {
+   "file": "pcsound-0.2-os1.44.elemod",
+   "sha256": "b2003d7474e8b35efa180aeb51702a0e1f9b588017649e2fb2727b4e9632227e",
+   "available": true,
+   "from": "irpina/digipcsound v0.2"
+  },
+  {
+   "file": "pcsound-0.2.elemod",
+   "sha256": "c0d3db636ad76d33bdb27c007e0e63fcafce8255d8d71af33d33f36a72830c6c",
+   "available": true,
+   "from": "irpina/digipcsound v0.2"
+  },
+  {
+   "file": "choke-0.2-os1.44.elemod",
+   "sha256": "dcfc5839f8db90293021574d196f805be89ebc4028ce87ee2c4e5d9bc9615cac",
+   "available": true,
+   "from": "irpina/digichoke v0.2"
+  },
+  {
+   "file": "choke-0.2.elemod",
+   "sha256": "58af5dc5ae99739f0c952a7f58febc36133e47e342f3a8a5cb93cc40700e0b66",
+   "available": true,
+   "from": "irpina/digichoke v0.2"
+  },
+  {
+   "file": "mutiny-0.2.1.elemod",
+   "sha256": "c77e2c42516787bd565c2f6351aee13581ca6a9ca52bd710d3221220e3b79f5a",
+   "available": true,
+   "from": "mbaumannn/mutiny v0.2.1"
+  },
+  {
+   "file": "seq-events-0.1-os1.44.elemod",
+   "sha256": "0727ece76a560c30ee27e4d19d18536e81340f60d7deaf294fc213d05124cd21",
+   "available": true,
+   "from": "mbaumannn/mutiny v0.2.0"
+  },
+  {
+   "file": "flexbus-1.0-digitone-flexbus.elemod",
+   "sha256": "59b4655fdd53750fee338c579a8391ca0ceb10827a16572cad976150b918bbd2",
+   "available": true,
+   "from": "DigiAlchemydsp/Flex-Plus v1.0"
+  },
+  {
+   "file": "usercfg-0.6a.elemod",
+   "sha256": "c905fef2f5321a2362ed41cf9d918f4fc9f3b87d7bf4c9f024346a1ccb361708",
+   "available": true,
+   "from": "DigiAlchemydsp/CTRL-PLUS v0.6a"
+  },
+  {
+   "file": "crepus-1.0-os1.44.elemod",
+   "sha256": "949c85c27c3063b4a0a116ea5e4810378128e17cda9c9c0889e34d06f600090c",
+   "available": true,
+   "from": "DigiAlchemydsp/ESOTERIKA v1.2.1"
+  },
+  {
+   "file": "esoterika-1.0-os1.44.elemod",
+   "sha256": "1de88714d8118cba04b88d3806a48fa57f72e9ff534d5823e1911abf9a84cfc1",
+   "available": true,
+   "from": "DigiAlchemydsp/ESOTERIKA v1.2.1"
+  },
+  {
+   "file": "ruin-1.1-os1.44.elemod",
+   "sha256": "b2e329c97516b0e5875c63eb72035ea02ae67e8ac410d137e0e7300964bf5a98",
+   "available": true,
+   "from": "DigiAlchemydsp/ESOTERIKA v1.2.1"
+  },
+  {
+   "file": "void-1.1-os1.44.elemod",
+   "sha256": "f1b3112e770ba365a017cb521b40ffb19316fd3be5ac9360b59ca18c792d2935",
+   "available": true,
+   "from": "DigiAlchemydsp/ESOTERIKA v1.2.1"
+  },
+  {
+   "file": "xtal-1.1-os1.44.elemod",
+   "sha256": "3ac47f178e13adbb2511f7aa0a55dd1cf56652a22e56e0ebeac042758ab257e9",
+   "available": true,
+   "from": "DigiAlchemydsp/ESOTERIKA v1.2.1"
+  },
+  {
+   "file": "filterplus-dn-1.0.elemod",
+   "sha256": "82daf461ea712751bb85f7404b43292620c610df77d701531cf840ce2f9d6101",
+   "available": true,
+   "from": "DigiAlchemydsp/FILTER-PLUS v1.0"
+  },
+  {
+   "file": "drumplus-1.0.elemod",
+   "sha256": "59b8dcc775b6dd0d7ebf17bf3205f40cc8f410c688d5b1f4c3d2ed2ba39ea487",
+   "available": true,
+   "from": "DigiAlchemydsp/DRUM-PLUS v1.0.1"
+  },
+  {
+   "file": "digifilter-dn-1.3.elemod",
+   "sha256": "806ed6ff7215db1d5c2bd4c4c51c6448a72fff7bc1c5a901ee3cedd94aaa317e",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiFilter v1.3"
+  },
+  {
+   "file": "filter-fx-dn-1.2.elemod",
+   "sha256": "19324605026c1f727c1f651cf213e57fbf1443cd201388b431b83ee084efd883",
+   "available": true,
+   "from": "DigiAlchemydsp/Filter-FX v1.2"
+  },
+  {
+   "file": "tonefx-4.1a.elemod",
+   "sha256": "feb3b2da58366797fcf5e617fe3b02468976caa88f81fdc7194ee63ab5871b65",
+   "available": true,
+   "from": "DigiAlchemydsp/Tone-FX v4.1a"
+  },
+  {
+   "file": "tonefx-4.1a-os1.44.elemod",
+   "sha256": "1f0c010dda323d534d8599539a190bf9b2b905ba7eee5aca255fd269a50c3173",
+   "available": true,
+   "from": "DigiAlchemydsp/Tone-FX v4.1a"
+  },
+  {
+   "file": "digidoom-0.21.elemod",
+   "sha256": "3b37cf1ce083ff34d099975a6a6bfef9cfc770aa7b31fa944ba05973d6a42423",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiAlchemy-GamePack-1 v0.21"
+  },
+  {
+   "file": "dn-aba-bootanim.elemod",
+   "sha256": "bb3e4a7c5322ef3cd6e30f96c4ee050ba33a6054d716dd00f5bde685546b4e75",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dn-digitrash.elemod",
+   "sha256": "6e8388e88f2995310bb7d6a0e13ffad72b6a29f5fc14187ab6c25901e6fd8cae",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dn-match.elemod",
+   "sha256": "bd2b1a0e61f248af78ff1836b9b8111649d7a6c7f10c9914956fa79203dcebc1",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dn-rare-splash.elemod",
+   "sha256": "ab7582343354c7f4261900ab967dab28aed540b8c3583e0ffcbdc347ec0b85ae",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dn-vinyl.elemod",
+   "sha256": "49347ccf10d9ae266bc9cdfb4da19f83254f9dfc4f5a1564564da130aef98ec1",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "digitrash-dn.elemod",
+   "sha256": "1ceaeb2bd9e13bccc8f11958d17967c3e754563615fa59284cf3f2e9a3bcc4f6",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "loox-dn.elemod",
+   "sha256": "e12ed56b54a7dc37bcfca113ce27239032ccd248680676dffc0a5e0b7a34a554",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "planet1-dn.elemod",
+   "sha256": "7749c381acbfd922b40a9e36ab9f64be44fd1f9676ce71962aed1a1cee2eb8b2",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "reach-dn.elemod",
+   "sha256": "d7d614246dd28d50e5d31701173e4592d91e56376cc65d084530de97b32fbf19",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "tidemoon-dn.elemod",
+   "sha256": "96ab48ba7921d36e89c8b16841a39a9808a4901762b5741e3964de1d813340b5",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "digineighbor-0.6.elemod",
+   "sha256": "380837f86c05cf6d0aba2dfc930a4309cc6b2e99b2e8c6a450f0abe6e844dccd",
+   "available": true,
+   "from": "irpina/digineighbor v0.6"
+  },
+  {
+   "file": "digineighbor-0.6-os1.54.elemod",
+   "sha256": "664cb3286b1f7b18ee757ce67c3d38d878741f8ebf6920da21d1eb576a6aeec0",
+   "available": true,
+   "from": "irpina/digineighbor v0.6"
+  },
+  {
+   "file": "digisophie-1.2.0.elemod",
+   "sha256": "704ce73d8e86c154bc5085c3f5cc392a50c324820c09e3f46e836d4a184ef82d",
+   "available": true,
+   "from": "soejrd/digisophie v1.2.0"
+  },
+  {
+   "file": "digimono-0.24.elemod",
+   "sha256": "8e4dd3ae443f85d6e70b686c4f3565c0c534f5d4efd677b8c3c64aceb25557a0",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digimono-0.24-os1.54.elemod",
+   "sha256": "00b060b864c4412d669544421b22b1032ac64bfbd3a930cda1deda095b634dee",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digimacro-1.2.elemod",
+   "sha256": "76803565917a2660611f720ee020a2a28a81726687951bab21ae91c5795fa1f6",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digimacro-1.2-os1.54.elemod",
+   "sha256": "d99823b2cd3c2933d49882ca55fa705a87a80f649929ba0bb554b692fc367ba8",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digi101-0.25.elemod",
+   "sha256": "ea7c3956baeeb2de30e7d233c1da182471f376fd9d5823c58268683af331fddf",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digi101-0.25-os1.54.elemod",
+   "sha256": "4285b1c619d6b8bc90d44c90aa3609facd146e05b20e6805357f5821452f3e31",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digipoly-2.1.elemod",
+   "sha256": "6fc08067b4e3841618022f4668a3060d205c1c9062da3536ab4799e504cab970",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digipoly-2.1-os1.54.elemod",
+   "sha256": "460dc14ed4cf531f446aee8f9328b630ce39beb5b857d51c4b5794245202b901",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digimatrix-1.0c.elemod",
+   "sha256": "dc2c9d32dde13e759e923a0d94a99c6fb1a7571434cc89ed3fd37deaaef5c2af",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digimatrix-1.0c-os1.54.elemod",
+   "sha256": "ce044908388369567b87b0890860706cdf1afab8877c6e852814414cd5e0cba3",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digieq-1.0c.elemod",
+   "sha256": "eb5c75fbc5b1ecda248f205730d2b7d9e129a52a9c19bccf3ef47ed4c78e712f",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digieq-1.0c-os1.54.elemod",
+   "sha256": "d0ee392ba21d65909d44b81f689a02c3d9cb7a1d02406ddaea19bdd5ecc9a87b",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "tonefx-3.2a3.elemod",
+   "sha256": "c37a8a727594392f03457609d5dcfabbb7fa2816420efc8a146a144fd25b29a5",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "tonefx-3.2a3-os1.54.elemod",
+   "sha256": "c490c6f22fcdd727184256690bcce9a6d41854f0f27e593aa86f547ac17ceef9",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digiutils-1.9a.elemod",
+   "sha256": "8697ac1fe883cb8fc6ee29f441f6172bde5b24506a1a4337358d66106844b5c1",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digiutils-1.9a-os1.54.elemod",
+   "sha256": "ed13ca17753e4885b195c2ee7183ce370ad2fdd5b9f730de8a03962fc9397765",
+   "available": true,
+   "from": "gdeo607/digi1_mods 32fd22a"
+  },
+  {
+   "file": "digistring-0.8.0.elemod",
+   "sha256": "7f4360f7d003ecbb1a0e628abf24be7ce4f277c617fa2ddb8a752144613c01ff",
+   "available": true,
+   "from": "Alez22/digistring v0.8.0"
+  },
+  {
+   "file": "digistring-0.8.0-os1.54.elemod",
+   "sha256": "6166b1f32700ae2e107f9fcc1af8723da2680e7f4d6b186ec84ab5a9536b89dc",
+   "available": true,
+   "from": "Alez22/digistring v0.8.0"
+  },
+  {
+   "file": "digistring-fast-0.8.0.elemod",
+   "sha256": "dc5257270155d1c0434fde164ee3d0bafb8cc4e5102896f302fa40f46fb960ce",
+   "available": true,
+   "from": "Alez22/digistring v0.8.0"
+  },
+  {
+   "file": "digistring-fast-0.8.0-os1.54.elemod",
+   "sha256": "7d2c681592ae3fea5d91a09523a74cc604f2be60f8ac0261ae733f8233586316",
+   "available": true,
+   "from": "Alez22/digistring v0.8.0"
+  },
+  {
+   "file": "dt-fm-1.2.1-os1.53.elemod",
+   "sha256": "7f0f01f29a87d6a102915f55fcdee57e68eeb747512a904991411c5c0b6643d5",
+   "available": true,
+   "from": "mtalikka/DT-FM v1.2.1"
+  },
+  {
+   "file": "dt-fm-1.2.1-os1.54.elemod",
+   "sha256": "336612bce704d2b52b39cf9a8fbb0b9dcaf3b95367c753a3e3e0c1d4ae360b3e",
+   "available": true,
+   "from": "mtalikka/DT-FM v1.2.1"
+  },
+  {
+   "file": "ob1-0.5-os1.53.elemod",
+   "sha256": "ba0cf68479c27ec071d487077495cffb9ecaa82710b80f65d4adff1770d3a23e",
+   "available": true,
+   "from": "simonjohansson/elektrob-1 ob1-v0.5"
+  },
+  {
+   "file": "ob1-0.6-os1.54.elemod",
+   "sha256": "9ec967f0a63a5d1992bc4cbc5a7dd2e3e53e9fda21f8122c45087f4e056a64dd",
+   "available": true,
+   "from": "simonjohansson/elektrob-1 ob1-v0.6"
+  },
+  {
+   "file": "digisophie-1.2.0-os1.54.elemod",
+   "sha256": "743439412b1039cba809f5cd401671490628759c6536d519ade7e69c2c1fa072",
+   "available": true,
+   "from": "soejrd/digisophie v1.2.0"
+  },
+  {
+   "file": "flexbus-dt-1.0-digitakt-flexbus.elemod",
+   "sha256": "9e9fa4c5c3be54dec5d915e0a7ac19dbf704f2c24ca2743992836137fc442ff6",
+   "available": true,
+   "from": "DigiAlchemydsp/Flex-Plus v1.0"
+  },
+  {
+   "file": "filterplus-1.0.elemod",
+   "sha256": "1a311d337c243a0d4a204172d61671c7aeacdc1fa535f0138def6f074f333656",
+   "available": true,
+   "from": "DigiAlchemydsp/FILTER-PLUS v1.0"
+  },
+  {
+   "file": "digifilter-1.3.elemod",
+   "sha256": "05169b93bde4dfd698f2844b664f3530270941c1a256fac2b79b1899901a3c23",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiFilter v1.3"
+  },
+  {
+   "file": "filter-fx-1.2-dt.elemod",
+   "sha256": "ce501eec504a9aae5687f4b3e7b3f8b180e66430073f715e5c990e152047075a",
+   "available": true,
+   "from": "DigiAlchemydsp/Filter-FX v1.2"
+  },
+  {
+   "file": "tonefx-4.1a-dt.elemod",
+   "sha256": "f92afac798bb34ae46125c54238a4ef2962054de3fc24adffab12fe1f7c11318",
+   "available": true,
+   "from": "DigiAlchemydsp/Tone-FX v4.1a"
+  },
+  {
+   "file": "tonefx-4.1a-dt-os1.54.elemod",
+   "sha256": "6a5648158c8814faccd59ef54d2427ac117b6d25d606e9facbce6fb556ea9b5e",
+   "available": true,
+   "from": "DigiAlchemydsp/Tone-FX v4.1a"
+  },
+  {
+   "file": "dt-aba-bootanim.elemod",
+   "sha256": "573b504eb2f4320811432551ebdb1f23573aad59bcaba7182f69eb86cba444a0",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dt-digitrash.elemod",
+   "sha256": "88b83a8cf980e2fc4c92f0307681833f563a691d2401a855de3304a4dbc9672f",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dt-match.elemod",
+   "sha256": "f463ea384da0e576021484c192841617fc177b7c5d105030dc944197a8e8266c",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dt-rare-splash.elemod",
+   "sha256": "3249ce123063e535d7778847731d5fb1487d0a54fa853a6d7c617d4f98f801f3",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "dt-vinyl.elemod",
+   "sha256": "a894bfeedc96a72ec9395bd940810b8b99111a274b9f300645637eee55aaaa8f",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiSplash v1.2"
+  },
+  {
+   "file": "digitrash-dt.elemod",
+   "sha256": "a70f949d345c067311373479ee0683f3b275a0dd7dce3deb21278242a7b18614",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "loox-dt.elemod",
+   "sha256": "7c219504be529570938e1beeecde757076f671658b25cce26def81f2c1bc4e00",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "planet1-dt.elemod",
+   "sha256": "ad43fb1102ce3dd7bc1dc1a8eda470279dcdbf0945be8b0e0b773b32ba2945ad",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "reach-dt.elemod",
+   "sha256": "91c92906569801e9095b4c187ff4c3cb80347adaf5c2dfddfad949a9276d8655",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "tidemoon-dt.elemod",
+   "sha256": "d2c3c5c169db72760c2eba9729c71e426ef291fa11bf68169ae96f5730a058d0",
+   "available": true,
+   "from": "DigiAlchemydsp/DigiCandy 2c36609"
+  },
+  {
+   "file": "analoghealth-1.3.elemod",
+   "sha256": "c32aa50cd6fdbbd75484792abe3d2663fb3511dd33ae2c1cf5dc548b62a22088",
+   "available": true,
+   "from": "Iced-Cream/analoghealth v1.3"
+  },
+  {
+   "file": "comp-preview-1.1-os1.74.elemod",
+   "sha256": "0af33e7ceb3c6753d95c0c4ae790414959b93874224dd3a0765e8e8a024c79d6",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "ctrl-all-1.2-os1.74.elemod",
+   "sha256": "cc7d1b3c1b1fe6e5053511eea98398333fb74a9ad844be4395b78bc28d31bc7b",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "env-reset-amp-1.0-os1.74.elemod",
+   "sha256": "881bcfeda180d548c63ed9eded2b79bc4387300a8638b6e9800754dddccc40d1",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "euclid-accents-1.2-os1.74.elemod",
+   "sha256": "8d07137fb2c735446bb2635014bf960fd321d671e31bddef5069342f05d9b7d6",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "filter-hz-1.0-os1.74.elemod",
+   "sha256": "25055fc7662efd8b1035f7840ccb5c02087ca384ae0801917560c9f5fe16512a",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "kit-ab-1.0-os1.74.elemod",
+   "sha256": "4e36608c9745c985a7b99ab9ab43f25e518451b53c6ba184f517d631c96daa64",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "lfo-rnd-1.2-os1.74.elemod",
+   "sha256": "3cd138058c31d0f992f1a66e165b2764a769e7dd763269a72f33c75d86b36a08",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "main-rms-1.0-os1.74.elemod",
+   "sha256": "cbd69edb906e10db5278d8202e2f9c9e8abbb7dbff553bad404c5f834e825d54",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "slice-loop-1.0-os1.74.elemod",
+   "sha256": "b1b8f51bd12c8077817ff870d8fd0e20df92b641ea0413b6846141011ff01cf9",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "velocity-humanise-1.2-os1.74.elemod",
+   "sha256": "e711124d1b7b65ca571dab2494657774be84fcde9c3d576e60104967b0840515",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "voice-dac-1.4-os1.74.elemod",
+   "sha256": "9649ce2a1fad2f0f3b7dbd4bceffdb5df44c5a3ff0075961acdc846d312a960c",
+   "available": true,
+   "from": "Iced-Cream/rytm2_mods v1.4"
+  },
+  {
+   "file": "octabam-tuner-363861e.elemod",
+   "sha256": "1e2447d88c953b09584bcd0b84a9b7733bb87264b6542169d0f2686f9762dff6",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-quantizer-363861e.elemod",
+   "sha256": "cabc7e126796ab3bd4574e78ab9c0ea69031128278f95a2f8b03e0d6e655f1b6",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-repitch-363861e.elemod",
+   "sha256": "1d53f38f6b2bd0541c4dc2e6196859e68464f4f9339537c26a447e56b7f1ae33",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-direct-jump-363861e.elemod",
+   "sha256": "53169664f2aa8073720c9e2422dfc58bcd6f472c56dff7e0b7193723b2dd9310",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-rlen-plen-363861e.elemod",
+   "sha256": "a4af12dc94910a7e52bc94d63cb0a672f92c51aae3fdef582abab524d830f98d",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-midi-scenes-363861e.elemod",
+   "sha256": "3d06bb5e9dfcc6789c2d39a5b78ddf9ec770e4c4d6a38fd30f7e4d14ae39e1e3",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-scenes-p2-363861e.elemod",
+   "sha256": "5609e2eabb3ac09374e6c8bbb5a9577568f6e39dfbde589a83b89c7fd8157a27",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-cc-map-363861e.elemod",
+   "sha256": "a57eff6a7ca72bd2c20a002ee7073ee95a5365f9cf971b2aedb8e3ee9da0e2c3",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-cc-feedback-363861e.elemod",
+   "sha256": "6d994b332c9d9844be6879e550b3024ce692a4f6812bf0892dabd3ee1e6dd476",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-recorder-hold-363861e.elemod",
+   "sha256": "55dbd9ba0997cc7628b2ca0922b91b177cfadd52d56f310851d89b3e7d783c74",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-recorder-spacing-363861e.elemod",
+   "sha256": "d9fe947770d36a36c37f37221eb32d6ef6728ba46300670624e865624a4b7849",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-flex-seekbind-363861e.elemod",
+   "sha256": "fb995dcdac85c3492830ed23816d6afe16dc74127f23838b3ffdbed03ff79466",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-flex-seekbind-ctr-363861e.elemod",
+   "sha256": "800f8fa478c11acc953fdbd211e72dcdd545a438f13904c7b648066fea796c40",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-lofi-amf-fix-363861e.elemod",
+   "sha256": "c61de0bf9130ef31595a99bab6a907a2f67a8122d076535e119df015f3ff0b5a",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-midi-363861e.elemod",
+   "sha256": "d21d871cccdc7be7da9f9823e68bc31fcc891f59418b941dbabe4d9f659faaa4",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-crossbar-363861e.elemod",
+   "sha256": "36b522b41636046852fef89bfdf88eb8a20a86161553ba6125a51d6090b557c7",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-audio-out-tracks-main-cue-363861e.elemod",
+   "sha256": "a0d4ef2e0e998ea5d392e17a1139e9961987c80e1db4c6521f7d070d56d06d5a",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-audio-out-tracks-363861e.elemod",
+   "sha256": "7d16d043886df801a8b9715f8c08dc240bcc83e40545188ff1a4e85dfcf84e42",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-audio-out-main-cue-363861e.elemod",
+   "sha256": "4f9dd7330f3cffdfc49f55b0a9bcdb47026a2dd0a8852bee9b31dce13d3b2589",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-audio-out-main-363861e.elemod",
+   "sha256": "cb71d3e8c99233f7a5a6cb712059ce17fa4a70ce96aa936559f4aac2e6942e6b",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-audio-out-master-363861e.elemod",
+   "sha256": "98a8d12cbd002a25dc05da1ab6f54b244aeeaf94999489d319f5e22eadb14039",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-tracks-main-cue-ab-363861e.elemod",
+   "sha256": "5dfa5a78318b33169cbd372d77cb0784179edd1bbfe5d08924b0a88be0452742",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-tracks-main-cue-cd-363861e.elemod",
+   "sha256": "f0181a3420af9ca568da1fda71eadddb951ff1cc9039a4f0cb2072f4e35a8538",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-tracks-main-cue-abcd-363861e.elemod",
+   "sha256": "2032081ba13a9b85c5459fb679e8bb4716c818ea657468c326908ca1439ace3e",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-tracks-ab-363861e.elemod",
+   "sha256": "3672ec49d8cd550dd519e7e0c959733ebde13f73dada8354fdda223aae60492b",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-tracks-cd-363861e.elemod",
+   "sha256": "5d2b7291381ca0fc69b8ed0930343686e5d641dda57ddc8d4cf11ca11753a421",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-tracks-abcd-363861e.elemod",
+   "sha256": "2d20459aa62c226f73e1db54994434dbdc57b2656c58041976e38cd8de5e90a2",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-main-cue-ab-363861e.elemod",
+   "sha256": "f998c28a6b0441f58ee5a563b15be0fa6a92f3c34411b245809035b1cd49fe2c",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-main-cue-cd-363861e.elemod",
+   "sha256": "9b679ba37441e47f20f60c3ddf26df8d42cb98d9dd80ea35f4e992972fbdabec",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-main-cue-abcd-363861e.elemod",
+   "sha256": "598edd522c858f00bfc51fb965857df1fea043a45c5353f5cd1451f9fe96600c",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-main-ab-363861e.elemod",
+   "sha256": "c1e3729a13db0a4241faf78996e7a4f29b8851b27f2d0787e4d5b5c52ae94086",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-main-cd-363861e.elemod",
+   "sha256": "193c898bdac962f8a8896fcdcc068e57e670929f3f4b174c626e9b0cb7d8b2bd",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  },
+  {
+   "file": "octabam-usb-io-main-abcd-363861e.elemod",
+   "sha256": "2b9ccbb39fa757ac68ac56ee248d7f4d2cd0f087a894944adaba450bd0932ba3",
+   "available": true,
+   "from": "irpina/octabam2elemod v1.0"
+  }
+ ],
+ "files": {
+  "LICENSE.txt": "edaef632cbb643e4e7a221717a6c441a4c1a7c918e6e4d56debc3d8739b233f6",
+  "NOTICE.txt": "23fd220bb5686cee18491ac881822b49560999231934cdbce753c472bd9205d2",
+  "app.js": "96fa9b09d72459ac0480ef97cf0b95e1816ff7fce931ef7fd6eb6ee4e847630c",
+  "bridge.py": "ce20a952aedd56fa199cbd02a6c6e26aafad9506b329df533b4dd10eeab039e3",
+  "core/core-2.1-os1.54.elemod": "8c1fe78ccd1427d6a93f181eaad9f064efb65cf6dd683192dbcc33e83dc548b9",
+  "core/core-2.1.elemod": "f38b0c193677a060b3fdb28fe71b9332be8a5e7d36ecaf91a3c86a61bab558eb",
+  "core/core-3.0-os1.54.elemod": "5bdefabdca61d344756a3d0448f414c715006937ab417eb002032a976e9196e7",
+  "core/core-3.0.elemod": "798a5e74b57a193c1b6d2a591dded79f5bb6828c08028e5c5db12f4443539385",
+  "core/core-4.0-os1.54.elemod": "8b6e5af584973f6eb3aaecffd8b6ab1825f15fabbb5e82eac38ba23aa5f49d39",
+  "core/core-4.0.elemod": "5f578843cf162621e09c92fdbfb5d92a162430eaa5f90c09d70d97ef7699fa61",
+  "core/core-4.1-os1.54.elemod": "1af47faadbbf2e4ec4ff293dc1f15adc476f3267b80fde07288b95455426e7da",
+  "core/core-4.1.elemod": "e5ddf64d15998239dd3c81b72fabd86c1e33f3a74dfb86f5dbcf67d7b227f6ee",
+  "core/core-a4-0.5.elemod": "f2473c7fb8de3c16a9113a371cf6e3e50bf87f34792effd0d344d94dda615235",
+  "core/core-ar2-0.11.elemod": "4c75b6eae2e36996dee23c986ad9b3b6851a2955dcb0e3b81adb3435c0a396f5",
+  "core/core-ar2-0.3.elemod": "6b97dfb3d65ca7d9d292e4ed61dd845e43b2d4f6dc71e7e7d235f27abc4b3e58",
+  "core/core-ar2-0.7.elemod": "f1e9cb2c39eb52af15e7cf8ad25596e46f550e4f748bc9dd60d63a44da2dd9c1",
+  "core/core-dn1-2.3-os1.44.elemod": "fb2af06001576c1ac1cf2c10e86be863866b612259344e79646b48e3ad8a08d5",
+  "core/core-dn1-2.3.elemod": "51a32a2c3457e52a2aeb6ba7646081c0dbf8c3b4927d48aaa80c752369b722ba",
+  "core/core-dn1-3.2-os1.44.elemod": "f2c6a28c3ff8c65d961afc78e87961b9378988d2d9b8b482f7033bc4362d08f6",
+  "core/core-dn1-3.2.elemod": "999834c7fd2c62c65a05acfde3c815530cc7447898297e145540c84e545acfd3",
+  "core/core-dn1-4.0-os1.44.elemod": "05bd7c0a505188380fcd2ccfd41ab03bbc77640c7186644862aed2db2a2bf13e",
+  "core/core-dn1-4.0.elemod": "cbcb3cd26858bf5af9c1e70af326844877f3b1739d0138ce52ed7e98561a45d5",
+  "core/core-dn1-4.1-os1.44.elemod": "616714428ca824824efd2bc67eb7b80155ae5547d83abdd60914b063a28b83a9",
+  "core/core-dn1-4.1.elemod": "8d3fbe93a47ace1de40e3b08ade654d56a09e882df6b815fcb4659abbe5c2612",
+  "core/core-dn1-5.2.1-os1.44.elemod": "28153cf9943ef784973cf1e16cc6ae9492d86e22da52709a46629bf06a183426",
+  "core/core-dn1-5.2.1.elemod": "2e462f433e6a4afa8b79d6b84f7bd797a715448503caa70b979d0507a8ec36b0",
+  "core/core-dn2-0.3.elemod": "3dd1ed7f5e3cac29338cc54dfcbccefee774aedb87cbe5d66161f7de8793d353",
+  "core/core-dt2-1.0.elemod": "d3dbf3162d7fe09cb92a4382b0d78869b88ce3e32d667afcd1612f5b35a047b0",
+  "core/core-mc-0.3.elemod": "e214e171a8bfd13f67ceaac66ff3ce3b899372722fdc582274c43a6db74065c0",
+  "core/core-ms-0.1.elemod": "41800911b62bc428065b9b6ae59d7defc9892ec6a067bd5f97b8e02ee8829238",
+  "core/core-ot-0.3.1.elemod": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06",
+  "core/core-ot-0.8.elemod": "bd56a98a40a9a3270da11c7261c8aadd947e51374ee1bf45aa4b7032b01f01c4",
+  "core/index.json": "78bd5b606344505b2243c1374d7a98b0cc74e7bfbb48505a743f4eb6a05b2785",
+  "devices.json": "618321bb6432653db20893d161123a903b35f939c47677266410411741e88fcd",
+  "elekloader.zip": "e209800620d5673658e943deb5a3d9ad02590e71fcbcce4b0987d67f411e150b",
+  "gif.js": "ab30ff0c8363ba8a618988d116d375c62e078260c7690fbd6404a8aa4fa026d4",
+  "index.html": "4cf1c5e5d1a8817f9dd93c7265a161f5abf69ed85b215b2168d4b21c1b7429a2",
+  "pyodide/NOTICE.txt": "e3600bddc9a835089b38a1886933cb5ae08498df845c2780c1c3717dcd5cfd14",
+  "pyodide/pyodide-lock.json": "5dc2fc119108bc148c7457dc86e7675b5c87e1cafd420b9c34c1eaef7b36c010",
+  "pyodide/pyodide.asm.mjs": "f7cdc8ece80678ceb712f8e65ebe6d3a83203a180c399865f49612a051693635",
+  "pyodide/pyodide.asm.wasm": "cc36e3cab04fdfc9a63ff13eb52eae2b911bf46c025cc7b281f394bd3de1d5e6",
+  "pyodide/pyodide.mjs": "6f1d60f7bf529beb300f0f47983c921d3982363640ba20af0e38efdddbc66109",
+  "pyodide/python_stdlib.zip": "fa1957e5777068fc4f7437f96d860ae2fbe9c19732ba06c84e004ec16dd7dd7a",
+  "shop/DigiArp-MIDI-DA27-0.9-dev11.elemod": "b82506a6adb3c39545eb6daa731e5e28d09e6c61a07dcedb312a65066b84ff58",
+  "shop/analoghealth-1.3.elemod": "c32aa50cd6fdbbd75484792abe3d2663fb3511dd33ae2c1cf5dc548b62a22088",
+  "shop/arpmenu-0.1-os1.44.elemod": "61ec1ee6f1e55469d60fcb2860ba41975eca12608d71aa4a5ba98f19cb142ca7",
+  "shop/arpmenu-0.1.elemod": "a73963e963a760a2370df594732084135eaeec378a898d187df82b5ff2456314",
+  "shop/bounties.json": "62bfdc4bad516d2e640dc13f97beb21e7f152b1a4ae4c78869a124462efdc907",
+  "shop/choke-0.2-os1.44.elemod": "dcfc5839f8db90293021574d196f805be89ebc4028ce87ee2c4e5d9bc9615cac",
+  "shop/choke-0.2.elemod": "58af5dc5ae99739f0c952a7f58febc36133e47e342f3a8a5cb93cc40700e0b66",
+  "shop/claims.json": "926255a67b9bfdef93300bbce8b23a6013c89a388fb2d271bef99d233636c513",
+  "shop/comp-preview-1.1-os1.74.elemod": "0af33e7ceb3c6753d95c0c4ae790414959b93874224dd3a0765e8e8a024c79d6",
+  "shop/crepus-1.0-os1.44.elemod": "949c85c27c3063b4a0a116ea5e4810378128e17cda9c9c0889e34d06f600090c",
+  "shop/ctrl-all-1.2-os1.74.elemod": "cc7d1b3c1b1fe6e5053511eea98398333fb74a9ad844be4395b78bc28d31bc7b",
+  "shop/digi101-0.25-os1.54.elemod": "4285b1c619d6b8bc90d44c90aa3609facd146e05b20e6805357f5821452f3e31",
+  "shop/digi101-0.25.elemod": "ea7c3956baeeb2de30e7d233c1da182471f376fd9d5823c58268683af331fddf",
+  "shop/digidoom-0.21.elemod": "3b37cf1ce083ff34d099975a6a6bfef9cfc770aa7b31fa944ba05973d6a42423",
+  "shop/digieq-1.0c-os1.54.elemod": "d0ee392ba21d65909d44b81f689a02c3d9cb7a1d02406ddaea19bdd5ecc9a87b",
+  "shop/digieq-1.0c.elemod": "eb5c75fbc5b1ecda248f205730d2b7d9e129a52a9c19bccf3ef47ed4c78e712f",
+  "shop/digifilter-1.3.elemod": "05169b93bde4dfd698f2844b664f3530270941c1a256fac2b79b1899901a3c23",
+  "shop/digifilter-dn-1.3.elemod": "806ed6ff7215db1d5c2bd4c4c51c6448a72fff7bc1c5a901ee3cedd94aaa317e",
+  "shop/digihalo-0.2-os1.44.elemod": "4c4fc5552bd2f71eff15042e9d6520f825348e424bd290914d7e5c135eb81e21",
+  "shop/digihalo-0.2.elemod": "0bf8f6a1b62399b6ee125674f24a09a3d4b6319c57a914201b4df76ade4a6147",
+  "shop/digihealth-1.0-os1.54.elemod": "84c39e08eff429dfc7766d09b91d323524275eba1df9de55a30074e7338863bb",
+  "shop/digihealth-1.0.elemod": "b2ce4d6ad0bea1623f59b53c359860573f99ab1bfb55d20c224a623f27d135c2",
+  "shop/digihealth-1.1-os1.44.elemod": "b4b093b53a4865f737d5b31203a7c333f3c3d4cca64d5c4c3b3358fb114dd2a2",
+  "shop/digihealth-1.1.elemod": "e30ddf521fd92d71b585a02cfcdc391a33ff841723b9c8ee5a30d026cd5cc319",
+  "shop/digihoard-0.2-os1.44.elemod": "2683e840e5afa1dd27f815a866929ebc9c1e7aefa3e123f57c5c77d235057a96",
+  "shop/digihoard-0.2.elemod": "671b0d176cb75152a9d75686cd2af87b60257843d4016a74880e5a940d3f2aaf",
+  "shop/digimacro-1.2-os1.54.elemod": "d99823b2cd3c2933d49882ca55fa705a87a80f649929ba0bb554b692fc367ba8",
+  "shop/digimacro-1.2.elemod": "76803565917a2660611f720ee020a2a28a81726687951bab21ae91c5795fa1f6",
+  "shop/digimatrix-1.0c-os1.54.elemod": "ce044908388369567b87b0890860706cdf1afab8877c6e852814414cd5e0cba3",
+  "shop/digimatrix-1.0c.elemod": "dc2c9d32dde13e759e923a0d94a99c6fb1a7571434cc89ed3fd37deaaef5c2af",
+  "shop/digimono-0.24-os1.54.elemod": "00b060b864c4412d669544421b22b1032ac64bfbd3a930cda1deda095b634dee",
+  "shop/digimono-0.24.elemod": "8e4dd3ae443f85d6e70b686c4f3565c0c534f5d4efd677b8c3c64aceb25557a0",
+  "shop/digineighbor-0.6-os1.54.elemod": "664cb3286b1f7b18ee757ce67c3d38d878741f8ebf6920da21d1eb576a6aeec0",
+  "shop/digineighbor-0.6.elemod": "380837f86c05cf6d0aba2dfc930a4309cc6b2e99b2e8c6a450f0abe6e844dccd",
+  "shop/digipoly-2.1-os1.54.elemod": "460dc14ed4cf531f446aee8f9328b630ce39beb5b857d51c4b5794245202b901",
+  "shop/digipoly-2.1.elemod": "6fc08067b4e3841618022f4668a3060d205c1c9062da3536ab4799e504cab970",
+  "shop/digiprism-0.2-os1.44.elemod": "da66c4101e7ab8ab08837a426ecc2b449dea4ea292781d198bc200660e4198b5",
+  "shop/digiprism-0.2.elemod": "7243ab7ea3ad14f74aacb09f83d299bb41dbd27a43e2c1b9f529af99e446566d",
+  "shop/digireel-0.2-os1.44.elemod": "2e71c3feae3403954770a3d43268acea5e86b58b310eb5c3df0be0922bec224d",
+  "shop/digireel-0.2.elemod": "cf833ca138037ff5f011f664776da9371ae466ba66898f5d4f4b479653eef19f",
+  "shop/digislicer-2.5-os1.54.elemod": "6dd4c6d97db4d2de14a1461175651155f2f344e4f4e39019810378fd145ad6f8",
+  "shop/digislicer-2.5.elemod": "846a2ec329d5ebd490a5201169d053c7a9b4645a33469f4b33021a38167e658a",
+  "shop/digisophie-1.2.0-os1.54.elemod": "743439412b1039cba809f5cd401671490628759c6536d519ade7e69c2c1fa072",
+  "shop/digisophie-1.2.0.elemod": "704ce73d8e86c154bc5085c3f5cc392a50c324820c09e3f46e836d4a184ef82d",
+  "shop/digistring-0.8.0-os1.54.elemod": "6166b1f32700ae2e107f9fcc1af8723da2680e7f4d6b186ec84ab5a9536b89dc",
+  "shop/digistring-0.8.0.elemod": "7f4360f7d003ecbb1a0e628abf24be7ce4f277c617fa2ddb8a752144613c01ff",
+  "shop/digistring-fast-0.8.0-os1.54.elemod": "7d2c681592ae3fea5d91a09523a74cc604f2be60f8ac0261ae733f8233586316",
+  "shop/digistring-fast-0.8.0.elemod": "dc5257270155d1c0434fde164ee3d0bafb8cc4e5102896f302fa40f46fb960ce",
+  "shop/digiswarm-0.2-os1.44.elemod": "d1efc7fd94ea3bb6137611d04a162cead75492a808c4f772731c378e7fe62aac",
+  "shop/digiswarm-0.2.elemod": "1355e20b538631dd1c07111a4e0b764dd3d1dc4b4d2179fe977c2a7563c44fc2",
+  "shop/digitables-1.3.elemod": "a9a2335d0f0c80c17103062bb731a3560af5aca3b05b1b4650713dd273ca5511",
+  "shop/digitide-0.2-os1.44.elemod": "9139d071e18a24b8d30012824f5a1db6adc2d8e6608503d7b29aadf33e4f8605",
+  "shop/digitide-0.2.elemod": "37b087b1b2de413f1c236821d96ed67126e104cf93dc69de44751185c5068f2a",
+  "shop/digitrash-dn.elemod": "1ceaeb2bd9e13bccc8f11958d17967c3e754563615fa59284cf3f2e9a3bcc4f6",
+  "shop/digitrash-dt.elemod": "a70f949d345c067311373479ee0683f3b275a0dd7dce3deb21278242a7b18614",
+  "shop/digitriad-0.2-os1.44.elemod": "af56ad2e7cbfd1956b0b8d5a09ab3a72afee95d98f7f119c04fecf191f3d4cc1",
+  "shop/digitriad-0.2.elemod": "3a3459c3bd8ee469573f4dacc5706833837c7245aef4b4f4af4eb700a9e19a51",
+  "shop/digiutils-1.9a-os1.54.elemod": "ed13ca17753e4885b195c2ee7183ce370ad2fdd5b9f730de8a03962fc9397765",
+  "shop/digiutils-1.9a.elemod": "8697ac1fe883cb8fc6ee29f441f6172bde5b24506a1a4337358d66106844b5c1",
+  "shop/dn-aba-bootanim.elemod": "bb3e4a7c5322ef3cd6e30f96c4ee050ba33a6054d716dd00f5bde685546b4e75",
+  "shop/dn-digitrash.elemod": "6e8388e88f2995310bb7d6a0e13ffad72b6a29f5fc14187ab6c25901e6fd8cae",
+  "shop/dn-match.elemod": "bd2b1a0e61f248af78ff1836b9b8111649d7a6c7f10c9914956fa79203dcebc1",
+  "shop/dn-rare-splash.elemod": "ab7582343354c7f4261900ab967dab28aed540b8c3583e0ffcbdc347ec0b85ae",
+  "shop/dn-vinyl.elemod": "49347ccf10d9ae266bc9cdfb4da19f83254f9dfc4f5a1564564da130aef98ec1",
+  "shop/drumplus-1.0.elemod": "59b8dcc775b6dd0d7ebf17bf3205f40cc8f410c688d5b1f4c3d2ed2ba39ea487",
+  "shop/dt-aba-bootanim.elemod": "573b504eb2f4320811432551ebdb1f23573aad59bcaba7182f69eb86cba444a0",
+  "shop/dt-digitrash.elemod": "88b83a8cf980e2fc4c92f0307681833f563a691d2401a855de3304a4dbc9672f",
+  "shop/dt-fm-1.2.1-os1.53.elemod": "7f0f01f29a87d6a102915f55fcdee57e68eeb747512a904991411c5c0b6643d5",
+  "shop/dt-fm-1.2.1-os1.54.elemod": "336612bce704d2b52b39cf9a8fbb0b9dcaf3b95367c753a3e3e0c1d4ae360b3e",
+  "shop/dt-match.elemod": "f463ea384da0e576021484c192841617fc177b7c5d105030dc944197a8e8266c",
+  "shop/dt-rare-splash.elemod": "3249ce123063e535d7778847731d5fb1487d0a54fa853a6d7c617d4f98f801f3",
+  "shop/dt-vinyl.elemod": "a894bfeedc96a72ec9395bd940810b8b99111a274b9f300645637eee55aaaa8f",
+  "shop/env-reset-amp-1.0-os1.74.elemod": "881bcfeda180d548c63ed9eded2b79bc4387300a8638b6e9800754dddccc40d1",
+  "shop/esoterika-1.0-os1.44.elemod": "1de88714d8118cba04b88d3806a48fa57f72e9ff534d5823e1911abf9a84cfc1",
+  "shop/euclid-accents-1.2-os1.74.elemod": "8d07137fb2c735446bb2635014bf960fd321d671e31bddef5069342f05d9b7d6",
+  "shop/filter-fx-1.2-dt.elemod": "ce501eec504a9aae5687f4b3e7b3f8b180e66430073f715e5c990e152047075a",
+  "shop/filter-fx-dn-1.2.elemod": "19324605026c1f727c1f651cf213e57fbf1443cd201388b431b83ee084efd883",
+  "shop/filter-hz-1.0-os1.74.elemod": "25055fc7662efd8b1035f7840ccb5c02087ca384ae0801917560c9f5fe16512a",
+  "shop/filterplus-1.0.elemod": "1a311d337c243a0d4a204172d61671c7aeacdc1fa535f0138def6f074f333656",
+  "shop/filterplus-dn-1.0.elemod": "82daf461ea712751bb85f7404b43292620c610df77d701531cf840ce2f9d6101",
+  "shop/flexbus-1.0-digitone-flexbus.elemod": "59b4655fdd53750fee338c579a8391ca0ceb10827a16572cad976150b918bbd2",
+  "shop/flexbus-dt-1.0-digitakt-flexbus.elemod": "9e9fa4c5c3be54dec5d915e0a7ac19dbf704f2c24ca2743992836137fc442ff6",
+  "shop/fxkit-0.1-os1.44.elemod": "321c2135140a1f5c5a4152e7b73d3818de2f1bf6da3714d04c39dc8bdadf0dd4",
+  "shop/fxkit-0.1.elemod": "427eeb94fa5c0cd65949ca26b2942758431eca6e2f1ac03145c5e9ea6a5cc043",
+  "shop/index.json": "98392a671b51c064a9aaa1a0f60de421be4379e23630a21fd527fd5a8a3d64a9",
+  "shop/kit-ab-1.0-os1.74.elemod": "4e36608c9745c985a7b99ab9ab43f25e518451b53c6ba184f517d631c96daa64",
+  "shop/lfo-rnd-1.2-os1.74.elemod": "3cd138058c31d0f992f1a66e165b2764a769e7dd763269a72f33c75d86b36a08",
+  "shop/loopback-0.2-os1.44.elemod": "8624656edf31f5de7031317fb18ed7ee79d7941fca5b44674f943f1bcdb6dd7b",
+  "shop/loopback-0.2.elemod": "c4a2099920ed3e1e137f6accb4d641984084c7b2faa422b40c6730d043e6b6f2",
+  "shop/loox-dn.elemod": "e12ed56b54a7dc37bcfca113ce27239032ccd248680676dffc0a5e0b7a34a554",
+  "shop/loox-dt.elemod": "7c219504be529570938e1beeecde757076f671658b25cce26def81f2c1bc4e00",
+  "shop/machine-pages-1.2-os1.54.elemod": "d716bbeb70c8f7c9e8acc8bdb81681217eb8eb25ce700fe9a6ab786fed02d1f0",
+  "shop/machine-pages-1.2.elemod": "8526d61694c798bc765ae07b48ff613126d071813e887df516281c17a56c6c94",
+  "shop/machines-0.1-os1.44.elemod": "5f5589daa6866265ca75d9ae53ed0f6ae6369dfc8a0c5ea3c8a264bf778f862e",
+  "shop/machines-0.1.elemod": "4cd0962454c67b5045ee131a5da38725b9ca7f75c49471cc161e3407b65686bf",
+  "shop/main-rms-1.0-os1.74.elemod": "cbd69edb906e10db5278d8202e2f9c9e8abbb7dbff553bad404c5f834e825d54",
+  "shop/mutiny-0.2.1.elemod": "c77e2c42516787bd565c2f6351aee13581ca6a9ca52bd710d3221220e3b79f5a",
+  "shop/ob1-0.5-os1.53.elemod": "ba0cf68479c27ec071d487077495cffb9ecaa82710b80f65d4adff1770d3a23e",
+  "shop/ob1-0.6-os1.54.elemod": "9ec967f0a63a5d1992bc4cbc5a7dd2e3e53e9fda21f8122c45087f4e056a64dd",
+  "shop/octabam-cc-feedback-363861e.elemod": "6d994b332c9d9844be6879e550b3024ce692a4f6812bf0892dabd3ee1e6dd476",
+  "shop/octabam-cc-map-363861e.elemod": "a57eff6a7ca72bd2c20a002ee7073ee95a5365f9cf971b2aedb8e3ee9da0e2c3",
+  "shop/octabam-direct-jump-363861e.elemod": "53169664f2aa8073720c9e2422dfc58bcd6f472c56dff7e0b7193723b2dd9310",
+  "shop/octabam-flex-seekbind-363861e.elemod": "fb995dcdac85c3492830ed23816d6afe16dc74127f23838b3ffdbed03ff79466",
+  "shop/octabam-flex-seekbind-ctr-363861e.elemod": "800f8fa478c11acc953fdbd211e72dcdd545a438f13904c7b648066fea796c40",
+  "shop/octabam-lofi-amf-fix-363861e.elemod": "c61de0bf9130ef31595a99bab6a907a2f67a8122d076535e119df015f3ff0b5a",
+  "shop/octabam-midi-scenes-363861e.elemod": "3d06bb5e9dfcc6789c2d39a5b78ddf9ec770e4c4d6a38fd30f7e4d14ae39e1e3",
+  "shop/octabam-quantizer-363861e.elemod": "cabc7e126796ab3bd4574e78ab9c0ea69031128278f95a2f8b03e0d6e655f1b6",
+  "shop/octabam-recorder-hold-363861e.elemod": "55dbd9ba0997cc7628b2ca0922b91b177cfadd52d56f310851d89b3e7d783c74",
+  "shop/octabam-recorder-spacing-363861e.elemod": "d9fe947770d36a36c37f37221eb32d6ef6728ba46300670624e865624a4b7849",
+  "shop/octabam-repitch-363861e.elemod": "1d53f38f6b2bd0541c4dc2e6196859e68464f4f9339537c26a447e56b7f1ae33",
+  "shop/octabam-rlen-plen-363861e.elemod": "a4af12dc94910a7e52bc94d63cb0a672f92c51aae3fdef582abab524d830f98d",
+  "shop/octabam-scenes-p2-363861e.elemod": "5609e2eabb3ac09374e6c8bbb5a9577568f6e39dfbde589a83b89c7fd8157a27",
+  "shop/octabam-tuner-363861e.elemod": "1e2447d88c953b09584bcd0b84a9b7733bb87264b6542169d0f2686f9762dff6",
+  "shop/octabam-usb-audio-out-main-363861e.elemod": "cb71d3e8c99233f7a5a6cb712059ce17fa4a70ce96aa936559f4aac2e6942e6b",
+  "shop/octabam-usb-audio-out-main-cue-363861e.elemod": "4f9dd7330f3cffdfc49f55b0a9bcdb47026a2dd0a8852bee9b31dce13d3b2589",
+  "shop/octabam-usb-audio-out-master-363861e.elemod": "98a8d12cbd002a25dc05da1ab6f54b244aeeaf94999489d319f5e22eadb14039",
+  "shop/octabam-usb-audio-out-tracks-363861e.elemod": "7d16d043886df801a8b9715f8c08dc240bcc83e40545188ff1a4e85dfcf84e42",
+  "shop/octabam-usb-audio-out-tracks-main-cue-363861e.elemod": "a0d4ef2e0e998ea5d392e17a1139e9961987c80e1db4c6521f7d070d56d06d5a",
+  "shop/octabam-usb-crossbar-363861e.elemod": "36b522b41636046852fef89bfdf88eb8a20a86161553ba6125a51d6090b557c7",
+  "shop/octabam-usb-io-main-ab-363861e.elemod": "c1e3729a13db0a4241faf78996e7a4f29b8851b27f2d0787e4d5b5c52ae94086",
+  "shop/octabam-usb-io-main-abcd-363861e.elemod": "2b9ccbb39fa757ac68ac56ee248d7f4d2cd0f087a894944adaba450bd0932ba3",
+  "shop/octabam-usb-io-main-cd-363861e.elemod": "193c898bdac962f8a8896fcdcc068e57e670929f3f4b174c626e9b0cb7d8b2bd",
+  "shop/octabam-usb-io-main-cue-ab-363861e.elemod": "f998c28a6b0441f58ee5a563b15be0fa6a92f3c34411b245809035b1cd49fe2c",
+  "shop/octabam-usb-io-main-cue-abcd-363861e.elemod": "598edd522c858f00bfc51fb965857df1fea043a45c5353f5cd1451f9fe96600c",
+  "shop/octabam-usb-io-main-cue-cd-363861e.elemod": "9b679ba37441e47f20f60c3ddf26df8d42cb98d9dd80ea35f4e992972fbdabec",
+  "shop/octabam-usb-io-tracks-ab-363861e.elemod": "3672ec49d8cd550dd519e7e0c959733ebde13f73dada8354fdda223aae60492b",
+  "shop/octabam-usb-io-tracks-abcd-363861e.elemod": "2d20459aa62c226f73e1db54994434dbdc57b2656c58041976e38cd8de5e90a2",
+  "shop/octabam-usb-io-tracks-cd-363861e.elemod": "5d2b7291381ca0fc69b8ed0930343686e5d641dda57ddc8d4cf11ca11753a421",
+  "shop/octabam-usb-io-tracks-main-cue-ab-363861e.elemod": "5dfa5a78318b33169cbd372d77cb0784179edd1bbfe5d08924b0a88be0452742",
+  "shop/octabam-usb-io-tracks-main-cue-abcd-363861e.elemod": "2032081ba13a9b85c5459fb679e8bb4716c818ea657468c326908ca1439ace3e",
+  "shop/octabam-usb-io-tracks-main-cue-cd-363861e.elemod": "f0181a3420af9ca568da1fda71eadddb951ff1cc9039a4f0cb2072f4e35a8538",
+  "shop/octabam-usb-midi-363861e.elemod": "d21d871cccdc7be7da9f9823e68bc31fcc891f59418b941dbabe4d9f659faaa4",
+  "shop/pcsound-0.2-os1.44.elemod": "b2003d7474e8b35efa180aeb51702a0e1f9b588017649e2fb2727b4e9632227e",
+  "shop/pcsound-0.2.elemod": "c0d3db636ad76d33bdb27c007e0e63fcafce8255d8d71af33d33f36a72830c6c",
+  "shop/planet1-dn.elemod": "7749c381acbfd922b40a9e36ab9f64be44fd1f9676ce71962aed1a1cee2eb8b2",
+  "shop/planet1-dt.elemod": "ad43fb1102ce3dd7bc1dc1a8eda470279dcdbf0945be8b0e0b773b32ba2945ad",
+  "shop/reach-dn.elemod": "d7d614246dd28d50e5d31701173e4592d91e56376cc65d084530de97b32fbf19",
+  "shop/reach-dt.elemod": "91c92906569801e9095b4c187ff4c3cb80347adaf5c2dfddfad949a9276d8655",
+  "shop/ruin-1.1-os1.44.elemod": "b2e329c97516b0e5875c63eb72035ea02ae67e8ac410d137e0e7300964bf5a98",
+  "shop/sections.json": "5f4cc514b8262f13e7467e29544f6e8bca40ef63901d26ea6ccbe828d6430efa",
+  "shop/seq-events-0.1-os1.44.elemod": "0727ece76a560c30ee27e4d19d18536e81340f60d7deaf294fc213d05124cd21",
+  "shop/slice-loop-1.0-os1.74.elemod": "b1b8f51bd12c8077817ff870d8fd0e20df92b641ea0413b6846141011ff01cf9",
+  "shop/solo-0.2-os1.44.elemod": "84db1c437e06ba13fcf42bda6913dc727b6006bb1d5965ee092282888333046a",
+  "shop/solo-0.2.elemod": "455683fa0d11bb261ef7032eca48169c6fc05199e443f2360e248d2c60d90025",
+  "shop/thumbs/263e205d7cedb3114d7fd452e3a504cda57bb9979409bf7a8185200a2dea5967.png": "46b7ee6d3593252e46343691b15332b140d02264c8764e542419e175a41df1b8",
+  "shop/thumbs/2955e0e2305da5034e5da16b9ec353d689e09c58712ae394a6ee35eb1d91522f.png": "a73aa71601482717982d49af8e903b89e9609e58a47d75221129829b91f3eb50",
+  "shop/thumbs/2f8ee697fde32657bea305bc198d765d828714019730fade0aee7d68d0a207db.png": "1ab2fd838a391a4036bc6e41a459e1c82a0ad0fb7bf0daca625ebed55b9b2d81",
+  "shop/thumbs/57a06dcf11062f09d996685057fba4827a50e167e36675221a291490bd952997.png": "32f98f732ff0a3e47e9081c20bb9b264d1cc0c0c073340150cd5061137cc6714",
+  "shop/thumbs/6cb259264c8b609027831d5037dbb9aba739ec597c351bae9db95a5e64195f41.png": "5073a296497e14620025e8dd0454c42aab607b6bdddbc92b61a905e28f5e6e19",
+  "shop/thumbs/8e59aed2e7947b4ca4d5a381eea4933bd3ba2fa8fd667b50cafe26fa16ef9ed3.png": "880f7cc70246422ea4991b5d95f469b947e42f73ef3c9c460bbb432760f0fc41",
+  "shop/thumbs/a121ebb05a28e7dd37b64dc663698cb75c8eebba73d6ac494f3b617ac412ae2f.png": "35fc99a868cd0b5c4a9b37242ad8498de0fc13113cf784921fb3df1f45e84f16",
+  "shop/thumbs/cb67221e7bc23a624421d18adf4d85ff18f5447021004045a9ae06043623e5f2.png": "d058d89ba8c66d7ffed9f720f1a0a3964d9248c09f7fe50882498e12b995934f",
+  "shop/thumbs/db614559be2bf21d2131452051e491a53fcb316a416560c2c0fe0eb02b94dba8.png": "ae632412d236e46a26aa9f293f9a43c498c14382f7acc33a640143e186591afa",
+  "shop/tidemoon-dn.elemod": "96ab48ba7921d36e89c8b16841a39a9808a4901762b5741e3964de1d813340b5",
+  "shop/tidemoon-dt.elemod": "d2c3c5c169db72760c2eba9729c71e426ef291fa11bf68169ae96f5730a058d0",
+  "shop/tonefx-3.2a3-os1.54.elemod": "c490c6f22fcdd727184256690bcce9a6d41854f0f27e593aa86f547ac17ceef9",
+  "shop/tonefx-3.2a3.elemod": "c37a8a727594392f03457609d5dcfabbb7fa2816420efc8a146a144fd25b29a5",
+  "shop/tonefx-4.1a-dt-os1.54.elemod": "6a5648158c8814faccd59ef54d2427ac117b6d25d606e9facbce6fb556ea9b5e",
+  "shop/tonefx-4.1a-dt.elemod": "f92afac798bb34ae46125c54238a4ef2962054de3fc24adffab12fe1f7c11318",
+  "shop/tonefx-4.1a-os1.44.elemod": "1f0c010dda323d534d8599539a190bf9b2b905ba7eee5aca255fd269a50c3173",
+  "shop/tonefx-4.1a.elemod": "feb3b2da58366797fcf5e617fe3b02468976caa88f81fdc7194ee63ab5871b65",
+  "shop/usercfg-0.6a.elemod": "c905fef2f5321a2362ed41cf9d918f4fc9f3b87d7bf4c9f024346a1ccb361708",
+  "shop/velocity-humanise-1.2-os1.74.elemod": "e711124d1b7b65ca571dab2494657774be84fcde9c3d576e60104967b0840515",
+  "shop/voice-dac-1.4-os1.74.elemod": "9649ce2a1fad2f0f3b7dbd4bceffdb5df44c5a3ff0075961acdc846d312a960c",
+  "shop/void-1.1-os1.44.elemod": "f1b3112e770ba365a017cb521b40ffb19316fd3be5ac9360b59ca18c792d2935",
+  "shop/xtal-1.1-os1.44.elemod": "3ac47f178e13adbb2511f7aa0a55dd1cf56652a22e56e0ebeac042758ab257e9",
+  "splash.js": "3ff9d65a32b26c00a1961514a95104290abeb0c44a0f7dfb47fd62f1a99d3ea2",
+  "style.css": "9e6c956c8322552d7963c4014be6b4c285091589b3136dc176d596b640ad169e",
+  "worker.js": "5e91429c807040e0cbda82ad792869c0b70c11108e778b4d42bd7eba146d1276"
+ }
+}

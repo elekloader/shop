@@ -1,0 +1,498 @@
+{
+ "elemod": 2,
+ "id": "octabam-repitch",
+ "version": "363861e",
+ "title": "REPITCH",
+ "description": "Adds TSTR REPITCH (STATIC/FLEX and the sample's own TIMESTRETCH): project-tempo following by playback speed, without grains; PTCH off. (octabam module repitch, converted from 363861e)",
+ "category": "Machines and the sequencer",
+ "author": "repeat98",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 576,
+   "parts": [
+    [
+     "hex",
+     "4feffff448d7010670007407b282626274304c01200041f9800005101030281c2400"
+    ],
+    [
+     "stock",
+     "0x40000e96",
+     8
+    ],
+    [
+     "hex",
+     "100041f9800049d87004b03018146604700060342070180870002208672a7204b481670e7201b481661e7204b2a801106616222801140c81000002d06d0a0c8100001c206e0220014cd70106"
+    ],
+    [
+     "stock",
+     "0x40014412",
+     8
+    ],
+    [
+     "hex",
+     "00087204b081621a41fa002832300a0002810000ffffd1c12f48"
+    ],
+    [
+     "stock",
+     "0x4003b81e",
+     8
+    ],
+    [
+     "stock",
+     "0x4003b616",
+     8
+    ],
+    [
+     "stock",
+     "0x4003b81e",
+     8
+    ],
+    [
+     "hex",
+     "000a000e00130018001d4f4646004155544f004e4f524d00424541540052504348004feffff848d700032239800062a404818000489876284c4310016100ff1226004cd700034fef0008082f0004004366064ef9400040724ef94000407a4a83660471d66006203c00004000a3460c4040004ef9400040a6a1c0eca04a8367504feffff448d7001624398000181c0c82000002d06d320c8200001c206e2a22004c43100128014c03400090844c0210004c0200004c430000d0810c80080000006306203c080000004cd700164fef000c274000244ef9400041087404b28266027200712a001474044ef940007d9c72001239800000006100fe584a8066064ef9400479b42f2f001c2f2f001c2f2f001c70ff2f002f2f001c2f2f001c2f2f001c"
+    ],
+    [
+     "stock",
+     "0x4007cac2",
+     10
+    ],
+    [
+     "hex",
+     "4e757204b081660a487a00144ef94006e8784879400b94f64ef94006e87852455049544348007202b28067067203b28066065280214001104ef94006eef0202801107202b280660642a8011060127203b280"
+    ],
+    [
+     "stock",
+     "0x4002adec",
+     8
+    ],
+    [
+     "hex",
+     "5380214001104ef94006f026"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "LANES": [
+   "abs",
+   2147484944
+  ],
+  "VOICES": [
+   "abs",
+   2147502552
+  ],
+  "PICKUP": [
+   "abs",
+   4
+  ],
+  "STATES": [
+   "abs",
+   2147502232
+  ],
+  "CUR_STATE": [
+   "abs",
+   2147508900
+  ],
+  "UI_TRACK": [
+   "abs",
+   2147483648
+  ],
+  "PROJECT_BPM24": [
+   "abs",
+   2147489820
+  ],
+  "TSTR_REPITCH": [
+   "abs",
+   4
+  ],
+  "TSTR_AUTO": [
+   "abs",
+   1
+  ],
+  "BPM24_MIN": [
+   "abs",
+   720
+  ],
+  "BPM24_MAX": [
+   "abs",
+   7200
+  ],
+  "INC_MAX": [
+   "abs",
+   134217728
+  ],
+  "rp_source": [
+   ".run",
+   0
+  ],
+  ".rs_out": [
+   ".run",
+   114
+  ],
+  ".rs_bound": [
+   ".run",
+   62
+  ],
+  ".rs_on": [
+   ".run",
+   92
+  ],
+  ".unknown": [
+   ".run",
+   160
+  ],
+  ".labels": [
+   ".run",
+   176
+  ],
+  ".off": [
+   ".run",
+   186
+  ],
+  ".auto": [
+   ".run",
+   190
+  ],
+  ".norm": [
+   ".run",
+   195
+  ],
+  ".beat": [
+   ".run",
+   200
+  ],
+  ".rpch": [
+   ".run",
+   205
+  ],
+  ".rg_compute": [
+   ".run",
+   264
+  ],
+  ".pg_neutral": [
+   ".run",
+   278
+  ],
+  ".pg_cmp": [
+   ".run",
+   284
+  ],
+  ".rh_store": [
+   ".run",
+   384
+  ],
+  ".rh_restore": [
+   ".run",
+   376
+  ],
+  ".tr_stock": [
+   ".run",
+   402
+  ],
+  ".pw_off": [
+   ".run",
+   436
+  ],
+  ".al_error": [
+   ".run",
+   492
+  ],
+  ".repitch": [
+   ".run",
+   504
+  ],
+  ".au_step": [
+   ".run",
+   524
+  ],
+  ".au_done": [
+   ".run",
+   530
+  ],
+  ".ad_upper": [
+   ".run",
+   552
+  ],
+  ".ad_done": [
+   ".run",
+   570
+  ],
+  ".ad_step": [
+   ".run",
+   564
+  ],
+  "attr_up": [
+   ".run",
+   512
+  ],
+  "tstr_resolve": [
+   ".run",
+   394
+  ],
+  "ptch_widget": [
+   ".run",
+   414
+  ],
+  "rate_gate": [
+   ".run",
+   210
+  ],
+  "rate_hook": [
+   ".run",
+   296
+  ],
+  "tstr_fmt": [
+   ".run",
+   124
+  ],
+  "pitch_gate": [
+   ".run",
+   270
+  ],
+  "attr_label": [
+   ".run",
+   476
+  ],
+  "attr_down": [
+   ".run",
+   536
+  ]
+ },
+ "exports": [
+  "attr_down",
+  "attr_label",
+  "attr_up",
+  "pitch_gate",
+  "ptch_widget",
+  "rate_gate",
+  "rate_hook",
+  "tstr_fmt",
+  "tstr_resolve"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x4000406a",
+   "len": 8,
+   "stock_sha256": "421c09bf6657197a8b4ebc95e327dcd230d4509c7a1a6703a918101c2a44d5ac",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:rate_gate",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000409e",
+   "len": 8,
+   "stock_sha256": "9982b6d4cc8edcabba720802078541d3c677c7e1383544e53b88db927d816814",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:pitch_gate",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40004100",
+   "len": 8,
+   "stock_sha256": "cfb51026afa59069c37a05dce3ec521567135c112d210e4a0f29129e3e353df7",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:rate_hook",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40007d96",
+   "len": 6,
+   "stock_sha256": "ff2ae4a919e2e8850a9180cf2d7e53ce07e728ad9dac7e6c3f8eee3027951fbf",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:tstr_resolve",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4006e71c",
+   "len": 10,
+   "stock_sha256": "45cf9363cc868dea350fb606f94041c365d08ba8a23a49ee707aabf1f7382f88",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:attr_label",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4006ee56",
+   "len": 8,
+   "stock_sha256": "3579f297a903662f1577e307da394a680c0a847098bde766b10d0c4e77bc5b23",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:attr_up",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4006ef7c",
+   "len": 8,
+   "stock_sha256": "4695532f6a5b8ec36fcbff91f5b4bf24ac84e1def253b8b678c20c2e754b7b5f",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:attr_down",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d310e",
+   "len": 4,
+   "stock_sha256": "5a6d670806496094839c260dbcab4b510b7f1d3bd1c91ba8e85fd42be4617df0",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:tstr_fmt",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d32a0",
+   "len": 4,
+   "stock_sha256": "5a6d670806496094839c260dbcab4b510b7f1d3bd1c91ba8e85fd42be4617df0",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:tstr_fmt",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d3116",
+   "len": 4,
+   "stock_sha256": "1b003aa5d0dd76ca26c5c00918ec125b45cc1c3115740763d6139a09ff16e57b",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:ptch_widget",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d32a8",
+   "len": 4,
+   "stock_sha256": "1b003aa5d0dd76ca26c5c00918ec125b45cc1c3115740763d6139a09ff16e57b",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:ptch_widget",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d30de",
+   "len": 4,
+   "stock_sha256": "1bc5d0e3df0ea12c4d0078668d14924f95106bbe173e196de50fe13a900b0937",
+   "new": "00000005",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x400d3270",
+   "len": 4,
+   "stock_sha256": "1bc5d0e3df0ea12c4d0078668d14924f95106bbe173e196de50fe13a900b0937",
+   "new": "00000005",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x400d313e",
+   "len": 4,
+   "stock_sha256": "fa8462bfa8fe5c0ba11a44685e09db5e11061ea578b33480b0c77cfe2ac77165",
+   "new": "40046ab4",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x400d32d0",
+   "len": 4,
+   "stock_sha256": "fa8462bfa8fe5c0ba11a44685e09db5e11061ea578b33480b0c77cfe2ac77165",
+   "new": "40046ab4",
+   "kind": "data",
+   "relocs": []
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "repitch.s": "55114bdea09fe82c1bd68b725e77cc1873e2e956fb9ce9f071e3155a63fb721b"
+  }
+ },
+ "signature": null
+}

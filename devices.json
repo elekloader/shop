@@ -1,0 +1,68 @@
+[
+ {
+  "key": "digitakt-mk1",
+  "name": "Digitakt mk1",
+  "releases": [
+   "1.53",
+   "1.54"
+  ]
+ },
+ {
+  "key": "digitakt-mk2",
+  "name": "Digitakt II",
+  "releases": [
+   "1.17"
+  ]
+ },
+ {
+  "key": "digitone-mk1",
+  "name": "Digitone mk1",
+  "releases": [
+   "1.43",
+   "1.44"
+  ]
+ },
+ {
+  "key": "octatrack",
+  "name": "Octatrack",
+  "releases": [
+   "1.40C"
+  ]
+ },
+ {
+  "key": "model-cycles",
+  "name": "Model:Cycles",
+  "releases": [
+   "1.13"
+  ]
+ },
+ {
+  "key": "model-samples",
+  "name": "Model:Samples",
+  "releases": [
+   "1.13"
+  ]
+ },
+ {
+  "key": "analog-rytm-mk2",
+  "name": "Analog Rytm MKII",
+  "releases": [
+   "1.73",
+   "1.74"
+  ]
+ },
+ {
+  "key": "analog-four-mk2",
+  "name": "Analog Four MKII",
+  "releases": [
+   "1.56"
+  ]
+ },
+ {
+  "key": "digitone-mk2",
+  "name": "Digitone II",
+  "releases": [
+   "1.12"
+  ]
+ }
+]

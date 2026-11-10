@@ -1,0 +1,13 @@
+The build engine of this page is Pyodide 314.0.7: CPython compiled to
+WebAssembly, served from this site (these files are unchanged from
+pyodide-core-314.0.7.tar.bz2, sha256 2abdcc2e35208af406e07724cffa85bc582ced97e9028383ecf5462541393f95).
+
+Pyodide: Mozilla Public License 2.0.
+  Source: https://github.com/pyodide/pyodide/tree/314.0.7
+  Licence: https://github.com/pyodide/pyodide/blob/314.0.7/LICENSE
+CPython and its standard library (python_stdlib.zip, and the interpreter
+in pyodide.asm.wasm): Python Software Foundation License Version 2.
+  https://docs.python.org/3/license.html
+The other libraries built into pyodide.asm.wasm (such as zlib, libffi
+and the Emscripten runtime) are under their own permissive licences,
+listed with Pyodide's source.

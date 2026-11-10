@@ -1,0 +1,2418 @@
+{
+ "elemod": 2,
+ "id": "octabam-midi-scenes",
+ "version": "363861e",
+ "title": "MIDI SCENES",
+ "description": "MIDI-driven scene locks (hold/morph/save/reload/clear/copy/paste), built from bkkbrls-del/midisc as linker-placed units. (octabam module midi-scenes, converted from 363861e)",
+ "category": "Parts, Kits and scenes",
+ "author": "bkkbrls-del/midisc",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 9328,
+   "parts": [
+    [
+     "hex",
+     "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00000000000283000000ff2003223c"
+    ],
+    [
+     "stock",
+     "0x400022d2",
+     8
+    ],
+    [
+     "stock",
+     "0x4000de58",
+     8
+    ],
+    [
+     "hex",
+     "4e752a39460d16c802850000007f203c0000007f90852a004a856700000c0c850000007f6600008e71b9100b14cf02800000000f2c3c000018b24c00"
+    ],
+    [
+     "stock",
+     "0x40027ecc",
+     8
+    ],
+    [
+     "hex",
+     "d1c6d1fc0008ed90779079a800014a856700000426040c83000000ff6700005202830000000fe18b247c00000000d5c32607eb8bd5c37200204ad1c17b900c85000000ff6700001e2007ed882807e58cd084d081207c46c76dc0d1c071902049d1c1108052810c810000001e6500ffca4e752f002f012f082f09200302800000000f4eb9000000002248d1fc0009049230100c8000004d536600001cd3fc00090522223c00000090101812c053816600fff86000003420034eb9000000002248d1fc0009675c30100c8000004d5366000018d3fc00090522223c00000090101812c053816600fff8225f205f221f201f4e752f002f022f082f09"
+    ],
+    [
+     "stock",
+     "0x40005048",
+     8
+    ],
+    [
+     "hex",
+     "100b14cf7401e1aa"
+    ],
+    [
+     "stock",
+     "0x4002b55e",
+     10
+    ],
+    [
+     "hex",
+     "8082"
+    ],
+    [
+     "stock",
+     "0x40037fa8",
+     10
+    ],
+    [
+     "stock",
+     "0x40025d16",
+     10
+    ],
+    [
+     "hex",
+     "207c0009b3322380880023c0100f8598225f205f241f201f4e754a816a00000672004e752039460d16840c80000000026600004a20050680fffffff474010c80000000016700002674060c80000000026700001a745f0c80000000036700000e74070c800000000466000012b282620000066000001422026000000e0c810000008065000004727f4e7577b9000000000c83000000ff670000ea2f002f01"
+    ],
+    [
+     "stock",
+     "0x40028f8c",
+     8
+    ],
+    [
+     "hex",
+     "2f082f092f0a2f0b4eb90000000028032a01d1fc0009052222482f09203c00004d5332804229000241e90004247c00000000243c000010007600719a0c80000000ff6700001a0c830000002e67000016223c00001000928230c110c0528353826600ffd8225f13430002207946c824562008d085"
+    ],
+    [
+     "stock",
+     "0x4004a928",
+     8
+    ],
+    [
+     "hex",
+     "220006810008ed80267c40020898487818b22f01"
+    ],
+    [
+     "stock",
+     "0x4003d9b8",
+     8
+    ],
+    [
+     "hex",
+     "487818b22f02203c100a4eced0852f004e934fef000c"
+    ],
+    [
+     "stock",
+     "0x4002ddb8",
+     10
+    ],
+    [
+     "hex",
+     "b3122204028100000003d1c172011081265f245f225f205f2a1f281f261f241f221f201f4e752f002f012f022f032f042f082f09207c00000000223c0000100010bc00ff528853816600fff6243c0009052277b90000000078000c83000000fe66000014243c000967ec77b9100b14cf7801600000120c83000000ff6600000877b9100b14cf70ff13c0000000004eb900000000d1c2224830110c8000004d53670000180c82000905226600005e243c000967ec78016000ffd675a900020282000000ff6700001a41e9000430181218227c00000000d3c0128153826600ffee4a84670000264eb9000000002248d1fc000967ecd3fc00090522243c00000090101812c053826600fff8200313c000000000225f205f281f261f241f221f201f4e752f002f012f022f082f09262f001802830000000f24034eb9000000002248d1fc0009052230100c8000004d536700002c2049d1fc000967ec30100c8000004d5366000018d3fc00090522223c00000090101812c053816600fff8200273b9100b14cfb0816600000e13c0000000004eb90000000026024eb900000000d1fc000905222248200202800000000f2600223c000000904c001800207c460c9c00d1c1223c00000090101910c053816600fff8200273b9100b14cfb081660000422f0a2003e188e988207c460cb000d1c0227c00000000247c40020898487810002f092f084e924fef000c2003e588207c460db000d1c0223c4d53434b2081245f26024eb9000000002248d3fc0009052230110c8000004d5366000018d1fc00090492223c00000090101910c053816600fff8225f205f241f221f201f4ef94004a9082f002f01"
+    ],
+    [
+     "stock",
+     "0x40028f8c",
+     8
+    ],
+    [
+     "hex",
+     "2f062f072f082f092f0a2f0b207946c8245620084a806700029071b9100b14cf02800000000f2e3c"
+    ],
+    [
+     "stock",
+     "0x400094c8",
+     8
+    ],
+    [
+     "hex",
+     "2a39460d16c802850000007f203c0000007f90852a00"
+    ],
+    [
+     "stock",
+     "0x4003c970",
+     8
+    ],
+    [
+     "hex",
+     "d1fc0008ed90779073a80001247c000000000c83000000ff6700001202830000000fe18b247c00000000d5c3267c000000000c81000000ff6700001202810000000fe189267c00000000d7c12c3c00000000223c000000002006eb88d081280a4a846700000c204ad1c077906000000476ff2006eb88d081280b4a846700000c204bd1c079906000000478ff0c83000000ff6600005e0c84000000ff6600001e2006eb88"
+    ],
+    [
+     "stock",
+     "0x4000def0",
+     8
+    ],
+    [
+     "hex",
+     "d1c7d1c0"
+    ],
+    [
+     "stock",
+     "0x40036a08",
+     8
+    ],
+    [
+     "hex",
+     "6000009c2006eb88d081207c460ca580d1c077900c83000000ff6600005a2006eb88"
+    ],
+    [
+     "stock",
+     "0x4000def0",
+     8
+    ],
+    [
+     "hex",
+     "d1c7d1c0d1fc0008f16277906000003e0c84000000ff660000342006eb88d081207c460ca580d1c079900c84000000ff6600001a2006eb88"
+    ],
+    [
+     "stock",
+     "0x4000def0",
+     8
+    ],
+    [
+     "hex",
+     "d1c7d1c0d1fc0008f16279904a85670000120c850000007f6600000e200460000036200360000030200490834c050800ee80d08302800000007f24002006ed882606e58bd083d081207c46c76dc0d1c010826000005602800000007f24002006ed882606e58bd083d081207c46c76dc0d1c077901082b682670000302f012f022f052f062f072f0a2f0b42a72f022f012f06"
+    ],
+    [
+     "stock",
+     "0x40055426",
+     10
+    ],
+    [
+     "hex",
+     "265f245f2e1f2c1f2a1f241f221f200a4a80670000182606eb8bd681204ad1c37190"
+    ],
+    [
+     "stock",
+     "0x4001f5c4",
+     8
+    ],
+    [
+     "hex",
+     "0020200b4a80670000282606eb8bd681204bd1c371900c80000000ff670000122006eb88d081207c46c78960d1c010820c8100000012650000220c810000001e640000182006"
+    ],
+    [
+     "stock",
+     "0x40055338",
+     12
+    ],
+    [
+     "stock",
+     "0x400391ce",
+     8
+    ],
+    [
+     "hex",
+     "52810c810000001e6500fe0c52860c86000000086500fdfa265f245f225f205f2e1f2c1f2a1f281f261f241f221f201f4e7571b9000000000c80000000ff6700001473b980001829b0816700000e13c1000000004eb9000000004eb90000000071b9800000034ef940062c3893fc000000202009220d9081ea802e000c87000000086400006e2f092007eb88207c460ca580d1c02257"
+    ],
+    [
+     "stock",
+     "0x400dac00",
+     8
+    ],
+    [
+     "stock",
+     "0x400dac00",
+     8
+    ],
+    [
+     "hex",
+     "225f71b9100b14cf02800000000f2c3c000018b24c00"
+    ],
+    [
+     "stock",
+     "0x40027ecc",
+     8
+    ],
+    [
+     "hex",
+     "d1c6d1fc0008ed90779079a800010c83000000ff6600000c0c84000000ff6700000e4eb9000000004eb900000000"
+    ],
+    [
+     "stock",
+     "0x4001235e",
+     10
+    ],
+    [
+     "hex",
+     "71b9000000000c80000000ff6700001473b980001829b0816700000e13c1000000004eb9000000004ef94003577c4eb900000000201723c000000000203c000000002e804ef94000909471b98000182913c000000000"
+    ],
+    [
+     "stock",
+     "0x40025aaa",
+     8
+    ],
+    [
+     "hex",
+     "800000034eb90000000042b9460ca50470ff13c0460ca5794eb9000000002079000000004ed02f002f012f022f032f082f092f0a262f001c02830000000f2003e588207c460db000d1c020100c804d53434b660000362003e188e988227c460cb000d3c0207c00000000247c40020898487810002f092f084e924fef000c200313c000000000600000164eb900000000200313c0000000004eb9000000004eb90000000042b9460ca50470ff13c0460ca5794eb900000000245f225f205f261f241f221f201f2079000000004ed071b98000182913c0000000004eb9000000002079000000004ed0201723c000000000203c000000002e804eb90000"
+    ],
+    [
+     "stock",
+     "0x400912c2",
+     8
+    ],
+    [
+     "hex",
+     "7cfc4ef94000909c201723c000000000203c000000002e804ef94004aab471b90000000073b9100b14cfb081670000084eb90000000042b9460ca50470ff13c0460ca5794eb9000000004ef94007e8d8"
+    ],
+    [
+     "stock",
+     "0x4005538a",
+     8
+    ],
+    [
+     "hex",
+     "4eb9000000004ef940055392"
+    ],
+    [
+     "stock",
+     "0x4002bb12",
+     8
+    ],
+    [
+     "hex",
+     "0c80000000106600005c4eb9000000002f002f012f082f09202f001802800000000fe188207c00000000d1c02248207c460c9a00223c00000100101812c053816600fff8225f205f221f201f71b9100b14cf13c0000000004eb9000000004eb9000000004ef9400275784fefffc448d77ffe2f0073b9460ca68c4a816600001a4eb900000000201f23c046c824564eb9000000006000000a201f23c046c824564cd77ffe"
+    ],
+    [
+     "stock",
+     "0x40004db2",
+     8
+    ],
+    [
+     "hex",
+     "ffc448d77ffe23c046c8245673b9460ca68c4a816600003e72ff13c100000000207c460c9c00243c0000000f4250d1fc0000009053826a00fff4207c460db000243c0000000f4290d1fc0000000453826a00fff44cd77ffe4fef003c4e7571b9000000000c80000000ff6700001473b980001829b0816700000e13c1000000004eb9000000004eb90000000071398000004a4ef940061e7e"
+    ],
+    [
+     "stock",
+     "0x40037f60",
+     8
+    ],
+    [
+     "hex",
+     "011a71b9000000000c80000000ff6700001e73b980001829b0816700001813c1000000004eb900000000600000084eb9000000002039460d16842a00e78dd0809a80da8302850000001f"
+    ],
+    [
+     "stock",
+     "0x40001872",
+     12
+    ],
+    [
+     "hex",
+     "4c00"
+    ],
+    [
+     "stock",
+     "0x40026f92",
+     8
+    ],
+    [
+     "hex",
+     "d1c1d1fc0008ed9079900c84000000ff670000a202840000000f2404e18a71b9100b14cc028000000007eb88d480d485207c00000000d1c2224873900c81000000ff66000034"
+    ],
+    [
+     "stock",
+     "0x40001872",
+     12
+    ],
+    [
+     "hex",
+     "4c00"
+    ],
+    [
+     "stock",
+     "0x40050240",
+     8
+    ],
+    [
+     "hex",
+     "028000000007eb88d280d285"
+    ],
+    [
+     "stock",
+     "0x4000de58",
+     8
+    ],
+    [
+     "hex",
+     "d1fc0008f1627390d2864eb900000000128171b9100b14cf13c0000000004eb9000000004eb90000000042b9460ca50470ff13c0460ca5794eb9000000004ef940053a364ef940053a5c4ef9400534d8"
+    ],
+    [
+     "stock",
+     "0x40037f60",
+     8
+    ],
+    [
+     "hex",
+     "011c71b9000000000c80000000ff6700001e73b980001829b0816700001813c1000000004eb900000000600000084eb9000000002039460d16842a00e78dd0809a80da8302850000001f"
+    ],
+    [
+     "stock",
+     "0x40001872",
+     12
+    ],
+    [
+     "hex",
+     "4c00"
+    ],
+    [
+     "stock",
+     "0x40026f92",
+     8
+    ],
+    [
+     "hex",
+     "d1c1d1fc0008ed9079a800010c84000000ff670000a202840000000f2404e18a71b9100b14cc028000000007eb88d480d485207c00000000d1c2224873900c81000000ff66000034"
+    ],
+    [
+     "stock",
+     "0x40001872",
+     12
+    ],
+    [
+     "hex",
+     "4c00"
+    ],
+    [
+     "stock",
+     "0x40050240",
+     8
+    ],
+    [
+     "hex",
+     "028000000007eb88d280d285"
+    ],
+    [
+     "stock",
+     "0x4000de58",
+     8
+    ],
+    [
+     "hex",
+     "d1fc0008f1627390d2864eb900000000128171b9100b14cf13c0000000004eb9000000004eb90000000042b9460ca50470ff13c0460ca5794eb9000000004ef9400534644ef94005348c4ef940052ed82439460d169c4a82670000f02f012f022f032f082f0971b9000000000c80000000ff6700001e73b980001829b0816700001813c1000000004eb900000000600000084eb90000"
+    ],
+    [
+     "stock",
+     "0x40097418",
+     8
+    ],
+    [
+     "hex",
+     "223c"
+    ],
+    [
+     "stock",
+     "0x400022d2",
+     8
+    ],
+    [
+     "stock",
+     "0x4000de58",
+     8
+    ],
+    [
+     "hex",
+     "2248d1fc0008ed90"
+    ],
+    [
+     "stock",
+     "0x400a6638",
+     8
+    ],
+    [
+     "hex",
+     "00140c82000000026600007673a800016000000473900c81000000ff6700006202810000000fe189207c000000002008d08177b9100b14cc028300000007eb8bd083"
+    ],
+    [
+     "stock",
+     "0x400506ac",
+     8
+    ],
+    [
+     "stock",
+     "0x4004e368",
+     8
+    ],
+    [
+     "hex",
+     "d08c204071100c80000000ff670000200c80000000806400001672018a81225f205f261f241f221f4ef94004e382225f205f261f241f221f"
+    ],
+    [
+     "stock",
+     "0x4004e348",
+     58
+    ],
+    [
+     "hex",
+     "4ef94004e382"
+    ],
+    [
+     "stock",
+     "0x40037f60",
+     8
+    ],
+    [
+     "hex",
+     "002c2f012f02"
+    ],
+    [
+     "stock",
+     "0x400248be",
+     12
+    ],
+    [
+     "hex",
+     "4c0128009082223946c824569081068000000000241f221f4e7506800008f3e2"
+    ],
+    [
+     "stock",
+     "0x40033f6e",
+     8
+    ],
+    [
+     "hex",
+     "6700002c"
+    ],
+    [
+     "stock",
+     "0x4005038e",
+     8
+    ],
+    [
+     "stock",
+     "0x40005fa4",
+     8
+    ],
+    [
+     "hex",
+     "4c0028009282203946c824569280068100000000241f201f4e7506810008f3e2"
+    ],
+    [
+     "stock",
+     "0x40003d12",
+     8
+    ],
+    [
+     "hex",
+     "04fc71b9000000000c80000000ff6700001e73b980001829b0816700001813c1000000004eb900000000600000084eb900000000242f0020200202800000000fe188207c00000000d1c0223c000001007190"
+    ],
+    [
+     "stock",
+     "0x4001f5c4",
+     8
+    ],
+    [
+     "hex",
+     "0014528853816600ffee202f00204ef940031f4c"
+    ],
+    [
+     "stock",
+     "0x40031fde",
+     12
+    ],
+    [
+     "stock",
+     "0x40060afe",
+     8
+    ],
+    [
+     "hex",
+     "800000126700004071b9000000000c80000000ff6700001e73b980001829b0816700001813c1000000004eb900000000600000084eb900000000"
+    ],
+    [
+     "stock",
+     "0x400238ca",
+     10
+    ],
+    [
+     "hex",
+     "588f"
+    ],
+    [
+     "stock",
+     "0x400434ce",
+     8
+    ],
+    [
+     "stock",
+     "0x40054cb6",
+     16
+    ],
+    [
+     "stock",
+     "0x400238ce",
+     10
+    ],
+    [
+     "stock",
+     "0x40054cce",
+     10
+    ],
+    [
+     "hex",
+     "4eb9000000002f002f012f022f08202f001402800000000fe188207c00000000d1c0223c0000010010bc00ff528853816600fff675b9100b14cf02820000000f2002223c"
+    ],
+    [
+     "stock",
+     "0x400022d2",
+     8
+    ],
+    [
+     "stock",
+     "0x4000de58",
+     8
+    ],
+    [
+     "hex",
+     "d1fc000905224250"
+    ],
+    [
+     "stock",
+     "0x4000de58",
+     8
+    ],
+    [
+     "hex",
+     "d1fc000967ec4250205f241f221f201f71b9100b14cf13c0000000004eb9000000004eb90000000042b9460ca50470ff13c0460ca5794eb9000000004ef940038c304eb9000000002f002f012f082f09202f001802800000000fe188207c00000000d1c0227c460c9a00223c00000100101812c053816600fff8225f205f221f201f4ef9400274cc4fefffc448d77ffe23c046c824564eb9000000004cd77ffe"
+    ],
+    [
+     "stock",
+     "0x40020b60",
+     8
+    ],
+    [
+     "hex",
+     "2f002f012f022f082f09262f001802830000000f24034eb9000000002f01d1fc0009052261000072221f207c100a4eced1c1d1fc000017a26100005e20020280000000ff73b9000000000281000000ffb0816700001473b9100b14cf0281000000ffb08166000022207c00000000223c0000100010bc00ff528853816600fff670ff13c000000000225f205f241f221f201f4ef94004a9d07024429853806600fffa4e752f002f012f022f032f082f092f0a207c460db000720f4290d1fc0000000453816a00fff4247c4002089876002003223c"
+    ],
+    [
+     "stock",
+     "0x400022d2",
+     8
+    ],
+    [
+     "hex",
+     "227c100a4eced3c1d3fc000017a22003223c000000904c001800207c460c9c00d1c1487800902f092f084e924fef000c52830c83000000046500ffba245f225f205f261f241f221f201f4eb9000000004ef9400418e000002f002f012f022f032f052f082f09"
+    ],
+    [
+     "stock",
+     "0x40053aa8",
+     8
+    ],
+    [
+     "hex",
+     "0c8300000005620000b82039460d16842a00e78dd0809a80da8302850000001f2439460d169c"
+    ],
+    [
+     "stock",
+     "0x40024a70",
+     12
+    ],
+    [
+     "hex",
+     "4c00"
+    ],
+    [
+     "stock",
+     "0x4003d694",
+     10
+    ],
+    [
+     "hex",
+     "d1fc0008ed90"
+    ],
+    [
+     "stock",
+     "0x400a6638",
+     10
+    ],
+    [
+     "hex",
+     "75a800016000000475900c82000000ff6700006002820000000fe18a71b9100b14cc028000000007eb88d480d485207c00000000d1c272ff108171b9100b14cf13c0000000004eb9000000004eb90000000042b9460ca50470ff13c0460ca5794eb900000000"
+    ],
+    [
+     "stock",
+     "0x400238ca",
+     10
+    ],
+    [
+     "hex",
+     "588f225f205f2a1f261f241f221f201f"
+    ],
+    [
+     "stock",
+     "0x40033f6e",
+     8
+    ],
+    [
+     "hex",
+     "6700001a2039460d169c4a80670000084eb9000000004ef9400543504ef940053aa8"
+    ],
+    [
+     "stock",
+     "0x40037f60",
+     8
+    ],
+    [
+     "hex",
+     "001a2039460d169c4a80670000084eb9000000004ef940054c524ef94005439c0000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "dirty": [
+   ".run",
+   4440
+  ],
+  "rel_after": [
+   ".run",
+   6508
+  ],
+  "part_window": [
+   ".run",
+   4104
+  ],
+  "hook_a": [
+   ".run",
+   9246
+  ],
+  "morph": [
+   ".run",
+   6376
+  ],
+  "after": [
+   ".run",
+   6676
+  ],
+  "paddi": [
+   ".run",
+   8130
+  ],
+  "freeze_alt": [
+   ".run",
+   4312
+  ],
+  "clr_sc": [
+   ".run",
+   8440
+  ],
+  "unpack_src": [
+   ".run",
+   4097
+  ],
+  "rebuild": [
+   ".run",
+   4132
+  ],
+  "clr_pt": [
+   ".run",
+   8708
+  ],
+  "taddi": [
+   ".run",
+   8070
+  ],
+  "reload": [
+   ".run",
+   6738
+  ],
+  "pad": [
+   ".run",
+   8190
+  ],
+  "last_bank": [
+   ".run",
+   4098
+  ],
+  "unlock": [
+   ".run",
+   9016
+  ],
+  "hold_a": [
+   ".run",
+   7162
+  ],
+  "apply_ret": [
+   ".run",
+   4100
+  ],
+  "release": [
+   ".run",
+   8404
+  ],
+  "hook_b": [
+   ".run",
+   9286
+  ],
+  "bridge_cont": [
+   ".run",
+   6450
+  ],
+  "cpy_sc": [
+   ".run",
+   8606
+  ],
+  "bank_inv": [
+   ".run",
+   7008
+  ],
+  "dial": [
+   ".run",
+   7756
+  ],
+  "bank_sw": [
+   ".run",
+   6944
+  ],
+  "save": [
+   ".run",
+   5136
+  ],
+  "plock": [
+   ".run",
+   6232
+  ],
+  "xf1": [
+   ".run",
+   7104
+  ],
+  "apply_bridge": [
+   ".run",
+   6422
+  ],
+  "bank_pub": [
+   ".run",
+   8676
+  ],
+  "xf_mix": [
+   ".run",
+   5456
+  ],
+  "press": [
+   ".run",
+   8318
+  ],
+  "unpack": [
+   ".run",
+   4884
+  ],
+  "hold_b": [
+   ".run",
+   7458
+  ],
+  "scene_done": [
+   ".run",
+   6760
+  ],
+  "xf2": [
+   ".run",
+   6174
+  ],
+  "last_part": [
+   ".run",
+   4096
+  ],
+  "clamp": [
+   ".run",
+   4522
+  ],
+  "pst_sc": [
+   ".run",
+   6832
+  ],
+  "apply": [
+   ".run",
+   6702
+  ],
+  "after_proj": [
+   ".run",
+   8872
+  ],
+  "write_mix": [
+   ".run",
+   6810
+  ],
+  "pack": [
+   ".run",
+   4634
+  ],
+  "msc": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "after",
+  "after_proj",
+  "apply",
+  "apply_bridge",
+  "apply_ret",
+  "bank_inv",
+  "bank_pub",
+  "bank_sw",
+  "bridge_cont",
+  "clamp",
+  "clr_pt",
+  "clr_sc",
+  "cpy_sc",
+  "dial",
+  "dirty",
+  "freeze_alt",
+  "hold_a",
+  "hold_b",
+  "hook_a",
+  "hook_b",
+  "last_bank",
+  "last_part",
+  "morph",
+  "msc",
+  "pack",
+  "pad",
+  "paddi",
+  "part_window",
+  "plock",
+  "press",
+  "pst_sc",
+  "rebuild",
+  "rel_after",
+  "release",
+  "reload",
+  "save",
+  "scene_done",
+  "taddi",
+  "unlock",
+  "unpack",
+  "unpack_src",
+  "write_mix",
+  "xf1",
+  "xf2",
+  "xf_mix"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   4240,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   4330,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   4384,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   4636,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   4672,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   4708,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   4900,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   4930,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   4984,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   4990,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   5056,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   5078,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   5116,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   5160,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   5242,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   5248,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   5256,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   5344,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   5394,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   5584,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   5616,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   6176,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   6204,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   6210,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6216,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   6356,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   6362,
+   "abs32",
+   "sec:.run",
+   4132
+  ],
+  [
+   ".run",
+   6378,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   6406,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   6412,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6424,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   6432,
+   "abs32",
+   "sec:.run",
+   4100
+  ],
+  [
+   ".run",
+   6438,
+   "abs32",
+   "sec:.run",
+   6450
+  ],
+  [
+   ".run",
+   6458,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   6476,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6496,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   6502,
+   "abs32",
+   "sec:.run",
+   4100
+  ],
+  [
+   ".run",
+   6572,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   6600,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   6610,
+   "abs32",
+   "sec:.run",
+   4312
+  ],
+  [
+   ".run",
+   6618,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   6624,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6630,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   6650,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   6670,
+   "abs32",
+   "sec:.run",
+   4100
+  ],
+  [
+   ".run",
+   6684,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   6690,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6696,
+   "abs32",
+   "sec:.run",
+   4100
+  ],
+  [
+   ".run",
+   6706,
+   "abs32",
+   "sec:.run",
+   4100
+  ],
+  [
+   ".run",
+   6712,
+   "abs32",
+   "sec:.run",
+   6676
+  ],
+  [
+   ".run",
+   6720,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   6742,
+   "abs32",
+   "sec:.run",
+   4100
+  ],
+  [
+   ".run",
+   6748,
+   "abs32",
+   "sec:.run",
+   6508
+  ],
+  [
+   ".run",
+   6762,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   6780,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6800,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   6820,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   6850,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   6876,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   6922,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   6928,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   6934,
+   "abs32",
+   "sec:.run",
+   4440
+  ],
+  [
+   ".run",
+   6968,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   6982,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7038,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7106,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7134,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   7140,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7146,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   7174,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7202,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   7208,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7218,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7316,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   7390,
+   "abs32",
+   "sec:.run",
+   4522
+  ],
+  [
+   ".run",
+   7404,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7410,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   7416,
+   "abs32",
+   "sec:.run",
+   4440
+  ],
+  [
+   ".run",
+   7436,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   7470,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7498,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   7504,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7514,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7614,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   7688,
+   "abs32",
+   "sec:.run",
+   4522
+  ],
+  [
+   ".run",
+   7702,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7708,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   7714,
+   "abs32",
+   "sec:.run",
+   4440
+  ],
+  [
+   ".run",
+   7734,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   7780,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   7808,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   7814,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7824,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   7910,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8112,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8172,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8200,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   8228,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   8234,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8244,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8264,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8336,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   8364,
+   "abs32",
+   "sec:.run",
+   4097
+  ],
+  [
+   ".run",
+   8370,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8380,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8442,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8468,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8564,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   8570,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   8576,
+   "abs32",
+   "sec:.run",
+   4440
+  ],
+  [
+   ".run",
+   8596,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   8608,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8634,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8692,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   8732,
+   "abs32",
+   "sec:.run",
+   4104
+  ],
+  [
+   ".run",
+   8778,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   8814,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   8840,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   9004,
+   "abs32",
+   "sec:.run",
+   4884
+  ],
+  [
+   ".run",
+   9164,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   9182,
+   "abs32",
+   "sec:.run",
+   4096
+  ],
+  [
+   ".run",
+   9188,
+   "abs32",
+   "sec:.run",
+   4634
+  ],
+  [
+   ".run",
+   9194,
+   "abs32",
+   "sec:.run",
+   4440
+  ],
+  [
+   ".run",
+   9214,
+   "abs32",
+   "sec:.run",
+   5456
+  ],
+  [
+   ".run",
+   9270,
+   "abs32",
+   "sec:.run",
+   9016
+  ],
+  [
+   ".run",
+   9310,
+   "abs32",
+   "sec:.run",
+   9016
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x400534ce",
+   "len": 10,
+   "stock_sha256": "0a34a9dae47506440d691aa67432e14ddd2067beefb8fd0a710b9d2602bd2ab6",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:hold_a",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40052ece",
+   "len": 10,
+   "stock_sha256": "c48200c62540f2bbf816fc02f6345c909f39c4a82c6e6db5871503b874f94aa6",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:hold_b",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4004e348",
+   "len": 6,
+   "stock_sha256": "655d6cde4464d3fc4b96a5d4042196495b50b875d84102083b78853d87049b33",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:dial",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400343bc",
+   "len": 6,
+   "stock_sha256": "ef8b9ca3b718a0a3a2211fe3c4f46e8929feb159071ae75a8020b3428fefe195",
+   "new": "4ef9400343c4",
+   "kind": "code",
+   "relocs": []
+  },
+  {
+   "addr": "0x4003445e",
+   "len": 6,
+   "stock_sha256": "ef8b9ca3b718a0a3a2211fe3c4f46e8929feb159071ae75a8020b3428fefe195",
+   "new": "4ef940034466",
+   "kind": "code",
+   "relocs": []
+  },
+  {
+   "addr": "0x400343e8",
+   "len": 6,
+   "stock_sha256": "a6b7abe55b36f6f401bdf3e42ae6914e7ed8bab6e6c8aeb2679c6bc3d5aa3617",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:taddi",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4003448e",
+   "len": 6,
+   "stock_sha256": "6e095c0ed8bb13c8e2f1ed5964cc2aa9e525bc73af9a5e48dce20afec3af21f0",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:paddi",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40034764",
+   "len": 6,
+   "stock_sha256": "a6b7abe55b36f6f401bdf3e42ae6914e7ed8bab6e6c8aeb2679c6bc3d5aa3617",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:taddi",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40034950",
+   "len": 6,
+   "stock_sha256": "a6b7abe55b36f6f401bdf3e42ae6914e7ed8bab6e6c8aeb2679c6bc3d5aa3617",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:taddi",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40031f44",
+   "len": 8,
+   "stock_sha256": "ca0e2748da716f189ef5678b1f45efd14403edf3e213734eda507773d491e9b4",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:pad",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400434ca",
+   "len": 6,
+   "stock_sha256": "4fc2250cd387d3091460994656740d63a8f1278f4b4d68e746740952ccfc2f16",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:press",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40054cb6",
+   "len": 6,
+   "stock_sha256": "a94cfc1a5ffc3afea8bb6e6462532b16371415b1f68bf30a7831840c08f56ed8",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:release",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40062f24",
+   "len": 6,
+   "stock_sha256": "1b5449969cf7d2e5e4ad604545148cb6f6ae52abf834b0ca1cf51be4fbc00e48",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:clr_sc",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40062fbe",
+   "len": 6,
+   "stock_sha256": "95a65977926591c138e4e38d6934e763c743f4abc11d2744cbb6ee5fefb074ac",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:cpy_sc",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40062e3c",
+   "len": 6,
+   "stock_sha256": "17d3a295805f15920e3c1faae63ec3f70244430c108aa6b0e00a461c123db360",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:pst_sc",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002e828",
+   "len": 6,
+   "stock_sha256": "e0790c8446179e7e7631acc3cce1fc78c56b72899c36ed1272f16a8db3fa769f",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:clr_pt",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40053a9e",
+   "len": 10,
+   "stock_sha256": "94cfbe1bad48e5e4815e66723dc09019463cada7a7d6dd797ee097b800be568d",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:hook_a",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40054392",
+   "len": 10,
+   "stock_sha256": "99f93dbc184930d7c5fcef6f3b40b01f0d69c1e0992588d311f2f7686dd4c7ed",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:hook_b",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4003f3a2",
+   "len": 6,
+   "stock_sha256": "5962065952cddcc9abd772416a3f5a49d83d6bb967439bcdc2e8ff04a048cab3",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:morph",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40061e78",
+   "len": 6,
+   "stock_sha256": "da273da9ea374a8f9bc12ec7e2f622d1d5ce7e78d2d655e93655ae9977286e2d",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:xf1",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40062c32",
+   "len": 6,
+   "stock_sha256": "e98feec5aee0adf15225ef81ddf90c904a73d8f3b086fd3aa2eebf4719eb0c96",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:xf2",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40052ae0",
+   "len": 6,
+   "stock_sha256": "8bba7275f6d14bc415fde1897a16d9e4a95dc8ae741ade0e062abe0a870f6c65",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:scene_done",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40052a10",
+   "len": 6,
+   "stock_sha256": "8bba7275f6d14bc415fde1897a16d9e4a95dc8ae741ade0e062abe0a870f6c65",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:scene_done",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4005538a",
+   "len": 8,
+   "stock_sha256": "2d6e09987ff507dbdb14dd2b4e1036b3d9f36c5796205447cf16d47c1b10fb5f",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:write_mix",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4009d1de",
+   "len": 10,
+   "stock_sha256": "b8c681ab6db08000f18dfba4a3641067372a0fb5abc576b2055f49851744e643",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:plock",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002dd12",
+   "len": 6,
+   "stock_sha256": "9baa9fb225a4812b3da68abdc177cb33292fa2cee05d0139476818d7977a194f",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:save",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002dd56",
+   "len": 6,
+   "stock_sha256": "e3a25614d992a47510ed88acb1be409d15ccd8e17b57bd97863cf48108ac307c",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:reload",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4005e05a",
+   "len": 6,
+   "stock_sha256": "e3a25614d992a47510ed88acb1be409d15ccd8e17b57bd97863cf48108ac307c",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:reload",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400622aa",
+   "len": 6,
+   "stock_sha256": "20f4db6e89e2ca275d05fe67bd35c50968fbf1171358af7a97d5210201a230bd",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:bank_sw",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40087d44",
+   "len": 6,
+   "stock_sha256": "20f4db6e89e2ca275d05fe67bd35c50968fbf1171358af7a97d5210201a230bd",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:bank_pub",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001fbd0",
+   "len": 6,
+   "stock_sha256": "20f4db6e89e2ca275d05fe67bd35c50968fbf1171358af7a97d5210201a230bd",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:bank_inv",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40025aa2",
+   "len": 6,
+   "stock_sha256": "20f4db6e89e2ca275d05fe67bd35c50968fbf1171358af7a97d5210201a230bd",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:bank_inv",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400622c6",
+   "len": 6,
+   "stock_sha256": "afad0d9908862e673b0130a710d92307779db90afc4d4f985f7cc058a5b9f1a9",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:after_proj",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002dcd4",
+   "len": 6,
+   "stock_sha256": "70a7c68740cd38dfb8585d9708da810bc6709b021c989f39012925a23162363d",
+   "new": "45f900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:save",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002b59a",
+   "len": 6,
+   "stock_sha256": "7c8333d86904fe92c238f0bd9ef23551df1f712ec5901abac19f10333dd18692",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:apply_bridge",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4002b8f8",
+   "len": 6,
+   "stock_sha256": "7c8333d86904fe92c238f0bd9ef23551df1f712ec5901abac19f10333dd18692",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:apply_bridge",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4004a8fc",
+   "len": 6,
+   "stock_sha256": "7c8333d86904fe92c238f0bd9ef23551df1f712ec5901abac19f10333dd18692",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:apply_bridge",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40029af8",
+   "len": 6,
+   "stock_sha256": "156ec3ed8b04117cf3baac21cf3e71e6d4e9ffed5ff1cdc8858221b9704da891",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:apply_bridge",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40034754",
+   "len": 2,
+   "stock_sha256": "7bdb08fa04994418cc3888650522434eddc440782c695752b17696658db61575",
+   "new": "4e71",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x4003493e",
+   "len": 2,
+   "stock_sha256": "a89aad5cb9834d06e8ebfa5695b54d1ac6bdba2c3deb109738472e69db48b911",
+   "new": "4e71",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x4004a9b0",
+   "len": 2,
+   "stock_sha256": "9d6c12aea7e359d0e9e45a0331a6190ace7f782aeb9762700846c8fd5a1af54b",
+   "new": "6012",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x4004aa8e",
+   "len": 2,
+   "stock_sha256": "9d6c12aea7e359d0e9e45a0331a6190ace7f782aeb9762700846c8fd5a1af54b",
+   "new": "6012",
+   "kind": "data",
+   "relocs": []
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "names": [
+   "octabam:part-window@0x90490",
+   "octabam:part-window@0x904a0",
+   "octabam:part-window@0x904b0",
+   "octabam:part-window@0x904c0",
+   "octabam:part-window@0x904d0",
+   "octabam:part-window@0x904e0",
+   "octabam:part-window@0x904f0",
+   "octabam:part-window@0x90500",
+   "octabam:part-window@0x90510",
+   "octabam:part-window@0x90520",
+   "octabam:part-window@0x90530",
+   "octabam:part-window@0x90540",
+   "octabam:part-window@0x90550",
+   "octabam:part-window@0x90560",
+   "octabam:part-window@0x90570",
+   "octabam:part-window@0x90580",
+   "octabam:part-window@0x90590",
+   "octabam:part-window@0x905a0",
+   "octabam:part-window@0x905b0"
+  ]
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "msc.s": "e75f2f7283bf3f9da222a1d8dff4db46888c5eabec8956a5569e944fdf2b1bee",
+   "state.s": "8804ffe10a450480e34a46107c24a90688777a251b2262bc5fb34900a51f6c8e",
+   "seam.s": "4e8d77dc7c4273668bbb4ca9778070c2f34c9d053622a0b7ffd66c3d36c23c5b",
+   "cave2.s": "08cde1817555e511823b7e57384b4c805f62755e69ed53405d2586a3e921a5f0",
+   "safe_cave.s": "8b3f06a1c0f8db6ba0070741f091a5974fbfe97e341173f843dbc136ee868657",
+   "reload_cave.s": "b3c77bd609143bb7207545f44ac905bbb0c0d6143e9eb2f186ed44379f397fa8",
+   "code2.s": "89e7480718dd0562bdbe3e2387ff63b8889923f627735d71689cd4f3c488a963",
+   "scene_paste.s": "d23106d2aafc8b24cdf81ad1d79bebbbf47b8be2abb922aca3761fd50f8e57d5",
+   "seam_bank.s": "5f919bdabbd5ae25a3693b7349525f86fc8ee40c0538f91d0bbe71cb2b81f135",
+   "stub.s": "8985492aa7878b2f4fb282d850cbb9ceef829c8f71ea6193f67e73bc1e09bc9a",
+   "project_cave.s": "a7ce871e51d4ae4944b73ae020b73a81cf2e14a4d88dc9e2380bf7dab618c0d3",
+   "enc_unlock.s": "025657b030854d096db5ee2678d0e63d255f7f62c73b10b432c7bbc434f2e601"
+  }
+ },
+ "signature": null
+}

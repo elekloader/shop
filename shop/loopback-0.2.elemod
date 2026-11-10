@@ -1,0 +1,805 @@
+{
+ "elemod": 2,
+ "id": "loopback",
+ "version": "0.2",
+ "title": "MIDI LOOPBACK",
+ "description": "An internal MIDI cable for the Digitone mk1 and Digitone Keys: what a MIDI track sends goes back into the unit instead of out, as if it came in on DIN, so a MIDI track can sequence and p-lock the Digitone's own tracks and its master effects (set its CHAN to a synth track's or the FX channel and its CCs to the parameters' CC numbers). LOOP, knob E on the MIDI tracks' TRIG page, switches it per MIDI track and per pattern; the LOOPBACK tile in the Mod Menu (hold a track key) opens the four switches. Applied from the UI task, up to a frame (33 ms) after the step. OS 1.43 and 1.44 (it names no firmware address: its 1.44 port is empty). Needs core-dn1 5.1.",
+ "category": "MIDI",
+ "author": "irpina",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk1",
+  "product": "Digitone mk1",
+  "os": "1.43",
+  "syx_sha256": "c5a54cc05b921f2e4bd814834c5365c2a5aa01d7772a9a2961fac1c3095bf9aa",
+  "section3_sha256": "3831a477a2a22befb23c42e47e782853da49566ef5d0a1767fcf6c30e6767414",
+  "section3_len": 2732208
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1162,
+   "parts": [
+    [
+     "stock",
+     "0x4000976c",
+     8
+    ],
+    [
+     "hex",
+     "242f002497cb45f90000000049f9000000004df900000000486b0004487800ba4eb900000000508f42aa00044a805ec17301448141f31c00223c49434f4e2541000824b68c004a806f4e203c000000002540000c700428ca528b45ea0010b08b66b6c08242b90000000044c266047003c082223c000000004cd77c042f400020203c000000002f410024"
+    ],
+    [
+     "stock",
+     "0x40043072",
+     8
+    ],
+    [
+     "hex",
+     "4ef900000000203c0000000060b0202f0004e080206f00084a80670c420030bc4f4e114000024e7520bc4f46460060f62f027003b0af00146542242f001458822f02487800ba4eb9000000004a805fc0"
+    ],
+    [
+     "stock",
+     "0x400200da",
+     8
+    ],
+    [
+     "hex",
+     "ffff2f02487800ba4eb90000000041ef002c701e23d00000000023c000000000"
+    ],
+    [
+     "stock",
+     "0x400b3d1e",
+     10
+    ],
+    [
+     "hex",
+     "ffe4203900000000"
+    ],
+    [
+     "stock",
+     "0x4014370a",
+     8
+    ],
+    [
+     "hex",
+     "262f00244a80670c"
+    ],
+    [
+     "stock",
+     "0x40097dd0",
+     12
+    ],
+    [
+     "hex",
+     "200372025380b28065ea1a13786f758522020681ffffff80b88165d82479000000004a8a67ce700f7804ca8045ea05f02f04487800ba4eb900000000508f4a806f10102a00810800000067067192b0856750528445ea01467208b28466d260942003781848424242e9a880827401b483672c75ab00015783e18a80824a83661e75ab0002767fc681808241f900000000528121803c0023c1000000006026428260e222390000000020012079000000009088ee8867aa203900000000528023c00000000070016000ff2e4feffff020390000000048d74c002c79000000004a806f12538023c0000000007001206f00141140002045f900000000203900000000bdc0660a4cd74c004fef00104e75200e727fc08120320c002200424148413f40000d1f41000c42011f41000f720123c1000000007218e2a82f00486f00104eb90000000042b900000000528e23ce00000000508f60a42f0a4ab9000000006f000092"
+    ],
+    [
+     "stock",
+     "0x4003e890",
+     8
+    ],
+    [
+     "stock",
+     "0x4003e876",
+     8
+    ],
+    [
+     "hex",
+     "004c45f9000000002f2f001c4e9220390000000058802f00487800ba4eb9000000004fef00204a806f5a203c000000002f0020390000000052802f00487900000000"
+    ],
+    [
+     "stock",
+     "0x400736bc",
+     10
+    ],
+    [
+     "hex",
+     "004f4879000000002f2f00244eb900000000"
+    ],
+    [
+     "stock",
+     "0x40035b64",
+     8
+    ],
+    [
+     "stock",
+     "0x4003e81c",
+     12
+    ],
+    [
+     "hex",
+     "4878004c2f2f001c"
+    ],
+    [
+     "stock",
+     "0x400968fc",
+     10
+    ],
+    [
+     "hex",
+     "203c0000000060a40000000000000000000049434f4e00000000000000000000000000000000000000000000000000000000000000000000000000003ffc4002400247e24812481240024002481240027f3e"
+    ],
+    [
+     "stock",
+     "0x401cddb0",
+     8
+    ],
+    [
+     "hex",
+     "00003ffc4002400247e2481248124812481247e240027f3e"
+    ],
+    [
+     "stock",
+     "0x401cddb0",
+     8
+    ],
+    [
+     "stock",
+     "0x401cee28",
+     10
+    ],
+    [
+     "hex",
+     "00ba000000ba"
+    ],
+    [
+     "stock",
+     "0x401cd050",
+     8
+    ],
+    [
+     "stock",
+     "0x4018d274",
+     16
+    ],
+    [
+     "hex",
+     "ffffffffffff"
+    ],
+    [
+     "stock",
+     "0x4018d106",
+     22
+    ],
+    [
+     "hex",
+     "0000000000000000"
+    ],
+    [
+     "stock",
+     "0x4018ccb8",
+     8
+    ],
+    [
+     "hex",
+     "4f4e004f4646004d2564204c4f4f50202573004c4f4f504241434b004d4944492031204f4646004d4944492032204f4646004d4944492033204f4646004d4944492034204f4646004d4944492031204c4f4f50004d4944492032204c4f4f50004d4944492033204c4f4f50004d4944492034204c4f4f50004c6f6f706261636b004c4f4f5000"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 620
+  }
+ },
+ "symbols": {
+  "loop_open": [
+   ".run",
+   0
+  ],
+  "rows": [
+   ".bss",
+   20
+  ],
+  "row_list": [
+   ".bss",
+   0
+  ],
+  "names": [
+   ".run",
+   848
+  ],
+  "loop_icon": [
+   ".run",
+   912
+  ],
+  "row_pick": [
+   ".run",
+   202
+  ],
+  "off_icon": [
+   ".run",
+   880
+  ],
+  "loop_format": [
+   ".run",
+   168
+  ],
+  "shown_track": [
+   ".bss",
+   84
+  ],
+  "shown": [
+   ".bss",
+   88
+  ],
+  "applying": [
+   ".bss",
+   96
+  ],
+  "ring": [
+   ".bss",
+   108
+  ],
+  "head": [
+   ".bss",
+   104
+  ],
+  "tail": [
+   ".bss",
+   100
+  ],
+  "dropped": [
+   ".bss",
+   92
+  ],
+  "loop_draw": [
+   ".run",
+   662
+  ],
+  "loop_param": [
+   ".run",
+   956
+  ],
+  "loop_knob": [
+   ".run",
+   944
+  ],
+  "loop_tick": [
+   ".run",
+   522
+  ],
+  "loop_seq": [
+   ".run",
+   282
+  ],
+  "loop_menu": [
+   ".run",
+   832
+  ]
+ },
+ "exports": [
+  "loop_draw",
+  "loop_knob",
+  "loop_menu",
+  "loop_param",
+  "loop_seq",
+  "loop_tick"
+ ],
+ "imports": [
+  "core_lane_set",
+  "core_lane_track",
+  "core_menu_open",
+  "core_midi_receive",
+  "fw_fillrect",
+  "fw_font5",
+  "fw_kit",
+  "fw_str_empty",
+  "fw_textf"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   16,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   22,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   28,
+   "abs32",
+   "sec:.run",
+   848
+  ],
+  [
+   ".run",
+   42,
+   "abs32",
+   "sym:core_lane_track",
+   0
+  ],
+  [
+   ".run",
+   84,
+   "abs32",
+   "sec:.run",
+   912
+  ],
+  [
+   ".run",
+   110,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   124,
+   "abs32",
+   "sec:.run",
+   202
+  ],
+  [
+   ".run",
+   138,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   156,
+   "abs32",
+   "sym:core_menu_open",
+   0
+  ],
+  [
+   ".run",
+   162,
+   "abs32",
+   "sec:.run",
+   880
+  ],
+  [
+   ".run",
+   226,
+   "abs32",
+   "sym:core_lane_track",
+   0
+  ],
+  [
+   ".run",
+   252,
+   "abs32",
+   "sym:core_lane_set",
+   0
+  ],
+  [
+   ".run",
+   264,
+   "abs32",
+   "sec:.bss",
+   84
+  ],
+  [
+   ".run",
+   270,
+   "abs32",
+   "sec:.bss",
+   88
+  ],
+  [
+   ".run",
+   288,
+   "abs32",
+   "sec:.bss",
+   96
+  ],
+  [
+   ".run",
+   350,
+   "abs32",
+   "sym:fw_kit",
+   0
+  ],
+  [
+   ".run",
+   376,
+   "abs32",
+   "sym:core_lane_track",
+   0
+  ],
+  [
+   ".run",
+   460,
+   "abs32",
+   "sec:.bss",
+   108
+  ],
+  [
+   ".run",
+   472,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   484,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   492,
+   "abs32",
+   "sec:.bss",
+   100
+  ],
+  [
+   ".run",
+   504,
+   "abs32",
+   "sec:.bss",
+   92
+  ],
+  [
+   ".run",
+   512,
+   "abs32",
+   "sec:.bss",
+   92
+  ],
+  [
+   ".run",
+   528,
+   "abs32",
+   "sec:.bss",
+   88
+  ],
+  [
+   ".run",
+   538,
+   "abs32",
+   "sec:.bss",
+   100
+  ],
+  [
+   ".run",
+   550,
+   "abs32",
+   "sec:.bss",
+   88
+  ],
+  [
+   ".run",
+   566,
+   "abs32",
+   "sec:.bss",
+   108
+  ],
+  [
+   ".run",
+   572,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   624,
+   "abs32",
+   "sec:.bss",
+   96
+  ],
+  [
+   ".run",
+   640,
+   "abs32",
+   "sym:core_midi_receive",
+   0
+  ],
+  [
+   ".run",
+   646,
+   "abs32",
+   "sec:.bss",
+   96
+  ],
+  [
+   ".run",
+   654,
+   "abs32",
+   "sec:.bss",
+   100
+  ],
+  [
+   ".run",
+   666,
+   "abs32",
+   "sec:.bss",
+   88
+  ],
+  [
+   ".run",
+   694,
+   "abs32",
+   "sym:fw_fillrect",
+   0
+  ],
+  [
+   ".run",
+   706,
+   "abs32",
+   "sec:.bss",
+   84
+  ],
+  [
+   ".run",
+   720,
+   "abs32",
+   "sym:core_lane_track",
+   0
+  ],
+  [
+   ".run",
+   734,
+   "abs32",
+   "sec:.run",
+   1028
+  ],
+  [
+   ".run",
+   742,
+   "abs32",
+   "sec:.bss",
+   84
+  ],
+  [
+   ".run",
+   752,
+   "abs32",
+   "sec:.run",
+   1035
+  ],
+  [
+   ".run",
+   770,
+   "abs32",
+   "sym:fw_font5",
+   0
+  ],
+  [
+   ".run",
+   780,
+   "abs32",
+   "sym:fw_textf",
+   0
+  ],
+  [
+   ".run",
+   824,
+   "abs32",
+   "sec:.run",
+   1031
+  ],
+  [
+   ".run",
+   832,
+   "abs32",
+   "sec:.run",
+   1047
+  ],
+  [
+   ".run",
+   836,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   844,
+   "abs32",
+   "sec:.run",
+   912
+  ],
+  [
+   ".run",
+   848,
+   "abs32",
+   "sec:.run",
+   1056
+  ],
+  [
+   ".run",
+   852,
+   "abs32",
+   "sec:.run",
+   1067
+  ],
+  [
+   ".run",
+   856,
+   "abs32",
+   "sec:.run",
+   1078
+  ],
+  [
+   ".run",
+   860,
+   "abs32",
+   "sec:.run",
+   1089
+  ],
+  [
+   ".run",
+   864,
+   "abs32",
+   "sec:.run",
+   1100
+  ],
+  [
+   ".run",
+   868,
+   "abs32",
+   "sec:.run",
+   1112
+  ],
+  [
+   ".run",
+   872,
+   "abs32",
+   "sec:.run",
+   1124
+  ],
+  [
+   ".run",
+   876,
+   "abs32",
+   "sec:.run",
+   1136
+  ],
+  [
+   ".run",
+   1000,
+   "abs32",
+   "sec:.run",
+   1148
+  ],
+  [
+   ".run",
+   1004,
+   "abs32",
+   "sym:fw_str_empty",
+   0
+  ],
+  [
+   ".run",
+   1008,
+   "abs32",
+   "sec:.run",
+   1157
+  ],
+  [
+   ".run",
+   1012,
+   "abs32",
+   "sec:.run",
+   168
+  ],
+  [
+   ".run",
+   1016,
+   "abs32",
+   "sym:fw_str_empty",
+   0
+  ]
+ ],
+ "sites": [],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_seq_midi",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:loop_seq",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_tick",
+   "order": 20,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:loop_tick",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_draw",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:loop_draw",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_menu",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:loop_menu",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_params",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:loop_param",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_knobs",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:loop_knob",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "5.1",
+  "names": [
+   "param:186",
+   "knob:19:4"
+  ]
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "loopback.c": "ff7e96bc46bc4feef3cc5720a28490e6301fd5d26485827888e884fa5c677c3d"
+  }
+ },
+ "signature": null
+}
