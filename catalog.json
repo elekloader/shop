@@ -426,19 +426,19 @@
       "thumb": {"tag": "v1.2", "file": "thumb.png", "sha256": "a121ebb05a28e7dd37b64dc663698cb75c8eebba73d6ac494f3b617ac412ae2f"}
     },
     {
-      "repo": "DigiAlchemydsp/Tone-FX", "tag": "v4.0c", "file": "tonefx-4.0c-os1.44.elemod",
+      "repo": "DigiAlchemydsp/Tone-FX", "tag": "v4.1a", "file": "tonefx-4.1a.elemod",
       "device": "digitone-mk1", "needs_core": "4.0",
-      "sha256": "d6be0f9bc55e566672a0453c0fbe8c45e919ad17cc8088c9532edb98f82cfebb",
+      "sha256": "feb3b2da58366797fcf5e617fe3b02468976caa88f81fdc7194ee63ab5871b65",
       "summary": "A master effect suite for the Digitone mk1/Keys and Digitakt mk1: ring, fold, tilt EQ, crush, pitch/stereo, delays, macros and performance pads.",
-      "on_unit": "Tested on hardware; fully functional and stable.",
+      "on_unit": "As of 4.1a: emulator (digiemu) verified; the audio path is unchanged from 4.0c, which ran on hardware.",
       "thumb": {"tag": "v4.0c", "file": "thumb.png", "sha256": "57a06dcf11062f09d996685057fba4827a50e167e36675221a291490bd952997"}
     },
     {
-      "repo": "DigiAlchemydsp/Tone-FX", "tag": "v4.0c", "file": "tonefx-4.0c.elemod",
+      "repo": "DigiAlchemydsp/Tone-FX", "tag": "v4.1a", "file": "tonefx-4.1a-os1.44.elemod",
       "device": "digitone-mk1", "needs_core": "4.0",
-      "sha256": "9ff2fc72225a009666d903676129748960a577f552fa0e5c946f24a50e49616d",
+      "sha256": "1f0c010dda323d534d8599539a190bf9b2b905ba7eee5aca255fd269a50c3173",
       "summary": "A master effect suite for the Digitone mk1/Keys and Digitakt mk1: ring, fold, tilt EQ, crush, pitch/stereo, delays, macros and performance pads.",
-      "on_unit": "Tested on hardware; fully functional and stable.",
+      "on_unit": "As of 4.1a: emulator (digiemu) verified; the audio path is unchanged from 4.0c, which ran on hardware.",
       "thumb": {"tag": "v4.0c", "file": "thumb.png", "sha256": "57a06dcf11062f09d996685057fba4827a50e167e36675221a291490bd952997"}
     },
     {
