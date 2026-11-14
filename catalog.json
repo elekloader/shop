@@ -450,9 +450,9 @@
       "thumb": {"tag": "v4.0c", "file": "thumb.png", "sha256": "57a06dcf11062f09d996685057fba4827a50e167e36675221a291490bd952997"}
     },
     {
-      "repo": "DigiAlchemydsp/Tone-FX", "tag": "v4.1a", "file": "tonefx-4.1a-os1.44.elemod",
+      "repo": "DigiAlchemydsp/Tone-FX", "tag": "v4.3b", "file": "tonefx-4.3b-os1.44.elemod",
       "device": "digitone-mk1", "needs_core": "4.0",
-      "sha256": "1f0c010dda323d534d8599539a190bf9b2b905ba7eee5aca255fd269a50c3173",
+      "sha256": "770e2a9dd1f92660ec5d31483bb21b3649a2929df5efc01a35c3dc55435acd53",
       "summary": "A master effect suite for the Digitone mk1/Keys and Digitakt mk1: ring, fold, tilt EQ, crush, pitch/stereo, delays, macros and performance pads.",
       "on_unit": "As of 4.1a: emulator (digiemu) verified; the audio path is unchanged from 4.0c, which ran on hardware.",
       "thumb": {"tag": "v4.0c", "file": "thumb.png", "sha256": "57a06dcf11062f09d996685057fba4827a50e167e36675221a291490bd952997"}
