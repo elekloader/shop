@@ -894,6 +894,83 @@
       "thumb": null
     },
     {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "ctrlall-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "a89cb867879b5f0b6eec7d6ff6314bd1398cbe80b5815cb7397665bb181ae77d",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "dejavu-0.5.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "226c81c93cd5d9ab2b5c4ad5f2ee017e4069c6af02b0232434c7c5ea6db93eea",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "euclidacc-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "427615d7ee2f1b31b4b754e127d431c8c91db3ac75e969e2b54e00fd2c4fc6c4",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "humanise-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "82c81a49a7e4ec1cd6a27649e53937e036efffe21e495f3a9402e43069db6c4d",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "kitab-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "e19f3c2fcba07a6f645be1e9ca1d0511900f1188f2c9ad4fc59b2f1e0549ad65",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "lfoplus-0.5.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "97678b39b6045a19b021663c72c5981563e89bc81fa016a714a8324d6b670cb0",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "modsettings-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "5083f4d00706384f31f360d5b680d449857c66a181c14c7fac31e70efaa28067",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "mutesnap-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "98d467d2bbd7beb2341dbd63e569b2d12da71a1898d006ed2c572b87aa87092d",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "realunits-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "57ccb6c50a89528ccad0c3bc68ad04b9ee75ced1c2b146173b66a42cfa5213d2",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "seq-events-0.1-os1.54.elemod",
+      "device": "digitakt-mk1",
+      "sha256": "f7393b8d8321020148258fbc3b92fd605318994b029052c78eb603b70d675e0e",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "tracksolo-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "2fca50ade29f2942e47cb0151484a58995996fd753d489a09011b2fe4ccaada5",
+      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
