@@ -894,6 +894,20 @@
       "thumb": null
     },
     {
+      "repo": "ceredmeat/digitakt-fx-locks", "tag": "Digitakt-FX-Locks", "file": "fxlocks-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "30e902131a05d5174a4c894051ed9f491a9d6c6e25e81c4dd45286057443e96e",
+      "summary": "Parameter locks on the delay (TIME in note values, WID, FDBK) and reverb DEC straight from an audio track: hold a trig and turn the knob, no MIDI track needed.",
+      "on_unit": "0.2 tested on a real Digitakt MKI (OS 1.54): delay TIME/WID/FDBK and reverb DEC locks play back from audio tracks, TIME snaps to note values, the pattern's value comes back after the lock. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/digitakt-fx-locks", "tag": "Digitakt-FX-Locks", "file": "seq-events-0.1-os1.54.elemod",
+      "device": "digitakt-mk1",
+      "sha256": "f7393b8d8321020148258fbc3b92fd605318994b029052c78eb603b70d675e0e",
+      "summary": "Parameter locks on the delay (TIME in note values, WID, FDBK) and reverb DEC straight from an audio track: hold a trig and turn the knob, no MIDI track needed.",
+      "on_unit": "0.2 tested on a real Digitakt MKI (OS 1.54): delay TIME/WID/FDBK and reverb DEC locks play back from audio tracks, TIME snaps to note values, the pattern's value comes back after the lock. OS 1.53 not supported."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
