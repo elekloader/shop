@@ -894,6 +894,13 @@
       "thumb": null
     },
     {
+      "repo": "MatthCrn/DigiArp", "tag": "v0.62.0dev0", "file": "DigiArp-0.62.0dev0.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "b7c8bbe77faefbf0b16863babcbc563b64a999e9f31d7717e91cba5056ab6456",
+      "summary": "Audio and MIDI arpeggiator and evolving Melody Engine for Digitakt OG, with six presets, progressive variations, FREEZE, RISE, live step editing and a third LFO on audio tracks.",
+      "on_unit": "D620 was tested by the author on a Digitakt MK1, with CPU reported below 90% using eight active tracks and LFOs. Test duration, full settings and free RAM remain undocumented."
+    },
+    {
       "repo": "ceredmeat/digitakt-fx-locks", "tag": "Digitakt-FX-Locks", "file": "fxlocks-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "30e902131a05d5174a4c894051ed9f491a9d6c6e25e81c4dd45286057443e96e",
