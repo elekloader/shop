@@ -985,13 +985,6 @@
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
-      "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "seq-events-0.1-os1.54.elemod",
-      "device": "digitakt-mk1",
-      "sha256": "f7393b8d8321020148258fbc3b92fd605318994b029052c78eb603b70d675e0e",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
-      "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
-    },
-    {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "tracksolo-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "2fca50ade29f2942e47cb0151484a58995996fd753d489a09011b2fe4ccaada5",
