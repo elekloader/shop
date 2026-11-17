@@ -992,6 +992,27 @@
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
+      "repo": "ntrrptr/transpose-dt", "tag": "v0.6.3", "file": "seq-events-dt-0.2-os1.53.elemod",
+      "device": "digitakt-mk1",
+      "sha256": "652fe1ccbdef9f52fe6b79a5a2e73102c223893c358b3a46b7a83ff191d568b8",
+      "summary": "Transpose each track Â±48 semitones from the TRK+NO overlay; UP/DOWN set the octave range, TRIG 1â€“16 and knob H set the offset, YES commits it to the pattern.",
+      "on_unit": "Flashed on a Digitakt mk1 and used the full controls: TRK+NO overlay, TRIG pads, knob H and YES commit. No other units or OS versions tested."
+    },
+    {
+      "repo": "ntrrptr/transpose-dt", "tag": "v0.6.3", "file": "transpose-dt-0.6.3-os1.53.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "c69b4fc125f338a1be492f189226603959c681d0988d36eab44249cf45aa868d",
+      "summary": "Transpose each track Â±48 semitones from the TRK+NO overlay; UP/DOWN set the octave range, TRIG 1â€“16 and knob H set the offset, YES commits it to the pattern.",
+      "on_unit": "Flashed on a Digitakt mk1 and used the full controls: TRK+NO overlay, TRIG pads, knob H and YES commit. No other units or OS versions tested."
+    },
+    {
+      "repo": "ntrrptr/transpose-dt", "tag": "v0.6.3", "file": "transpose-dt-0.6.3-os1.54.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "87f550b511211c481867b3cedd97f13ba60fe6f2cb062d74e37b26bc3f78d6e4",
+      "summary": "Transpose each track Â±48 semitones from the TRK+NO overlay; UP/DOWN set the octave range, TRIG 1â€“16 and knob H set the offset, YES commits it to the pattern.",
+      "on_unit": "Flashed on a Digitakt mk1 and used the full controls: TRK+NO overlay, TRIG pads, knob H and YES commit. No other units or OS versions tested."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
