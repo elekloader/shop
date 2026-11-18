@@ -1028,6 +1028,76 @@
       "on_unit": "Tested on a unit. The one I'm using currently is version 1.6."
     },
     {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "density-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "ec2580d627728a38f8307dd638e1e71cba883c00832d6e245227e30f22f31e95",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "djfilter-0.7.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "cc6f9a6d380c1e1785d02826e6394ab9fc423489012894bd658da5724e3bb4ff",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "drive-0.4.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "844359bf9d0526d5ec0af3aab4281369ccf653dabb8cf10f52043fc95c396a7b",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "freqseq-0.5.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "5da3e493ec0651fdd0bebbe698a8314de8a20dfac7bb5e8a2a1460554d581914",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "multitrig-0.5.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "2d36b4fa33e5ac971a099f9728404db0e0c4e4e93d1b896fa1575160d54c31d3",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "polymeter-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "096513b65b7f43c2a1b0df84fc7f17035d078ae3b8220cb386afa8200aed5bea",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "reverse-0.4.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "d7c22688c77bf47106cde445468238e6f830ac5662e8ccb9d8640de645960c21",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "scenes-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "a38d68c9b91c0ca81df1744ee73522177f986a26398de03bc9070f3470296a8f",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "trigmodes-0.5.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "074bbe289634f0df2d755761d77f62f0699af004898b6efbc9ce8b057e5e5e47",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "visuals-0.3.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "c7ff1fea60419fb679c8bdb7c8c7acb8a924ab32c7f00004f62971164df3280b",
+      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
