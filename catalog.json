@@ -902,11 +902,11 @@
       "thumb": {"tag": "v0.62.0dev0", "file": "thumb-digiarp-smoke.png", "sha256": "8f737a917f1879de16e763d7878dc629eb6d4088a8fe07074670afc0f2222fea"}
     },
     {
-      "repo": "ceredmeat/DIGITAKT-LED-COLORS", "tag": "0.5LEDCOLORS", "file": "ledcolors-0.5.elemod",
+      "repo": "ceredmeat/DIGITAKT-LED-COLORS", "tag": "0.9LEDCOLORS", "file": "ledcolors-0.9.elemod",
       "device": "digitakt-mk1", "needs_core": "4.0",
-      "sha256": "f047a28bca269bb234af1b3b9bb4bd324e58af3be9354038ba895de32ea09437",
+      "sha256": "940dfc405ce19a6aeb3e8b0c9b6a5f6d40cdeb8fe2bbc2a20c8f44df3a22896d",
       "summary": "Custom LED themes, an RGB colour picker, per-track trig colours and 10 idle light shows for the Digitakt MKI, all in a fold-away LED COLORS section in SETTINGS.",
-      "on_unit": "0.5 tested on a real Digitakt MKI (OS 1.54): themes, colour editing, per-track colours, the TRK colour view, the LED COLORS section and the light shows. OS 1.53 not supported."
+      "on_unit": "Digitakt MKI, OS 1.54: themes and custom colours (including editing RED with a coloured track active), per-track colours, quick mute (TRK + FUNC) showing green/red, LED FX (HEAT, RIPPLE, BREATH), HEAT following the DJ filter, and settings surviving a power cycle."
     },
     {
       "repo": "ceredmeat/digitakt-fx-locks", "tag": "Digitakt-FX-Locks", "file": "fxlocks-0.2.elemod",
