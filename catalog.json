@@ -902,11 +902,11 @@
       "thumb": {"tag": "v0.62.0dev0", "file": "thumb-digiarp-smoke.png", "sha256": "8f737a917f1879de16e763d7878dc629eb6d4088a8fe07074670afc0f2222fea"}
     },
     {
-      "repo": "ceredmeat/DIGITAKT-LED-COLORS", "tag": "0.5LEDCOLORS", "file": "ledcolors-0.5.elemod",
+      "repo": "ceredmeat/DIGITAKT-LED-COLORS", "tag": "0.9LEDCOLORS", "file": "ledcolors-0.9.elemod",
       "device": "digitakt-mk1", "needs_core": "4.0",
-      "sha256": "f047a28bca269bb234af1b3b9bb4bd324e58af3be9354038ba895de32ea09437",
+      "sha256": "940dfc405ce19a6aeb3e8b0c9b6a5f6d40cdeb8fe2bbc2a20c8f44df3a22896d",
       "summary": "Custom LED themes, an RGB colour picker, per-track trig colours and 10 idle light shows for the Digitakt MKI, all in a fold-away LED COLORS section in SETTINGS.",
-      "on_unit": "0.5 tested on a real Digitakt MKI (OS 1.54): themes, colour editing, per-track colours, the TRK colour view, the LED COLORS section and the light shows. OS 1.53 not supported."
+      "on_unit": "Digitakt MKI, OS 1.54: themes and custom colours (including editing RED with a coloured track active), per-track colours, quick mute (TRK + FUNC) showing green/red, LED FX (HEAT, RIPPLE, BREATH), HEAT following the DJ filter, and settings surviving a power cycle."
     },
     {
       "repo": "ceredmeat/digitakt-fx-locks", "tag": "Digitakt-FX-Locks", "file": "fxlocks-0.2.elemod",
@@ -1026,6 +1026,13 @@
       "sha256": "2d63627d76dd81ecee33b5c4895478bd309fa6d74fc9f11cda823d9b5e6c901c",
       "summary": "Software MIDI loopback cable for Digitakt mk1: MIDI tracks 9â€“16 feed audio tracks 1â€“8 and Master FX internally via CCs, p-locks, notes and the MIDI LFO; the FLTR page's CC labels are renamed to the internal parameter names, and it switches on/off in SETTINGS > MIDI LOOPBACK.",
       "on_unit": "Tested on a unit. The one I'm using currently is version 1.6."
+    },
+    {
+      "repo": "ceredmeat/DIGIWAVE", "tag": "v0.4", "file": "digiwave-0.4.elemod",
+      "device": "digitakt-mk1", "needs_core": "3.0",
+      "sha256": "1177093a6f478607b4c549a6aea634eb31a1fc0dd9f3737956d3424e4e79f928",
+      "summary": "A PPG-style wavetable machine: two wavetable oscillators and a sub, 26 tables, wave envelope, smooth-to-stepped sweeps, bit crush and a 3D wavetable view.",
+      "on_unit": "0.4 tested on a real Digitakt MKI (OS 1.54) with machine-pages and the flexmods: sound, all tables, wave envelope, STEP, BITS, both pages and the VIEW display, saving and reloading kits, p-locks and the LFO; six tracks play at once without lag. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "density-0.2.elemod",
