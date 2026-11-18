@@ -1028,6 +1028,13 @@
       "on_unit": "Tested on a unit. The one I'm using currently is version 1.6."
     },
     {
+      "repo": "ceredmeat/DIGIWAVE", "tag": "v0.4", "file": "digiwave-0.4.elemod",
+      "device": "digitakt-mk1", "needs_core": "3.0",
+      "sha256": "1177093a6f478607b4c549a6aea634eb31a1fc0dd9f3737956d3424e4e79f928",
+      "summary": "A PPG-style wavetable machine: two wavetable oscillators and a sub, 26 tables, wave envelope, smooth-to-stepped sweeps, bit crush and a 3D wavetable view.",
+      "on_unit": "0.4 tested on a real Digitakt MKI (OS 1.54) with machine-pages and the flexmods: sound, all tables, wave envelope, STEP, BITS, both pages and the VIEW display, saving and reloading kits, p-locks and the LFO; six tracks play at once without lag. OS 1.53 not supported."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
