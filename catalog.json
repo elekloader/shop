@@ -1028,11 +1028,11 @@
       "on_unit": "Tested on a unit. The one I'm using currently is version 1.6."
     },
     {
-      "repo": "ceredmeat/DIGIWAVE", "tag": "v0.4", "file": "digiwave-0.4.elemod",
+      "repo": "ceredmeat/DIGIWAVE", "tag": "v0.5", "file": "digiwave-0.5.elemod",
       "device": "digitakt-mk1", "needs_core": "3.0",
-      "sha256": "1177093a6f478607b4c549a6aea634eb31a1fc0dd9f3737956d3424e4e79f928",
+      "sha256": "2becde2d9f0e602dad8bbfa35b03398d231b760b8fe58ce1aa94934db258444c",
       "summary": "A PPG-style wavetable machine: two wavetable oscillators and a sub, 26 tables, wave envelope, smooth-to-stepped sweeps, bit crush and a 3D wavetable view.",
-      "on_unit": "0.4 tested on a real Digitakt MKI (OS 1.54) with machine-pages and the flexmods: sound, all tables, wave envelope, STEP, BITS, both pages and the VIEW display, saving and reloading kits, p-locks and the LFO; six tracks play at once without lag. OS 1.53 not supported."
+      "on_unit": "Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "density-0.2.elemod",
