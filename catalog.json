@@ -1433,6 +1433,13 @@
       "sha256": "2b9ccbb39fa757ac68ac56ee248d7f4d2cd0f087a894944adaba450bd0932ba3",
       "summary": "Removes SPATIALIZER. USB audio both ways: 2 ch (MAIN) out, A-D in.",
       "on_unit": "Not yet run on a unit."
+    },
+    {
+      "repo": "vitel2/digitone2-mods", "tag": "midi-lfo-run-v1.0", "file": "midi-lfo-run-1.0.elemod",
+      "device": "digitone-mk2", "needs_core": "0.1",
+      "sha256": "2f48afd6624266cacd65ed630185fc42478069de445aa7971960f30f97693aac",
+      "summary": "Fixes MIDI-track LFOs freezing after a new project until a note trig plays: FRE/TRG LFOs run with no trigs, and send CCs while playing or paused, not while stopped.",
+      "on_unit": "Digitone II, OS 1.12. New and saved projects: MIDI LFO CCs stream on PLAY with no note trigs, continue while paused and stop on STOP."
     }
   ]
 }
