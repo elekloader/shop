@@ -1433,6 +1433,13 @@
       "sha256": "2b9ccbb39fa757ac68ac56ee248d7f4d2cd0f087a894944adaba450bd0932ba3",
       "summary": "Removes SPATIALIZER. USB audio both ways: 2 ch (MAIN) out, A-D in.",
       "on_unit": "Not yet run on a unit."
+    },
+    {
+      "repo": "vitel2/digitone2-mods", "tag": "midi-lfo3-v1.0", "file": "midi-lfo3-1.0.elemod",
+      "device": "digitone-mk2", "needs_core": "0.1",
+      "sha256": "7179c097dd6e5259fdd560ec7e65769fe237422cede6070a6b69122cb2bb804c",
+      "summary": "Adds a third LFO to MIDI tracks, with the same controls and destinations as LFO1 and LFO2.",
+      "on_unit": "Digitone II, OS 1.12. LFO3 on MIDI tracks modulating CCs."
     }
   ]
 }
