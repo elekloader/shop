@@ -1049,11 +1049,11 @@
       "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
     },
     {
-      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "drive-0.4.elemod",
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.4", "file": "drive-0.5.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
-      "sha256": "844359bf9d0526d5ec0af3aab4281369ccf653dabb8cf10f52043fc95c396a7b",
+      "sha256": "3e0a9d20b49820b0d5d74b4a54a3ff64c134d7281bf4d442320bb00b1963c93d",
       "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
-      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+      "on_unit": "DRIVE 0.5 on a Digitakt MKI, OS 1.54: all four drive types, levels kept even, settings surviving a power cycle, and the low pass gate."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "freqseq-0.5.elemod",
