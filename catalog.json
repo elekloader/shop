@@ -1433,6 +1433,13 @@
       "sha256": "2b9ccbb39fa757ac68ac56ee248d7f4d2cd0f087a894944adaba450bd0932ba3",
       "summary": "Removes SPATIALIZER. USB audio both ways: 2 ch (MAIN) out, A-D in.",
       "on_unit": "Not yet run on a unit."
+    },
+    {
+      "repo": "vitel2/digitone2-mods", "tag": "blocks-v1.0", "file": "blocks-1.0.elemod",
+      "device": "digitone-mk2", "needs_core": "0.1",
+      "sha256": "569520858355dbcd69acaff0b7179a74c552210a4e338f842b36d43007bf5c4c",
+      "summary": "A BLOCKS page in TRACK LAYERING: when one track plays a trig, a track it blocks is silenced on that step, for linear breakbeat grooves.",
+      "on_unit": "Digitone II, OS 1.12. Blocking between synth tracks."
     }
   ]
 }
