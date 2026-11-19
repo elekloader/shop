@@ -1433,6 +1433,13 @@
       "sha256": "2b9ccbb39fa757ac68ac56ee248d7f4d2cd0f087a894944adaba450bd0932ba3",
       "summary": "Removes SPATIALIZER. USB audio both ways: 2 ch (MAIN) out, A-D in.",
       "on_unit": "Not yet run on a unit."
+    },
+    {
+      "repo": "vitel2/digitone2-mods", "tag": "lfo-preset-shuffle-v1.0", "file": "lfo-preset-shuffle-1.0.elemod",
+      "device": "digitone-mk2", "needs_core": "0.1",
+      "sha256": "30ec53688aaeb326ab83ad4a875df853cb454c70b469f36ffda91250c27a5a1e",
+      "summary": "Adds a POOL LFO destination: each sequencer trig plays a preset-pool slot picked by the LFO's wave, with DEP setting how much of the pool it reaches.",
+      "on_unit": "Digitone II, OS 1.12. POOL selectable on synth-track LFOs and shuffling pool presets per trig; MIDI-track LFOs unaffected."
     }
   ]
 }
