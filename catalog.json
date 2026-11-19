@@ -1105,6 +1105,20 @@
       "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
     },
     {
+      "repo": "ntrrptr/noinput-dt", "tag": "v0.6", "file": "noinput-0.6-os1.53.elemod",
+      "device": "digitakt-mk1", "needs_core": "3.0",
+      "sha256": "4507d63db6dbe29119c7b380aac97ae56388b7d6945efa8175da7a57955e2b66",
+      "summary": "Turns each track into a no-input mixer channel: a feedback loop (delay, tone, clipper, noise) that listens to another track, all other tracks or the audio inputs, so patched tracks howl like a desk fed back into itself; the trig opens the track's amp envelope.",
+      "on_unit": "I am using version 0.6 on my Digitakt mk1."
+    },
+    {
+      "repo": "ntrrptr/noinput-dt", "tag": "v0.6", "file": "noinput-0.6-os1.54.elemod",
+      "device": "digitakt-mk1", "needs_core": "3.0",
+      "sha256": "49f4a87bf3c57835d6ac0585baf000e58c42a02320d3a8581f8a53785773f5a8",
+      "summary": "Turns each track into a no-input mixer channel: a feedback loop (delay, tone, clipper, noise) that listens to another track, all other tracks or the audio inputs, so patched tracks howl like a desk fed back into itself; the trig opens the track's amp envelope.",
+      "on_unit": "I am using version 0.6 on my Digitakt mk1."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
