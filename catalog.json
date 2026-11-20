@@ -1468,6 +1468,13 @@
       "sha256": "30ec53688aaeb326ab83ad4a875df853cb454c70b469f36ffda91250c27a5a1e",
       "summary": "Adds a POOL LFO destination: each sequencer trig plays a preset-pool slot picked by the LFO's wave, with DEP setting how much of the pool it reaches.",
       "on_unit": "Digitone II, OS 1.12. POOL selectable on synth-track LFOs and shuffling pool presets per trig; MIDI-track LFOs unaffected."
+    },
+    {
+      "repo": "vitel2/digitone2-mods", "tag": "midi-lfo3-v1.0", "file": "midi-lfo3-1.0.elemod",
+      "device": "digitone-mk2", "needs_core": "0.1",
+      "sha256": "7179c097dd6e5259fdd560ec7e65769fe237422cede6070a6b69122cb2bb804c",
+      "summary": "Adds a third LFO to MIDI tracks, with the same controls and destinations as LFO1 and LFO2.",
+      "on_unit": "Digitone II, OS 1.12. LFO3 on MIDI tracks modulating CCs."
     }
   ]
 }
