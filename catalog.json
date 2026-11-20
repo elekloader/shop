@@ -1454,6 +1454,13 @@
       "sha256": "2f48afd6624266cacd65ed630185fc42478069de445aa7971960f30f97693aac",
       "summary": "Fixes MIDI-track LFOs freezing after a new project until a note trig plays: FRE/TRG LFOs run with no trigs, and send CCs while playing or paused, not while stopped.",
       "on_unit": "Digitone II, OS 1.12. New and saved projects: MIDI LFO CCs stream on PLAY with no note trigs, continue while paused and stop on STOP."
+    },
+    {
+      "repo": "vitel2/digitone2-mods", "tag": "blocks-v1.0", "file": "blocks-1.0.elemod",
+      "device": "digitone-mk2", "needs_core": "0.1",
+      "sha256": "569520858355dbcd69acaff0b7179a74c552210a4e338f842b36d43007bf5c4c",
+      "summary": "A BLOCKS page in TRACK LAYERING: when one track plays a trig, a track it blocks is silenced on that step, for linear breakbeat grooves.",
+      "on_unit": "Digitone II, OS 1.12. Blocking between synth tracks."
     }
   ]
 }
