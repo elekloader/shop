@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// elekloader's mod manager in TypeScript. The Python package (elekloader/) is the reference: for the same stock file
+// and mods this engine writes the same bytes and says the same things (test/, tools/parity.ts).
+export { VERSION } from './version.js'
+export { Bridge, device } from './bridge.js'
+export { LoaderModel, Store, suggestedName, withRequirements } from './model.js'
+export { PatchError, build, save, loadAny,           } from './patch.js'
+export { Mod2, link,             } from './link.js'
+export { Mod, ModError, apply, check, insnCheck, summarize, EXTS } from './elemod.js'
+export * as formats from './formats.js'
+export * as syx from './syx.js'
+export * as elek from './elek.js'
+export * as devices from './devices.js'
+export * as aplib from './codec/aplib.js'
+export * as elz from './codec/elz.js'
+export * as transport from './codec/transport.js'
+export * as coldfire from './isa/coldfire.js'
+export { sha, sha256, hmacSha256, toHex } from './bytes.js'
+export * as drive from './drive.js'
+export * as drivestore from './drivestore.js'
+export * as container from './container.js'
+export * as datarpc from './datarpc.js'

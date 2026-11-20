@@ -1,0 +1,594 @@
+{
+ "elemod": 2,
+ "id": "fxlocks",
+ "version": "0.2",
+ "title": "FX Locks: lock delay and reverb from the track",
+ "description": "Parameter locks on the shared delay and reverb, from the audio track itself: hold a trig and turn delay TIME (it steps through note values: 1/16, 1/8., 1/4 ...), WID or FDBK or reverb DEC on their pages, as for any lock. The step sets the delay/reverb when it plays and keeps it until the track's next trig, then the pattern's own value comes back. Two tracks locking the same knob at once: the higher track wins. The locks use sound slots 48-51, which no audio machine uses (not with machine-pages' extra-value machines). Needs seq-events.",
+ "category": "Sequencer",
+ "author": "Cere, made with Claude",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitakt-mk1",
+  "product": "Digitakt mk1",
+  "os": "1.54",
+  "syx_sha256": "f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6",
+  "section3_sha256": "5c58bf9e3949ef09977c5fc007a61e8d026931f67f1621238379dfb8ee4d31a2",
+  "section3_len": 2479680
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1462,
+   "parts": [
+    [
+     "stock",
+     "0x40023bbc",
+     8
+    ],
+    [
+     "hex",
+     "2f2f000c4eb9000000004fef000c4a806b02"
+    ],
+    [
+     "stock",
+     "0x40016536",
+     10
+    ],
+    [
+     "hex",
+     "4ef94003158e"
+    ],
+    [
+     "stock",
+     "0x40023bbc",
+     8
+    ],
+    [
+     "hex",
+     "2f2f000c4eb9000000004fef000c4a806b02"
+    ],
+    [
+     "stock",
+     "0x4000413a",
+     8
+    ],
+    [
+     "hex",
+     "0c044ef940031724"
+    ],
+    [
+     "stock",
+     "0x40007044",
+     8
+    ],
+    [
+     "hex",
+     "4eb900000000"
+    ],
+    [
+     "stock",
+     "0x400072a4",
+     8
+    ],
+    [
+     "hex",
+     "2f172f00203c80001a182f400008201f4e754fefffd47246"
+    ],
+    [
+     "stock",
+     "0x40085cb6",
+     8
+    ],
+    [
+     "hex",
+     "2a2f0038b28067247448b480670002007c49bc80670001fe724fb280670001fc70ff"
+    ],
+    [
+     "stock",
+     "0x400035ea",
+     10
+    ],
+    [
+     "hex",
+     "42834eb94013892824404a8067e64a2a016067e04eb9401388827c07"
+    ],
+    [
+     "stock",
+     "0x4002ba4e",
+     20
+    ],
+    [
+     "hex",
+     "2400bc8065be2f04"
+    ],
+    [
+     "stock",
+     "0x400088d6",
+     8
+    ],
+    [
+     "hex",
+     "3a7c7f00428747f9"
+    ],
+    [
+     "stock",
+     "0x40120ed8",
+     8
+    ],
+    [
+     "hex",
+     "40012a02242a0158222a015c4fef000c49f900000000280042807c1fbc876d0000ae0f01670001207db338002f062f072f044eb940023c7a"
+    ],
+    [
+     "stock",
+     "0x400672ac",
+     8
+    ],
+    [
+     "hex",
+     "00b44a83660000d4e0809dce4281227c7fffffff75b41800b0826f0000f0204091c2b3c86f042c4122485281740eb48166e24a856f0000de720cb28e6d0001044a89670873b4e800b2806e0473b4e8012001e1880c8000007f006f00008a200d2f002f062f072f04"
+    ],
+    [
+     "stock",
+     "0x4002af44",
+     10
+    ],
+    [
+     "hex",
+     "700152877440b4876700feea242a01587c1f222a015cbc876c00ff5622070681ffffffe0030267da7db338002f062f072f044eb940023c7a4fef000c4a806c00ff502039800019ac4a806700008e41f90000000073b03800d281d0812040716805304a836700ff30d0850c8000007f006e00ff7a4a806c00ff7642802f002f062f072f04"
+    ],
+    [
+     "stock",
+     "0x4002af44",
+     10
+    ],
+    [
+     "hex",
+     "70016000ff7052876000fed0204291c06000ff104a85660c73b4e8002001e1886000ff324a8e6ff04a89670a73b4e800b2806d00ff1c73b4e8ff2001e1886000ff14727f2001e1886000ff0a42806000feb276016000fe1c76026000fe1676036000fe104fefffe47246202f002448d70c7c266f0028b28067247448b480670000dc7c49bc80670000da724fb280670000d8"
+    ],
+    [
+     "stock",
+     "0x40085932",
+     8
+    ],
+    [
+     "hex",
+     "001c4e7542844eb94013892824404a8067e64a2a016067e04eb9401388827c07"
+    ],
+    [
+     "stock",
+     "0x40036458",
+     8
+    ],
+    [
+     "stock",
+     "0x4000889c",
+     8
+    ],
+    [
+     "hex",
+     "d24e508f2400bc8065be2f03"
+    ],
+    [
+     "stock",
+     "0x400088d6",
+     16
+    ],
+    [
+     "hex",
+     "2a2a0158262a015c4fef000c428124017c1f0682ffffffe0bc816d480303673441f90000000075b04800"
+    ],
+    [
+     "stock",
+     "0x40024794",
+     8
+    ],
+    [
+     "hex",
+     "40023c7a"
+    ],
+    [
+     "stock",
+     "0x400672ac",
+     8
+    ],
+    [
+     "hex",
+     "ff6e4a8b6700ff6a16bc0001"
+    ],
+    [
+     "stock",
+     "0x40004c6e",
+     10
+    ],
+    [
+     "hex",
+     "528124017c1f0682ffffffe0bc816cb8050566b852817440b481669e70ff6000ff3a78016000ff4078026000ff3a78036000ff344fefffe87007"
+    ],
+    [
+     "stock",
+     "0x4007a1e0",
+     8
+    ],
+    [
+     "hex",
+     "2a2f0020b083654241f90000000028303c004a846734428247f90000000045f90000000071b32800"
+    ],
+    [
+     "stock",
+     "0x40122850",
+     8
+    ],
+    [
+     "hex",
+     "40023c7a4fef000c22025282e789d28335801a007004b08266da4cd70c3c"
+    ],
+    [
+     "stock",
+     "0x40100cf0",
+     8
+    ],
+    [
+     "stock",
+     "0x4000441e",
+     8
+    ],
+    [
+     "hex",
+     "4ab9000000006770428447f90000000041f90000000045f9000000002404428016334800e78a327cffff2202d28032301a006b02224052807208b28066ec4a896d40d3c232309a007a0177832003068020000c7ce588068340000c29d68324014842424215854800224022822243328152847004b08466a4"
+    ],
+    [
+     "stock",
+     "0x400044e4",
+     10
+    ],
+    [
+     "hex",
+     "4a32480067e82039800019ac4a806736738342052601d28115854800d0812240200332290530068020000c7c068340000c29240148424242e588d683224022822243328160a842057783424142822003068340000c29068020000c7c1585480060d6"
+    ],
+    [
+     "stock",
+     "0x40004832",
+     8
+    ],
+    [
+     "stock",
+     "0x40008890",
+     12
+    ],
+    [
+     "hex",
+     "5786588f22390000000026004a81672a428245f900000000"
+    ],
+    [
+     "stock",
+     "0x400309fa",
+     8
+    ],
+    [
+     "hex",
+     "2a02508f25802c0070085282"
+    ],
+    [
+     "stock",
+     "0x40167bac",
+     8
+    ],
+    [
+     "hex",
+     "4fef000c4e7543f9000000002001528174ffe9883382080041f108007004314200023142000431420006314200083142000a3142000c45e8000e34bcffffb08166ca740123c200000000428245f90000000060900001020305070b0f171f2f3f5f7f303132331113141a"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 104
+  }
+ },
+ "symbols": {
+  "lk_slot": [
+   ".run",
+   1454
+  ],
+  "notes": [
+   ".run",
+   1440
+  ],
+  "fx_slot": [
+   ".run",
+   1458
+  ],
+  "pats": [
+   ".bss",
+   4
+  ],
+  "claim": [
+   ".bss",
+   36
+  ],
+  "inited": [
+   ".bss",
+   0
+  ],
+  "overridden": [
+   ".bss",
+   100
+  ],
+  "fxl_shown": [
+   ".run",
+   682
+  ],
+  "fxl_enc": [
+   ".run",
+   124
+  ],
+  "fxl_render_s": [
+   ".run",
+   84
+  ],
+  "fxl_locks": [
+   ".run",
+   948
+  ],
+  "fxl_enc_s": [
+   ".run",
+   0
+  ],
+  "fxl_render": [
+   ".run",
+   1048
+  ],
+  "fxl_tick": [
+   ".run",
+   1284
+  ],
+  "fxl_shown_s": [
+   ".run",
+   42
+  ]
+ },
+ "exports": [
+  "fxl_enc",
+  "fxl_enc_s",
+  "fxl_locks",
+  "fxl_render",
+  "fxl_render_s",
+  "fxl_shown",
+  "fxl_shown_s",
+  "fxl_tick"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   14,
+   "abs32",
+   "sec:.run",
+   124
+  ],
+  [
+   ".run",
+   56,
+   "abs32",
+   "sec:.run",
+   682
+  ],
+  [
+   ".run",
+   94,
+   "abs32",
+   "sec:.run",
+   1048
+  ],
+  [
+   ".run",
+   254,
+   "abs32",
+   "sec:.run",
+   1454
+  ],
+  [
+   ".run",
+   280,
+   "abs32",
+   "sec:.run",
+   1440
+  ],
+  [
+   ".run",
+   520,
+   "abs32",
+   "sec:.run",
+   1458
+  ],
+  [
+   ".run",
+   846,
+   "abs32",
+   "sec:.run",
+   1454
+  ],
+  [
+   ".run",
+   972,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   988,
+   "abs32",
+   "sec:.run",
+   1454
+  ],
+  [
+   ".run",
+   994,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   1058,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   1068,
+   "abs32",
+   "sec:.run",
+   1458
+  ],
+  [
+   ".run",
+   1074,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   1080,
+   "abs32",
+   "sec:.bss",
+   100
+  ],
+  [
+   ".run",
+   1310,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   1324,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   1364,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   1426,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   1434,
+   "abs32",
+   "sec:.bss",
+   4
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x40031586",
+   "len": 8,
+   "stock_sha256": "af77a7b1640c1baf25448958fd673c98665736f452d7f947a576e567eba095d1",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:fxl_enc_s",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4003171c",
+   "len": 8,
+   "stock_sha256": "6e2837eb257cd7ecda82c10fc02309de7a8bee75d4d62df23de3ac71f49d8e40",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:fxl_shown_s",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40077fc2",
+   "len": 6,
+   "stock_sha256": "1d9a6dd30041e324c459e5843eade5a0808799f5d4287454d04780b14ed01c97",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:fxl_render_s",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_tick",
+   "order": 99,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fxl_tick",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_fire_locks",
+   "order": 90,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fxl_locks",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "4.1",
+  "names": [
+   "slots:48-51"
+  ]
+ },
+ "requires": [
+  "core",
+  "seq-events"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "fxlocks.c": "c0121c577f8218aea12852b0e568a458b7bd05d85af14425e0a45f1a3fbc99c7",
+   "fxlocks.s": "b76990801f50698f6fdabf7dfe3691cc7e0d4e42167fc9e7cb1537acb7697abb"
+  }
+ },
+ "signature": null
+}

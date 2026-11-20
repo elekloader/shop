@@ -1,0 +1,54 @@
+{
+ "elemod": 2,
+ "id": "octabam-lofi-amf-fix",
+ "version": "363861e",
+ "title": "LOFI AMF FIX",
+ "description": "Fixes stock LO-FI's AMF knob: mpysu -> mpyuu, both payloads. Ported from bryantysinger/octa-bt-pt. (octabam module lofi-amf-fix, converted from 363861e)",
+ "category": "Fixes",
+ "author": "bryantysinger/octa-bt-pt",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {},
+ "symbols": {},
+ "exports": [],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x400f4bbb",
+   "len": 3,
+   "stock_sha256": "7a4ab30f26d6c9ce57e2792642a3696ccdd8ffadb7b3542383da636d163c9f10",
+   "new": "cd2701",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x40107b0c",
+   "len": 3,
+   "stock_sha256": "7a4ab30f26d6c9ce57e2792642a3696ccdd8ffadb7b3542383da636d163c9f10",
+   "new": "cd2701",
+   "kind": "data",
+   "relocs": []
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {}
+ },
+ "signature": null
+}

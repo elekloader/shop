@@ -1,0 +1,587 @@
+{
+ "elemod": 2,
+ "id": "blocks",
+ "version": "1.0",
+ "title": "BLOCKS",
+ "description": "Linear-groove blocking for breakbeats. TRACK LAYERING (FUNC+3, SETUP) gets a third page, BLOCKS, after the triggering and CHOKES pages. When track A blocks track B and A plays a sequencer trig, B's sequencer trig on the same step is dropped, so only A sounds there. Any track can block any other, lower- or higher-numbered. Blocks are saved with the pattern's kit.",
+ "category": "Sequencer",
+ "author": "Vijay",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk2",
+  "product": "Digitone II",
+  "os": "1.12",
+  "syx_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "section3_sha256": "a098f620019b2ad38fd7e0397df39501fb1cf6bc26d0283915f34c49446fdf1a",
+  "section3_len": 3196288
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1212,
+   "parts": [
+    [
+     "hex",
+     "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    [
+     "stock",
+     "0x401d0a90",
+     10
+    ],
+    [
+     "hex",
+     "000025732043484f4b45532e2e2e0000"
+    ],
+    [
+     "stock",
+     "0x40026520",
+     8
+    ],
+    [
+     "hex",
+     "205f74004a806600011c4fefffe848d70c782448"
+    ],
+    [
+     "stock",
+     "0x4000d4d8",
+     8
+    ],
+    [
+     "hex",
+     "00fe202a003808000011660000f2262a0010700fb083650000e6282a00084abaffa6670000b07a002079800052a041e801107c00b686671070001010e18810280001070067020dc541e8048b52867010b08666e0202eff8c32394058f88802810000ffff80814680ca80670000687c0041fafe5472000305671a2001e98843f00800b899670cb8996708b8996704b899660203c652817010b08166dacc85665c226a00687240616466522679446452282f3c00000060200b671853976b14226b0008724061466606266b001060e8588f602a588f41fafde0700010303800220052810281000000031181380041fafdd82203e989d1c121840c00600274014cd70c784fef00184e7574014e752009673853816b34b8a9000866287001b0a900046620b0a90014661a20290038080000116610202900100c800000000f62040105660a2269006860c47000"
+    ],
+    [
+     "stock",
+     "0x40030b12",
+     10
+    ],
+    [
+     "hex",
+     "2008672c7200122800dce189122800dd2f01"
+    ],
+    [
+     "stock",
+     "0x4004e9e6",
+     8
+    ],
+    [
+     "hex",
+     "6114508f221f206f0004114100dde089114100dc"
+    ],
+    [
+     "stock",
+     "0x40008a3c",
+     10
+    ],
+    [
+     "hex",
+     "4ef9400dd35641ea012e43eb0110720f129013680001000141e8016743e9048b53816aec"
+    ],
+    [
+     "stock",
+     "0x400ddf52",
+     8
+    ],
+    [
+     "hex",
+     "4ef9400ddf5a41ea012e43eb0110720f109111690001000141e8016743e9048b53816aec2f02486b5d204ef9400de0c242aa017442b900000000612870034ef94010fd042541017442b9000000007002b081660623c00000000061082f0a4ef9401105b641fafdb343fa00164abafda4670443fa0012700510d953806afa4e7543484f4b4553424c4f434b537201b28066064ef9401102ae7202b28066064ef9401102c24ef9401102e67201b28066064ef9401103a87202b28067064ef94011038a"
+    ],
+    [
+     "stock",
+     "0x4011038e",
+     14
+    ],
+    [
+     "hex",
+     "67064ef9401103d44ef94011039e4abafd32660c2f0a246f00084ef94003175e"
+    ],
+    [
+     "stock",
+     "0x400294f4",
+     12
+    ],
+    [
+     "stock",
+     "0x40030ed4",
+     8
+    ],
+    [
+     "hex",
+     "67282040222f000c"
+    ],
+    [
+     "stock",
+     "0x400d8c32",
+     8
+    ],
+    [
+     "hex",
+     "1000d1c1700010280110e18810280111222f0010e2a87201c081245f4e754abafcde660e"
+    ],
+    [
+     "stock",
+     "0x400059aa",
+     8
+    ],
+    [
+     "hex",
+     "4ef9400316c0"
+    ],
+    [
+     "stock",
+     "0x400045d6",
+     8
+    ],
+    [
+     "stock",
+     "0x40050094",
+     10
+    ],
+    [
+     "stock",
+     "0x40030ed4",
+     8
+    ],
+    [
+     "hex",
+     "674c2040222f0014"
+    ],
+    [
+     "stock",
+     "0x400d8c32",
+     8
+    ],
+    [
+     "hex",
+     "1000d1c141e8011074001410e18a14280001222f00187601e3ab4a2f001f6704848360044683c48311420001e08a1082"
+    ],
+    [
+     "stock",
+     "0x400301ce",
+     8
+    ],
+    [
+     "hex",
+     "00504e90"
+    ],
+    [
+     "stock",
+     "0x40177932",
+     12
+    ],
+    [
+     "hex",
+     "0000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "hidx": [
+   ".run",
+   0
+  ],
+  "hist": [
+   ".run",
+   16
+  ],
+  "enable": [
+   ".run",
+   272
+  ],
+  "flag": [
+   ".run",
+   276
+  ],
+  "title": [
+   ".run",
+   280
+  ],
+  "KIT": [
+   "abs",
+   2147504800
+  ],
+  "SOUND": [
+   "abs",
+   1163
+  ],
+  "ROW0": [
+   "abs",
+   272
+  ],
+  "SROW0": [
+   "abs",
+   302
+  ],
+  "SSOUND": [
+   "abs",
+   359
+  ],
+  "QHEAD": [
+   "abs",
+   1147425320
+  ],
+  "FPMUTE": [
+   "abs",
+   4294967180
+  ],
+  "PMUTE": [
+   "abs",
+   1079572616
+  ],
+  "gate": [
+   ".run",
+   294
+  ],
+  ".skip": [
+   ".run",
+   594
+  ],
+  ".done": [
+   ".run",
+   584
+  ],
+  ".record": [
+   ".run",
+   542
+  ],
+  ".block": [
+   ".run",
+   582
+  ],
+  ".chain": [
+   ".run",
+   598
+  ],
+  "sdes": [
+   ".run",
+   666
+  ],
+  "kload": [
+   ".run",
+   732
+  ],
+  "ksave": [
+   ".run",
+   776
+  ],
+  "vinit": [
+   ".run",
+   818
+  ],
+  "settitle": [
+   ".run",
+   870
+  ],
+  "vpage": [
+   ".run",
+   838
+  ],
+  "chokes": [
+   ".run",
+   898
+  ],
+  "blocks": [
+   ".run",
+   904
+  ],
+  "vtoggle": [
+   ".run",
+   910
+  ],
+  "vglyph": [
+   ".run",
+   940
+  ],
+  "bget": [
+   ".run",
+   992
+  ],
+  "bset": [
+   ".run",
+   1076
+  ],
+  "blk_vpage": [
+   ".run",
+   838
+  ],
+  "blk_bget": [
+   ".run",
+   992
+  ],
+  "blk_gate": [
+   ".run",
+   294
+  ],
+  "blk_bset": [
+   ".run",
+   1076
+  ],
+  "blk_vtoggle": [
+   ".run",
+   910
+  ],
+  "blk_sdes": [
+   ".run",
+   666
+  ],
+  "blk_title": [
+   ".run",
+   280
+  ],
+  "blk_ksave": [
+   ".run",
+   776
+  ],
+  "blk_vinit": [
+   ".run",
+   818
+  ],
+  "blk_kload": [
+   ".run",
+   732
+  ],
+  "blk_vglyph": [
+   ".run",
+   940
+  ]
+ },
+ "exports": [
+  "blk_bget",
+  "blk_bset",
+  "blk_gate",
+  "blk_kload",
+  "blk_ksave",
+  "blk_sdes",
+  "blk_title",
+  "blk_vglyph",
+  "blk_vinit",
+  "blk_vpage",
+  "blk_vtoggle"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   824,
+   "abs32",
+   "sec:.run",
+   276
+  ],
+  [
+   ".run",
+   844,
+   "abs32",
+   "sec:.run",
+   276
+  ],
+  [
+   ".run",
+   856,
+   "abs32",
+   "sec:.run",
+   276
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x40027bca",
+   "len": 4,
+   "stock_sha256": "5d74fa6b4dd30c8cbd046bdffa0bd408caae4f6f498464bb7d7ad016d2323f7b",
+   "new": "6000e964",
+   "kind": "code",
+   "relocs": []
+  },
+  {
+   "addr": "0x4002651e",
+   "len": 18,
+   "stock_sha256": "1403c8261b77e59e289bdfcf14c727b19435d1ba16df5e1f1359e910da418ee5",
+   "new": "4eb9000000004e714e714e714e714e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_gate",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400dd34e",
+   "len": 8,
+   "stock_sha256": "534e5693c800e439722db3cb8a0b817470f23c204088f74f23049608ad80afa9",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_sdes",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400ddf52",
+   "len": 8,
+   "stock_sha256": "e556db73a326bcbca59902592e93a8635fbbd3e133cc2b940bdde6f2388005c9",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_kload",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400de0bc",
+   "len": 6,
+   "stock_sha256": "0af72f0f06842d599b8f070595b52353456cbe45db34dc94ce06c54c5d2b7c96",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_ksave",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4010fcfe",
+   "len": 6,
+   "stock_sha256": "91c31333adf75693915b153176348c9f8852e6ca761748035815e93e03b69ade",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_vinit",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x401105b0",
+   "len": 6,
+   "stock_sha256": "8defb8a26d6acde56c0d9d8c723b213dc71938990e0266358ede4431071cf1e4",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_vpage",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4010ff62",
+   "len": 4,
+   "stock_sha256": "8178f2d4c6d6da1fd761da5477ab7fc061ada5897abca53493974d6484f5d4e0",
+   "new": "4e714e71",
+   "kind": "code",
+   "relocs": []
+  },
+  {
+   "addr": "0x4010ff92",
+   "len": 6,
+   "stock_sha256": "c6c0694e3ef24c7ea516464edf9ff02faa474ed5cc551b1099f37d34c08d61cb",
+   "new": "487900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_title",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x401102a8",
+   "len": 6,
+   "stock_sha256": "04fce5a25ac49df9f2e1345560e25ef245572ed740e2c9d80a100ed5a6f9ed09",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_vtoggle",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x401103a2",
+   "len": 6,
+   "stock_sha256": "9528500ab0b38d41ff7a292bccab585049886600d1d17d286df805fc8a0357e5",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_vglyph",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40031758",
+   "len": 6,
+   "stock_sha256": "8d1503d38f264a9b0be0700a53c1e2e61354803cc529f54092a511ae826bca7f",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_bget",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400316b8",
+   "len": 8,
+   "stock_sha256": "a04973fb79ed0896aa768e97902a85f61a10ad9d106955b3fe7a112c76d0e51f",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:blk_bset",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "core": "0.1"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "blocks.s": "08b69b6b776269066bf4bf40bd4695bdcf49358c75814057442e5fa87447eaa6"
+  }
+ },
+ "signature": null
+}

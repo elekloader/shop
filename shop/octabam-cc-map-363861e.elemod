@@ -1,0 +1,406 @@
+{
+ "elemod": 2,
+ "id": "octabam-cc-map",
+ "version": "363861e",
+ "title": "CC MAP",
+ "description": "MIDI CC 62-67 drive the FX2 engine's page-2 slots 6-11; CC 68-73 the FX1 station's. (octabam module cc-map, converted from 363861e)",
+ "category": "MIDI and USB",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 724,
+   "parts": [
+    [
+     "hex",
+     "206f000470001028000104800000003e720bb280650260064ef94000e79c"
+    ],
+    [
+     "stock",
+     "0x40000400",
+     8
+    ],
+    [
+     "hex",
+     "28002448"
+    ],
+    [
+     "stock",
+     "0x4000a3ec",
+     12
+    ],
+    [
+     "hex",
+     "7a001a2a000202850000007f4a398000004967287000101202800000000f"
+    ],
+    [
+     "stock",
+     "0x4000e7bc",
+     8
+    ],
+    [
+     "hex",
+     "0c007c007001eda8c0876702611252867008b0866eee"
+    ],
+    [
+     "stock",
+     "0x40000544",
+     10
+    ],
+    [
+     "hex",
+     "7206b2846f000114203946c8245672001239"
+    ],
+    [
+     "stock",
+     "0x4003bfd2",
+     12
+    ],
+    [
+     "hex",
+     "1000"
+    ],
+    [
+     "stock",
+     "0x4000d228",
+     8
+    ],
+    [
+     "hex",
+     "ed88d1c6700010107206b28067107207b28067024e7543f900000000600643f90000000072001231480053812405b4816f022401203946c8245672001239"
+    ],
+    [
+     "stock",
+     "0x4003bfd2",
+     12
+    ],
+    [
+     "hex",
+     "1000d0817200"
+    ],
+    [
+     "stock",
+     "0x4000d228",
+     8
+    ],
+    [
+     "hex",
+     "f0842206761e4c031000d1c1d1c41082"
+    ],
+    [
+     "stock",
+     "0x4005d5c0",
+     8
+    ],
+    [
+     "hex",
+     "d1c1d1c41082220676484c03100041f980000810d1c1d1fc00000038d1c410822606721e4c013000220092b946c82456d2830681100a51d22041d1c4108272001239800000037601e3ab207946c824562248d3fc000950481211828312811239100b145e828313c1100b145ed1fc0009b3327201208123c1100f8598610000ea4e75203946c8245672001239"
+    ],
+    [
+     "stock",
+     "0x4003bfd2",
+     12
+    ],
+    [
+     "hex",
+     "1000"
+    ],
+    [
+     "stock",
+     "0x4000d228",
+     8
+    ],
+    [
+     "hex",
+     "ed80d1c672001210670000ba43f9400d5f5822711c00260441f13c002228009a2628006ad28353812405b4836c022403b4816f0224012206761e4c03100026045d832040"
+    ],
+    [
+     "stock",
+     "0x4005a78c",
+     8
+    ],
+    [
+     "hex",
+     "f07e1082224093f946c82456d3c1d3c3d3fc100a51cc128272001239800000037601e3ab207946c824562248d3fc000950481211828312811239100b145e828313c1100b145ed1fc0009b3327201208123c1100f8598220676484c03100026045d8341f980000810d1c1d1fc00000032d1c3108261000028"
+    ],
+    [
+     "stock",
+     "0x40001d4a",
+     8
+    ],
+    [
+     "hex",
+     "0470244428067a001a39800000034eb940027e1a4cd70470"
+    ],
+    [
+     "stock",
+     "0x40005c76",
+     8
+    ],
+    [
+     "hex",
+     "fff048d704702a045d85244528067a001a39800000034eb940027e1a4cd704704fef00104e75038080808080038080048080"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "CC_MODEDEF1": [
+   "abs",
+   1073905178
+  ],
+  "CC_MODEDEF2": [
+   "abs",
+   1073905178
+  ],
+  "CC_NEXT": [
+   "abs",
+   1073801116
+  ],
+  "P1WRITE": [
+   "abs",
+   1074089176
+  ],
+  "MAPBUILD": [
+   "abs",
+   1073748052
+  ],
+  "MAPGLOB": [
+   "abs",
+   1175473396
+  ],
+  "CHANMASK": [
+   "abs",
+   1187511998
+  ],
+  "CCIN": [
+   "abs",
+   2147483721
+  ],
+  "IDLIVE": [
+   "abs",
+   2147487436
+  ],
+  "IDOFF": [
+   "abs",
+   585096
+  ],
+  "DBPTR": [
+   "abs",
+   1187521622
+  ],
+  "PARTB": [
+   "abs",
+   2147483651
+  ],
+  "P2OFF": [
+   "abs",
+   585860
+  ],
+  "DISPOFF": [
+   "abs",
+   585860
+  ],
+  "LIVEB": [
+   "abs",
+   2147485712
+  ],
+  "MIRRB": [
+   "abs",
+   269111488
+  ],
+  "SHADOW": [
+   "abs",
+   269111762
+  ],
+  "CHGBITS": [
+   "abs",
+   610376
+  ],
+  "MODBITS": [
+   "abs",
+   269161566
+  ],
+  "CHGFLAG": [
+   "abs",
+   635698
+  ],
+  "GCHG": [
+   "abs",
+   269452696
+  ],
+  "FX2P2": [
+   "abs",
+   0
+  ],
+  "VERBID": [
+   "abs",
+   7
+  ],
+  "DLYID": [
+   "abs",
+   6
+  ],
+  "ID1OFF": [
+   "abs",
+   585088
+  ],
+  "DESC1": [
+   "abs",
+   1074618200
+  ],
+  "P1P2OFF": [
+   "abs",
+   585854
+  ],
+  "SHADOW1": [
+   "abs",
+   269111756
+  ],
+  "LANE1": [
+   "abs",
+   50
+  ],
+  "CAVE": [
+   ".run",
+   0
+  ],
+  "tostk": [
+   ".run",
+   24
+  ],
+  "mine": [
+   ".run",
+   30
+  ],
+  "done": [
+   ".run",
+   114
+  ],
+  "tloop": [
+   ".run",
+   96
+  ],
+  "tnext": [
+   ".run",
+   106
+  ],
+  "wtrack": [
+   ".run",
+   124
+  ],
+  "wtrk1": [
+   ".run",
+   406
+  ],
+  "wdly": [
+   ".run",
+   194
+  ],
+  "wverb": [
+   ".run",
+   186
+  ],
+  "VCOUNT": [
+   ".run",
+   712
+  ],
+  "wclamp": [
+   ".run",
+   200
+  ],
+  "DCOUNT": [
+   ".run",
+   718
+  ],
+  "wpos": [
+   ".run",
+   216
+  ],
+  "modedef2": [
+   ".run",
+   636
+  ],
+  "w1skip": [
+   ".run",
+   634
+  ],
+  "w1lo": [
+   ".run",
+   486
+  ],
+  "w1ok": [
+   ".run",
+   492
+  ],
+  "modedef1": [
+   ".run",
+   672
+  ],
+  "ob_cc_map_cc_fx2_fx1_page_2_cave_dispatch_repoint": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "ob_cc_map_cc_fx2_fx1_page_2_cave_dispatch_repoint"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   188,
+   "abs32",
+   "sec:.run",
+   712
+  ],
+  [
+   ".run",
+   196,
+   "abs32",
+   "sec:.run",
+   718
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x400d64a0",
+   "len": 4,
+   "stock_sha256": "3dde54e2152a6e2da668d7e7d1f2b8d99ecb0949d19cd75ccf201b280d46dde0",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:ob_cc_map_cc_fx2_fx1_page_2_cave_dispatch_repoint",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_cc_map_cc_fx2_fx1_page_2_cave_dispatch_repoint.s": "dff119b1a0d68bdb1021ce63a03e83f9f7e6280d6a069ffa5ce8cadb97103412"
+  }
+ },
+ "signature": null
+}

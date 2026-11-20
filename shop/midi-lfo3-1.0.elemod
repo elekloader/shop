@@ -1,0 +1,251 @@
+{
+ "elemod": 2,
+ "id": "midi-lfo3",
+ "version": "1.0",
+ "title": "MIDI LFO3",
+ "description": "Adds a third LFO to MIDI tracks. It has its own page, LFO (3/3), after LFO1 and LFO2, with the same controls (SPD, MULT, FADE, DEST, WAVE, SPH, MODE, DEP). Its DEST can be any MIDI-track destination, CCs included, and it is saved with the project like the other two.",
+ "category": "Sequencer",
+ "author": "Vijay",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk2",
+  "product": "Digitone II",
+  "os": "1.12",
+  "syx_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "section3_sha256": "a098f620019b2ad38fd7e0397df39501fb1cf6bc26d0283915f34c49446fdf1a",
+  "section3_len": 3196288
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 204,
+   "parts": [
+    [
+     "stock",
+     "0x401d3ac4",
+     10
+    ],
+    [
+     "stock",
+     "0x401d2382",
+     8
+    ],
+    [
+     "hex",
+     "0000"
+    ],
+    [
+     "stock",
+     "0x401f53ae",
+     8
+    ],
+    [
+     "hex",
+     "00000068"
+    ],
+    [
+     "stock",
+     "0x401d0cf8",
+     14
+    ],
+    [
+     "stock",
+     "0x401d0ec6",
+     12
+    ],
+    [
+     "hex",
+     "0000"
+    ],
+    [
+     "stock",
+     "0x4002578e",
+     8
+    ],
+    [
+     "hex",
+     "0026661a41faffc6203942433d082080203942434234"
+    ],
+    [
+     "stock",
+     "0x400ef286",
+     8
+    ],
+    [
+     "stock",
+     "0x400c25e4",
+     14
+    ],
+    [
+     "stock",
+     "0x40039942",
+     10
+    ],
+    [
+     "hex",
+     "6628"
+    ],
+    [
+     "stock",
+     "0x40039942",
+     8
+    ],
+    [
+     "hex",
+     "00106722"
+    ],
+    [
+     "stock",
+     "0x4003992a",
+     16
+    ],
+    [
+     "hex",
+     "06002d40fff44ef940039da84ef940039d924ef940039de4"
+    ],
+    [
+     "stock",
+     "0x40039f00",
+     8
+    ],
+    [
+     "hex",
+     "660c303c060008020010660242804ef940039f0c"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "ids": [
+   ".run",
+   0
+  ],
+  "desc": [
+   ".run",
+   16
+  ],
+  "lookup": [
+   ".run",
+   60
+  ],
+  "valid": [
+   ".run",
+   112
+  ],
+  "step": [
+   ".run",
+   176
+  ],
+  "ml3_step": [
+   ".run",
+   176
+  ],
+  "ml3_lookup": [
+   ".run",
+   60
+  ],
+  "ml3_ids": [
+   ".run",
+   0
+  ],
+  "ml3_valid": [
+   ".run",
+   112
+  ]
+ },
+ "exports": [
+  "ml3_ids",
+  "ml3_lookup",
+  "ml3_step",
+  "ml3_valid"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x40061868",
+   "len": 2,
+   "stock_sha256": "6b4e4c01a7ad14659a6796d976ec86db87bcd63c92c7931435d51949d6e8b408",
+   "new": "7203",
+   "kind": "code",
+   "relocs": []
+  },
+  {
+   "addr": "0x40061872",
+   "len": 6,
+   "stock_sha256": "da8a52e9f58063b6f201187bc8809fbc3ec005b1ddceb7d667984d6a2d2a2bf1",
+   "new": "203c00000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ml3_ids",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400c25e4",
+   "len": 6,
+   "stock_sha256": "204ac8b9b7f427a86086a605194ddc9e9879976395f058417d81fb52f94dfd00",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ml3_lookup",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40039d86",
+   "len": 12,
+   "stock_sha256": "917ea9d5f1d5268106d18ffe1cde2b47a7e2903daa4a67e11b5973f83f4f7f4d",
+   "new": "4ef9000000004e714e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ml3_valid",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x40039f00",
+   "len": 12,
+   "stock_sha256": "4a7ad7a53de6ea0de90cceee6ebd27190f00d767b23fdd92df75c6ad03668803",
+   "new": "4ef9000000004e714e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ml3_step",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "core": "0.1"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "mlfo3.s": "900ee0c66a4863c19114578673c8e90419e9b5f4049ffa0a82feb7b69eda1772"
+  }
+ },
+ "signature": null
+}

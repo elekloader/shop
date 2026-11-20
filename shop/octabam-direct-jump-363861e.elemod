@@ -1,0 +1,259 @@
+{
+ "elemod": 2,
+ "id": "octabam-direct-jump",
+ "version": "363861e",
+ "title": "DIRECT JUMP",
+ "description": "CHAIN AFTER: DIRECT (its unused value 1) -- a pattern change lands at the next step, the step count continuing (A4/Rytm direct jump). (octabam module direct-jump, converted from 363861e)",
+ "category": "Machines and the sequencer",
+ "author": "timhastie/octatrick-modules",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 360,
+   "parts": [
+    [
+     "stock",
+     "0x400a06d6",
+     12
+    ],
+    [
+     "hex",
+     "70ffb082660000da"
+    ],
+    [
+     "stock",
+     "0x4003577e",
+     8
+    ],
+    [
+     "hex",
+     "00d07139800065beb0856600000e7139800065bdb084670000b82f012f08"
+    ],
+    [
+     "stock",
+     "0x4009dcb8",
+     16
+    ],
+    [
+     "hex",
+     "7339800065bd2040"
+    ],
+    [
+     "stock",
+     "0x4000200e",
+     8
+    ],
+    [
+     "stock",
+     "0x400422dc",
+     8
+    ],
+    [
+     "hex",
+     "b03671106a00000871398000004e0c80000000016600007071f9800065b2528023c08000662c26002005"
+    ],
+    [
+     "stock",
+     "0x40026eb4",
+     10
+    ],
+    [
+     "hex",
+     "22042040"
+    ],
+    [
+     "stock",
+     "0x4000200e",
+     8
+    ],
+    [
+     "stock",
+     "0x400422dc",
+     8
+    ],
+    [
+     "hex",
+     "b0344a2800016700000a7168fffc600000067128ffff6f0000084c403001260141fa002210bc00017139800065b60c80000000026d000008117c00010001205f221f"
+    ],
+    [
+     "stock",
+     "0x40003198",
+     8
+    ],
+    [
+     "hex",
+     "000000000000000000000000"
+    ],
+    [
+     "stock",
+     "0x400a40b0",
+     18
+    ],
+    [
+     "hex",
+     "2f0841faffd84a1067000046421071f9800065b2b0b98000662c6600003042b9800066304a280001670000222f012f097139800065be2f00"
+    ],
+    [
+     "stock",
+     "0x4009dc94",
+     8
+    ],
+    [
+     "hex",
+     "4eb94009e884508f225f221f42280001205f4e750000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "dj_queue": [
+   ".run",
+   0
+  ],
+  "dj_q_done": [
+   ".run",
+   236
+  ],
+  "dj_q_change": [
+   ".run",
+   54
+  ],
+  "dj_q_idx": [
+   ".run",
+   112
+  ],
+  "dj_q_rest": [
+   ".run",
+   232
+  ],
+  "dj_q_normal": [
+   ".run",
+   188
+  ],
+  "dj_q_len": [
+   ".run",
+   192
+  ],
+  "dj_q_arm": [
+   ".run",
+   202
+  ],
+  "dj_flags": [
+   ".run",
+   238
+  ],
+  "dj_apply": [
+   ".run",
+   256
+  ],
+  "dj_a_done": [
+   ".run",
+   354
+  ],
+  "dj_a_owed": [
+   ".run",
+   350
+  ],
+  "dj_end": [
+   ".run",
+   358
+  ],
+  "ob_direct_jump_direct_jump_cave": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "ob_direct_jump_direct_jump_cave"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x400a06d6",
+   "len": 12,
+   "stock_sha256": "c4dc71e940be9c69f964b843ff25e235354550bf79b7d35cfe28c2486da41d4a",
+   "new": "4eb9000000004e714e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_direct_jump_direct_jump_cave",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400a44e2",
+   "len": 18,
+   "stock_sha256": "94569d279ede0e6fde2408d2d37b265fe45597a1bcf44c3222645ed4fe6455d0",
+   "new": "4eb9000000004e714e714e714e714e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_direct_jump_direct_jump_cave",
+     256
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d80e0",
+   "len": 4,
+   "stock_sha256": "b40711a88c7039756fb8a73827eabe2c0fe5a0346ca7e0a104adc0fc764f528d",
+   "new": "ffffffff",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x400b27ec",
+   "len": 4,
+   "stock_sha256": "b05a9de624254f59e1753b9e2ad93b582f4a319a978f245d285e0577010e6b57",
+   "new": "400b6912",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x40065a26",
+   "len": 2,
+   "stock_sha256": "90a9cc7163c4b805d0e1901427a03821eef88a18d24b361626281e01a5c0a18d",
+   "new": "6004",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x40087826",
+   "len": 2,
+   "stock_sha256": "887a0529fd9d76eb33c0ec808c05daaf32fa9f5e21e4c32224fb4bfaaa0af385",
+   "new": "6000",
+   "kind": "data",
+   "relocs": []
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_direct_jump_direct_jump_cave.s": "6443deaac9548c3a779e42eb8107f0d4dd681ddfbe6e1aebabd69ce3e4265649"
+  }
+ },
+ "signature": null
+}

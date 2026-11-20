@@ -1,0 +1,415 @@
+{
+ "elemod": 2,
+ "id": "choke",
+ "version": "0.2",
+ "title": "CHOKE GROUPS",
+ "description": "Choke groups for the Digitone mk1 and Digitone Keys: a note on a track silences what the other tracks of its group are still playing, as an open hi-hat is cut by a closed one. CHK on TRIG's second page (press TRIG twice) puts the track in group A-D or none, per pattern, and p-locks per trig (hold the trig and turn). A choked voice fades out over one block (0.7 ms). OS 1.43 and 1.44 (it names no firmware address: its 1.44 port is empty). Needs core-dn1 5.1 (its lane parameters, TRIG's second page and the notes the sequencer builds).",
+ "category": "Performance",
+ "author": "irpina",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk1",
+  "product": "Digitone mk1",
+  "os": "1.43",
+  "syx_sha256": "c5a54cc05b921f2e4bd814834c5365c2a5aa01d7772a9a2961fac1c3095bf9aa",
+  "section3_sha256": "3831a477a2a22befb23c42e47e782853da49566ef5d0a1767fcf6c30e6767414",
+  "section3_len": 2732208
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 496,
+   "parts": [
+    [
+     "hex",
+     "2f02"
+    ],
+    [
+     "stock",
+     "0x40014004",
+     10
+    ],
+    [
+     "hex",
+     "22005381e489670a20bc4f464600241f4e75068000000040108042001140000160ec"
+    ],
+    [
+     "stock",
+     "0x400f01a2",
+     8
+    ],
+    [
+     "hex",
+     "04fc282f00202639000000002a2f0024203900000000b2846500009a74017e03e9aa4682c682c480be85652a2f2f00284eb900000000588f4a806d0000822f002f05487800b84eb9000000004fef000c7204b2806402428043f90000000045f90000000013804800158548004a8067384281b284672a7f311800b08766227f321800ba87671a030366167e01e3af207900000000528823c8000000008687848752817e08be8166ca23c20000000023c300000000"
+    ],
+    [
+     "stock",
+     "0x40006e9c",
+     10
+    ],
+    [
+     "hex",
+     "2f05487800b84eb900000000508f6082"
+    ],
+    [
+     "stock",
+     "0x40013cc8",
+     8
+    ],
+    [
+     "hex",
+     "2639000000002839000000004a83673c222f001442800103671e01046738307c001f22412411ea822a0853884c02580074ff22c5b48866ec52800681000000807a08ba8066d042b900000000"
+    ],
+    [
+     "stock",
+     "0x40013d30",
+     10
+    ],
+    [
+     "hex",
+     "2241204143e900804298b3c866fa60d2"
+    ],
+    [
+     "stock",
+     "0x4028af1e",
+     8
+    ],
+    [
+     "hex",
+     "650c420141f900000000118108004e75"
+    ],
+    [
+     "stock",
+     "0x4018ed9e",
+     8
+    ],
+    [
+     "hex",
+     "0001000000b8000000b8"
+    ],
+    [
+     "stock",
+     "0x401cd050",
+     8
+    ],
+    [
+     "stock",
+     "0x4018ddf0",
+     16
+    ],
+    [
+     "hex",
+     "ffffffffffff"
+    ],
+    [
+     "stock",
+     "0x4018d106",
+     22
+    ],
+    [
+     "hex",
+     "0000000000000000000000000000000043686f6b652047726f75700043484b00"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 28
+  }
+ },
+ "symbols": {
+  "choke_format": [
+   ".run",
+   0
+  ],
+  "choked": [
+   ".bss",
+   24
+  ],
+  "fading": [
+   ".bss",
+   20
+  ],
+  "voice_group": [
+   ".bss",
+   12
+  ],
+  "voice_track": [
+   ".bss",
+   4
+  ],
+  "choke_param": [
+   ".run",
+   408
+  ],
+  "choke_voice_on": [
+   ".run",
+   46
+  ],
+  "choke_count": [
+   ".bss",
+   0
+  ],
+  "choke_knob": [
+   ".run",
+   396
+  ],
+  "choke_voice_free": [
+   ".run",
+   370
+  ],
+  "choke_render": [
+   ".run",
+   260
+  ]
+ },
+ "exports": [
+  "choke_count",
+  "choke_knob",
+  "choke_param",
+  "choke_render",
+  "choke_voice_free",
+  "choke_voice_on"
+ ],
+ "imports": [
+  "core_lane_track",
+  "core_lane_value",
+  "core_note_step",
+  "fw_str_empty"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   62,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   72,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   104,
+   "abs32",
+   "sym:core_note_step",
+   0
+  ],
+  [
+   ".run",
+   126,
+   "abs32",
+   "sym:core_lane_value",
+   0
+  ],
+  [
+   ".run",
+   144,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   150,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   198,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   206,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   224,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   230,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   252,
+   "abs32",
+   "sym:core_lane_track",
+   0
+  ],
+  [
+   ".run",
+   270,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   276,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   340,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   384,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   452,
+   "abs32",
+   "sec:.run",
+   480
+  ],
+  [
+   ".run",
+   456,
+   "abs32",
+   "sym:fw_str_empty",
+   0
+  ],
+  [
+   ".run",
+   460,
+   "abs32",
+   "sec:.run",
+   492
+  ],
+  [
+   ".run",
+   464,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   468,
+   "abs32",
+   "sym:fw_str_empty",
+   0
+  ]
+ ],
+ "sites": [],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_voice_on",
+   "order": 60,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:choke_voice_on",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_voice_free",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:choke_voice_free",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_render_voices",
+   "order": 90,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:choke_render",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_params",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:choke_param",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_knobs",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:choke_knob",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "5.1",
+  "names": [
+   "param:184",
+   "knob:30:1"
+  ]
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "choke.c": "22dbdecb0112e251c8e3694870dc5f6673e397d97bcd27bec694bdaa3b7105aa"
+  }
+ },
+ "signature": null
+}

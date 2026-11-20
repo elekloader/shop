@@ -1,0 +1,109 @@
+{
+ "elemod": 2,
+ "id": "octabam-usb-crossbar",
+ "version": "363861e",
+ "title": "USB CROSSBAR",
+ "description": "The USB controller bursts and arbitrates first on the SDRAM and SRAM crossbar ports (SCM BCR, XBS PRS/CRS), set at boot; cures lost isochronous packet tails. (octabam module usb-crossbar, converted from 363861e)",
+ "category": "MIDI and USB",
+ "author": "bryantysinger",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 56,
+   "parts": [
+    [
+     "hex",
+     "203c000003ff23c0fc040024203c6050432123c0fc00420023c0fc004400701023c0fc00421023c0fc004410203c080000004ef94001e036"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "SCM_BCR": [
+   "abs",
+   4228120612
+  ],
+  "BCR_ON": [
+   "abs",
+   1023
+  ],
+  "XBS_PRS2": [
+   "abs",
+   4227875328
+  ],
+  "XBS_CRS2": [
+   "abs",
+   4227875344
+  ],
+  "XBS_PRS4": [
+   "abs",
+   4227875840
+  ],
+  "XBS_CRS4": [
+   "abs",
+   4227875856
+  ],
+  "PRS_USB1ST": [
+   "abs",
+   1615872801
+  ],
+  "CRS_FIXED": [
+   "abs",
+   16
+  ],
+  "USBINIT_REJOIN": [
+   "abs",
+   1073864758
+  ],
+  "crossbar_init_shim": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "crossbar_init_shim"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x4001e030",
+   "len": 6,
+   "stock_sha256": "2970db219b05c85ea8570c21f13950697e769d7c9622b36321be0f1227ff4071",
+   "new": "4ef900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:crossbar_init_shim",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "usbcrossbar.s": "6b9d754756e02d3085771c218b11d0c8bc2598f7c111209b0651fdebeb5e1ca7"
+  }
+ },
+ "signature": null
+}

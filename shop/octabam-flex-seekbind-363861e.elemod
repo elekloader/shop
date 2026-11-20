@@ -1,0 +1,81 @@
+{
+ "elemod": 2,
+ "id": "octabam-flex-seekbind",
+ "version": "363861e",
+ "title": "FLEX SEEK BIND",
+ "description": "ColdFire cave: a same-slot/type/generation FLEX re-bind takes the bind's same-sample path (DSP seek) instead of becoming a new note. (octabam module flex-seekbind, converted from 363861e)",
+ "category": "Fixes",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 24,
+   "parts": [
+    [
+     "hex",
+     "4a2f003b670a7001588f4ef94000f8ec588f4ef94000f8ea"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "seekA": [
+   ".run",
+   0
+  ],
+  "diff": [
+   ".run",
+   16
+  ],
+  "ob_flex_seekbind_seek_bind_cave": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "ob_flex_seekbind_seek_bind_cave"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x4000f8cc",
+   "len": 6,
+   "stock_sha256": "a3f764639ca07534cc4150642deaf4f10c519053b868df0cd3e051af427b7f60",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_flex_seekbind_seek_bind_cave",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_flex_seekbind_seek_bind_cave.s": "8f00317c7c33287d9f4282257936e700d58c761c8de2aedd7822a26af637595d"
+  }
+ },
+ "signature": null
+}

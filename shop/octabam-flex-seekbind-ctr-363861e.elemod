@@ -1,0 +1,90 @@
+{
+ "elemod": 2,
+ "id": "octabam-flex-seekbind-ctr",
+ "version": "363861e",
+ "title": "FLEX SEEK BIND CTR",
+ "description": "ColdFire cave: on a same-sample FLEX re-bind, do not bump the voice's per-bind counter (pairs with FLEX SEEK BIND). (octabam module flex-seekbind-ctr, converted from 363861e)",
+ "category": "Fixes",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 16,
+   "parts": [
+    [
+     "hex",
+     "4a2f003b6604"
+    ],
+    [
+     "stock",
+     "0x4000f834",
+     8
+    ],
+    [
+     "hex",
+     "4e75"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "seekB": [
+   ".run",
+   0
+  ],
+  "same": [
+   ".run",
+   10
+  ],
+  "ob_flex_seekbind_ctr_seek_bind_counter_cave": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "ob_flex_seekbind_ctr_seek_bind_counter_cave"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x4000f834",
+   "len": 8,
+   "stock_sha256": "394be08d1b375089ffcb34270ce0bb194ed6769a3fcbe7d56c656c6db976d6ac",
+   "new": "4eb9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_flex_seekbind_ctr_seek_bind_counter_cave",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_flex_seekbind_ctr_seek_bind_counter_cave.s": "66839f540e94b6b1dfe04bd13561efdfc431a8cf5a686a0517c5a1159842bc4c"
+  }
+ },
+ "signature": null
+}
