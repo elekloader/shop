@@ -1127,6 +1127,13 @@
       "thumb": {"tag": "v0.14", "file": "thumb.png", "sha256": "06f3c2af810d214e4622b5ee792d8b1b20a210c37b607c48a4ed6222270d0136"}
     },
     {
+      "repo": "ceredmeat/UNDERTONE", "tag": "v0.9", "file": "undertone-0.9.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.4",
+      "sha256": "12247b68ac327e3f73dd6da540063dcc7383eb612a712fc97e401b64d0752a03",
+      "summary": "A subharmonic machine after the Moog Subharmonicon and the Labyrinth's wavefolder: two oscillators with two subharmonics each, free, equal or just tuning, a wavefolder, slow analog drift and a pitch-ladder view.",
+      "on_unit": "Digitakt MKI, OS 1.54."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
