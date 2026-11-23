@@ -1127,6 +1127,13 @@
       "thumb": {"tag": "v0.14", "file": "thumb.png", "sha256": "06f3c2af810d214e4622b5ee792d8b1b20a210c37b607c48a4ed6222270d0136"}
     },
     {
+      "repo": "ceredmeat/ZIBENS", "tag": "v0.6", "file": "zibens-0.6.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.4",
+      "sha256": "8190daf4773e579a8c9ab136d43d1050e541c9eea274d088ea0fbe85796382f0",
+      "summary": "A Perkons HD-01-style drum-synth machine for the Digitakt MKI, with a delay and compressor on its second page.",
+      "on_unit": "Digitakt MKI, OS 1.54."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
