@@ -1127,6 +1127,13 @@
       "thumb": {"tag": "v0.14", "file": "thumb.png", "sha256": "06f3c2af810d214e4622b5ee792d8b1b20a210c37b607c48a4ed6222270d0136"}
     },
     {
+      "repo": "ceredmeat/VILNIS", "tag": "v0.3", "file": "vilnis-0.3.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.4",
+      "sha256": "0aae28d31333976dce13c5c6df3dda4a6c968eee35943746f89dc00a0fb25c4f",
+      "summary": "A west coast machine after Majella Audio's Implexus and Compax and the Buchla Music Easel: a complex oscillator (FM, AM or both) into a wavefolder, a low pass gate with vactrol-like decay, a pulser, a random voltage and a vibrato.",
+      "on_unit": "Digitakt MKI, OS 1.54."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
