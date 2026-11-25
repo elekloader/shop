@@ -1056,18 +1056,18 @@
       "on_unit": "Digitakt MKI, OS 1.54."
     },
     {
-      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "density-0.2.elemod",
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5.1", "file": "polymeter-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
-      "sha256": "ec2580d627728a38f8307dd638e1e71cba883c00832d6e245227e30f22f31e95",
-      "summary": "A master page (FUNC + LFO) with one density knob for the whole pattern: the middle plays it as it is, left drops trigs out, right adds ghost notes on empty steps.",
-      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+      "sha256": "a5aa3998204e72bc407f6b6079c577f31682f79a8e68206b96a6160274ad3985",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "Digitakt MKI, OS 1.54."
     },
     {
-      "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "polymeter-0.1.elemod",
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5.1", "file": "density-0.3.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
-      "sha256": "096513b65b7f43c2a1b0df84fc7f17035d078ae3b8220cb386afa8200aed5bea",
-      "summary": "A master page (FUNC + LFO, PLY): tracks 1-8 as lanes as long as their lengths, with moving playheads; knobs for the active track's length and speed, the pattern's scale mode and master length, and one-turn polymeter presets (16, DWN, PRM, 3V4).",
-      "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
+      "sha256": "55287e8d703c598349783f9540c499a0b103be3881d7bc6156c1ddb9f9bd4cc5",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "trigmodes-0.5.elemod",
