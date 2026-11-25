@@ -1,0 +1,922 @@
+{
+ "elemod": 2,
+ "id": "multitrig",
+ "version": "0.6",
+ "title": "MULTITRIG: page and track-wide lock editing",
+ "description": "In GRID RECORDING: hold a trig and tap PAGE (every trig on its page) or TRK (every trig on the track), then turn a knob to edit them all. SETTINGS > MULTI EDIT: REL keeps each trig's own value and moves them together (transpose a page or a track); ABS gives them all the held trig's value. Letting go clears the selection. The setting is saved.",
+ "category": "Sequencer",
+ "author": "Cere, made with Claude",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitakt-mk1",
+  "product": "Digitakt mk1",
+  "os": "1.54",
+  "syx_sha256": "f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6",
+  "section3_sha256": "5c58bf9e3949ef09977c5fc007a61e8d026931f67f1621238379dfb8ee4d31a2",
+  "section3_len": 2479680
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1475,
+   "parts": [
+    [
+     "stock",
+     "0x4002868e",
+     10
+    ],
+    [
+     "hex",
+     "487a001a"
+    ],
+    [
+     "stock",
+     "0x40007484",
+     10
+    ],
+    [
+     "stock",
+     "0x400286a8",
+     14
+    ],
+    [
+     "hex",
+     "4d554c54492045444954000000000000000000000000000000000000"
+    ],
+    [
+     "stock",
+     "0x4006c152",
+     8
+    ],
+    [
+     "hex",
+     "003c262f00142a2f"
+    ],
+    [
+     "stock",
+     "0x4003f60a",
+     8
+    ],
+    [
+     "stock",
+     "0x40021a56",
+     8
+    ],
+    [
+     "stock",
+     "0x4000889c",
+     8
+    ],
+    [
+     "hex",
+     "d24e"
+    ],
+    [
+     "stock",
+     "0x4001739c",
+     8
+    ],
+    [
+     "stock",
+     "0x400107aa",
+     12
+    ],
+    [
+     "hex",
+     "4fef001428004a806726"
+    ],
+    [
+     "stock",
+     "0x4001b24c",
+     8
+    ],
+    [
+     "hex",
+     "588f24005380ec886614ba826c0224057a01b6826d12720123c100000000"
+    ],
+    [
+     "stock",
+     "0x40003af0",
+     10
+    ],
+    [
+     "stock",
+     "0x40010188",
+     8
+    ],
+    [
+     "stock",
+     "0x4001aec4",
+     8
+    ],
+    [
+     "hex",
+     "000c4a006710701fb0836d0e2005e7a881b900000000528360c0220320050681ffffffe0e3a881b90000000060e84ab9000000006620487802104eb900000000588f4a806710"
+    ],
+    [
+     "stock",
+     "0x40056ab8",
+     8
+    ],
+    [
+     "hex",
+     "c28023c1000000004ab900000000"
+    ],
+    [
+     "stock",
+     "0x400d2070",
+     8
+    ],
+    [
+     "stock",
+     "0x4000b0ea",
+     8
+    ],
+    [
+     "hex",
+     "206f00187811242800102628000cc8824eb94013892820407002b08366204ab900000000673453844a84670642b9000000007001"
+    ],
+    [
+     "stock",
+     "0x40003af0",
+     10
+    ],
+    [
+     "hex",
+     "7012b083667e4ab900000000670e53844a8467e042b90000000060d853844a846662700ac0824a80665a4a8867c84a28016067c22428015842812828015c7a1fba816d162004e2a87a01c0854a80663a52817a40ba8166e6609c2a010685ffffffe02002eaa860e07af0c285204141e800102f084868fff04e91700123c000000000602042806000ff6e43fafe4455834a8366d44878004042a74e91700123c000000000508f6000ff4c4eb94013892820404ab90000000067224a80670c4aa8015866184aa8015c661242b90000000042b90000000042b9000000004e75428052b900000000"
+    ],
+    [
+     "stock",
+     "0x4000441c",
+     8
+    ],
+    [
+     "hex",
+     "1c1c286f001c282f002024542f042f0c4eb940031386508f4ab900000000670000944a8a6700008e4aaa000867000086203900000000b0b900000000677623c0000000004eb94013892842822052225026402f2a00042f04"
+    ],
+    [
+     "stock",
+     "0x4002aecc",
+     8
+    ],
+    [
+     "hex",
+     "4fef000c2600701fb0826d52203900000000e4a87201c0814a806730b484672c4a8b6714701fb0826d46222b015ce4a97001c2804a81661410390000000066402f022f0c4eb940031386508f52827240b28266b2"
+    ],
+    [
+     "stock",
+     "0x40007382",
+     10
+    ],
+    [
+     "hex",
+     "22020681ffffffe0203900000000e2a860a420020680ffffffe0222b0158e0a960b04a836dc8205222502f03"
+    ],
+    [
+     "stock",
+     "0x40030f12",
+     10
+    ],
+    [
+     "hex",
+     "00744e904fef001060ae"
+    ],
+    [
+     "stock",
+     "0x40002d58",
+     8
+    ],
+    [
+     "hex",
+     "4eb9000000002439000000004a8266000098203900000000528023c000000000721eb2806c000082760123c3000000004ebafd5e4a80677024790000000042041584280052820c820000020066f02f0a2f022f3c00060045"
+    ],
+    [
+     "stock",
+     "0x4006940c",
+     10
+    ],
+    [
+     "hex",
+     "4a806642223c4d545247b292663873aa000453814a81662e242a0008223c5eed1ed541ea000822790000000091c9b0886d0000a2b282660e102a00057201c08113c0000000002439000000004a826f7a538223c2000000004a82666e4ebafcd04a806766207900000000428042031183"
+    ],
+    [
+     "stock",
+     "0x4001993c",
+     8
+    ],
+    [
+     "hex",
+     "020066f0780110390000000020bc4d5452471144000411400005203c5eed1ed52200761beb89e6a87808808173b028005282b380b88266e8214000082f08487802002f3c00060045"
+    ],
+    [
+     "stock",
+     "0x4008c440",
+     10
+    ],
+    [
+     "stock",
+     "0x400083f2",
+     8
+    ],
+    [
+     "hex",
+     "4e752601781beb8be8a9828377b108005280b7816000ff461039000000007201206f0004"
+    ],
+    [
+     "stock",
+     "0x4003faea",
+     10
+    ],
+    [
+     "hex",
+     "b38013c000000000703c23c0000000004ef900000000"
+    ],
+    [
+     "stock",
+     "0x400c40bc",
+     8
+    ],
+    [
+     "hex",
+     "4a8067225ec0"
+    ],
+    [
+     "stock",
+     "0x4003faea",
+     10
+    ],
+    [
+     "hex",
+     "448013c000000000703c23c0000000004ef9000000004e7510390000"
+    ],
+    [
+     "stock",
+     "0x4006c152",
+     8
+    ],
+    [
+     "hex",
+     "1c04242f001c246f002447f9000000004a00670647f90000000042804a3308006656722eb28a6d46e588222f0020598142a7486a00062f01486affff284199c0486cfffe2f024eb9000000002f0b487900000000487800102f0a2f0c4879"
+    ],
+    [
+     "stock",
+     "0x40121046",
+     8
+    ],
+    [
+     "hex",
+     "000000004fef0034"
+    ],
+    [
+     "stock",
+     "0x4000dd80",
+     10
+    ],
+    [
+     "hex",
+     "528060a02039000000004a8066124879000000002f2f00084eb900000000508f4e7500004142530052454c00257300"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 48
+  }
+ },
+ "symbols": {
+  "STR_CTOR": [
+   "abs",
+   1075293984
+  ],
+  "mode_label": [
+   ".run",
+   0
+  ],
+  "mode_str": [
+   ".run",
+   38
+  ],
+  "select_steps": [
+   ".run",
+   68
+  ],
+  "active": [
+   ".bss",
+   24
+  ],
+  "sel_lo": [
+   ".bss",
+   36
+  ],
+  "sel_hi": [
+   ".bss",
+   40
+  ],
+  "block_ready": [
+   ".run",
+   248
+  ],
+  "block": [
+   ".bss",
+   12
+  ],
+  "swallow_trk": [
+   ".bss",
+   20
+  ],
+  "swallow_page": [
+   ".bss",
+   16
+  ],
+  "seq": [
+   ".bss",
+   32
+  ],
+  "done": [
+   ".bss",
+   28
+  ],
+  "set_abs": [
+   ".bss",
+   44
+  ],
+  "loaded": [
+   ".bss",
+   4
+  ],
+  "ticks": [
+   ".bss",
+   0
+  ],
+  "save_wait": [
+   ".bss",
+   8
+  ],
+  "mt_mode_change": [
+   ".run",
+   1248
+  ],
+  "mt_row_mode": [
+   ".run",
+   50
+  ],
+  "mt_tick": [
+   ".run",
+   864
+  ],
+  "mt_enc": [
+   ".run",
+   594
+  ],
+  "mt_settings": [
+   ".run",
+   1432
+  ],
+  "mt_invoke": [
+   ".run",
+   604
+  ],
+  "mt_mode_draw": [
+   ".run",
+   1296
+  ],
+  "mt_sel_tick": [
+   ".run",
+   542
+  ],
+  "mt_mode_select": [
+   ".run",
+   1204
+  ],
+  "mt_key": [
+   ".run",
+   302
+  ]
+ },
+ "exports": [
+  "mt_enc",
+  "mt_invoke",
+  "mt_key",
+  "mt_mode_change",
+  "mt_mode_draw",
+  "mt_mode_select",
+  "mt_row_mode",
+  "mt_sel_tick",
+  "mt_settings",
+  "mt_tick"
+ ],
+ "imports": [
+  "core_additem",
+  "fw_fillrect",
+  "fw_font5",
+  "fw_invalidate",
+  "fw_op_new",
+  "fw_textf",
+  "modset_closed"
+ ],
+ "weak": [
+  "modset_closed"
+ ],
+ "relocs": [
+  [
+   ".run",
+   50,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   54,
+   "abs32",
+   "sec:.run",
+   1204
+  ],
+  [
+   ".run",
+   58,
+   "abs32",
+   "sec:.run",
+   1296
+  ],
+  [
+   ".run",
+   62,
+   "abs32",
+   "sec:.run",
+   1248
+  ],
+  [
+   ".run",
+   172,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   220,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   242,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   250,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   262,
+   "abs32",
+   "sym:fw_op_new",
+   0
+  ],
+  [
+   ".run",
+   284,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   290,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   342,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   356,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   380,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   394,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   498,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   532,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   552,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   576,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   582,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   588,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   598,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   636,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   660,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   666,
+   "abs32",
+   "sec:.bss",
+   28
+  ],
+  [
+   ".run",
+   674,
+   "abs32",
+   "sec:.bss",
+   28
+  ],
+  [
+   ".run",
+   720,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   764,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   810,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   874,
+   "abs32",
+   "sec:.run",
+   542
+  ],
+  [
+   ".run",
+   880,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   892,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   900,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   916,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   930,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   1010,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   1036,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   1042,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   1054,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   1072,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   1098,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   1206,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   1230,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   1238,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   1244,
+   "abs32",
+   "sym:fw_invalidate",
+   0
+  ],
+  [
+   ".run",
+   1276,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   1284,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   1290,
+   "abs32",
+   "sym:fw_invalidate",
+   0
+  ],
+  [
+   ".run",
+   1298,
+   "abs32",
+   "sec:.bss",
+   44
+  ],
+  [
+   ".run",
+   1320,
+   "abs32",
+   "sec:.run",
+   1468
+  ],
+  [
+   ".run",
+   1330,
+   "abs32",
+   "sec:.run",
+   1464
+  ],
+  [
+   ".run",
+   1380,
+   "abs32",
+   "sym:fw_fillrect",
+   0
+  ],
+  [
+   ".run",
+   1388,
+   "abs32",
+   "sec:.run",
+   1472
+  ],
+  [
+   ".run",
+   1402,
+   "abs32",
+   "sym:fw_font5",
+   0
+  ],
+  [
+   ".run",
+   1410,
+   "abs32",
+   "sym:fw_textf",
+   0
+  ],
+  [
+   ".run",
+   1434,
+   "abs32",
+   "sym:modset_closed",
+   0
+  ],
+  [
+   ".run",
+   1444,
+   "abs32",
+   "sec:.run",
+   50
+  ],
+  [
+   ".run",
+   1454,
+   "abs32",
+   "sym:core_additem",
+   0
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x400315de",
+   "len": 4,
+   "stock_sha256": "e0a99882198514cf4e9dbf793a7c15be3f51c9f58c36ed98e46d7f0a05a1c1a5",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:mt_invoke",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_key",
+   "order": 3,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:mt_key",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_enc",
+   "order": 5,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:mt_enc",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_settings",
+   "order": 78,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:mt_settings",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_tick",
+   "order": 82,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:mt_tick",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "4.1",
+  "names": [
+   "emmc:0x60045"
+  ]
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "multitrig.c": "803f23ab57274a8d5aa048d4c3b02071ea8ba0994ad9333a105391a7eb5c932f",
+   "multitrig.s": "d92409d5bbcbc17d7a3c8420c45741b0ca935b48e6e6be271979201f4c1bde6f"
+  }
+ },
+ "signature": null
+}

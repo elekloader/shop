@@ -1,0 +1,246 @@
+{
+ "elemod": 2,
+ "id": "octabam-recorder-hold",
+ "version": "363861e",
+ "title": "RECORDER HOLD",
+ "description": "ColdFire cave: a recorder-buffer FLEX voice reading one sample past its recording repeats the last sample instead of reading zero. (octabam module recorder-hold, converted from 363861e)",
+ "category": "Fixes",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 332,
+   "parts": [
+    [
+     "hex",
+     "225f206f0004508f6100000826004a814ed10c8000000000660000504a816f00004a4a2a00156c000042b1ea00646600003a538820086b00002c2f012f092f00"
+    ],
+    [
+     "stock",
+     "0x40008536",
+     8
+    ],
+    [
+     "hex",
+     "508f225f0c80000000006700000e4a816f000008588f72014e75221f203c000000004e75225f206f00046100000c"
+    ],
+    [
+     "stock",
+     "0x4000853e",
+     8
+    ],
+    [
+     "hex",
+     "4ed10c8000000000660000504a816f00004a4a2a00156c000042b1ea00646600003a538820086b00002c2f012f092f00"
+    ],
+    [
+     "stock",
+     "0x40008536",
+     8
+    ],
+    [
+     "hex",
+     "508f225f0c80000000006700000e4a816f000008588f72014e75221f203c000000004e750000225f206f00046100000c"
+    ],
+    [
+     "stock",
+     "0x4000854e",
+     8
+    ],
+    [
+     "hex",
+     "4ed10c8000000000660000504a816f00004a4a2a00156c000042b1ea00646600003a538820086b00002c2f012f092f00"
+    ],
+    [
+     "stock",
+     "0x40008536",
+     8
+    ],
+    [
+     "hex",
+     "508f225f0c80000000006700000e4a816f000008588f72014e75221f203c000000004e750000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "stub": [
+   ".run",
+   0
+  ],
+  "fix": [
+   ".run",
+   18
+  ],
+  "fixret": [
+   ".run",
+   106
+  ],
+  "fixnull": [
+   ".run",
+   100
+  ],
+  "fixback": [
+   ".run",
+   98
+  ],
+  "ob_recorder_hold_hold_cave_copy": [
+   ".run",
+   0
+  ],
+  "ob_recorder_hold_hold_cave_crossfade_0x48": [
+   ".run",
+   108
+  ],
+  "ob_recorder_hold_hold_cave_crossfade_0x4c": [
+   ".run",
+   220
+  ]
+ },
+ "exports": [
+  "ob_recorder_hold_hold_cave_copy",
+  "ob_recorder_hold_hold_cave_crossfade_0x48",
+  "ob_recorder_hold_hold_cave_crossfade_0x4c"
+ ],
+ "imports": [
+  "arena_base"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   20,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   78,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   102,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   130,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   188,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   212,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   242,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   300,
+   "abs32",
+   "sym:arena_base",
+   0
+  ],
+  [
+   ".run",
+   324,
+   "abs32",
+   "sym:arena_base",
+   0
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x400086c2",
+   "len": 6,
+   "stock_sha256": "3378c72f1ed9109d2bd92f1e85e72150e10a4604376578dd792af4e59c10c0fc",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_recorder_hold_hold_cave_copy",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000853e",
+   "len": 8,
+   "stock_sha256": "77fc999ca1fc167b277dc189315c0be0b8cfff81d92c4986a55d6127a37be354",
+   "new": "4eb9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_recorder_hold_hold_cave_crossfade_0x48",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4000854e",
+   "len": 8,
+   "stock_sha256": "a4c7b8c2e06be9c6dd682837e7d18743db2c2e38f748fac2ca1763b3079f8450",
+   "new": "4eb9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_recorder_hold_hold_cave_crossfade_0x4c",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_recorder_hold_hold_cave_copy.s": "f2793ca629fec286b0dd351331f8605248245d97f355a1b814c1d5711425a81d",
+   "ob_recorder_hold_hold_cave_crossfade_0x48.s": "25f512bd6a66513a426edb568f696328f8dcf784e338d302e7f8f97b304bbd13",
+   "ob_recorder_hold_hold_cave_crossfade_0x4c.s": "75c6b0ba7e5688e24436c651315f5d20f482a99ee20ddada6f8375adaf311f91"
+  }
+ },
+ "signature": null
+}

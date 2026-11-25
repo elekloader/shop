@@ -1,0 +1,825 @@
+{
+ "elemod": 2,
+ "id": "usercfg",
+ "version": "0.6a",
+ "title": "USER CFG (Digitone mk1)",
+ "description": "Adds the stock Digitone Keys User Mode control page (page 24) to the regular Digitone's TRIG rotation, plus a USER CFG page (TRIG 3/3) that maps the ABCDEFGH encoders to sound parameters. The mapping is saved with the project through core-dn1 project data and written into the live User Mode page record. Needs core-dn1 4.0 on OS 1.44; independent of the machines companion.",
+ "category": "Utility",
+ "author": "x2k",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk1",
+  "product": "Digitone mk1",
+  "os": "1.44",
+  "syx_sha256": "d4f200d04484333d82822db7744e6484d0def8f2db8ddf55ee2b780cc13c9659",
+  "section3_sha256": "fce648a97c6c5d93b961732e8f8db6b02e0820c6d344c7e2131fa05a4b3168e4",
+  "section3_len": 2736304
+ },
+ "sections": {
+  ".run": {
+   "align": 16,
+   "len": 1114,
+   "parts": [
+    [
+     "stock",
+     "0x40007a8a",
+     8
+    ],
+    [
+     "hex",
+     "653641f90000000022300c00200153800c80000000b462202001e589ed8841f9000000009081207008004a88670a4a10"
+    ],
+    [
+     "stock",
+     "0x4009813e",
+     8
+    ],
+    [
+     "hex",
+     "4280"
+    ],
+    [
+     "stock",
+     "0x4028ca02",
+     14
+    ],
+    [
+     "stock",
+     "0x40001bd6",
+     8
+    ],
+    [
+     "hex",
+     "4aaf0010670e71b9000000007201b2806700008c72147401701341f900000000227c4136c98045f90000000013c100000000722213c2"
+    ],
+    [
+     "stock",
+     "0x402626d8",
+     8
+    ],
+    [
+     "hex",
+     "00007415701e13c100000000723813c2"
+    ],
+    [
+     "stock",
+     "0x402626d8",
+     8
+    ],
+    [
+     "hex",
+     "00007418703713c100000000721313c2"
+    ],
+    [
+     "stock",
+     "0x402626d8",
+     8
+    ],
+    [
+     "hex",
+     "000073814280744eb481650420321c0022c0b1fc0000000067041218"
+    ],
+    [
+     "stock",
+     "0x40178000",
+     8
+    ],
+    [
+     "hex",
+     "23c0000000004fef000c4e7545f90000000047faff02"
+    ],
+    [
+     "stock",
+     "0x4028a540",
+     8
+    ],
+    [
+     "hex",
+     "4a806700ff60b5fc0000000066ea720141f900000000227c4136c98045f90000000013c10000000012390000000060900000000000000000203900000000671a4879"
+    ],
+    [
+     "stock",
+     "0x40134038",
+     8
+    ],
+    [
+     "hex",
+     "00000000508f"
+    ],
+    [
+     "stock",
+     "0x40019dc2",
+     8
+    ],
+    [
+     "stock",
+     "0x4008e910",
+     8
+    ],
+    [
+     "hex",
+     "000000000000"
+    ],
+    [
+     "stock",
+     "0x40091b42",
+     8
+    ],
+    [
+     "hex",
+     "23c00000"
+    ],
+    [
+     "stock",
+     "0x401359f6",
+     8
+    ],
+    [
+     "hex",
+     "ffe4"
+    ],
+    [
+     "stock",
+     "0x40004bd2",
+     8
+    ],
+    [
+     "hex",
+     "246f0024670623c0000000004ebaffa64a80670000c64a8a670000c02a2a000c7407222a001020055380b480650000ac4a81670000a65fc447f90000000070017db35800724e79048880b286650000982406764f45fafe1e70017201b08456c071008081d48070ffb08267000086123c004fb2825ec07100c4802f024e92588f53834a8066064a8366ce240671b35800b480676241f9000000001182580041f900000000227c4136c98045f90000000073984280744eb481650420321c0022c0b1fc0000000066e870014cd70c7c23c0000000004fef001c4e754cd70c7c42804fef001c4e754202764f45fafd886000ff68744e6084"
+    ],
+    [
+     "stock",
+     "0x40083832",
+     12
+    ],
+    [
+     "hex",
+     "00004ab90000000067264ab90000000067184aaf000467124ebafe984a80670a"
+    ],
+    [
+     "stock",
+     "0x40048bc8",
+     8
+    ],
+    [
+     "hex",
+     "002042b90000"
+    ],
+    [
+     "stock",
+     "0x400fbbd2",
+     10
+    ],
+    [
+     "hex",
+     "3c7c2a2f002867084ebafe704a80660a"
+    ],
+    [
+     "stock",
+     "0x4000ba20",
+     10
+    ],
+    [
+     "hex",
+     "42a748780035"
+    ],
+    [
+     "stock",
+     "0x4005190c",
+     8
+    ],
+    [
+     "hex",
+     "2f054eb9000000004bf90000000042824fef001845f90000000049f90000000047f90000000076037c2ac6822202e481799d41f900000000e9892003eb889c81220690835480764eb684652628344c0026042c04ed8be58e53840c84000000b462109686227338004a8967064a11670220492f0820425282486800414879000000004878ffff2f012f004879000000002f054e924fef00207008b0826688"
+    ],
+    [
+     "stock",
+     "0x4000ba20",
+     10
+    ],
+    [
+     "stock",
+     "0x4018f0b2",
+     8
+    ],
+    [
+     "stock",
+     "0x4018dfd6",
+     8
+    ],
+    [
+     "hex",
+     "000000000000000000000000000000000000000000000000000000000000"
+    ],
+    [
+     "stock",
+     "0x401cf24c",
+     10
+    ],
+    [
+     "hex",
+     "0000"
+    ],
+    [
+     "stock",
+     "0x4018ef0c",
+     10
+    ],
+    [
+     "stock",
+     "0x4018dfd6",
+     8
+    ],
+    [
+     "hex",
+     "000000000000000000000000000000000000000000000000000000000000"
+    ],
+    [
+     "stock",
+     "0x401cf24c",
+     10
+    ],
+    [
+     "hex",
+     "000000000000011314151e221837"
+    ],
+    [
+     "stock",
+     "0x40229fde",
+     8
+    ],
+    [
+     "hex",
+     "55434647"
+    ],
+    [
+     "stock",
+     "0x4018d094",
+     12
+    ],
+    [
+     "hex",
+     "2d2d2d0025632025730055434647005573657220436f6e666967005553523100"
+    ],
+    [
+     "stock",
+     "0x401db2c4",
+     8
+    ],
+    [
+     "hex",
+     "6500"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 8
+  }
+ },
+ "symbols": {
+  "slot_ok": [
+   ".run",
+   0
+  ],
+  "usercfg_loaded": [
+   ".run",
+   80
+  ],
+  "save": [
+   ".run",
+   1040
+  ],
+  "ui_dirty": [
+   ".bss",
+   4
+  ],
+  "cfg_shown": [
+   ".run",
+   320
+  ],
+  "ui_brain": [
+   ".bss",
+   0
+  ],
+  "usercfg_draw": [
+   ".run",
+   704
+  ],
+  "usercfg_projdata": [
+   ".run",
+   1056
+  ],
+  "usercfg_user_page": [
+   ".run",
+   980
+  ],
+  "usercfg_key": [
+   ".run",
+   368
+  ],
+  "usercfg_tick": [
+   ".run",
+   656
+  ],
+  "usercfg_enc": [
+   ".run",
+   384
+  ],
+  "usercfg_cfg_page": [
+   ".run",
+   920
+  ]
+ },
+ "exports": [
+  "usercfg_cfg_page",
+  "usercfg_draw",
+  "usercfg_enc",
+  "usercfg_key",
+  "usercfg_projdata",
+  "usercfg_tick",
+  "usercfg_user_page"
+ ],
+ "imports": [
+  "core_page_shown",
+  "fw_fillrect",
+  "fw_font_label",
+  "fw_params",
+  "fw_slot_ids",
+  "fw_textf"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   134,
+   "abs32",
+   "sec:.run",
+   1042
+  ],
+  [
+   ".run",
+   142,
+   "abs32",
+   "sec:.run",
+   1040
+  ],
+  [
+   ".run",
+   148,
+   "abs32",
+   "sec:.run",
+   1041
+  ],
+  [
+   ".run",
+   158,
+   "abs32",
+   "sec:.run",
+   1045
+  ],
+  [
+   ".run",
+   166,
+   "abs32",
+   "sec:.run",
+   1043
+  ],
+  [
+   ".run",
+   172,
+   "abs32",
+   "sec:.run",
+   1044
+  ],
+  [
+   ".run",
+   182,
+   "abs32",
+   "sec:.run",
+   1048
+  ],
+  [
+   ".run",
+   190,
+   "abs32",
+   "sec:.run",
+   1046
+  ],
+  [
+   ".run",
+   196,
+   "abs32",
+   "sec:.run",
+   1047
+  ],
+  [
+   ".run",
+   218,
+   "abs32",
+   "sec:.run",
+   1049
+  ],
+  [
+   ".run",
+   236,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   272,
+   "abs32",
+   "sec:.run",
+   1049
+  ],
+  [
+   ".run",
+   300,
+   "abs32",
+   "sec:.run",
+   1040
+  ],
+  [
+   ".run",
+   376,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   404,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   590,
+   "abs32",
+   "sec:.run",
+   1049
+  ],
+  [
+   ".run",
+   604,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   698,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   12,
+   "abs32",
+   "sym:fw_slot_ids",
+   0
+  ],
+  [
+   ".run",
+   40,
+   "abs32",
+   "sym:fw_params",
+   48
+  ],
+  [
+   ".run",
+   96,
+   "abs32",
+   "sec:.run",
+   1040
+  ],
+  [
+   ".run",
+   116,
+   "abs32",
+   "sec:.run",
+   1042
+  ],
+  [
+   ".run",
+   128,
+   "abs32",
+   "sym:fw_slot_ids",
+   0
+  ],
+  [
+   ".run",
+   248,
+   "abs32",
+   "sec:.run",
+   1041
+  ],
+  [
+   ".run",
+   282,
+   "abs32",
+   "sec:.run",
+   1042
+  ],
+  [
+   ".run",
+   294,
+   "abs32",
+   "sym:fw_slot_ids",
+   0
+  ],
+  [
+   ".run",
+   306,
+   "abs32",
+   "sec:.run",
+   1041
+  ],
+  [
+   ".run",
+   322,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   330,
+   "abs32",
+   "sec:.run",
+   920
+  ],
+  [
+   ".run",
+   338,
+   "abs32",
+   "sym:core_page_shown",
+   0
+  ],
+  [
+   ".run",
+   454,
+   "abs32",
+   "sec:.run",
+   1040
+  ],
+  [
+   ".run",
+   546,
+   "abs32",
+   "sec:.run",
+   1040
+  ],
+  [
+   ".run",
+   556,
+   "abs32",
+   "sec:.run",
+   1041
+  ],
+  [
+   ".run",
+   568,
+   "abs32",
+   "sym:fw_slot_ids",
+   0
+  ],
+  [
+   ".run",
+   658,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   666,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   754,
+   "abs32",
+   "sym:fw_fillrect",
+   0
+  ],
+  [
+   ".run",
+   760,
+   "abs32",
+   "sec:.run",
+   1041
+  ],
+  [
+   ".run",
+   772,
+   "abs32",
+   "sym:fw_textf",
+   0
+  ],
+  [
+   ".run",
+   778,
+   "abs32",
+   "sym:fw_slot_ids",
+   0
+  ],
+  [
+   ".run",
+   784,
+   "abs32",
+   "sym:fw_params",
+   48
+  ],
+  [
+   ".run",
+   802,
+   "abs32",
+   "sec:.run",
+   1072
+  ],
+  [
+   ".run",
+   876,
+   "abs32",
+   "sec:.run",
+   1076
+  ],
+  [
+   ".run",
+   890,
+   "abs32",
+   "sym:fw_font_label",
+   0
+  ],
+  [
+   ".run",
+   928,
+   "abs32",
+   "sec:.run",
+   1082
+  ],
+  [
+   ".run",
+   932,
+   "abs32",
+   "sec:.run",
+   1087
+  ],
+  [
+   ".run",
+   988,
+   "abs32",
+   "sec:.run",
+   1099
+  ],
+  [
+   ".run",
+   992,
+   "abs32",
+   "sec:.run",
+   1104
+  ],
+  [
+   ".run",
+   1064,
+   "abs32",
+   "sec:.run",
+   1040
+  ],
+  [
+   ".run",
+   1068,
+   "abs32",
+   "sec:.run",
+   80
+  ]
+ ],
+ "sites": [],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_tick",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_tick",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_draw",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_draw",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_key",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_key",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_enc",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_enc",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_pages",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_user_page",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_pages",
+   "order": 41,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_cfg_page",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_projdata",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:usercfg_projdata",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "names": [
+   "page:24",
+   "page:29",
+   "projdata:UCFG"
+  ],
+  "core": "4.0"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "usercfg.c": "713e67a0ec70a3200100d0f8e3272d17fd4e7a900590fb559a03ec4dcef7415c"
+  }
+ },
+ "signature": null
+}

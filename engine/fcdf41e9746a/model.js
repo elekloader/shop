@@ -1,0 +1,372 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// The mod manager's logic without a window: elekloader's gui.LoaderModel (GPL-2.0-or-later), ported, on an
+// in-memory file store instead of folders. The stock file, the library (the user's mods, and folders listed beside
+// it, such as the site's cores), describe(), the live check, build(), with_requirements and suggested_name.
+import { sha } from './bytes.js'
+                                                   
+import {              EXTS, ModError, cmpVersions, coreTakes, get, pickCore } from './elemod.js'
+import * as formats from './formats.js'
+import {            ddrFor, link } from './link.js'
+import { apply,          } from './elemod.js'
+import { basename, build as patchBuild, dirname, loadAny, save } from './patch.js'
+import { PyException, truthy } from './py.js'
+                                      
+
+/** Python's OSError: a file that is not there. */
+export class OSError_ extends PyException {}
+
+/** Files by absolute path: the folders the Python version reads, in memory. */
+export class Store {
+          files = new Map                    ()
+          versions = new Map                ()
+          counter = 0
+  write(path        , data            ) {
+    this.files.set(path, data)
+    this.versions.set(path, ++this.counter)
+  }
+  read(path        )             {
+    const d = this.files.get(path)
+    if (!d) throw new OSError_(`[Errno 2] No such file or directory: '${path}'`)
+    return d
+  }
+  exists(path        )          { return this.files.has(path) }
+  remove(path        ) { this.files.delete(path); this.versions.delete(path) }
+  /** The paths directly in `dir`, sorted. */
+  list(dir        )           { return [...this.files.keys()].filter(p => dirname(p) === dir).sort((a, b) => (a < b ? -1 : a > b ? 1 : 0)) }
+  /** What gui.LoaderModel.mod keys its cache by (path, mtime, size): a write counter here. */
+  version(path        )         { return this.versions.get(path) ?? 0 }
+}
+
+/** elemod.mod_files: the mod files in a folder, sorted (.elemod, and legacy .dtmod). */
+export function modFiles(store       , folder        )           {
+  const out           = []
+  for (const ext of EXTS) out.push(...store.list(folder).filter(p => basename(p).endsWith(ext)))
+  return out.sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
+}
+
+                                      
+                                       
+
+/** The listed files with this id, made for the stock firmware, by file name (sorted() is stable: equal names keep
+ * their order). */
+function candidates(descs                   , id        )           {
+  return [...descs].filter(([, x]) => x.id === id && x.fits && !('error' in x)).map(([p]) => p)
+    .map((p, i) => [p, i]         ).sort((a, b) => (basename(a[0]) < basename(b[0]) ? -1 : basename(a[0]) > basename(b[0]) ? 1 : a[1] - b[1]))
+    .map(([p]) => p)
+}
+
+/** `enabled` plus `path`, plus the mods it requires (and theirs) that are listed and made for the stock firmware,
+ * when none enabled already provides them. Of several files with the id (the versions of a mod other mods build on,
+ * machine-pages say), the newest that takes the selection is taken, the newest when none does, and for core the one
+ * withCore takes. A file takes the selection when it patches no byte another mod of it patches (describe's sites): a
+ * mod made for an older version of what it requires, which patches a place the newer version has since taken, builds
+ * with the version it was made for. A required mod that is enabled and does not take the selection gives way to a
+ * version that does. gui.with_requirements. */
+export function withRequirements(descs                   , enabled                  , path        )              {
+  let out = new Set([...enabled, path])
+  const todo = [path]
+  let core = false
+  const spans = (p        )             => {
+    const x = descs.get(p) ?? {}
+    return x.format === 1 ? [] : ((x.sites ?? [])              ).map(s => [s[0], s[0] + s[1]])
+  }
+  /** The listed files with the id, made for the stock firmware, oldest first. */
+  const versions = (rid        ) => [...descs].filter(([, x]) => x.id === rid && x.fits && !('error' in x)).map(([p]) => p)
+    .sort((a, b) => cmpVersions(descs.get(a) .version ?? '', descs.get(b) .version ?? '') || (basename(a) < basename(b) ? -1 : basename(a) > basename(b) ? 1 : 0))
+  /** `p` patches no byte a mod of the selection patches (its other versions and the core apart). */
+  const takes = (p        , rid        ) => {
+    const mine = spans(p)
+    return ![...out].some(q => q !== p && descs.get(q)?.id !== rid && descs.get(q)?.id !== 'core'
+      && spans(q).some(([l, h]) => mine.some(([lo, hi]) => lo < h && l < hi)))
+  }
+  while (todo.length) {
+    const d = descs.get(todo.pop() ) ?? {}
+    for (const rid of d.requires ?? []) {
+      if (rid === 'core') {
+        core = true
+        continue
+      }
+      if ([...out].some(p => descs.get(p)?.id === rid)) continue
+      const cands = versions(rid)
+      if (cands.length) {
+        const ok = cands.filter(p => takes(p, rid))
+        const pick = (ok.length ? ok : cands).at(-1) 
+        out.add(pick)
+        todo.push(pick)
+      }
+    }
+  }
+  // a required mod that is enabled and patches a place another mod of the selection patches: a version that does
+  // not, in its place (the one enabled stays when none does, for the check to say why)
+  const required = [...new Set([...out].flatMap(p => (descs.get(p)?.requires ?? [])            ).filter(r => r !== 'core'))].sort()
+  for (const rid of required) {
+    const on = [...out].filter(p => descs.get(p)?.id === rid)
+    if (on.length === 1 && !takes(on[0], rid)) {
+      const ok = versions(rid).filter(p => takes(p, rid))
+      if (ok.length) out = new Set([...[...out].filter(p => p !== on[0]), ok.at(-1) ])
+    }
+  }
+  return core ? withCore(descs, out) : out
+}
+
+/** `out` with the core its mods need (their resources.core) and that takes them: the core enabled when it is new
+ * enough and takes them (or no core listed for the stock firmware does both), else the one pickCore takes of those
+ * listed, in its place (the newest, when none is new enough, for the check to say so). A core takes the mods when it
+ * holds them and patches no byte one of them patches (elemod.ts coreTakes): a mod made before a core took a place for
+ * every mod still patches that place itself, and builds with the newest core that leaves the place alone.
+ * gui.with_core. */
+export function withCore(descs                   , out             )              {
+  let need                = null
+  for (const p of out) {
+    const v = descs.get(p)?.needs_core
+    if (v && (need === null || cmpVersions(v, need) > 0)) need = v
+  }
+  const mods = [...out].map(p => descs.get(p) ?? {}).filter(x => x.id !== 'core')
+  const newEnough = (p        ) => need === null || cmpVersions(descs.get(p) .version ?? '', need) >= 0
+  const takes = (p        ) => coreTakes(descs.get(p) , mods)
+  const on = [...out].filter(p => descs.get(p)?.id === 'core')
+  const cands = candidates(descs, 'core')
+  if (on.length && on.every(newEnough) && (on.every(takes) || !cands.some(p => newEnough(p) && takes(p)))) return out
+  if (!cands.length) return out
+  let i = pickCore(cands.map(p => descs.get(p) .version ?? ''), need, cands.map(takes))
+  if (i === null) {
+    if (on.length) return out
+    i = cands.length - 1
+  }
+  return new Set([...[...out].filter(p => !on.includes(p)), cands[i]])
+}
+
+/** `paths` with one core, when it has several: the one withCore takes. gui.one_core. */
+export function oneCore(descs                   , paths                  )              {
+  const all = [...paths]
+  if (all.filter(p => descs.get(p)?.id === 'core').length < 2) return new Set(all)
+  return withCore(descs, new Set(all.filter(p => descs.get(p)?.id !== 'core')))
+}
+
+export function suggestedName(descs        , version               )         {
+  const ids = descs.map(d => d.id).filter(i => i !== null && i !== undefined && i !== 'core').sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
+  return `custom-${version || 'x'}${ids.length ? '-' + ids.join('+') : ''}.syx`
+}
+
+const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now())
+
+export class LoaderModel {
+  store       
+  library        
+  also          
+  stock        = { path: null, ok: false, error: 'no stock firmware chosen' }   // set_stock(None), as LoaderModel starts
+  img                    = null
+  dev                = null
+  rel                 = null
+          parsed                        = null
+          sharc                    = null
+          mods = new Map                          ()
+
+  constructor(store       , library        , also           = []) {
+    this.store = store
+    this.library = library
+    this.also = also
+  }
+
+  /** Choose the stock firmware: known by its hash, or refused. */
+  async setStock(path               )                 {
+    const info        = { path, ok: false }
+    this.img = this.dev = this.rel = this.parsed = this.sharc = null
+    if (!path) {
+      info.error = 'no stock firmware chosen'
+    } else {
+      try {
+        const [s, dev, rel] = await formats.load(this.store.read(path))
+        info.sha256 = s.sha256
+        const img = formats.mainImage(s, dev)
+        if (sha(img) === rel.mainSha256) {
+          this.img = img
+          this.dev = dev
+          this.rel = rel
+          this.parsed = s
+          Object.assign(info, { ok: true, device: dev.name, os: rel.version })
+        } else {
+          info.error = 'its main OS is not the known image'
+        }
+      } catch (e) {                          // a missing, foreign or unknown file: say so
+        info.error = (e         ).message
+      }
+    }
+    this.stock = info
+    return info
+  }
+
+  /** The stock SHARC section, decoded the first time a build has a SHARC mod. */
+  sharcStream()                    {
+    if (this.sharc === null && this.rel?.sharc) this.sharc = this.parsed .section(this.rel.sharc.section)
+    return this.sharc
+  }
+
+  files()           {
+    const out = modFiles(this.store, this.library)
+    const seen = new Set(out.map(basename))
+    for (const d of this.also) {
+      for (const p of modFiles(this.store, d)) {
+        if (!seen.has(basename(p))) {
+          out.push(p)
+          seen.add(basename(p))
+        }
+      }
+    }
+    return out
+  }
+
+  mod(path        )         {
+    const v = this.store.version(path)
+    const hit = this.mods.get(path)
+    if (hit && hit[0] === v) return hit[1]
+    const m = loadAny({ path, data: this.store.read(path) })
+    this.mods.set(path, [v, m])
+    return m
+  }
+
+  forget(path        ) { this.mods.delete(path) }
+
+  describe(path        )       {
+    const base = { path, file: basename(path) }
+    let m        
+    try {
+      m = this.mod(path)
+    } catch (e) {
+      if (e instanceof ModError || e instanceof OSError_) return { ...base, error: e.message, id: basename(path), label: base.file }
+      throw e
+    }
+    const cat = get(m.doc, 'category')
+    const d       = {
+      ...base, id: m.id, version: m.version, label: m.label(), for_device: m.dev.key,
+      for_label: `${m.dev.name} ${m.rel.version}`,
+      fits: this.dev !== null && m.dev.key === this.dev.key && m.rel === this.rel,
+      title: get(m.doc, 'title', m.id), description: get(m.doc, 'description', ''),
+      category: truthy(cat) ? cat : (m.format !== 2 ? 'Whole build' : ''),
+      author: get(m.doc, 'author', ''), license: get(m.doc, 'license', ''), sha256: m.sha256,
+      requires: [...m.requires], conflicts: [...m.conflicts], names: [...m.names], needs_core: m.needsCore ?? null,
+    }
+    d.sites = m.sites.map(s => {
+      let tgt = ''
+      for (const r of s.relocs) tgt = r[2].startsWith('sym:') ? r[2].slice(4) : r[2]
+      return [s.addr, s.len, s.kind, tgt]
+    })
+    if (m.format === 2) {
+      const m2 = m        
+      d.format = 2
+      d.ram = m2.size('.run') + m2.size('.bss')
+      d.fast = m2.size('.fast')
+      d.ram_bound = m2.ramBound()
+      if (m2.sections.has('.boot')) {         // a core: the linker's area with it (withCore)
+        const [lo, hi] = ddrFor(m2.dev, m2.version)
+        d.ram_area = hi - lo
+      }
+      d.events = m2.contribute.filter(c => c.to.startsWith('ev_')).map(c => {
+        if (!c.relocs.length) throw new Error('IndexError: list index out of range')
+        return [c.to, c.order, c.relocs[0][2].slice(4)]
+      }).sort((a, b) => cmpTuple(a, b))
+      d.adds_to = [...new Set(m2.contribute.filter(c => !c.to.startsWith('ev_')).map(c => c.to))].sort(cmpStr)
+      d.tables = [...m2.collections.keys()].sort(cmpStr)
+      d.regions = m2.regions.map(g => [g.name, g.lo, g.hi])
+    } else {
+      d.format = 1
+      d.ram = m.blob ? m.blob.len : 0
+      d.fast = 0
+      d.events = []
+      d.adds_to = []
+      d.tables = []
+      d.regions = []
+    }
+    return d
+  }
+
+  /** -> {ok, headline, problems, status: {path: [state, text]}, ...}. */
+  check(paths          )                      {
+    const descs = new Map(paths.map(p => [p, this.describe(p)]))
+    const status                                   = {}
+    if (!this.stock.ok) {
+      return { ok: false, headline: 'Choose your stock firmware first', problems: [this.stock.error ?? 'no stock firmware'], status }
+    }
+    const other = paths.filter(p => !descs.get(p) .fits)
+    if (other.length) {
+      for (const p of other) status[p] = ['warn', 'For ' + (descs.get(p) .for_label ?? '?')]
+      return {
+        ok: false, headline: 'Made for other firmware', status,
+        problems: other.map(p => `${descs.get(p) .label} is made for ${descs.get(p) .for_label ?? '?'}; your stock firmware is ${this.dev .name} ${this.rel .version}`),
+      }
+    }
+    if (!paths.length) return { ok: false, headline: 'No mods enabled', problems: [], status, empty: true }
+    const t = now()
+    let mods          
+    let L
+    try {
+      mods = paths.map(p => this.mod(p))
+      const v2 = mods.filter(m => m.format === 2)
+      if (v2.length && v2.length !== mods.length) {
+        const whole = paths.filter(p => this.mod(p).format !== 2).map(p => descs.get(p) .label)
+        throw new ModError(`x:\n  ${whole.join(', ')} is a whole build: it cannot be combined with separate mods`)
+      }
+      if (!v2.length) {
+        const img = apply(mods         , this.img )
+        for (const p of paths) status[p] = ['ok', 'Enabled']
+        return {
+          ok: true, format: 1, ms: Math.round(now() - t), order: mods.map(m => m.label()), status,
+          blob: img.length - this.img .length, sites: mods.reduce((n, m) => n + m.sites.length, 0),
+        }
+      }
+      L = link(mods          , this.img , null,
+        v2.some(m => (m        ).sharc || (m        ).sharcRaw) ? this.sharcStream() : null)
+    } catch (e) {
+      if (!(e instanceof ModError) && !(e instanceof OSError_)) throw e
+      const lines0 = e.message.split('\n').slice(1).map(x => x.trim())
+      const lines = lines0.length ? lines0 : [e.message]
+      for (const p of paths) {
+        const d = descs.get(p) 
+        const mine = lines.filter(x => x.includes(d.label) || x.startsWith(d.id + ' '))
+        const needs = (d.requires ?? []).filter((r        ) => !paths.some(q => descs.get(q) .id === r))
+        if (needs.length) status[p] = ['warn', 'Needs ' + needs.join(', ')]
+        else if (mine.length) status[p] = ['bad', 'Conflict']
+        else status[p] = ['ok', 'Enabled']
+      }
+      return { ok: false, headline: 'Conflicts: the firmware cannot be built', problems: lines, status, ms: Math.round(now() - t) }
+    }
+    const order = new Map(L.order.map((lab, i) => [lab, i + 1]))
+    for (const p of paths) status[p] = ['ok', 'Enabled']
+    const lay = L.layout
+    const loadOrder                                = {}
+    for (const p of paths) loadOrder[p] = order.get(descs.get(p) .label) ?? null
+    return {
+      ok: true, format: 2, ms: Math.round(now() - t), status, order: L.order, load_order: loadOrder,
+      ram: [lay.bss[1] - lay.ddr[0], lay.ddr_size], fast: [lay.fast[1] - lay.fast[0], lay.fast_size],
+      blob: lay.blob_len, sites: mods.reduce((n, m) => n + m.sites.length, 0),
+    }
+  }
+
+  /** Build, verify and write outPath (+ .json, + .map.json) into the store. -> facts and the files. */
+  async build(paths          , version               , outPath        , log                         = () => {},
+    lock              = null) {
+    const [outputs, man] = await patchBuild({ path: this.stock.path, data: this.store.read(this.stock.path) },
+      paths.map(p => ({ path: p, data: this.store.read(p) })), version || null, false, log, lock)
+    const files = save(outputs , man, outPath)
+    for (const f of files) this.store.write(f.path, f.data)
+    const f = man.output
+    return {
+      path: outPath, files, sha256: f.sha256, bytes: f.bytes, version: man.version, flash_end: f.flash_end,
+      headroom: f.flash_headroom, gap: f.main.inplace_min_gap ?? null, inplace: f.main.inplace ?? '',
+      mods: man.mods.map((m                        ) => m.id + ' ' + m.version), untouched: f.untouched, man,
+    }
+  }
+}
+
+const cmpStr = (a        , b        ) => (a < b ? -1 : a > b ? 1 : 0)
+
+/** Python's tuple order, for tuples of strings and numbers. */
+function cmpTuple(a           , b           )         {
+  for (let i = 0; i < Math.min(a.length, b.length); i++) {
+    const x = a[i]       , y = b[i]       
+    if (x < y) return -1
+    if (x > y) return 1
+  }
+  return a.length - b.length
+}
+

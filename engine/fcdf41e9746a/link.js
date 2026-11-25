@@ -1,0 +1,1549 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// The linker: format-2 mods -> one patched main OS (docs/FORMAT.md). Ported from elekloader's link.py
+// (GPL-2.0-or-later): the same checks in the same order, the same layout, and the same bytes.
+//
+// A format-2 mod is a relocatable object in JSON: its sections (.boot for core only, .run, .fast, .bss), the symbols
+// it defines and exports, what it imports (some weakly), relocations, sites with relocations of their own, the tables
+// it declares and the entries it adds to other mods' tables, and its resources. A relocation target is "sym:NAME"
+// (its own symbol, else another mod's export, else, if the import is weak, core_zero), "sec:NAME" or "abs".
+//
+// On a device with DSP code in its main OS (the profile's dspPayloads), a mod may also carry DSP56300 code, `.dsp.<payload>`
+// sections of 24-bit little-endian words, and declare DSP tables (a collection with "space": "dsp.<payload>"). They are
+// placed in the P words of that payload a mod frees by claiming the area's name (the profile's dspAreas); a symbol there
+// is a DSP word address, and a `dsp24` relocation writes one as three little-endian bytes.
+import { concat, equal, sha } from './bytes.js'
+import {                                        imageEnd, linkable } from './devices.js'
+import { pSpan } from './dsp.js'
+import {
+                                                             COMMON, ModError, RSIZE, cmpVersions, commonChecks, formatOf, get,
+  hexBytes, insnCheck, int, isDict, iter, overlaps, parseNeedsCore, parseParts, parseResources, parseSites, partsBytes, partsLen,
+  pyEq, resolveTarget, sharcSite, summarize, unpack,
+} from './elemod.js'
+import { PCREL, decodeColdFire, readerAt } from './isa/coldfire.js'
+import { AttributeError, KeyError, PyException, ValueError, hex8, pyType, repr, str, truthy } from './py.js'
+import * as desc from './desc.js'
+import * as store from './store.js'
+import { KERNEL_ABI, KERNEL_TABLE, kernelPayload, modulePayload, placeKernels,                                    
+                                                          linkRaw, rawPayload } from './sharc.js'
+import * as sharcRecords from './sharc.js'
+import * as syx from './syx.js'
+
+/** Python's struct.error. */
+export class StructError extends PyException {}
+
+export const FORMAT2 = 2
+const SECTIONS = ['.boot', '.run', '.fast', '.bss', '.payload']
+const RTYPES = ['abs32', 'abs16', 'pc32', 'pc16', 'dsp24']
+export const KNOBS = '__knobs'                // a mod's first knob id (its "knobs")
+const MAX_KNOBS = 1024                      // a mod's "knobs": at most this many ids
+const DSP = '.dsp.'                         // a DSP section: '.dsp.' + its payload's tag
+const FAST_ENTRY = 16                       // a .fast copy entry: src, dst, len, 0
+export const PAYLOADS = 'core_payloads'     // the core's table of the mods' payloads: id, address, length
+const PAYLOAD_ENTRY = 12
+
+/** A mod's payload id in core_payloads: the FNV-1a hash (32 bits) of its id's UTF-8 bytes (link.py payload_id). */
+export function payloadId(modId        )         {
+  let h = 0x811c9dc5
+  for (const b of new TextEncoder().encode(modId)) h = Math.imul(h ^ b, 0x01000193) >>> 0
+  return h >>> 0
+}
+const MAX_ALIGN = 4096                      // a section's alignment: a power of two up to this
+const LINKER_SYMS = new Set(['__run_load', '__run_start', '__run_words', '__bss_start', '__bss_end', '__bss_words', '__run_hash', desc.SYM])
+export const STD_SETS = ['std1']             // what a mod's "events" names (ADAPTING.md, "Standard events (std1)")
+const MAX_SPARE = 4096                      // a table's spare entries (a collection's "spare")
+// the tables a build descriptor gives no spare entries: the linker fills them, from storage and payloads
+const NO_SPARE = [PAYLOADS]
+// the tables the linker fills from storage that a build descriptor opens to the loader alone (desc.F_LOADER):
+// spare entries for the +Drive mods' fields, which a mod's own contributions may not take
+const LOADER_ONLY = new Set([store.IDS_TABLE, store.CODES_TABLE, store.CCS_TABLE, store.INITS_TABLE, store.HANDLES_TABLE])
+// a table's spare entries in a build descriptor where its collection gives no "spare" (else desc.SPARE)
+const DRIVE_SPARE = new Map                ([['core_lock_params', 32], [store.CODES_TABLE, 32], [store.CCS_TABLE, 32],
+  [store.INITS_TABLE, 32], [store.HANDLES_TABLE, 32], [store.IDS_TABLE, 1 + store.MAX_ANCESTORS]])
+// a table's most entries, flashed and spare, where its collection gives no "max"
+const DRIVE_MAX = new Map                ([[store.INITS_TABLE, store.MAX_INITS]])
+export const HASH_SEED = 5381, HASH_MUL = 33       // __run_hash: h = seed; h = h * 33 + word (mod 2^32), per word
+
+const align = (v        , a        ) => Math.ceil(v / a) * a
+
+const cmpBytes = (a            , b            ) => {             // Python's bytes order
+  for (let i = 0; i < Math.min(a.length, b.length); i++) if (a[i] !== b[i]) return a[i] - b[i]
+  return a.length - b.length
+}
+
+/** The hash of the RAM image a core copies at boot (`__run_hash`): a rolling x33 over its 32-bit
+ *  big-endian words, from the seed 5381. A core hashes the copy it made and halts on a mismatch. */
+export function runHash(ddr            )         {
+  const v = new DataView(ddr.buffer, ddr.byteOffset, ddr.byteLength)
+  let h = HASH_SEED
+  for (let o = 0; o + 4 <= ddr.length; o += 4) h = (Math.imul(h, HASH_MUL) + v.getUint32(o)) >>> 0
+  return h
+}
+const cmp = (a        , b        ) => (a < b ? -1 : a > b ? 1 : 0)
+const hexw = (v        , w        ) => v.toString(16).padStart(w, '0')
+
+/** The payload tag of a DSP section name, or null. */
+function dspTag(dev        , sec        )                {
+  return sec.startsWith(DSP) && Object.hasOwn(dev.dspPayloads, sec.slice(DSP.length)) ? sec.slice(DSP.length) : null
+}
+
+/** d.items() of a JSON dict, or Python's AttributeError. */
+function items(d         )                  {
+  if (!isDict(d)) throw new AttributeError(`'${pyType(d)}' object has no attribute 'items'`)
+  return Object.entries(d)
+}
+
+                                                                         
+                                                                                                                                                                             
+                                         // event: a std mod's standard event, whose table `to` is (stdTables)
+
+/** A loaded, validated format-2 mod. */
+export class Mod2                   {
+           format = 2
+  doc                     
+  name        
+  sha256               
+  id        
+  version        
+  dev        
+  rel         
+  sections                  
+  sharc                                     
+  sharcRaw                   
+  symbols                               
+  exports          
+  imports          
+  weak             
+  relocs                                            
+  sites        
+  collections                     
+  spare                                      // a table's spare entries, for a build descriptor
+  cap                                        // a table's most entries, flashed and spare ("max")
+  render                                     // the render tables it declares
+  dspTables                                                  // name -> [payload tag, head, end]
+  contribute                
+  events               
+  std                     
+  copied                            
+  storage                            
+  knobs        
+  locks          
+  ccs          
+  lfos          
+  rough          
+  routes          
+  cvs          
+  inits                     
+  handles          
+  regions          
+  names          
+  needsCore               
+  requires          
+  conflicts          
+  blob = null
+
+  constructor(doc                     , name = '<mod>', raw                    = null) {
+    this.doc = doc
+    this.name = name
+    this.sha256 = raw ? sha(raw) : null
+    if (!pyEq(formatOf(doc), FORMAT2)) throw new ModError(`${name}: not a format-2 .elemod file`)
+    const more = new Set(['sections', 'symbols', 'exports', 'imports', 'weak', 'relocs', 'collections', 'contribute', 'copied', 'storage', 'sharc',
+      'sharc_raw', 'knobs', 'events', 'std'])
+    const extra = Object.keys(doc).filter(k => !COMMON.has(k) && !more.has(k)).sort()
+    if (extra.length) throw new ModError(`${name}: unknown fields ${repr(extra)}`)
+    for (const k of ['id', 'version', 'target', 'sections']) if (!(k in doc)) throw new ModError(`${name}: no "${k}"`)
+    this.id = str(doc.id)
+    this.version = str(doc.version)
+    ;[this.dev, this.rel] = resolveTarget(doc, name)
+    this.sections = new Map()
+    for (const [sec, d] of items(doc.sections)) {
+      const tag = dspTag(this.dev, sec)
+      if (!SECTIONS.includes(sec) && tag === null) throw new ModError(`${name}: unknown section ${sec}`)
+      if (tag !== null) {                      // DSP words: no alignment, whole words
+        const parts = parseParts(get(d, 'parts', []), name + ' ' + sec, this.dev, this.rel)
+        const n = partsLen(parts)
+        if (n !== int(get(d, 'len', n), name) || n % 3) throw new ModError(`${name} ${sec}: ${n} bytes, not whole 24-bit DSP words`)
+        this.sections.set(sec, { align: 1, parts, len: n })
+        continue
+      }
+      const al = int(get(d, 'align', 4), name)
+      if (al < 1 || al & (al - 1) || al > MAX_ALIGN) throw new ModError(`${name} ${sec}: alignment ${al} (a power of two up to ${MAX_ALIGN})`)
+      if (sec === '.bss') {
+        if (!('size' in d)) throw new KeyError(repr('size'))
+        this.sections.set(sec, { align: al, size: int(d.size, name) })
+        continue
+      }
+      const parts = parseParts(get(d, 'parts', []), name + ' ' + sec, this.dev, this.rel)
+      const n = partsLen(parts)
+      if (n !== int(get(d, 'len', n), name)) throw new ModError(`${name} ${sec}: parts make ${n} bytes, not ${str(get(d, 'len'))}`)
+      if (sec === '.payload' && 'sha256' in d && parts.every(p => p[0] === 'hex')
+          && sha(concat(parts.map(p => p[1]              ))) !== str(d.sha256).toLowerCase())
+        throw new ModError(`${name} .payload: its bytes do not match its sha256`)
+      this.sections.set(sec, { align: al, parts, len: n })
+    }
+    this.sharc = !('sharc' in doc) ? null : isDict(doc.sharc) && doc.sharc.abi === KERNEL_ABI ? kernelPayload(doc.sharc, this.rel.sharc)
+      : modulePayload(doc.sharc, this.rel.sharc, this.sections.has('.boot'))
+    this.sharcRaw = 'sharc_raw' in doc ? rawPayload(doc.sharc_raw, this.rel.sharc) : null
+    this.symbols = new Map()
+    for (const [nm, v] of items(get(doc, 'symbols', {}))) {
+      if (!Array.isArray(v) || v.length !== 2) throw new ModError(`${name}: symbol ${nm}`)
+      if (v[0] !== 'abs' && !this.sections.has(v[0])) throw new ModError(`${name}: symbol ${nm} in a section it lacks (${str(v[0])})`)
+      this.symbols.set(nm, [v[0], int(v[1], name)])
+      if (dspTag(this.dev, v[0]) && this.symbols.get(nm) [1] % 3) throw new ModError(`${name}: DSP symbol ${nm} is not at a whole word`)
+    }
+    if (this.symbols.has(KNOBS)) throw new ModError(`${name}: ${KNOBS} is the linker's (its first knob id), not a symbol of a mod`)
+    const k = get(doc, 'knobs', 0)
+    if (typeof k !== 'number' || !Number.isInteger(k) || !(k >= 0 && k <= MAX_KNOBS))
+      throw new ModError(`${name}: "knobs" is a count of knob ids, 0..${MAX_KNOBS}`)
+    this.knobs = k
+    this.exports = iter(get(doc, 'exports', [])).map(x => str(x))
+    for (const x of this.exports) if (!this.symbols.has(x)) throw new ModError(`${name}: exports ${x}, which it does not define`)
+    this.imports = iter(get(doc, 'imports', [])).map(x => str(x))
+    this.weak = new Set(iter(get(doc, 'weak', [])).map(x => str(x)))
+    if (![...this.weak].every(w => this.imports.includes(w))) throw new ModError(`${name}: a weak name it does not import`)
+    this.relocs = []
+    for (const r of iter(get(doc, 'relocs', []))) {
+      const [sec, off0, typ, tgt, add] = unpack(r, 5)
+      const off = int(off0, name)
+      this.relocOk(sec, off, typ, tgt)
+      this.relocs.push([sec          , off, typ          , tgt          , int(add, name)])
+    }
+    this.sites = parseSites(doc, name, this.dev, this.rel, true)
+    this.collections = new Map()
+    this.dspTables = new Map()
+    this.spare = new Map()
+    this.cap = new Map()
+    this.render = new Set()
+    for (const [c, d] of items(get(doc, 'collections', {}))) {
+      const e = int(get(d, 'entry'), name)
+      if (isDict(d) && 'spare' in d) {         // for a build descriptor: room for more entries
+        const n = int(d.spare, name)
+        this.spare.set(c, n)
+        if (!(n >= 0 && n <= MAX_SPARE)) throw new ModError(`${name}: table ${c} spare ${n} (0 to ${MAX_SPARE})`)
+      }
+      if (isDict(d) && 'max' in d) {           // the spare entries stop at this many in all
+        const n = int(d.max, name)
+        this.cap.set(c, n)
+        if (!(n >= 1 && n <= MAX_SPARE)) throw new ModError(`${name}: table ${c} max ${n} (1 to ${MAX_SPARE})`)
+      }
+      if (truthy(get(d, 'render'))) this.render.add(c)
+      const space = get(d, 'space')
+      if (space === null) {
+        if (e <= 0 || e % 4) throw new ModError(`${name}: table ${c} entry size ${e}`)
+      } else {
+        const tag = dspTag(this.dev, '.' + str(space))
+        if (tag === null) throw new ModError(`${name}: table ${c} in space ${repr(space)}, which the ${this.dev.name} lacks`)
+        const head = hexBytes(get(d, 'head', ''), name), end = hexBytes(get(d, 'end', ''), name)
+        if (e <= 0 || e % 3 || head.length % 3 || end.length % 3) throw new ModError(`${name}: DSP table ${c} is not whole 24-bit words`)
+        this.dspTables.set(c, [tag, head, end])
+      }
+      this.collections.set(c, e)
+    }
+    const events = get(doc, 'events', null)    // "std1": its subscriptions are standard events
+    if (events !== null && !STD_SETS.includes(events))
+      throw new ModError(`${name}: "events" is ${repr(events)}; the standard event set is ${STD_SETS.map(x => `"${x}"`).join(' or ')}`)
+    this.events = events
+    const std = get(doc, 'std', {})              // a core's map: standard event -> its own table
+    if (!isDict(std) || !Object.values(std).every(v => typeof v === 'string'))
+      throw new ModError(`${name}: "std" maps each standard event's name to a table of the core`)
+    if (Object.keys(std).length && !this.sections.has('.boot'))
+      throw new ModError(`${name}: a "std" map is a core's (the mod with .boot)`)
+    this.std = new Map(Object.entries(std                          ))
+    this.contribute = []
+    iter(get(doc, 'contribute', [])).forEach((c, i) => {
+      const what = `${name} contribution ${i}`
+      const data = hexBytes(get(c, 'data'), what)
+      const rel                                     = []
+      for (const r of iter(get(c, 'relocs', []))) {
+        const [off0, typ, tgt, add] = unpack(r, 4)
+        const off = int(off0, what)
+        if (!RTYPES.includes(typ          ) || off < 0 || off + RSIZE.get(typ          )  > data.length)
+          throw new ModError(`${what}: bad relocation ${repr(r)}`)
+        rel.push([off, typ          , tgt          , int(add, what)])
+      }
+      const claims = iter(truthy(get(c, 'claims')) ? get(c, 'claims') : []).map(ab => {   // `or []`: null is none
+        const [a, b] = unpack(ab, 2)
+        return [int(a, what), int(b, what)]                    
+      })
+      if (!isDict(c) || !('to' in c)) throw new KeyError(repr('to'))
+      this.contribute.push({ to: str(c.to), order: int(get(c, 'order', 50), what), data, relocs: rel, claims, i })
+      const isStd = get(c, 'std', null)
+      if (isStd !== null) {                      // a subscription to a standard event: the core's map gives its table
+        if (isStd !== true || this.events === null)
+          throw new ModError(`${what}: a standard event's subscription ("std": true) needs the mod's "events"`)
+        this.contribute[this.contribute.length - 1].event = str(c.to)
+      }
+    })
+    try {
+      this.storage = store.parseDecls(doc)
+      this.locks = store.parseLocks(doc)
+      this.ccs = store.parseCcs(doc)
+      this.lfos = store.parseLfos(doc)
+      this.rough = store.parseRough(doc)
+      this.routes = store.parseRoutes(doc)
+      this.cvs = store.parseCvs(doc)
+      this.inits = store.parseInits(doc)
+      this.handles = store.parseHandles(doc)
+    } catch (e) {
+      if (e instanceof ModError) throw new ModError(`${name}: ${e.message}`)
+      throw e
+    }
+    this.copied = iter(get(doc, 'copied', [])).map(c => {
+      for (const k of ['lo', 'hi', 'to']) if (!isDict(c) || !(k in c)) throw new KeyError(repr(k))
+      return [int((c       ).lo, name), int((c       ).hi, name), int((c       ).to, name)]                            
+    })
+    ;[this.regions, this.names] = parseResources(doc, name, this.dev)
+    this.needsCore = parseNeedsCore(doc, name)
+    this.requires = iter(get(doc, 'requires', [])).map(x => str(x))
+    this.conflicts = iter(get(doc, 'conflicts', [])).map(x => str(x))
+  }
+
+  /** The names this mod claims by what it contributes (the profile's slotClaims): a contribution to such a table
+   * points at a descriptor whose long at a known offset is a sound slot, and the mod claims that slot (digitables'
+   * TBL parameter: soundslot:26), so two mods that store in one slot never link together, whether their files say
+   * so or not. `image` is the stock main OS the mod is for: a descriptor's bytes may be stock parts. A descriptor
+   * this cannot read (outside the mod's own bytes, or relocated there) claims nothing. check() adds them to the
+   * mod's names. link.Mod2.implied_names. */
+  impliedNames(image            , onlyTable         )           {
+    const out           = []
+    for (const [table, at, count, prefix] of this.dev.slotClaims) {
+      if (onlyTable !== undefined && table !== onlyTable) continue
+      for (const c of this.contribute) {
+        if (c.to !== table) continue
+        for (const [off, typ, tgt, add] of c.relocs) {
+          if (off % 4 || typ !== 'abs32') continue
+          let sec        , base        
+          if (tgt.startsWith('sym:') && this.symbols.has(tgt.slice(4))) [sec, base] = this.symbols.get(tgt.slice(4)) 
+          else if (tgt.startsWith('sec:')) [sec, base] = [tgt.slice(4), 0]
+          else continue
+          const v = this.long(sec, base + add + at, image)
+          const nm = `${prefix}:${v}`
+          if (v !== null && v >= 0 && v < count && !out.includes(nm)) out.push(nm)
+        }
+      }
+    }
+    return out
+  }
+
+  /** The knob ids this mod's entries answer for, by the profile's paramIds: a contribution to such a table holds
+   * four-byte pointers to entries whose first two longs are a range of ids (core-ar2's core_params,
+   * core_param_locks). -> [[table, first, last]]. An entry this cannot read (outside the mod's own bytes, or
+   * relocated there) answers for none; one relocated to __knobs answers for its ids when knobs (the mod's first id)
+   * is given. link.Mod2.id_ranges. */
+  idRanges(image            , knobs                = null)                             {
+    const out                             = []
+    for (const [table] of this.dev.paramIds ? this.dev.paramIds[2] : []) {
+      for (const c of this.contribute) {
+        if (c.to !== table) continue
+        for (const [off, typ, tgt, add] of c.relocs) {
+          const at = off % 4 ? null : this.target(typ, tgt, add)
+          if (at === null) continue
+          const first = this.idLong(at[0], at[1], image, knobs), last = this.idLong(at[0], at[1] + 4, image, knobs)
+          if (first !== null && last !== null && (first | 0) <= (last | 0)) out.push([table, first | 0, last | 0])
+        }
+      }
+    }
+    return out
+  }
+
+  /** An id long at sec+off: its bytes, or __knobs + the addend where an abs32 relocates it to __knobs and knobs is
+   * given; else null. link.Mod2._id. */
+          idLong(sec        , off        , image            , knobs               )                {
+    const r = this.relocs.find(([s, o]) => s === sec && o === off)
+    if (!r) return this.long(sec, off, image)
+    if (knobs !== null && r[2] === 'abs32' && r[3] === 'sym:' + KNOBS) return (knobs + r[4]) >>> 0
+    return null
+  }
+
+  /** -> [[where, type, addend]] of every relocation to __knobs: sections, sites, entries. link.Mod2.knob_refs. */
+  knobRefs()                             {
+    const t = 'sym:' + KNOBS
+    return [
+      ...this.relocs.filter(r => r[3] === t).map(([sec, off, ty, , a]) => [`${sec}+0x${off.toString(16)}`, ty, a]                            ),
+      ...this.sites.flatMap(s => s.relocs.filter(r => r[2] === t).map(([, ty, , a]) => [`site 0x${s.addr.toString(16).padStart(8, '0')}`, ty, a]                            )),
+      ...this.contribute.flatMap(c => c.relocs.filter(r => r[2] === t).map(([, ty, , a]) => [`an entry of ${c.to}`, ty, a]                            )),
+    ]
+  }
+
+  /** The big-endian long at sec+off of this mod's bytes, or null: in a section without bytes
+   * or under a relocation. */
+          long(sec        , off        , image            )                {
+    const raw = this.bytes(sec, off, 4, image)
+    return raw === null ? null : ((raw[0] << 24) | (raw[1] << 16) | (raw[2] << 8) | raw[3]) >>> 0
+  }
+
+  /** The `size` bytes at sec+off of this mod's bytes, or null, as long(). */
+          bytes(sec        , off        , size        , image            )                  {
+    const d = this.sections.get(sec)
+    if (!d || !d.parts || d.len === undefined || off < 0 || off + size > d.len) return null
+    if (this.relocs.some(([s, o, t]) => s === sec && o < off + size && off < o + (RSIZE.get(t) ?? 0))) return null
+    const raw           = []
+    let at = 0
+    for (const p of d.parts) {
+      const n = p[0] === 'hex' ? p[1].length : p[2]
+      const lo = Math.max(off, at), hi = Math.min(off + size, at + n)
+      if (lo < hi) {
+        const [b, i] = p[0] === 'hex' ? [p[1], lo - at] : [image, p[1] - this.dev.mainLoad + lo - at]
+        if (i < 0 || i + hi - lo > b.length) return null
+        raw.push(...b.subarray(i, i + hi - lo))
+        if (raw.length === size) return raw
+      }
+      at += n
+    }
+    return null
+  }
+
+  /** Where an abs32 relocation points in this mod's bytes, as [section, offset], or null. */
+          target(typ        , tgt        , add        )                          {
+    if (typ === 'abs32' && tgt.startsWith('sym:') && this.symbols.has(tgt.slice(4))) {
+      const [sec, base] = this.symbols.get(tgt.slice(4)) 
+      return [sec, base + add]
+    }
+    return typ === 'abs32' && tgt.startsWith('sec:') ? [tgt.slice(4), add] : null
+  }
+
+  /** Where the four-byte pointer at sec+off points in this mod's bytes, or null. */
+          pointer(sec        , off        )                          {
+    const r = this.relocs.find(([s, o]) => s === sec && o === off)
+    return r ? this.target(r[2], r[3], r[4]) : null
+  }
+
+  /** A DN2 filter descriptor's optional G (mk2/machines.h): NULL, or an mk2_param in this mod's bytes with a
+   * label of 1..5 printable ASCII characters and a default of 0..127. link.Mod2.dn2_filter_g_ok. */
+  dn2FilterGOk(contribution              , image            )          {
+    const at = this.rel.sharc .filterGAt 
+    const r = contribution.relocs.find(([o]) => o === 0)
+    const descriptor = r ? this.target(r[1], r[2], r[3]) : null
+    if (!descriptor) return true                    // the registration checks refuse it
+    const param = this.pointer(descriptor[0], descriptor[1] + at)
+    if (!param) return this.long(descriptor[0], descriptor[1] + at, image) === 0
+    const def = this.long(param[0], param[1] + 4, image), label = this.pointer(param[0], param[1])
+    if (def === null || def > 127 || !label) return false
+    for (let n = 0; n < 6; n++) {
+      const c = this.bytes(label[0], label[1] + n, 1, image)
+      if (c === null || (c[0] && !(c[0] >= 32 && c[0] <= 126))) return false
+      if (!c[0]) return n >= 1 && n <= 5
+    }
+    return false
+  }
+
+          relocOk(sec         , off        , typ         , tgt         ) {
+    if (typeof sec !== 'string' || !this.sections.has(sec) || sec === '.bss') throw new ModError(`${this.name}: relocation in ${str(sec)}`)
+    if (!RTYPES.includes(typ          )) throw new ModError(`${this.name}: relocation type ${str(typ)}`)
+    if ((typ === 'dsp24') !== Boolean(dspTag(this.dev, sec)) || (typ === 'dsp24' && off % 3))
+      throw new ModError(`${this.name}: a ${str(typ)} relocation in ${sec}`)
+    if (off < 0 || off + RSIZE.get(typ          )  > this.sections.get(sec) .len ) throw new ModError(`${this.name}: relocation at ${sec}+${off} is outside it`)
+    if (tgt !== 'abs' && typeof tgt !== 'string') throw new AttributeError(`'${pyType(tgt)}' object has no attribute 'startswith'`)
+    if (!(tgt === 'abs' || tgt.startsWith('sym:') || tgt.startsWith('sec:'))) throw new ModError(`${this.name}: relocation target ${repr(tgt)}`)
+  }
+
+  label()         { return `${this.id} ${this.version}` }
+
+  size(sec        )         {
+    const d = this.sections.get(sec)
+    if (!d) return 0
+    return sec === '.bss' ? d.size  : d.len 
+  }
+
+  /** The most it can take of the linker's area, whatever it is linked with: its .run and .bss with their alignment,
+   * its table entries (and the zero entry of each table it has), its .fast copy and that copy's entry, each rounded up
+   * to 4. link() lays them out in no more than the sum of the mods' bounds, so a builder can tell which core's area
+   * holds them (model.ts withCore). */
+  ramBound()         {
+    let n = 0
+    for (const sec of ['.run', '.bss', '.payload']) {
+      if (this.size(sec)) n += align(this.size(sec), 4) + Math.max(4, this.sections.get(sec) .align) - 4
+    }
+    if (this.size('.payload')) n += PAYLOAD_ENTRY
+    for (const c of this.contribute) n += align(c.data.length, 4)
+    for (const e of this.collections.values()) n += align(e, 4)
+    if (this.size('.fast')) n += align(this.size('.fast'), 4) + FAST_ENTRY
+    return n
+  }
+}
+
+// ---- checks ----
+
+/** The symbols a core may size its RAM reserve with (the profile's `reserve`): none when a mod exports one of them, as
+ * a core with a fixed reserve does. */
+function reserveNames(dev        , exported                             )              {
+  const names = dev.reserve ? Object.keys(dev.reserve[1]) : []
+  return names.some(n => exported.has(n)) ? new Set() : new Set(names)
+}
+
+                                                     // lo, hi, main OS address of P:lo, the mod, the area's name
+
+/** The DSP areas the mods free, by the name a mod claims: payload tag -> area. One area a payload, the first claimed. */
+export function dspAreas(mods        , image            )                    {
+  const dev = mods[0].dev, out = new Map              ()
+  for (const [tag, lo, hi, nm] of dev.dspAreas) {
+    const owner = mods.find(m => m.names.includes(nm))
+    if (owner !== undefined && !out.has(tag)) out.set(tag, [lo, hi, pSpan(image, dev, tag, lo, hi), owner, nm])
+  }
+  return out
+}
+
+/** The payload tags a mod's DSP sections and DSP tables need an area in. */
+function dspNeeds(m      )              {
+  const out = new Set        ()
+  for (const s of m.sections.keys()) if (dspTag(m.dev, s)) out.add(dspTag(m.dev, s) )
+  for (const [t] of m.dspTables.values()) out.add(t)
+  return out
+}
+
+const isKernel = (m      )          => !!m.sharc && 'abi' in m.sharc && m.sharc.abi === KERNEL_ABI
+const kernel = (m      )                => m.sharc                 
+                                            
+
+/** [the DN2 kernel mods, the other SHARC mods but the core]. A dispatcher without kernels is inert. link.sharc_split. */
+function sharcSplit(mods        )                     {
+  let kernelMods = mods.filter(isKernel)
+  if (!kernelMods.some(m => kernel(m).kernels.length)) kernelMods = []
+  return [kernelMods, mods.filter(m => m.sharc && !m.sections.has('.boot') && !isKernel(m))            ]
+}
+
+/** The DN2 machines m registers, by the profile's kernelRegistrations: {"kind:id": [table, needs its kernel]}.
+ * link.kernel_registrations. */
+function kernelRegistrations(m      , image            )                                 {
+  const out = new Map                           ()
+  for (const [table, kind, needs] of m.rel.sharc?.kernelRegistrations ?? [])
+    for (const nm of m.impliedNames(image, table)) out.set(`${kind}:${Number(nm.slice(nm.lastIndexOf(':') + 1))}`, [table, needs])
+  return out
+}
+
+/** Python's sorted() over (kind, id) keys. */
+const byKindId = (a        , b        ) => {
+  const [ka, ia] = a.split(':'), [kb, ib] = b.split(':')
+  return ka < kb ? -1 : ka > kb ? 1 : Number(ia) - Number(ib)
+}
+
+/** Static checks that need no layout. -> problems. */
+/** Each standard event a std mod subscribes to, to the table the core's "std" map names for it (in place: the
+ * contribution's `to`; its `event` keeps the name). -> problems. */
+export function stdTables(mods        )           {
+  const cores = mods.filter(m => m.sections.has('.boot'))
+  const core = cores.length === 1 ? cores[0] : null
+  const bad           = []
+  if (core) {
+    const declared = new Set(mods.flatMap(m => [...m.collections.keys()]))
+    for (const ev of [...core.std.keys()].sort(cmp)) {
+      const t = core.std.get(ev) 
+      if (!declared.has(t)) bad.push(`${core.label()}: its std map sends ${ev} to ${t}, which no given mod declares`)
+    }
+  }
+  for (const m of mods) {
+    const missing           = []
+    for (const c of m.contribute) {
+      if (c.event === undefined) continue
+      c.unmapped = !(core && core.std.has(c.event))
+      c.to = c.unmapped ? c.event : core .std.get(c.event) 
+      if (c.unmapped && !missing.includes(c.event)) missing.push(c.event)
+    }
+    if (missing.length && core && !core.std.size) bad.push(`${m.label()} subscribes to ${m.events} events, and ${core.label()} maps none`)
+    else if (missing.length && core) bad.push(`${m.label()} subscribes to ${missing.join(', ')}, which ${core.label()} does not map`)
+  }
+  return bad
+}
+
+export function check(mods        , image            )           {
+  const stdBad = stdTables(mods)
+  const spans                 = []
+  for (const m of mods) {
+    for (const s of m.sites) spans.push([s.addr, s.addr + s.len, m, `site ${hex8(s.addr)}`])
+    for (const c of m.contribute) for (const [a, b] of c.claims) spans.push([a, b, m, `${c.to} entry (claims ${hex8(a)}-${hex8(b)})`])
+  }
+  let areas = new Map              ()
+  if (mods[0].dev.dspAreas.length && new Set(mods.map(m => m.dev.key + '\0' + m.rel.version)).size === 1) {
+    areas = dspAreas(mods, image)
+    for (const tag of [...areas.keys()].sort(cmp)) {
+      const [lo, hi, at, owner, nm] = areas.get(tag) 
+      spans.push([at, at + 3 * (hi - lo), owner, `DSP area ${nm} (payload ${tag} P:0x${hexw(lo, 4)}-0x${hexw(hi - 1, 4)})`])
+    }
+  }
+  if (new Set(mods.map(m => m.dev.key + '\0' + m.rel.version)).size === 1) {
+    for (const m of mods) for (const nm of m.impliedNames(image)) if (!m.names.includes(nm)) m.names.push(nm)   // the sound slots their parameters store in
+  }
+  const bad = commonChecks(mods, image, spans)
+  if (bad.length && bad[0].startsWith('the mods are for different firmware')) return bad
+  bad.push(...stdBad)
+  const dev = mods[0].dev
+  for (const m of mods) {
+    const refs                     = []
+    for (const [nm, [sec, v]] of m.symbols) if (sec === 'abs') refs.push(['symbol ' + nm, v])
+    for (const [sec, , , tgt, add] of m.relocs) if (tgt === 'abs') refs.push(['a relocation in ' + sec, add])
+    for (const s of m.sites) for (const [, , tgt, add] of s.relocs) if (tgt === 'abs') refs.push([`site ${hex8(s.addr)}`, add])
+    for (const c of m.contribute) for (const [, , tgt, add] of c.relocs) if (tgt === 'abs') refs.push([`its ${c.to} entry`, add])
+    for (const [what, v] of refs)
+      for (const [lo, hi, why] of dev.noLink)
+        if (lo <= v && v < hi)
+          bad.push(`${m.label()}: ${what} links to ${hex8(v)}, inside ${hex8(lo)}-${hex8(hi)}, ${why}: no mod may link to it on the ${dev.name}`)
+  }
+  if (!linkable(dev)) return [`the ${dev.name} has no linkable (format-2) mods yet: only whole builds (format 1) can be used on it`]
+  const cores = mods.filter(m => m.sections.has('.boot'))
+  if (cores.length !== 1) bad.unshift(`exactly one mod must carry .boot (core); got ${cores.length ? repr(cores.map(m => m.label())) : 'none'}`)
+  else {
+    for (const m of mods)
+      if (m.needsCore && cmpVersions(cores[0].version, m.needsCore) < 0)
+        bad.push(`${m.label()} needs core ${m.needsCore} or newer, and this build has core ${cores[0].version}`)
+  }
+  const [kernelMods, sharcMods] = sharcSplit(mods)
+  for (const m of mods)
+    if (!sharcMods.length && !kernelMods.length && m.sites.some(s => sharcSite(m.rel, s.addr)))
+      bad.push(`${m.label()}: SHARC data site requires a SHARC mod`)
+  if (kernelMods.length) {
+    const dispatchers = kernelMods.filter(m => Object.keys(kernel(m).exports).length).map(m => m.label())
+    if (dispatchers.length !== 1)
+      bad.push(`DN2 machine kernels need one dispatcher (machines-dn2); this build has ${dispatchers.join(', ') || 'none'}`)
+    if (sharcMods.length) bad.push(`DN2 machine kernels do not combine with ${sharcMods.map(m => m.label()).join(', ')}`)
+    const owners = new Map              ()
+    for (const m of kernelMods) for (const k of kernel(m).kernels) {
+      const key = `${KERNEL_TABLE[k.kind]}:${k.id}`
+      if (owners.has(key)) bad.push(`${owners.get(key) .label()} and ${m.label()} both have a DN2 ${KERNEL_TABLE[k.kind]} kernel with id ${k.id}`)
+      owners.set(key, m)
+    }
+  }
+  if (sharcMods.length > 1) bad.push(`a build takes one SHARC mod; this one has ${sharcMods.map(m => m.label()).join(', ')}`)
+  for (const m of mods) {                   // DN2 machines: each registration and its kernel, in one mod
+    const regs = kernelRegistrations(m, image)
+    const have = new Set(isKernel(m) ? kernel(m).kernels.map(k => `${k.kind}:${k.id}`) : [])
+    for (const key of [...regs.keys()].sort(byKindId)) {
+      const [table, needs] = regs.get(key) , [kind, mid] = key.split(':')
+      if (needs && !have.has(key)) bad.push(`${m.label()}: its ${table} entry ${mid} needs a SHARC ${kind} kernel with that id`)
+    }
+    for (const key of [...have].filter(k => !regs.has(k)).sort(byKindId)) {
+      const [kind, mid] = key.split(':')
+      bad.push(`${m.label()}: its SHARC ${kind} kernel ${mid} has no registration with that id in its mod`)
+    }
+    const gTables = new Set((m.rel.sharc?.kernelRegistrations ?? []).filter(([, kind]) => kind === 'mk2-filter').map(([t]) => t))
+    if (m.contribute.some(c => gTables.has(c.to) && !m.dn2FilterGOk(c, image)))
+      bad.push(`${m.label()}: DN2 filter G needs a label of 1..5 printable ASCII characters and a default of 0..127`)
+  }
+  for (const app of sharcMods) {
+    if (app.sharc.entries === null) continue
+    const core = cores.length === 1 ? cores[0]           : null
+    if (!core?.sharc) { bad.push('active SHARC mod requires a qualified matching core bridge'); continue }
+    const profile = app.rel.sharc 
+    const qualified = profile.activeKeyedCore 
+    const entriesMatch = Object.keys(qualified.entries).length === Object.keys(core.sharc.entries ?? {}).length &&
+      Object.entries(qualified.entries).every(([name, value]) => core.sharc .entries?.[name] === value)
+    const keyed = JSON.stringify(core.sharc.segments.map(([off, kind, data]) => [off, kind, sha(data)])) === JSON.stringify(qualified.segments)
+      && JSON.stringify(core.sharc.zero) === JSON.stringify(qualified.zero)
+      && entriesMatch && core.sharc.stackBytes === qualified.stackBytes
+    if (!keyed) bad.push(`${core.label()} has unqualified active SHARC core bytes or entry`)
+    if (core.sharc.stackBytes + app.sharc .stackBytes > profile.stackMax ) bad.push('active SHARC stack exceeds the profile limit')
+  }
+  const owner = new Map              ()
+  for (const m of mods) {
+    for (const x of m.exports) {
+      if (owner.has(x)) bad.push(`${owner.get(x) .label()} and ${m.label()} both export ${x}`)
+      owner.set(x, m)
+    }
+  }
+  if (owner.has(desc.SYM)) bad.push(`${owner.get(desc.SYM) .label()} exports ${desc.SYM}, the name of the build descriptor the linker writes`)
+  const tables = new Map                        ()
+  for (const m of mods) {
+    for (const [c, e] of m.collections) {
+      if (tables.has(c)) bad.push(`${tables.get(c) [0].label()} and ${m.label()} both declare the table ${c}`)
+      if (owner.has(c)) bad.push(`table ${c} has the name of a symbol ${owner.get(c) .label()} exports`)
+      tables.set(c, [m, e])
+    }
+  }
+  if (dev.paramIds && new Set(mods.map(m => m.dev.key + '\0' + m.rel.version)).size === 1) bad.push(...idProblems(mods, image))
+  for (const m of mods) {
+    if (m.knobs && !dev.paramIds) bad.push(`${m.label()} asks for knob ids ("knobs"), which the ${dev.name} does not give mods`)
+    for (const [where, t, a] of m.knobRefs())
+      if (!['abs32', 'abs16'].includes(t) || !(a >= 0 && a < m.knobs))
+        bad.push(`${m.label()}: ${where} is a ${t} reference to ${KNOBS}+${a}; one takes abs32 or abs16 with an addend below its "knobs" (${m.knobs})`)
+  }
+  const sized = reserveNames(dev, owner)
+  const fields = new Map                     ()   // mod storage: the linker defines these
+  for (const m of mods) {
+    for (const [sym] of m.storage) {
+      if (fields.has(sym)) bad.push(`${fields.get(sym) .label()} and ${m.label()} both declare the storage field ${sym}`)
+      else if (owner.has(sym) || tables.has(sym) || LINKER_SYMS.has(sym) || store.GEN_SYMS.includes(sym))
+        bad.push(`${m.label()}: the storage field ${sym} has the name of a symbol or table`)
+      fields.set(sym, m)
+    }
+  }
+  if (tables.has(store.IDS_TABLE)) for (const x of [...store.GEN_SYMS, store.LOCK_DST, store.FX_LOCK_DST]) fields.set(x, null)
+  for (const m of mods) {
+    for (const x of m.imports) {
+      if (owner.has(x) || tables.has(x) || LINKER_SYMS.has(x) || sized.has(x) || m.weak.has(x)
+        || (x.endsWith('_n') && tables.has(x.slice(0, -2))) || fields.has(x) || (x === KNOBS && m.knobs)) continue
+      bad.push(`${m.label()} imports ${x}, which no given mod exports`)
+    }
+    for (const c of m.contribute) {
+      if (c.unmapped) continue                   // refused above (stdTables)
+      if (!tables.has(c.to)) bad.push(`${m.label()} adds to table ${c.to}, which no given mod declares`)
+      else if (c.data.length % tables.get(c.to) [1]) bad.push(`${m.label()}: an entry for ${c.to} is not ${tables.get(c.to) [1]} bytes`)
+      else {
+        const inDsp = tables.get(c.to) [0].dspTables.has(c.to)
+        for (const [o, t] of c.relocs) {
+          if ((t === 'dsp24') !== inDsp || (inDsp && o % 3))
+            bad.push(`${m.label()}: an entry for ${c.to} has a ${t} relocation at +${o}; `
+              + (inDsp ? "a DSP table's entries take dsp24, at whole words" : 'dsp24 is for DSP tables'))
+        }
+      }
+    }
+    if (m.size('.fast') && (!dev.fastTable || !tables.has(dev.fastTable)))
+      bad.push(`${m.label()} has .fast code, which needs the mod that declares ${dev.fastTable || 'a .fast copy table'}`)
+    for (const tag of [...dspNeeds(m)].filter(t => !areas.has(t)).sort(cmp)) {
+      const free = dev.dspAreas.filter(a => a[0] === tag).map(a => a[3])
+      bad.push(`${m.label()} has DSP code for payload ${tag}, which needs a mod that frees DSP memory there (one that claims `
+        + `${free.join(' or ') || `an area the ${dev.name} does not have`})`)
+    }
+  }
+  for (const [t, most] of Object.entries(dev.tableLimits).sort(([a], [b]) => cmp(a, b))) {   // the OS uses no more (the profile's tableLimits)
+    const adds = mods.filter(m => m.contribute.some(c => c.to === t)).map(m => m.label())
+    const n = tables.has(t)
+      ? Math.floor(mods.flatMap(m => m.contribute).filter(c => c.to === t).reduce((s, c) => s + c.data.length, 0) / tables.get(t) [1])
+      : 0
+    if (n > most) {
+      const who = adds.length > 1 ? adds.slice(0, -1).join(', ') + ' and ' + adds[adds.length - 1] : adds[0]
+      bad.push(`${t} holds at most ${most} entries on ${dev.key} ${mods[0].rel.version}; ${who} add${adds.length > 1 ? '' : 's'} ${n}`)
+    }
+  }
+  const regs                 = mods.flatMap(m => m.regions.map(g => [g.lo, g.hi, m, 'region ' + g.name]                ))
+  if (dev.sramCode[1] > dev.sramCode[0]) regs.push([dev.sramCode[0], dev.sramCode[1], null, 'the .fast area'])
+  for (const [a, b] of overlaps(regs)) {
+    const la = a[2] ? a[2].label() : 'the linker', lb = b[2] ? b[2].label() : 'the linker'
+    bad.push(`${la} ${a[3]} and ${lb} ${b[3]} overlap`)
+  }
+  return bad
+}
+
+/** Sites of other mods inside a copied block: no PC-relative operand, no relative branch, whole instructions in the
+ * patched image. */
+/** The linker's last check, on the image it built, against the stock one. It trusts none of the layout that
+ *  built the image; it only compares (link.py's image_problems, the same lines). */
+/** The profile's paramIds against the mods' entries: none in the core's ids, none in a table whose ids are mods' own
+ * below them, and no id from there up taken twice. knobs: mod id -> its first knob id (link), to count the entries
+ * relocated to __knobs too. -> [problems]. link.id_problems. */
+export function idProblems(mods        , image            , knobs                             = null)           {
+  const [own, [lo, hi, what], kinds] = mods[0].dev.paramIds 
+  const dk = mods[0].dev.driveKnobs
+  const ownOnly = new Set(kinds.filter(([, o]) => o).map(([t]) => t))
+  const taken                                   = [], bad           = []
+  for (const m of mods) {
+    for (const [table, a0, b] of m.idRanges(image, knobs?.get(m.id) ?? null)) {
+      let a = a0
+      if (a <= hi && lo <= b) {
+        bad.push(`${m.label()}: its ${table} entry takes ids ${a}..${b}, and ${lo}..${hi} are ${what}; a mod's own ids start at ${own}`)
+      } else if (dk && a <= dk[1] && dk[0] <= b) {
+        bad.push(`${m.label()}: its ${table} entry takes ids ${a}..${b}, and ${dk[0]}..${dk[1]} are the +Drive mods' knob ids`)
+      } else if (ownOnly.has(table) && a < own) {
+        bad.push(`${m.label()}: its ${table} entry takes ids ${a}..${b}; that table's ids start at ${own}`)
+      } else if (b >= own) {
+        a = Math.max(a, own)
+        for (const [n, t, x, y] of taken) {
+          if (n !== m && x <= b && a <= y) bad.push(`${n.label()} and ${m.label()} both take ids ${Math.max(a, x)}..${Math.min(b, y)} (${t}, ${table})`)
+        }
+        taken.push([m, table, a, b])
+      }
+    }
+  }
+  return bad
+}
+
+export function imageProblems(dev        , stock            , img            , declared                            , tailAt        )           {
+  const ml = dev.mainLoad, n = stock.length
+  const bad           = []
+  if (tailAt !== ml + n) bad.push(`the appended code starts at ${hex8(tailAt)}, not at the end of the stock image, ${hex8(ml + n)}`)
+  if (img.length < n) {
+    bad.push(`the linked image (${img.length} bytes) is shorter than the stock main OS (${n} bytes)`)
+    return bad
+  }
+  const probe = img.slice(0, n)
+  for (const [lo, hi, what] of declared) {
+    if (lo < ml || hi > ml + n) {
+      bad.push(`${what} lies outside the stock image`)
+      continue
+    }
+    probe.set(stock.subarray(lo - ml, hi - ml), lo - ml)
+  }
+  if (!equal(probe, stock)) {
+    const runs                     = []
+    let i = 0
+    while (i < n) {
+      if (probe[i] === stock[i]) {
+        i++
+        continue
+      }
+      let j = i
+      while (j < n && probe[j] !== stock[j]) j++
+      runs.push([ml + i, ml + j])
+      i = j
+    }
+    for (const [lo, hi] of runs.slice(0, 8))
+      bad.push(`${hex8(lo)}-${hex8(hi)} differs from stock, and no site, DSP section or table of the mods declares it`)
+    if (runs.length > 8) bad.push(`${runs.length - 8} more runs of bytes differ from stock outside every declaration`)
+  }
+  for (const [lo, hi, why] of [...dev.protected, ...dev.keep]) {
+    if (!equal(img.subarray(lo - ml, hi - ml), stock.subarray(lo - ml, hi - ml)))
+      bad.push(`${hex8(lo)}-${hex8(hi)} (${why}) is not stock in the linked image`)
+  }
+  return bad
+}
+
+function copiedRules(mods        , patched            , dev        )           {
+  const bad           = []
+  const read = readerAt(patched, dev.mainLoad)
+  for (const owner of mods) {
+    for (const [lo, hi] of owner.copied) {
+      for (const m of mods) {
+        if (m === owner) continue
+        for (const s of m.sites) {
+          if (!((lo <= s.addr && s.addr < hi) || (lo < s.addr + s.len && s.addr + s.len <= hi))) continue
+          if (s.kind !== 'code') {
+            bad.push(`${m.label()} site ${hex8(s.addr)}: data inside ${owner.label()}'s copied block`)
+            continue
+          }
+          let a = s.addr
+          while (a < s.addr + s.len) {
+            const ins = decodeColdFire(read(a), a)
+            if (ins.flags & PCREL || ins.flow === 'bra' || ins.flow === 'bcc' || ins.flow === 'bsr')
+              bad.push(`${m.label()} site ${hex8(s.addr)}: ${ins.op} at ${hex8(a)} is PC-relative, inside ${owner.label()}'s copied block`)
+            a += ins.length
+          }
+          if (a !== s.addr + s.len) bad.push(`${m.label()} site ${hex8(s.addr)}: its new bytes are not whole instructions`)
+        }
+      }
+    }
+  }
+  return bad
+}
+
+// ---- the link ----
+
+                         
+                                                                                                                                
+ 
+
+                      
+                                                                                                                
+                                                                                                                                                       
+                                                                                                
+                                                                                                                
+                                                                                           
+                                                                                           
+                                                                                                            
+ 
+
+                      
+                   
+                 
+                                                                                      
+                                                                                       
+                
+                                                                                            
+                      
+                                                                                              
+                     
+                                
+                                
+ 
+
+/** The linker's area for .run, tables and .bss with a core of this version (devices.py's ddr_for). */
+export function ddrFor(dev        , coreVersion        )        {
+  let area = dev.ddr
+  for (const [v, a] of dev.coreDdr) if (cmpVersions(coreVersion, v) >= 0) area = a
+  return area
+}
+
+/** The patched main OS, its map, tables and layout, and for a core with mod storage the new lockfile. lock: the
+ * build's lockfile, or null for a new one (store.ts); drive: what the unit's +Drive keeps (drivestore.reserve), as
+ * store.allocate takes it. Throws ModError. */
+export function link(mods        , image            , lock                    = null,
+  sharcStream                    = null, drive                             = null)         {
+  if (!mods.length) throw new ModError('no mods')
+  const dev = mods[0].dev, rel = mods[0].rel
+  if (sha(image) !== rel.mainSha256) throw new ModError(`the stock main OS is not ${dev.name} ${rel.version}`)
+  const problems = summarize(check(mods, image), mods)
+  if (problems.length) throw new ModError('the mods do not combine:\n  ' + problems.join('\n  '))
+  const end = imageEnd(dev, rel)
+  const core = mods.filter(m => m.sections.has('.boot'))[0]
+  const [ddrBase, ddrEnd] = ddrFor(dev, core.version)
+  const [fastBase, fastEnd] = dev.sramCode
+  const order = [core, ...mods.filter(m => m !== core).sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))]
+  const [kernelMods, sharcMods] = sharcSplit(order)
+  let dspStream                    = null, dspStored                    = null, kernelLayout                          
+  if (kernelMods.length || sharcMods.length) {
+    if (sharcStream === null) throw new ModError('SHARC mod needs the stock section-7 stream')
+    const allLoads                         = [], allFills                             = []
+    const allPatches                                     = []
+    if (kernelMods.length) {
+      const [loads, fills, patches, placed] = placeKernels(kernelMods.map(m => [m.id, kernel(m)]), rel.sharc )
+      allLoads.push(...loads); allFills.push(...fills); allPatches.push(...patches)
+      kernelLayout = placed
+    }
+    for (const mod of sharcMods) {
+      const payload = mod.sharc, base = payload.owner[0]
+      let loads                         = payload.segments.map(([off, , data]) => [base + off, data])
+      let fills                             = payload.zero.map(([off, count]) => [base + off, count, 0])
+      let patches                                     = []
+      if (payload.entries !== null) {
+        const bridge = (core          ).sharc
+        const pc16 = (off        ) => sharcRecords.pc16(rel.sharc , base + off)
+        const binding = new Uint8Array(12), words = new DataView(binding.buffer)
+        words.setUint32(0, pc16(payload.entries.init_offset_bytes), true)
+        words.setUint32(4, pc16(payload.entries.render_offset_bytes), true)
+        const coreBase = bridge.owner[0]
+        const [lo, hi] = rel.sharc .pitchRange , [at, expected] = rel.sharc .keyedPitchTable 
+        const table = hexBytes(expected, 'SHARC keyed pitch table')
+        loads.push([lo + at, table])
+        fills.push([lo, at, 0], [lo + at + table.length, hi - lo - at - table.length, 0])
+        loads = [[coreBase, binding], ...bridge.segments.map(([off, , data]) => [coreBase + off, data]                        ), ...loads]
+        fills = [...bridge.zero.map(([off, count]) => [coreBase + off, count, 0]                            ), ...fills]
+        const [site, old, replacement] = rel.sharc .hook 
+        patches = [[site, hexBytes(old, 'SHARC stock hook'), hexBytes(replacement, 'SHARC bridge hook')]]
+      }
+      allLoads.push(...loads); allFills.push(...fills); allPatches.push(...patches)
+    }
+    // core-dn2's DSP peek rides along whenever section 7 changes (mods/core-dn2/peek.s).
+    const [peekLo, peekHi] = rel.sharc .peekRange , peek = hexBytes(rel.sharc .peekCode , 'SHARC peek')
+    allLoads.push([peekLo, peek])
+    allFills.push([peekLo + peek.length, peekHi - peekLo - peek.length, 0])
+    const [site, old, replacement] = rel.sharc .peekHook 
+    allPatches.push([site, hexBytes(old, 'SHARC stock hook'), hexBytes(replacement, 'SHARC peek hook')])
+    for (const m of order) for (const s of m.sites) {
+      const qualified = sharcSite(rel, s.addr)
+      if (qualified) allPatches.push([s.addr, hexBytes(qualified[0], 'SHARC site'), s.new])
+    }
+    dspStream = sharcRecords.insert(sharcStream, rel.sharc ,
+      allLoads, allFills, allPatches)
+    dspStored = syx.packMain(dspStream)
+    if (dspStored.length > rel.sharc .storedMax) throw new ModError('SHARC stored section exceeds the profile limit')
+  }
+  const rawMods = order.filter(m => m.sharcRaw)
+  let rawLayout                                                  = null
+  if (rawMods.length) {
+    // (a device's profile takes raw payloads or a bridge's modules, never both: rawPayload refuses a profile
+    // without raw, and modulePayload one without the bridge's ABI)
+    if (sharcStream === null) throw new ModError('SHARC mod needs the stock section-7 stream')
+    const [loads, patches] = linkRaw(rawMods.map(m => [m.id, m.sharcRaw ]), sharcStream, rel.sharc )
+    const spans = patches.map(([a, o])                   => [a, a + o.length]).sort((x, y) => x[0] - y[0] || x[1] - y[1])
+    for (let i = 1; i < spans.length; i++)
+      if (spans[i][0] < spans[i - 1][1]) throw new ModError(`two raw SHARC patches overlap at 0x${spans[i][0].toString(16)}`)
+    dspStream = sharcRecords.insert(sharcStream, rel.sharc , loads, [], patches)
+    dspStored = syx.packMain(dspStream)
+    if (dspStored.length > rel.sharc .storedMax) throw new ModError('SHARC stored section exceeds the profile limit')
+    rawLayout = { owner: loads.length ? [Math.min(...loads.map(([a]) => a)), Math.max(...loads.map(([a, d]) => a + d.length))]
+      : [0, 0], app: rawMods[0].id }
+  }
+  const tables = new Map                        ()
+  for (const m of order) for (const [c, e] of m.collections) tables.set(c, [m, e])
+
+  const entries = new Map                                                        ()
+  for (const c of tables.keys()) entries.set(c, [])
+  for (const m of order) for (const c of m.contribute) entries.get(c.to) .push([c.order, m.id, c.i, m, c])
+
+  // mod storage: the fields' places from the lockfile, as symbols and the IDs' table
+  const keeps = core.imports.includes(store.GEN_SYMS[0])
+  const decls               = order.flatMap(m => m.storage.map(([sym, scope, bits]) => [m.id, sym, scope, bits]              ))
+  let newLock                    = null, storeNotes           = [], storeSyms = new Map                ()
+  if (decls.length && !keeps) {
+    const users = [...new Set(decls.map(d => d[0]))].sort(cmp)
+    throw new ModError(`${users.join(', ')} declare${users.length === 1 ? 's' : ''} mod storage, which ${core.label()} does not keep`)
+  }
+  if (keeps) {
+    if (!tables.has(store.IDS_TABLE)) throw new ModError(`${core.label()} imports ${store.GEN_SYMS[0]} but declares no table ${store.IDS_TABLE}`)
+    const locks = order.flatMap(m => m.locks.map(sym => [m.id, sym]                    ))
+    if (locks.length && !tables.has(store.CODES_TABLE)) {
+      const users = [...new Set(locks.map(k => k[0]))].sort(cmp)
+      throw new ModError(`${users.join(', ')} declare${users.length === 1 ? 's' : ''} lockable parameters, which ${core.label()} does not keep (no table ${store.CODES_TABLE})`)
+    }
+    const lfos = order.flatMap(m => m.lfos.map(sym => [m.id, sym]                    ))
+    const rough = order.flatMap(m => m.rough.map(sym => [m.id, sym]                    ))
+    const routes = order.flatMap(m => m.routes.map(sym => [m.id, sym]                    ))
+    const scopeOf = new Map(decls.map(d => [d[0] + '\0' + d[1], d[2]]))
+    const cvs = order.flatMap(m => m.cvs.map(sym => [m.id, sym]                    ))
+    store.checkFlags(dev.key, scopeOf, lfos, routes, cvs, order.flatMap(m => m.ccs.map(sym => [m.id, sym]                    )))
+    const fx = [...new Set(locks.filter(k => scopeOf.get(k[0] + '\0' + k[1]) === 'kit').map(k => k[0]))].sort(cmp)
+    if (fx.length && !store.kinds(dev.key).length && !core.imports.includes(store.FX_LOCK_DST))
+      throw new ModError(`${fx.join(', ')} declare${fx.length === 1 ? 's' : ''} lockable kit fields (the FX track's), which ${core.label()} does not keep`)
+    for (const [dst, scope, bits] of [[store.LOCK_DST, 'sound', store.lockDstBits(dev.key)], [store.FX_LOCK_DST, 'kit', store.fxLockDstBits(dev.key)]]         )
+      if (lfos.some(k => scopeOf.get(k[0] + '\0' + k[1]) === scope) && core.imports.includes(dst) && bits)
+        // the core keeps a code as an LFO destination: the sound's LFO, the FX LFO
+        decls.push([core.id, dst, scope, bits])
+    const ccs = order.flatMap(m => m.ccs.map(sym => [m.id, sym]                    ))
+    if (ccs.length && !tables.has(store.CCS_TABLE)) {
+      const users = [...new Set(ccs.map(k => k[0]))].sort(cmp)
+      throw new ModError(`${users.join(', ')} give${users.length === 1 ? 's' : ''} lockable parameters CCs, which ${core.label()} does not keep (no table ${store.CCS_TABLE})`)
+    }
+    const inits = order.flatMap(m => [...m.inits].map(([sym, v]) => [m.id, sym, v]                            ))
+    if (inits.length && !tables.has(store.INITS_TABLE)) {
+      const users = [...new Set(inits.map(k => k[0]))].sort(cmp)
+      throw new ModError(`${users.join(', ')} give${users.length === 1 ? 's' : ''} storage fields an init, which ${core.label()} does not keep (no table ${store.INITS_TABLE})`)
+    }
+    const handles = order.flatMap(m => m.handles.map(sym => [m.id, sym]                    ))
+    if (handles.length && !tables.has(store.HANDLES_TABLE)) {
+      const users = [...new Set(handles.map(k => k[0]))].sort(cmp)
+      throw new ModError(`${users.join(', ')} mark${users.length === 1 ? 's' : ''} storage fields as handles, which ${core.label()} does not keep (no table ${store.HANDLES_TABLE})`)
+    }
+    ;[newLock, storeNotes] = store.allocate(lock, decls, dev.key, core.version, locks, ccs, inits, cvs, drive)
+    let ids              
+    ;[storeSyms, ids] = store.symbols(newLock)
+    if (!storeSyms.has(store.LOCK_DST)) storeSyms.set(store.LOCK_DST, 0)    // not placed: no LFO field
+    if (!storeSyms.has(store.FX_LOCK_DST)) storeSyms.set(store.FX_LOCK_DST, 0)
+    for (const [table, made] of [[store.CODES_TABLE, (l            ) => store.codeEntries(l, lfos, rough, routes)], [store.CCS_TABLE, store.ccEntries], [store.INITS_TABLE, store.initEntries], [store.HANDLES_TABLE, (l            ) => store.handleEntries(l, handles)]]         )
+      if (tables.has(table))
+        made(newLock).forEach((data, i) => entries.get(table) .push([-1, '', i, core, { to: table, order: -1, data, relocs: [], claims: [], i, linker: true }]))
+    const taken = new Set(order.flatMap(m => m.exports))
+    for (const nm of storeSyms.keys())
+      if (taken.has(nm) || LINKER_SYMS.has(nm)) throw new ModError(`the storage field ${nm} has the name of a symbol a mod exports`)
+    ids.forEach((data, i) => entries.get(store.IDS_TABLE) .push([-1, '', i, core, { to: store.IDS_TABLE, order: -1, data, relocs: [], claims: [], i, linker: true }]))
+  }
+  // knob ids: each "knobs" mod's run, past the ids mods' entries name themselves
+  let knobBase = new Map                (), knobNotes           = []
+  if (dev.paramIds && (order.some(m => m.knobs) || newLock?.knobs?.length || newLock?.freed_knobs?.length)) {
+    const fixed = order.flatMap(m => m.idRanges(image).map(([, a, b]) => [a, b]                    ))
+    const held                      = newLock ?? {}
+    ;[knobBase, knobNotes] = store.knobs(held, new Map(order.filter(m => m.knobs).map(m => [m.id, m.knobs])), dev.paramIds[0], fixed,
+      dev.driveKnobs ? dev.driveKnobs[0] - 1 : store.KNOB_TOP)
+    const bad = idProblems(order, image, knobBase)
+    if (bad.length) throw new ModError('the linked mods break a rule:\n  ' + bad.join('\n  '))   // store.knobs keeps clear of them
+  }
+  const fastMods = order.filter(m => m.size('.fast'))
+  const payMods = order.filter(m => m.size('.payload'))
+  if (payMods.length) {
+    if (!tables.has(PAYLOADS) || tables.get(PAYLOADS) [1] !== PAYLOAD_ENTRY)
+      throw new ModError(`${payMods.map(m => m.id).join(', ')} carr${payMods.length === 1 ? 'ies' : 'y'} a payload, which `
+        + `${core.label()} does not keep (no table ${PAYLOADS} of ${PAYLOAD_ENTRY}-byte entries)`)
+    const ids = new Map                ()
+    for (const m of payMods) {
+      const i = payloadId(m.id)
+      if (ids.has(i)) throw new ModError(`the payloads of ${ids.get(i)} and ${m.id} have the same id (${hex8(i)})`)
+      ids.set(i, m.id)
+      const data = new Uint8Array(PAYLOAD_ENTRY)
+      const v = new DataView(data.buffer)
+      v.setUint32(0, i)
+      v.setUint32(8, m.size('.payload'))
+      entries.get(PAYLOADS) .push([-1, m.id, 0, m, { to: PAYLOADS, order: -1, data, relocs: [[4, 'abs32', 'sec:.payload', 0]], claims: [], i: 0, linker: true }])
+    }
+  }
+  for (const list of entries.values()) {
+    list.sort((a, b) => a[0] - b[0] || (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0) || a[2] - b[2])
+  }
+  const dspTables = new Map                                          ()
+  for (const m of order) for (const [c, t] of m.dspTables) dspTables.set(c, t)
+
+  // a build descriptor, for a mod that imports it: spare entries in the tables more mods may join
+  const withDesc = order.some(m => m.imports.includes(desc.SYM))
+  const spare = new Map                ()
+  const fixed = new Set([...NO_SPARE, dev.fastTable, ...dspTables.keys()])
+  if (withDesc) {
+    for (const m of order) for (const c of m.contribute)
+      if (!(c.order >= desc.ORDER_MIN && c.order < desc.LINKER_ORDER))
+        throw new ModError(`${m.label()}: its entry for ${c.to} has the order ${c.order}; with a build descriptor an order is ${desc.ORDER_MIN} to ${desc.LINKER_ORDER - 1}`)
+    for (const [c, [owner]] of tables) spare.set(c, fixed.has(c) ? 0 : owner.spare.get(c) ?? DRIVE_SPARE.get(c) ?? desc.SPARE)
+    for (const [c, [owner, e]] of tables) {   // a "max": the flashed entries and the spare ones fit it
+      const cap = owner.cap.get(c) ?? DRIVE_MAX.get(c)
+      if (cap === undefined || !entries.has(c)) continue
+      const n = Math.floor(entries.get(c) .reduce((k, x) => k + x[4].data.length, 0) / e)
+      spare.set(c, Math.max(0, Math.min(spare.get(c) , cap - n)))
+    }
+  }
+  const tableLen = (c        ) => {
+    let n = entries.get(c) .reduce((k, e) => k + e[4].data.length, 0)
+    const dt = dspTables.get(c)
+    if (dt) return dt[1].length + n + dt[2].length   // a DSP table: its head, its entries, its end
+    if (c === dev.fastTable) n += FAST_ENTRY * fastMods.length
+    return n + tables.get(c) [1] * (1 + (spare.get(c) ?? 0))   // the zero entry, and any spare ones
+  }
+  const tableCount = (c        ) => {
+    const n = entries.get(c) .reduce((k, e) => k + e[4].data.length, 0)
+    return dspTables.has(c) ? Math.floor(n / tables.get(c) [1]) : Math.floor(tableLen(c) / tables.get(c) [1]) - 1 - (spare.get(c) ?? 0)
+  }
+
+  // layout
+  const base = new Map                ()       // `${mod id}\0${section}` -> address
+  const key = (id        , sec        ) => id + '\0' + sec
+  const bootLen = core.size('.boot')
+  base.set(key(core.id, '.boot'), end)
+  let at = ddrBase
+  for (const m of order) {
+    if (m.size('.run')) {
+      at = align(at, Math.max(4, m.sections.get('.run') .align))
+      base.set(key(m.id, '.run'), at)
+      at += m.size('.run')
+    }
+  }
+  const tabAt = new Map                ()
+  for (const c of [...tables.keys()].sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))) {
+    if (dspTables.has(c)) continue
+    at = align(at, 4)
+    tabAt.set(c, at)
+    at += tableLen(c)
+  }
+  const index = new Map(order.map((m, i) => [m.id, i]))
+  const trailerLen = newLock ? store.trailer(newLock).length : 0
+                                                    
+  /** The descriptor's fields; `where` (a function of the layout) gives the addresses, or null: all 0, to size it. */
+  // the +Drive mods' area a descriptor names: what the flashed build leaves of the core's linker
+  // area, from its RAM end rounded up to the device's driveAlign; [0, 0] on a device without one
+  const driveArea = (ramEnd        )                   => {
+    if (!dev.driveAlign) return [0, 0]
+    return [Math.min(align(ramEnd, dev.driveAlign), ddrEnd), ddrEnd]
+  }
+  const stdMap = order.some(m => m.exports.includes(desc.STD_MAP))   // the loader maps std1 at boot
+  const claimsMap = order.some(m => m.exports.includes(desc.CLAIMS))   // the boot linker takes claims
+  // the loader copies +Drive mods' stock parts through the shadow (A4: dlink.c stock_part); an export, not its value,
+  // so the sizing pass carries the shadow too
+  const stockShadow = order.some(m => m.exports.includes(desc.STOCK_SHADOW))
+  // the loader gives +Drive mods knob ids (F_KNOBS): the flashed ids go into claims of kind 4
+  const driveKnobs = !!(dev.driveKnobs && dev.paramIds && order.some(m => m.exports.includes(desc.KNOBS)))
+  const knobClaims = ()                             => !driveKnobs ? [] : order.flatMap(m => {
+    const kb = knobBase.get(m.id)
+    const set = new Map                          ()
+    for (const [, a, b] of m.idRanges(image, kb ?? null)) set.set(`${a} ${b}`, [a, b])
+    if (kb !== undefined) set.set(`${kb} ${kb + m.knobs - 1}`, [kb, kb + m.knobs - 1])
+    return [...set.values()].sort((x, y) => x[0] - y[0] || x[1] - y[1])
+      .map(([a, b]) => [desc.CLAIM_KNOBS, index.get(m.id) , `0x${a.toString(16)} 0x${b.toString(16)}`]                            )
+  })
+  const descFields = (where              )                  => {
+    const w        = where ?? (() => 0)
+    const modules = order.map(m => ({
+      name: m.id, version: m.version, flags: m.sites.length ? 1 : 0,
+      kind: m === core ? desc.KIND_CORE : m.imports.includes(desc.SYM) ? desc.KIND_LOADER : desc.KIND_FLASHED,
+      exports: [...m.exports].sort(cmp).map(nm => [nm, w('sym', m, nm)]                    ),
+    }))
+    const tabs = [...tables.keys()].sort(cmp).map(c => {
+      const e = tables.get(c) [1], keys                     = []
+      for (const [o, , , m, x] of entries.get(c) ) {
+        const k                   = [x.linker ? desc.LINKER_ORDER : o, index.get(m.id) ]
+        for (let i = 0; i < Math.floor(x.data.length / e); i++) keys.push(k)
+      }
+      if (c === dev.fastTable) for (const m of fastMods) keys.push([desc.LINKER_ORDER, index.get(m.id) ])
+      const n = tableCount(c)
+      return { name: c, address: w('table', c), entry: e, count: n, capacity: n + spare.get(c) , entries: keys,
+        flags: (fixed.has(c) ? 0 : LOADER_ONLY.has(c) ? desc.F_LOADER : desc.F_MORE) | (tables.get(c) [0].render.has(c) ? desc.F_RENDER : 0) | (dspTables.has(c) ? desc.F_DSP : 0) }
+    })
+    let scopes                                     = []
+    if (newLock) {
+      const room = store.capacity(dev.key, newLock.split, core.version)
+      scopes = store.SCOPES.map(s => [s, room[s], newLock .next[s], newLock .generation[s]])
+    }
+    // A loader that keeps its own area (TELOS on the Octatrack) exports it as drive_area and drive_area_size; the
+    // descriptor then names it, and carries the stock shadow (desc.ts). The reserve's public names (arena_base) are
+    // the linker's, defined for the core: a mod linked on the unit imports them as it would here.
+    const ownArea = order.some(m => m.exports.includes(desc.AREA_SYMS[0]))
+    if (ownArea && dev.reserve) {
+      const extra = Object.keys(dev.reserve[1]).filter(nm => !nm.startsWith('__') && !core.exports.includes(nm))
+        .map(nm => [nm, w('glob', nm)]                    )
+      modules[0].exports = [...modules[0].exports, ...extra].sort((a, b) => cmp(a[0], b[0]))
+    }
+    let area                  
+    if (ownArea) {
+      const lo = w('glob', desc.AREA_SYMS[0])
+      area = [lo, lo + w('glob', desc.AREA_SYMS[1])]
+    } else area = driveArea(w('bss_end'))
+    return { family: dev.dataFamily, device: dev.dataDevice, release: rel.dataRelease ?? 0, deviceKey: dev.key, os: rel.version, modules, tables: tabs,
+      claims: [...order.flatMap(m => m.names.map(nm => [desc.CLAIM_NAME, index.get(m.id) , nm]                            )),
+        ...order.flatMap(m => m.regions.map(g => [desc.CLAIM_REGION, index.get(m.id) ,
+          `0x${g.lo.toString(16)} 0x${g.hi.toString(16)} ${g.name}`]                            )),
+        ...[...core.std.keys()].sort(cmp).filter(() => stdMap).map(ev => [desc.CLAIM_STD, index.get(core.id) , `${ev} ${core.std.get(ev)}`]                            ),
+        ...knobClaims()],
+      area: [w('bss_end'), ...area, w('glob', desc.STAGING[0]), w('glob', desc.STAGING[1])],
+      storage: { trailer: [w('trailer'), trailerLen], scopes },
+      flags: (w('glob', desc.STAGE_TOP) ? desc.F_STAGE_TOP : 0) | (w('glob', desc.PAYLOAD_SKIP) ? desc.F_PAYLOAD_SKIP : 0)
+        | (w('glob', desc.ABS16) ? desc.F_ABS16 : 0) | (stdMap ? desc.F_STD_MAP : 0)
+        | (w('glob', desc.COLLECTIONS) ? desc.F_COLLECTIONS : 0)
+        | (claimsMap ? desc.F_CLAIMS : 0)
+        | (stockShadow ? desc.F_STOCK_SHADOW : 0)
+        | (driveKnobs ? desc.F_KNOBS : 0),
+      sites: siteMap(w), prelink: (rel.prelink ?? []).map(([lo, hi, k]) => [lo, hi, k]                            ),
+      // the stock bytes of every range the flashed build writes, where the profile asks for them (driveShadow) or the
+      // loader does (drive_stock_shadow): a loader on the unit copies a mod's stock parts from the running OS, and lays
+      // these over it
+      shadow: !dev.driveShadow && !stockShadow && !ownArea ? [] : order.flatMap(m => m.sites)
+        .filter(s => dev.mainLoad <= s.addr && s.addr + s.len <= dev.mainLoad + image.length)
+        .map(s => [s.addr, image.slice(s.addr - dev.mainLoad, s.addr - dev.mainLoad + s.len)]                        )
+        .sort((a, b) => a[0] - b[0] || cmpBytes(a[1], b[1])) }
+  }
+  // the flashed main OS's taken byte ranges, for the loader's conflict checks (ABI 1.2): each site and copied block
+  // (by its module), the device's protected and kept ranges, and the appended code: the boot copier, the RAM image
+  // and the lockfile's trailer. link.py's site_map
+  const siteMap = (w       )                                     => {
+    const out                                     = []
+    for (const m of order) for (const s of m.sites) if (!sharcSite(rel, s.addr)) out.push([s.addr, s.addr + s.len, desc.SITE_SITE, index.get(m.id) ])
+    for (const m of order) for (const [lo, hi] of m.copied) out.push([lo, hi, desc.SITE_COPIED, index.get(m.id) ])
+    for (const [lo, hi] of [...dev.protected, ...dev.keep]) out.push([lo, hi, desc.SITE_DEVICE, desc.NO_MODULE])
+    if (claimsMap) for (const m of order) for (const c of m.contribute) for (const [a, b] of c.claims) out.push([a, b, desc.SITE_CLAIM, index.get(m.id) ])
+    const boot = w('boot')
+    out.push([boot, boot + bootLen, desc.SITE_BOOT, index.get(core.id) ])
+    const run = w('run_image'), runLen = w('run_image_len')
+    out.push([run, run + runLen, desc.SITE_RUN, desc.NO_MODULE])
+    if (trailerLen) {
+      const t = w('trailer')
+      out.push([t, t + trailerLen, desc.SITE_TRAILER, desc.NO_MODULE])
+    }
+    return out.sort((a, b) => a[0] - b[0] || a[1] - b[1] || a[2] - b[2] || a[3] - b[3])
+  }
+  let descAt = 0, descLen = 0
+  if (withDesc) {
+    descLen = desc.encode(descFields(null)).length
+    descAt = at = align(at, 4)
+    at += descLen
+  }
+  let fastAt = fastBase
+  const fload = new Map                ()
+  for (const m of fastMods) {
+    fastAt = align(fastAt, Math.max(4, m.sections.get('.fast') .align))
+    base.set(key(m.id, '.fast'), fastAt)
+    at = align(at, 4)
+    fload.set(m.id, at)
+    const n = align(m.size('.fast'), 4)
+    fastAt += n
+    at += n
+  }
+  const payAt = at = align(at, 4)
+  for (const m of payMods) {                   // after the code: copied with it, then the .bss
+    at = align(at, Math.max(4, m.sections.get('.payload') .align))
+    base.set(key(m.id, '.payload'), at)
+    at += m.size('.payload')
+  }
+  const payEnd = at
+  const runEnd = align(at, 4)
+  at = runEnd
+  for (const m of order) {
+    if (m.size('.bss')) {
+      at = align(at, Math.max(4, m.sections.get('.bss') .align))
+      base.set(key(m.id, '.bss'), at)
+      at += m.size('.bss')
+    }
+  }
+  const bssEnd = align(at, 4)
+  if (payMods.length && bssEnd > ddrEnd)
+    throw new ModError(`the payloads (${payEnd - payAt} bytes) and the mods need RAM to ${hex8(bssEnd)}, past ${hex8(ddrEnd)} `
+      + `(${bssEnd - ddrEnd} bytes over): the area has room for ${Math.max(0, payEnd - payAt - (bssEnd - ddrEnd))} bytes of payload`)
+  if (bssEnd > ddrEnd) {
+    const more = dev.coreDdr.filter(([, a]) => a[1] - a[0] >= bssEnd - ddrBase)
+    throw new ModError(`the mods need RAM to ${hex8(bssEnd)}, past ${hex8(ddrEnd)} (${bssEnd - ddrEnd} bytes over)`
+      + (more.length ? `; core ${more[0][0]} or newer gives them ${more[0][1][1] - more[0][1][0]} bytes` : ''))
+  }
+  if (fastAt > fastEnd) throw new ModError(`.fast code needs SRAM to ${hex8(fastAt)}, past ${hex8(fastEnd)}`)
+  const runLoad = align(end + bootLen, 16)
+
+  // DSP: each payload's sections, then its tables, in the P words a mod frees (in words)
+  const areas = dev.dspAreas.length ? dspAreas(order, image) : new Map              ()
+  const dspAt = new Map                ()
+  for (const [tag, a] of areas) dspAt.set(tag, a[0])
+  const dspSecs = new Map                ()   // `${mod id}\0${section}` -> payload tag
+  for (const m of order) {
+    for (const sec of m.sections.keys()) {
+      const tag = dspTag(dev, sec)
+      if (tag) {
+        if (!dspAt.has(tag)) throw new KeyError(repr(tag))
+        base.set(key(m.id, sec), dspAt.get(tag) )
+        dspSecs.set(key(m.id, sec), tag)
+        dspAt.set(tag, dspAt.get(tag)  + Math.floor(m.size(sec) / 3))
+      }
+    }
+  }
+  for (const c of [...dspTables.keys()].sort(cmp)) {
+    const tag = dspTables.get(c) [0]
+    if (!dspAt.has(tag)) throw new KeyError(repr(tag))
+    tabAt.set(c, dspAt.get(tag) )
+    dspAt.set(tag, dspAt.get(tag)  + Math.floor(tableLen(c) / 3))
+  }
+  for (const [tag, [lo, hi, , , nm]] of areas) {
+    const used = dspAt.get(tag) 
+    if (used > hi) throw new ModError(`the DSP code for payload ${tag} needs P words to 0x${hexw(used, 5)}, past the ${hi - lo} `
+      + `words ${nm} frees (${used - hi} over)`)
+  }
+
+  // symbols (a DSP one is a word address: its section's base + its byte offset / 3)
+  const addr = new Map                ()       // `${mod id}\0${name}` -> address
+  const glob = new Map                ()
+  const dspSym = new Set        ()             // `${mod id}\0${name}`, or `\0${name}` for a global
+  for (const m of order) {
+    for (const [nm, [sec, off]] of m.symbols) {
+      let v = off
+      if (m.sections.has(sec) && dspTag(dev, sec)) {
+        v = base.get(key(m.id, sec))  + Math.floor(off / 3)
+        dspSym.add(key(m.id, nm))
+      } else if (sec !== 'abs') {
+        const b = base.get(key(m.id, sec))
+        if (b === undefined) throw new KeyError(`(${repr(m.id)}, ${repr(sec)})`)
+        v = b + off
+      }
+      addr.set(key(m.id, nm), v)
+      if (m.exports.includes(nm)) {
+        glob.set(nm, v)
+        if (dspSym.has(key(m.id, nm))) dspSym.add('\0' + nm)
+      }
+    }
+  }
+  for (const c of tables.keys()) {
+    glob.set(c, tabAt.get(c) )
+    glob.set(c + '_n', tableCount(c))
+    if (dspTables.has(c)) dspSym.add('\0' + c)
+  }
+  for (const [k, v] of storeSyms) glob.set(k, v)
+  if (withDesc) glob.set(desc.SYM, descAt)
+  for (const [k, v] of [['__run_load', runLoad], ['__run_start', ddrBase], ['__run_words', Math.floor((runEnd - ddrBase) / 4)],
+    ['__bss_start', runEnd], ['__bss_end', bssEnd], ['__bss_words', Math.floor((bssEnd - runEnd) / 4)]]                      ) glob.set(k, v)
+  // a reserve sized to the mods, for a core that imports its symbols
+  const sized = reserveNames(dev, glob)
+  let units                = null
+  if (order.some(m => m.imports.some(x => sized.has(x)))) {
+    const [unit, names] = dev.reserve 
+    units = Math.max(1, Math.ceil((bssEnd - ddrBase) / unit))
+    for (const nm of Object.keys(names).sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))) {
+      const [a, b] = names[nm]
+      glob.set(nm, (((a + b * units) % 2 ** 32) + 2 ** 32) % 2 ** 32)
+    }
+  }
+  const zero = glob.get('core_zero')
+
+  const resolve = (m      , tgt        , where        )         => {
+    if (tgt === 'abs') return 0
+    const colon = tgt.indexOf(':')
+    if (colon < 0) throw new ValueError('not enough values to unpack (expected 2, got 1)')
+    const kind = tgt.slice(0, colon), nm = tgt.slice(colon + 1)
+    if (kind === 'sec') {
+      const b = base.get(key(m.id, nm))
+      if (b === undefined) throw new ModError(`${m.label()}: ${where} refers to its empty section ${nm}`)
+      return b
+    }
+    if (addr.has(key(m.id, nm)) && m.symbols.has(nm)) return addr.get(key(m.id, nm)) 
+    if (nm === KNOBS && knobBase.has(m.id)) return knobBase.get(m.id) 
+    if (glob.has(nm)) return glob.get(nm) 
+    if (m.weak.has(nm) && zero !== undefined) return zero
+    throw new ModError(`${m.label()}: ${where} refers to ${nm}, which nothing defines`)
+  }
+
+  /** Is a relocation's target a DSP word address? null for "abs". */
+  const isDsp = (m      , tgt        )                 => {
+    if (tgt === 'abs') return null
+    const colon = tgt.indexOf(':')
+    if (colon < 0) throw new ValueError('not enough values to unpack (expected 2, got 1)')
+    const kind = tgt.slice(0, colon), nm = tgt.slice(colon + 1)
+    if (kind === 'sec') return Boolean(dspTag(dev, nm))
+    if (addr.has(key(m.id, nm)) && m.symbols.has(nm)) return dspSym.has(key(m.id, nm))
+    return dspSym.has('\0' + nm)
+  }
+
+  const place = (m      , buf            , off        , typ        , tgt        , add        , p        , where        ) => {
+    const d = isDsp(m, tgt)
+    if (d !== null && d !== (typ === 'dsp24'))
+      throw new ModError(`${m.label()}: ${where} is a ${typ === 'dsp24' ? 'DSP' : 'ColdFire'} reference to a ${d ? 'DSP' : 'ColdFire'} address`)
+    put(buf, off, typ, resolve(m, tgt, where) + add, p, where)
+  }
+
+  const put = (buf            , off        , typ        , value        , p        , where        ) => {
+    const v = new DataView(buf.buffer, buf.byteOffset, buf.byteLength)
+    if (typ === 'dsp24') {                     // a DSP word, little-endian, as the payloads hold it
+      if (!(value >= 0 && value <= 0xffffff)) throw new ModError(`${where}: a DSP address out of range (0x${value.toString(16)})`)
+      buf[off] = value & 0xff
+      buf[off + 1] = (value >> 8) & 0xff
+      buf[off + 2] = value >> 16
+    } else if (typ === 'abs32') {
+      v.setUint32(off, ((value % 2 ** 32) + 2 ** 32) % 2 ** 32)
+    } else if (typ === 'abs16') {
+      if (!(value >= -0x8000 && value <= 0xffff)) throw new ModError(`${where}: a 16-bit value out of range (${value})`)
+      v.setUint16(off, value & 0xffff)
+    } else if (typ === 'pc32') {
+      const d = value - p
+      if (d < -(2 ** 31) || d >= 2 ** 31) throw new StructError("'i' format requires -2147483648 <= number <= 2147483647")
+      v.setInt32(off, d)
+    } else {
+      const d = value - p
+      if (!(d >= -0x8000 && d < 0x8000)) throw new ModError(`${where}: a 16-bit PC-relative reference spans ${d} bytes`)
+      v.setInt16(off, d)
+    }
+  }
+
+  const content = new Map                    ()
+  const bootRelocs                                           = []
+  for (const m of order) {
+    for (const sec of m.sections.keys()) {
+      if (sec !== '.bss' && m.size(sec)) content.set(key(m.id, sec), partsBytes(m.sections.get(sec) .parts , image, dev).slice())
+    }
+    for (const [sec, off, typ, tgt, add] of m.relocs) {
+      if (sec === '.boot') {                   // after the RAM image: it may name its hash
+        bootRelocs.push([m, off, typ, tgt, add])
+        continue
+      }
+      const where = `${sec}+0x${off.toString(16)}`
+      place(m, content.get(key(m.id, sec)) , off, typ, tgt, add, base.get(key(m.id, sec))  + off, where)
+    }
+  }
+  const tab = new Map                    ()
+  for (const c of tables.keys()) {
+    const dt = dspTables.get(c)
+    const parts               = dt ? [dt[1]] : []
+    let len = dt ? dt[1].length : 0
+    for (const [, , , m, e] of entries.get(c) ) {
+      const d = e.data.slice()
+      for (const [off, typ, tgt, add] of e.relocs) place(m, d, off, typ, tgt, add, tabAt.get(c)  + len + off, `an entry of ${c}`)
+      parts.push(d)
+      len += d.length
+    }
+    if (dt) {
+      parts.push(dt[2])
+      tab.set(c, concat(parts))
+      continue
+    }
+    if (c === dev.fastTable) {
+      for (const m of fastMods) {
+        const e = new Uint8Array(16), v = new DataView(e.buffer)
+        v.setUint32(0, fload.get(m.id) )
+        v.setUint32(4, base.get(key(m.id, '.fast')) )
+        v.setUint32(8, align(m.size('.fast'), 4))
+        parts.push(e)
+      }
+    }
+    parts.push(new Uint8Array(tables.get(c) [1]))
+    tab.set(c, concat(parts))
+  }
+  const ddr = new Uint8Array(runEnd - ddrBase)
+  for (const m of order) {
+    if (m.size('.run')) ddr.set(content.get(key(m.id, '.run')) , base.get(key(m.id, '.run'))  - ddrBase)
+    if (fload.has(m.id)) ddr.set(content.get(key(m.id, '.fast')) , fload.get(m.id)  - ddrBase)
+    if (m.size('.payload')) ddr.set(content.get(key(m.id, '.payload')) , base.get(key(m.id, '.payload'))  - ddrBase)
+  }
+  for (const c of tables.keys()) if (!dspTables.has(c)) ddr.set(tab.get(c) , tabAt.get(c)  - ddrBase)
+  if (withDesc) {
+    const block = desc.encode(descFields((kind, ...a) => {
+      if (kind === 'sym') return addr.get(key(a[0].id, a[1])) 
+      if (kind === 'table') return tabAt.get(a[0]) 
+      if (kind === 'glob') return glob.get(a[0]) ?? 0
+      if (kind === 'bss_end') return bssEnd
+      if (kind === 'boot') return end
+      if (kind === 'run_image') return runLoad               // the RAM image's copy in the flashed image
+      if (kind === 'run_image_len') return ddr.length
+      return dev.mainLoad + image.length + runLoad - end + ddr.length   // the trailer
+    }))
+    if (block.length !== descLen) throw new Error('the build descriptor changed size')
+    ddr.set(block, descAt - ddrBase)
+  }
+  glob.set('__run_hash', runHash(ddr))
+  for (const [m, off, typ, tgt, add] of bootRelocs)
+    place(m, content.get(key(m.id, '.boot')) , off, typ, tgt, add, base.get(key(m.id, '.boot'))  + off, `.boot+0x${off.toString(16)}`)
+  const boot = content.get(key(core.id, '.boot'))
+  if (!boot) throw new KeyError(`(${repr(core.id)}, '.boot')`)
+  const blob = concat([boot, new Uint8Array(runLoad - end - boot.length), ddr])
+  const tail = newLock ? store.trailer(newLock) : new Uint8Array(0)
+  const img = new Uint8Array(image.length + blob.length + tail.length)
+  img.set(image)
+  const dspPut = (tag        , word        , data            ) => {   // P words of a payload's area: main OS bytes
+    const [lo, , at] = areas.get(tag) 
+    img.set(data, at + 3 * (word - lo) - dev.mainLoad)
+  }
+  for (const [k, tag] of dspSecs) dspPut(tag, base.get(k) , content.get(k) ?? new Uint8Array(0))
+  for (const [c, [tag]] of dspTables) dspPut(tag, tabAt.get(c) , tab.get(c) )
+  for (const m of order) {
+    for (const s of m.sites) {
+      if (sharcSite(rel, s.addr)) continue
+      const nw = s.new.slice()
+      for (const [off, typ, tgt, add] of s.relocs) place(m, nw, off, typ, tgt, add, s.addr + off, `site ${hex8(s.addr)}`)
+      img.set(nw, s.addr - dev.mainLoad)
+    }
+  }
+  img.set(blob, image.length)
+  img.set(tail, image.length + blob.length)
+  const bad = copiedRules(order, img, dev)
+  if (dev.isa === 'coldfire') {
+    // ColdFire stops with an address error on an odd jump target (an emulator may not): a jsr or jmp abs.l in
+    // the mods' code, in a site or in the RAM image, must name an even address
+    const code                                 = []
+    for (const m of order) for (const s of m.sites) if (s.kind === 'code')
+      code.push([s.addr, img.slice(s.addr - dev.mainLoad, s.addr - dev.mainLoad + s.len), `${m.label()} site ${hex8(s.addr)}`])
+    for (const m of order) if (m.size('.run')) {
+      const at = base.get(key(m.id, '.run')) 
+      code.push([at, ddr.slice(at - ddrBase, at - ddrBase + m.size('.run')), `${m.label()} .run`])
+    }
+    for (const [at, data, what] of code) {
+      for (let i = 0; i < data.length - 5; i += 2) {
+        if (data[i] === 0x4e && (data[i + 1] === 0xb9 || data[i + 1] === 0xf9)) {
+          const t = ((data[i + 2] << 24) | (data[i + 3] << 16) | (data[i + 4] << 8) | data[i + 5]) >>> 0
+          if (t % 2 && ddrBase <= t && t < bssEnd)
+            bad.push(`${what}: a jsr/jmp at ${hex8(at + i)} goes to the odd address ${hex8(t)} (align the code: `
+              + '.balign 2 at the start of each .run section)')
+        }
+      }
+    }
+  }
+  for (const m of order) {
+    for (const s of m.sites) {
+      if (s.kind === 'code') {
+        const [ok, note] = insnCheck(img, s.addr, s.len, dev, 0)
+        if (!ok) bad.push(`${m.label()} site ${hex8(s.addr)} after relocation: ${note}`)
+      }
+    }
+  }
+  const declared                             = []
+  for (const m of order) for (const s of m.sites) if (!sharcSite(rel, s.addr)) declared.push([s.addr, s.addr + s.len, `${m.label()} site ${hex8(s.addr)}`])
+  for (const [k, tag] of [...dspSecs].sort((a, b) => base.get(a[0])  - base.get(b[0]) )) {
+    const words = Math.floor((content.get(k)?.length ?? 0) / 3)
+    if (words) {
+      const at = pSpan(image, dev, tag, base.get(k) , base.get(k)  + words)
+      declared.push([at, at + 3 * words, k.replace('\0', ' ')])
+    }
+  }
+  for (const c of [...dspTables.keys()].sort(cmp)) {
+    const words = Math.floor(tab.get(c) .length / 3)
+    const at = pSpan(image, dev, dspTables.get(c) [0], tabAt.get(c) , tabAt.get(c)  + words)
+    declared.push([at, at + 3 * words, `the table ${c}`])
+  }
+  bad.push(...imageProblems(dev, image, img, declared, end))
+  if (bad.length) throw new ModError('the linked mods break a rule:\n  ' + bad.join('\n  '))
+
+  const map = new Map                ()
+  for (const [k, v] of addr) map.set(k.replace('\0', ':'), v)
+  for (const [k, v] of glob) map.set(k, v)
+  const uniq = new Map                     ()
+  for (const [k, v] of addr) {
+    const nm = k.slice(k.indexOf('\0') + 1)
+    if (!uniq.has(nm)) uniq.set(nm, new Set())
+    uniq.get(nm) .add(v)
+  }
+  for (const [nm, vs] of uniq) if (vs.size === 1 && !map.has(nm)) map.set(nm, [...vs][0])
+  const outTables = new Map                                  ()
+  for (const c of tables.keys()) outTables.set(c, [tabAt.get(c) , tableCount(c), tables.get(c) [1]])
+  const sections                         = {}
+  for (const [k, v] of [...base].map((kv, i) => [kv, i]         ).sort((a, b) => a[0][1] - b[0][1] || a[1] - b[1]).map(([kv]) => kv))
+    if (!dspSecs.has(k)) sections[k.replace('\0', ' ')] = v
+  const layout         = {
+    boot: [end, end + bootLen], run_load: runLoad, ddr: [ddrBase, runEnd], bss: [runEnd, bssEnd], fast: [fastBase, fastAt],
+    blob_len: blob.length, payload: payMods.length ? [payAt, payEnd] : null, sections, ddr_spare: ddrEnd - bssEnd, fast_spare: fastEnd - fastAt, ddr_size: ddrEnd - ddrBase,
+    fast_size: fastEnd - fastBase,
+  }
+  if (kernelMods.length || sharcMods.length || rawLayout) {
+    layout.sharc = { decoded: dspStream .length, decoded_sha256: sha(dspStream ),
+      stored: dspStored .length, stored_sha256: sha(dspStored ) }
+    if (kernelMods.length) {
+      layout.sharc.kernels = kernelLayout
+    } else if (rawLayout) {
+      layout.sharc.owner = rawLayout.owner
+      layout.sharc.app = rawLayout.app
+    } else {
+      layout.sharc.owner = sharcMods[0].sharc.owner
+      layout.sharc.app = sharcMods[0].id
+      if (sharcMods[0].sharc.entries !== null) {
+        layout.sharc.core = (core          ).sharc.owner
+        layout.sharc.hook = rel.sharc .hook [0]
+      }
+    }
+  }
+  if (withDesc) layout.desc = [descAt, descAt + descLen]
+  if (units !== null) layout.reserve = { units, end: ddrBase + units * dev.reserve [0] }   // the reserve the core takes
+  if (areas.size) {
+    const dspOut                            = {}
+    for (const tag of [...areas.keys()].sort(cmp)) {
+      const [lo, hi, , , nm] = areas.get(tag) 
+      const secs                         = {}
+      const byKey = [...dspSecs].filter(([, t]) => t === tag).map(([k]) => k.split('\0')                    )
+      for (const [id, sec] of byKey.sort((a, b) => cmp(a[0], b[0]) || cmp(a[1], b[1]))) secs[`${id} ${sec}`] = base.get(key(id, sec)) 
+      const tabs                         = {}
+      for (const c of [...dspTables.keys()].sort(cmp)) if (dspTables.get(c) [0] === tag) tabs[c] = tabAt.get(c) 
+      dspOut[tag] = { area: [lo, hi], used: [lo, dspAt.get(tag) ], name: nm, sections: secs, tables: tabs }
+    }
+    layout.dsp = dspOut
+  }
+  const knobsOut = new Map([...knobBase].sort((a, b) => cmp(a[0], b[0])).map(([id, b]) => [id, [b, order.find(m => m.id === id) .knobs]                    ]))
+  for (const [id, b] of knobBase) map.set(`${id}:${KNOBS}`, b)
+  return { image: img, order: order.map(m => m.label()), map, tables: outTables, layout, store: newLock, storeNotes, knobs: knobsOut, knobNotes,
+    sharcStream: dspStream, sharcStored: dspStored }
+}
+

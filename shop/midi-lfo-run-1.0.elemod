@@ -1,0 +1,109 @@
+{
+ "elemod": 2,
+ "id": "midi-lfo-run",
+ "version": "1.0",
+ "title": "MIDI LFO run",
+ "description": "Fixes a stock OS 1.12 bug: after you create a new project, MIDI-track LFOs freeze until a note trig plays on the track. With this mod, MIDI-track LFOs in FRE and TRG mode run without any trig. Their CCs are sent while the transport is playing or paused and stop when it is stopped (stock sends them while stopped too). ONE, HALF and HOLD are unchanged.",
+ "category": "Sequencer",
+ "author": "Vijay",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk2",
+  "product": "Digitone II",
+  "os": "1.12",
+  "syx_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "section3_sha256": "a098f620019b2ad38fd7e0397df39501fb1cf6bc26d0283915f34c49446fdf1a",
+  "section3_len": 3196288
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 60,
+   "parts": [
+    [
+     "stock",
+     "0x40137770",
+     8
+    ],
+    [
+     "hex",
+     "7201b28765064213422b00024e7520170c804012ae2a660c4ab942c5b91866047000"
+    ],
+    [
+     "stock",
+     "0x4012a33e",
+     12
+    ],
+    [
+     "hex",
+     "4ef94012a34a"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "mlr_gate": [
+   ".run",
+   22
+  ],
+  "mlr_lane": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "mlr_gate",
+  "mlr_lane"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x40137770",
+   "len": 8,
+   "stock_sha256": "e23e2c3bd78dd913fc140b34bee3622326f3472fd646b3a7cf04d62f38d63a95",
+   "new": "4eb9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:mlr_lane",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4012a340",
+   "len": 10,
+   "stock_sha256": "944fbb61e272092b42578394f78523c0c90f099e58912ed2cdcdb577911fcd48",
+   "new": "4ef9000000004e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:mlr_gate",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "core": "0.1"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "lfo.s": "76b53efc6d11cd67e0ab52fc5d7441e0381209e3188b7068b0ddd23866ac2265"
+  }
+ },
+ "signature": null
+}

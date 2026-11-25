@@ -1,0 +1,363 @@
+{
+ "elemod": 2,
+ "id": "lfo-preset-shuffle",
+ "version": "1.0",
+ "title": "LFO preset shuffle (POOL)",
+ "description": "Adds a destination, PRST > Preset Pool (POOL), to synth-track LFO1-3. Point an LFO at POOL with DEP above 0 and each sequencer trig without a manual preset lock plays a preset-pool slot picked from the LFO's wave (SPD, MULT, WAVE, SPH; the phase moves per step). DEP sets how many of the filled pool slots are used: at full depth, all of them. The middle of the wave's swing plays the track's own sound. Negative DEP mirrors the order. MIDI tracks are not affected.",
+ "category": "Sequencer",
+ "author": "Vijay",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk2",
+  "product": "Digitone II",
+  "os": "1.12",
+  "syx_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "section3_sha256": "a098f620019b2ad38fd7e0397df39501fb1cf6bc26d0283915f34c49446fdf1a",
+  "section3_len": 3196288
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 984,
+   "parts": [
+    [
+     "hex",
+     "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000009e3779b9504f4f4c00505253540050726573657420506f6f6c00202f0004720fb280652c206f000c720012285cdae18912285cdb0101661841faff86e588d1c022170c81400d91ee6604429060025290"
+    ],
+    [
+     "stock",
+     "0x400094e6",
+     8
+    ],
+    [
+     "hex",
+     "4ef9400d87c0223c0000048b2e044c041000206f0040700010285cdae18810285cdb41f0183409006600024c2248760270001029001ce1881029001de0887241b081670c43e9001053836ae460000228700010290024e18810290025048000004000670002122c00700010290016e188102900170480000040002a00700010290018e18810290019e088720cb081650290817201e1a94c015800e68545fafeca2007e5882432080002820000ffff20056a024480220002810000ffff424048404c0210004c020000260102830000ffff42414841d08128004a856a0444834484700010290020e18810290021e08802800000007fe188d080d6802003e080e080d88002830000ffff70001029001ee1881029001fe0887200b081672a7201b081672c7202b0816700004c7203b0816700005e7204b081670000727205b081670000806000008461000138600000a26100013020024c000800e080ee804c020800e080ee802202d281d2829280e28124016000007c243c00007fff0c83000080006500006c243cffff800060000062243c0000800094830c8200007fff6f000050243c00007fff60000046243c0000ffff94834c02200042424842e28a600000302403e28a600000282404bf82203afdda4c00200020024840b182203c045d9f3b4c002000484248c248c2600000020682000080002a066a0244854a8567000078227c4240dbcf7800727f4a116702528443e9048b53816af24a846700005a20054c040000"
+    ],
+    [
+     "stock",
+     "0x400bc404",
+     8
+    ],
+    [
+     "hex",
+     "e2a8b0846f0220042a0052804c002000424248424a866a044482d4852205e289b4816700002662025282227c4240dbcb727f4a29000467045382670c43e9048b53816aee6000000420492748003c4ef9400d8c4624030c820000400065120c820000c000650ed4820482000200004e75d482600ad4824482068200010000"
+    ],
+    [
+     "stock",
+     "0x4012107c",
+     14
+    ],
+    [
+     "hex",
+     "4e7542b942c65c407041b0af0004661e20170c804003675e6614202f002041fa001c22186708b08166f87011"
+    ],
+    [
+     "stock",
+     "0x400dc18c",
+     10
+    ],
+    [
+     "hex",
+     "4ef9400dc19640039596400399384003995c400399ba40039a0840039b5a40039b7e40039bdc40039c2a40039d7c40039da040039e28400c26e2400c2a464010783a40107a8840107d9040107e0000000000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "cnt": [
+   ".run",
+   0
+  ],
+  "seed": [
+   ".run",
+   64
+  ],
+  "poolname": [
+   ".run",
+   68
+  ],
+  "prstname": [
+   ".run",
+   73
+  ],
+  "longname": [
+   ".run",
+   78
+  ],
+  "POOL": [
+   "abs",
+   1111546827
+  ],
+  "PSIZE": [
+   "abs",
+   1163
+  ],
+  "FORK1_RET": [
+   "abs",
+   1074631150
+  ],
+  "POOLSLOT": [
+   "abs",
+   65
+  ],
+  "POOLID": [
+   "abs",
+   17
+  ],
+  "SNDSLOT65": [
+   "abs",
+   1120296000
+  ],
+  "MIDIMASK": [
+   "abs",
+   23770
+  ],
+  "bentry": [
+   ".run",
+   90
+  ],
+  "bsound": [
+   ".run",
+   158
+  ],
+  ".own": [
+   ".run",
+   782
+  ],
+  ".tri": [
+   ".run",
+   478
+  ],
+  ".sine": [
+   ".run",
+   486
+  ],
+  ".sqr": [
+   ".run",
+   524
+  ],
+  ".saw": [
+   ".run",
+   550
+  ],
+  ".exp": [
+   ".run",
+   578
+  ],
+  ".rmp": [
+   ".run",
+   600
+  ],
+  ".rnd": [
+   ".run",
+   608
+  ],
+  "tri": [
+   ".run",
+   792
+  ],
+  ".scale": [
+   ".run",
+   646
+  ],
+  "pslot": [
+   ".run",
+   850
+  ],
+  "destrets": [
+   ".run",
+   908
+  ],
+  "shf_bsound": [
+   ".run",
+   158
+  ],
+  "shf_pslot": [
+   ".run",
+   850
+  ],
+  "shf_poolname": [
+   ".run",
+   68
+  ],
+  "shf_longname": [
+   ".run",
+   78
+  ],
+  "shf_bentry": [
+   ".run",
+   90
+  ],
+  "shf_prstname": [
+   ".run",
+   73
+  ]
+ },
+ "exports": [
+  "shf_bentry",
+  "shf_bsound",
+  "shf_longname",
+  "shf_poolname",
+  "shf_prstname",
+  "shf_pslot"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x400d87b8",
+   "len": 8,
+   "stock_sha256": "e7935464f6aea76650f55814efc9b45785485164937f3bd5ed6f2a4d384b8d4b",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:shf_bentry",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x401f87a0",
+   "len": 4,
+   "stock_sha256": "ad95131bc0b799c0b1af477fb14fcf26a6a9f76079e48bf090acb7e8367bfd0e",
+   "new": "0000000c",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x401f87a4",
+   "len": 4,
+   "stock_sha256": "ad95131bc0b799c0b1af477fb14fcf26a6a9f76079e48bf090acb7e8367bfd0e",
+   "new": "00000041",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x401f87a8",
+   "len": 4,
+   "stock_sha256": "ad60013b04e0d4f0ca8b6c857383f9c2d62f2d280ca32192b82529562693a446",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x401f87b0",
+   "len": 4,
+   "stock_sha256": "ad60013b04e0d4f0ca8b6c857383f9c2d62f2d280ca32192b82529562693a446",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x401f87b8",
+   "len": 4,
+   "stock_sha256": "4bb9fff72a453214eb235a29018d786379d314ffa1a19a7866f2fb2ff4ee34a0",
+   "new": "ffffffff",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x401f87c4",
+   "len": 4,
+   "stock_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+   "new": "00001e00",
+   "kind": "data",
+   "relocs": []
+  },
+  {
+   "addr": "0x401f87c8",
+   "len": 4,
+   "stock_sha256": "59cce3e089a122cc8b7c4f8c3e29765f0e18b31fba66e8af95a44095aac342b0",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:shf_longname",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x401f87d0",
+   "len": 4,
+   "stock_sha256": "c5b3d8d976c40ee52f51c1e5b03d4031302fdb01594a342707c31c33b7e7b90f",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:shf_poolname",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x401f7b20",
+   "len": 4,
+   "stock_sha256": "50a04d98086969ad9570e2aaacc5483ed56cc71537b44f398fe32f70bb68a290",
+   "new": "00000000",
+   "kind": "data",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:shf_prstname",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400dc18e",
+   "len": 8,
+   "stock_sha256": "70264a4502f618c7b2a372581293ee505a7d8aef2caa8fa303f8e343ba00e8dd",
+   "new": "4ef9000000004e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:shf_pslot",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x400d8c16",
+   "len": 24,
+   "stock_sha256": "fdc5d1c3c07a5f18c472308f18df295d5b17d0dad969bfffcec0159d3ca68ec0",
+   "new": "4ef9000000004e714e714e714e714e714e714e714e714e71",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:shf_bsound",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "core": "0.1"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "shuffle.s": "8d4001a55323fdf49bcd548716f668f08fc6fb9d521d29d05ba631fd9abb1944"
+  }
+ },
+ "signature": null
+}

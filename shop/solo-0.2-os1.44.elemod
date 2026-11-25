@@ -1,0 +1,1008 @@
+{
+ "elemod": 2,
+ "id": "solo",
+ "version": "0.2",
+ "title": "SOLO & MUTE GROUPS",
+ "description": "Solo and four mute groups for the Digitone mk1 and Digitone Keys, on the stock global mutes (FUNC + a track key). Hold PAGE and press a track key: that track plays alone among its four (the synth tracks, or the MIDI tracks); the same again gives the mutes back as they were. MUTE GROUPS in the Mod Menu (hold a track key) stores the mutes of all eight tracks as group 1-4 and recalls them, saved with the project; SOLO there solos the held track. OS 1.43 and 1.44 (it names no firmware address: its 1.44 port is empty). Needs core-dn1 5.0.1.",
+ "category": "Performance",
+ "author": "irpina",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitone-mk1",
+  "product": "Digitone mk1",
+  "os": "1.44",
+  "syx_sha256": "d4f200d04484333d82822db7744e6484d0def8f2db8ddf55ee2b780cc13c9659",
+  "section3_sha256": "fce648a97c6c5d93b961732e8f8db6b02e0820c6d344c7e2131fa05a4b3168e4",
+  "section3_len": 2736304
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1257,
+   "parts": [
+    [
+     "hex",
+     "70ff23c000000000"
+    ],
+    [
+     "stock",
+     "0x400004b0",
+     8
+    ],
+    [
+     "hex",
+     "041c242f00184eb900000000720123c10000000044c267227803262f001445f900000000b183b4846f144cd7041c42b9000000004fef00104e75780760dc05036712202f0014e4a87201c2802f012f024e92508f528260ce"
+    ],
+    [
+     "stock",
+     "0x40006dde",
+     14
+    ],
+    [
+     "hex",
+     "b08265402039000000007604c68245faff84b48066382f032f39000000004e9242b90000000072ff203c0000000023c10000000023c000000000721e508f23c100000000"
+    ],
+    [
+     "stock",
+     "0x40004ae8",
+     8
+    ],
+    [
+     "hex",
+     "4e754a806d1c7204c081b68067202f002f39000000004e92508f70ff23c0000000004eb90000000023c0000000007001e5a82f030a80000000ff2f004e9223c2000000007003223c00000000c48023c100000000528223c20000000060902039000000002f4000046000ff3c203c000000002f40000c203c00000000"
+    ],
+    [
+     "stock",
+     "0x4005f9ea",
+     10
+    ],
+    [
+     "hex",
+     "000000004feffff4700348d7040c242f001c260245f900000000b0826c3a4eb9000000005983718025802cf47001e7a852838192203c0000000023c3000000004cd7040c23c000000000701e23c0000000004fef000c4e75201252830500672e42a770ff2f323c0023c00000000041fafe524e90487800042f323c0041fafe44"
+    ],
+    [
+     "stock",
+     "0x40053a5c",
+     8
+    ],
+    [
+     "hex",
+     "0000000060ac203c0000000060a4"
+    ],
+    [
+     "stock",
+     "0x40059228",
+     8
+    ],
+    [
+     "hex",
+     "2228000c20280010080000046624240076014682c68220437413b481661a26087001b18323c300000000"
+    ],
+    [
+     "stock",
+     "0x400ac8e0",
+     8
+    ],
+    [
+     "hex",
+     "307c000160e00681ffffffd67403b48165e67401e3aa2279000000002609c6824a8367144a88670c46822609c68223c300000000700160c24ab90000000067b8760ac0832608808366ae2039000000007604c08380812f004ebafdf685b900000000588f60ce202f000480b900000000660870ff23c0000000004e752039000000004a806f12538023c000000000"
+    ],
+    [
+     "stock",
+     "0x40048bc8",
+     8
+    ],
+    [
+     "hex",
+     "00204e752f0a4ab9000000006f704ab9000000006768"
+    ],
+    [
+     "stock",
+     "0x4003e890",
+     8
+    ],
+    [
+     "stock",
+     "0x4003e876",
+     8
+    ],
+    [
+     "hex",
+     "005445f9000000002f2f001c4e922f39000000002f3900000000"
+    ],
+    [
+     "stock",
+     "0x400736dc",
+     10
+    ],
+    [
+     "hex",
+     "00574879000000002f2f00384eb900000000"
+    ],
+    [
+     "stock",
+     "0x40050bcc",
+     8
+    ],
+    [
+     "stock",
+     "0x4003e81c",
+     12
+    ],
+    [
+     "hex",
+     "487800542f2f001c"
+    ],
+    [
+     "stock",
+     "0x4009691c",
+     10
+    ],
+    [
+     "hex",
+     "ffffffff4d555447"
+    ],
+    [
+     "stock",
+     "0x4018e4c0",
+     10
+    ],
+    [
+     "hex",
+     "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000000000000000000049434f4e00000000018001800180099005a003c0018000007ffe4002400240027ffe"
+    ],
+    [
+     "stock",
+     "0x402496ba",
+     8
+    ],
+    [
+     "hex",
+     "7c7c7c447c447c447c7c000000007c7c447c447c447c7c7c"
+    ],
+    [
+     "stock",
+     "0x402496ba",
+     10
+    ],
+    [
+     "stock",
+     "0x4022f750",
+     12
+    ],
+    [
+     "hex",
+     "070007000700777777770000ffff0000554e534f4c4f00534f4c4f205425640053544f52454420256400454d5054592025640047524f555020256400524543414c4c203100524543414c4c203200524543414c4c203300524543414c4c20340053544f524520310053544f524520320053544f524520330053544f52452034004d5554452047524f55505300534f4c4f00"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 48
+  }
+ },
+ "symbols": {
+  "solo_loaded": [
+   ".run",
+   0
+  ],
+  "soloed": [
+   ".run",
+   816
+  ],
+  "apply": [
+   ".run",
+   10
+  ],
+  "busy": [
+   ".bss",
+   12
+  ],
+  "solo": [
+   ".run",
+   104
+  ],
+  "before": [
+   ".bss",
+   16
+  ],
+  "note_arg": [
+   ".bss",
+   4
+  ],
+  "note": [
+   ".bss",
+   8
+  ],
+  "note_ticks": [
+   ".bss",
+   0
+  ],
+  "solo_open": [
+   ".run",
+   288
+  ],
+  "groups_open": [
+   ".run",
+   302
+  ],
+  "group_pick": [
+   ".run",
+   332
+  ],
+  "group_list": [
+   ".run",
+   836
+  ],
+  "save": [
+   ".bss",
+   28
+  ],
+  "page_down": [
+   ".bss",
+   24
+  ],
+  "taken": [
+   ".bss",
+   20
+  ],
+  "group_items": [
+   ".run",
+   872
+  ],
+  "groups_icon": [
+   ".run",
+   1064
+  ],
+  "store_icon": [
+   ".run",
+   1032
+  ],
+  "solo_icon": [
+   ".run",
+   1096
+  ],
+  "solo_key": [
+   ".run",
+   478
+  ],
+  "solo_menu": [
+   ".run",
+   1016
+  ],
+  "solo_tick": [
+   ".run",
+   660
+  ],
+  "solo_mute": [
+   ".run",
+   638
+  ],
+  "solo_projdata": [
+   ".run",
+   820
+  ],
+  "solo_draw": [
+   ".run",
+   690
+  ],
+  "solo_groups_menu": [
+   ".run",
+   1000
+  ]
+ },
+ "exports": [
+  "solo_draw",
+  "solo_groups_menu",
+  "solo_key",
+  "solo_menu",
+  "solo_mute",
+  "solo_projdata",
+  "solo_tick"
+ ],
+ "imports": [
+  "core_menu_open",
+  "core_mute_set",
+  "core_mutes",
+  "fw_active_track",
+  "fw_fillrect",
+  "fw_font5",
+  "fw_textf"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   4,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   24,
+   "abs32",
+   "sym:core_mutes",
+   0
+  ],
+  [
+   ".run",
+   32,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   48,
+   "abs32",
+   "sym:core_mute_set",
+   0
+  ],
+  [
+   ".run",
+   64,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   124,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   144,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   152,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   160,
+   "abs32",
+   "sec:.run",
+   1128
+  ],
+  [
+   ".run",
+   166,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   172,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   182,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   212,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   224,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   230,
+   "abs32",
+   "sym:core_mutes",
+   0
+  ],
+  [
+   ".run",
+   236,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   258,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   266,
+   "abs32",
+   "sec:.run",
+   1135
+  ],
+  [
+   ".run",
+   274,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   282,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   290,
+   "abs32",
+   "sym:fw_active_track",
+   0
+  ],
+  [
+   ".run",
+   304,
+   "abs32",
+   "sec:.run",
+   332
+  ],
+  [
+   ".run",
+   314,
+   "abs32",
+   "sec:.run",
+   836
+  ],
+  [
+   ".run",
+   328,
+   "abs32",
+   "sym:core_menu_open",
+   0
+  ],
+  [
+   ".run",
+   350,
+   "abs32",
+   "sec:.bss",
+   28
+  ],
+  [
+   ".run",
+   360,
+   "abs32",
+   "sym:core_mutes",
+   0
+  ],
+  [
+   ".run",
+   382,
+   "abs32",
+   "sec:.run",
+   1144
+  ],
+  [
+   ".run",
+   388,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   398,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   406,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   434,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   464,
+   "abs32",
+   "sec:.run",
+   1163
+  ],
+  [
+   ".run",
+   472,
+   "abs32",
+   "sec:.run",
+   1154
+  ],
+  [
+   ".run",
+   524,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   560,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   584,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   594,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   612,
+   "abs32",
+   "sym:fw_active_track",
+   0
+  ],
+  [
+   ".run",
+   630,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   644,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   654,
+   "abs32",
+   "sec:.run",
+   816
+  ],
+  [
+   ".run",
+   662,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   674,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   694,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   702,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   728,
+   "abs32",
+   "sym:fw_fillrect",
+   0
+  ],
+  [
+   ".run",
+   740,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   746,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   764,
+   "abs32",
+   "sym:fw_font5",
+   0
+  ],
+  [
+   ".run",
+   774,
+   "abs32",
+   "sym:fw_textf",
+   0
+  ],
+  [
+   ".run",
+   828,
+   "abs32",
+   "sec:.bss",
+   28
+  ],
+  [
+   ".run",
+   832,
+   "abs32",
+   "sec:.run",
+   0
+  ],
+  [
+   ".run",
+   836,
+   "abs32",
+   "sec:.run",
+   872
+  ],
+  [
+   ".run",
+   840,
+   "abs32",
+   "sec:.run",
+   888
+  ],
+  [
+   ".run",
+   844,
+   "abs32",
+   "sec:.run",
+   904
+  ],
+  [
+   ".run",
+   848,
+   "abs32",
+   "sec:.run",
+   920
+  ],
+  [
+   ".run",
+   852,
+   "abs32",
+   "sec:.run",
+   936
+  ],
+  [
+   ".run",
+   856,
+   "abs32",
+   "sec:.run",
+   952
+  ],
+  [
+   ".run",
+   860,
+   "abs32",
+   "sec:.run",
+   968
+  ],
+  [
+   ".run",
+   864,
+   "abs32",
+   "sec:.run",
+   984
+  ],
+  [
+   ".run",
+   872,
+   "abs32",
+   "sec:.run",
+   1172
+  ],
+  [
+   ".run",
+   884,
+   "abs32",
+   "sec:.run",
+   1064
+  ],
+  [
+   ".run",
+   888,
+   "abs32",
+   "sec:.run",
+   1181
+  ],
+  [
+   ".run",
+   900,
+   "abs32",
+   "sec:.run",
+   1064
+  ],
+  [
+   ".run",
+   904,
+   "abs32",
+   "sec:.run",
+   1190
+  ],
+  [
+   ".run",
+   916,
+   "abs32",
+   "sec:.run",
+   1064
+  ],
+  [
+   ".run",
+   920,
+   "abs32",
+   "sec:.run",
+   1199
+  ],
+  [
+   ".run",
+   932,
+   "abs32",
+   "sec:.run",
+   1064
+  ],
+  [
+   ".run",
+   936,
+   "abs32",
+   "sec:.run",
+   1208
+  ],
+  [
+   ".run",
+   948,
+   "abs32",
+   "sec:.run",
+   1032
+  ],
+  [
+   ".run",
+   952,
+   "abs32",
+   "sec:.run",
+   1216
+  ],
+  [
+   ".run",
+   964,
+   "abs32",
+   "sec:.run",
+   1032
+  ],
+  [
+   ".run",
+   968,
+   "abs32",
+   "sec:.run",
+   1224
+  ],
+  [
+   ".run",
+   980,
+   "abs32",
+   "sec:.run",
+   1032
+  ],
+  [
+   ".run",
+   984,
+   "abs32",
+   "sec:.run",
+   1232
+  ],
+  [
+   ".run",
+   996,
+   "abs32",
+   "sec:.run",
+   1032
+  ],
+  [
+   ".run",
+   1000,
+   "abs32",
+   "sec:.run",
+   1240
+  ],
+  [
+   ".run",
+   1004,
+   "abs32",
+   "sec:.run",
+   302
+  ],
+  [
+   ".run",
+   1012,
+   "abs32",
+   "sec:.run",
+   1064
+  ],
+  [
+   ".run",
+   1016,
+   "abs32",
+   "sec:.run",
+   1252
+  ],
+  [
+   ".run",
+   1020,
+   "abs32",
+   "sec:.run",
+   288
+  ],
+  [
+   ".run",
+   1028,
+   "abs32",
+   "sec:.run",
+   1096
+  ]
+ ],
+ "sites": [],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_key",
+   "order": 40,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_key",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_mute",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_mute",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_tick",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_tick",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_draw",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_draw",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_menu",
+   "order": 45,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_menu",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_menu",
+   "order": 46,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_groups_menu",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "core_projdata",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:solo_projdata",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "5.0.1",
+  "names": [
+   "projdata:MUTG"
+  ]
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "solo.c": "96312b78fab3afd3ec25ac79670891ffd905017ca4a6401672d8b318bfd58689"
+  }
+ },
+ "signature": null
+}

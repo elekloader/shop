@@ -1,0 +1,907 @@
+{
+ "elemod": 2,
+ "id": "fill",
+ "version": "0.3",
+ "title": "FILL: hold for a random variation",
+ "description": "Hold YES, then hold NO: while NO is held the pattern plays a random variation of itself, new each loop: steps shuffled with their neighbours, ghost notes on empty steps, some trigs left out (never the first of each half bar), velocities moved. Let go and it plays as it is; the pattern never changes. While held, any knob sets how wild it is (0-100 %, saved). Audio tracks. Needs seq-events.",
+ "category": "Sequencer",
+ "author": "Cere, made with Claude",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitakt-mk1",
+  "product": "Digitakt mk1",
+  "os": "1.54",
+  "syx_sha256": "f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6",
+  "section3_sha256": "5c58bf9e3949ef09977c5fc007a61e8d026931f67f1621238379dfb8ee4d31a2",
+  "section3_len": 2479680
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 1627,
+   "parts": [
+    [
+     "stock",
+     "0x4006a61c",
+     10
+    ],
+    [
+     "hex",
+     "e78848d7001c263900000000283cc2b2ae3541f90000000024300800202f00144c040800282f0018b980283c27d4eb2f4c042800b780263c85ebca6b4c031800263c846ca68bb380b580740f220042414841b181203c7feb352d4c0018002001e4a8b3804c0308004cd7001c220042414841b3804fef000c4e754ab9000000006620487802104eb900000000588f4a806710"
+    ],
+    [
+     "stock",
+     "0x40056ab8",
+     8
+    ],
+    [
+     "hex",
+     "c28023c1000000004ab900000000"
+    ],
+    [
+     "stock",
+     "0x400d2070",
+     8
+    ],
+    [
+     "hex",
+     "4fefffec22390000000048d7007c202f"
+    ],
+    [
+     "stock",
+     "0x40023358",
+     10
+    ],
+    [
+     "hex",
+     "4a81675c7207b2806d567a03ba826c50c2834a81674a2f3c51ed270b7c642f032f004ebaff084fef000c2239000000002a004c4650047a1e"
+    ],
+    [
+     "stock",
+     "0x400bd7e4",
+     8
+    ],
+    [
+     "hex",
+     "b2846f1ce0887c072202e589c08641f90000000071300800d083d0814c4208032003"
+    ],
+    [
+     "stock",
+     "0x40004f84",
+     8
+    ],
+    [
+     "hex",
+     "4e754fefffe0203900000000"
+    ],
+    [
+     "stock",
+     "0x4008ebe4",
+     12
+    ],
+    [
+     "stock",
+     "0x40065488",
+     8
+    ],
+    [
+     "hex",
+     "4a8067567007b0826d50783fb883654a2f3c2545f4917a012f032f024ebafe844fef000c721fc2832c12e3ad2203ea8108060000662e78644c44000726390000000070234c0308004c440800b0876f3e7001808624804a8b6650"
+    ],
+    [
+     "stock",
+     "0x40013e9a",
+     10
+    ],
+    [
+     "hex",
+     "7807c6844a836722e08878642639000000004c4400072003e98890834c440800b0876f0670fec08624804a8b67c82002d08041f900000000d08126300c0020054680c08360122002d08041f900000000d08120300c008085d48241f900000000d48121802c00608e4feffff020790000000048d7041c222f"
+    ],
+    [
+     "stock",
+     "0x400c313a",
+     10
+    ],
+    [
+     "hex",
+     "4a8867387407b4816d32763fb680652c24012600d482ea8343f9000000002042741fc480d1c326318c0005036718702878644c1208004c4408002480"
+    ],
+    [
+     "stock",
+     "0x400083f2",
+     8
+    ],
+    [
+     "hex",
+     "4e75243900000000761e78644c0328004c4428024a8267e02f3c9e3779b92f002f014ebafd544fef000c2202d281260052814c41300420049082d19260ba2f0372112f027401226f0010202900102069000cc280b48166487608c083"
+    ],
+    [
+     "stock",
+     "0x4001f056",
+     8
+    ],
+    [
+     "hex",
+     "243900000000263c0019660d4c032800760c06823c6ef35fd48823c200000000b688661c7001b08157c17301448123c100000000"
+    ],
+    [
+     "stock",
+     "0x40076292",
+     8
+    ],
+    [
+     "hex",
+     "428060c0760db68866ee4ab900000000671653814a81670c42b90000000042b900000000700160d24a8067cc4ab90000000067c4203900000000"
+    ],
+    [
+     "stock",
+     "0x400f1e1c",
+     10
+    ],
+    [
+     "hex",
+     "b580740123c20000000023c00000000023c20000000060c82039000000002f024a80674c206f000c4ab9000000005ec1242800104a825ec04481738144807180b081670642b9000000004200d5b900000000223900000000740620415688b48865124a006708703c23c0000000007001241f4e754a816f2a74012002e588928023c100000000223900000000d082d0817264b2806c10706423c000000000700160b074ff60d44a806cee428060ea4e56ffe420390000000048d7003c242e00084a80670000cc203900000000223c46494c4c263c2000000078632d41fff4"
+    ],
+    [
+     "stock",
+     "0x4003a89e",
+     8
+    ],
+    [
+     "hex",
+     "b8806c2441eefffa7a311d45fff9780a22004c44180126014c443805220506810000003010c1600a720941eefff9b2806ddc760a4c430801383c2500068100000030108131440001"
+    ],
+    [
+     "stock",
+     "0x4002d292",
+     8
+    ],
+    [
+     "hex",
+     "005848780036487800262f024eb900000000"
+    ],
+    [
+     "stock",
+     "0x4002ccd2",
+     10
+    ],
+    [
+     "hex",
+     "005848780036487800262f024eb9000000004fef0030486efff44879000000004878000c"
+    ],
+    [
+     "stock",
+     "0x4002d388",
+     10
+    ],
+    [
+     "stock",
+     "0x40121046",
+     8
+    ],
+    [
+     "hex",
+     "000000004fef001c4cee003c"
+    ],
+    [
+     "stock",
+     "0x40036f06",
+     8
+    ],
+    [
+     "hex",
+     "000000002f0a2f0223c00000000020390000000023c0000000002439000000002039000000004a826674528023c000000000721eb2806c66700123c0000000004ebafb3a4a80675624790000000042011581280052820c820000020066f02f0a2f022f3c00060048"
+    ],
+    [
+     "stock",
+     "0x4006940c",
+     10
+    ],
+    [
+     "hex",
+     "4a806628203c46494c4cb092661e202a00047264b2806514223ca5a5a5a5b181b2aa0008660623c00000000024390000000052b9000000004a826f58538223c2000000004a82664c4ebafac04a80674420790000000042001180280052820c820000020066f020390000000020bc46494c4c214000040a80a5a5a5a5214000082f082f022f3c00060048"
+    ],
+    [
+     "stock",
+     "0x4008c440",
+     10
+    ],
+    [
+     "hex",
+     "2239000000002039000000008280671c7201206f000c114100202239000000004a81660e538023c000000000241f245f4e75700260f06d2b79f50123456700000032ff01fe02fcff01fc257300"
+    ]
+   ]
+  },
+  ".bss": {
+   "align": 4,
+   "size": 108
+  }
+ },
+ "symbols": {
+  "hash": [
+   ".run",
+   0
+  ],
+  "seed": [
+   ".run",
+   1608
+  ],
+  "block_ready": [
+   ".run",
+   132
+  ],
+  "block": [
+   ".bss",
+   36
+  ],
+  "on": [
+   ".bss",
+   104
+  ],
+  "amount": [
+   ".run",
+   1612
+  ],
+  "off.1": [
+   ".run",
+   1616
+  ],
+  "ghost": [
+   ".bss",
+   40
+  ],
+  "entropy": [
+   ".run",
+   1604
+  ],
+  "yes_down": [
+   ".bss",
+   20
+  ],
+  "no_ours": [
+   ".bss",
+   16
+  ],
+  "ticks": [
+   ".bss",
+   24
+  ],
+  "acc.0": [
+   ".bss",
+   8
+  ],
+  "save_wait": [
+   ".bss",
+   32
+  ],
+  "loaded": [
+   ".bss",
+   28
+  ],
+  "shown_ticks": [
+   ".bss",
+   12
+  ],
+  "fl_gen_trig": [
+   ".run",
+   320
+  ],
+  "fl_fire_vel": [
+   ".run",
+   554
+  ],
+  "fl_key": [
+   ".run",
+   710
+  ],
+  "fl_draw": [
+   ".run",
+   1050
+  ],
+  "fl_tick": [
+   ".run",
+   1286
+  ],
+  "fill_kv": [
+   ".bss",
+   0
+  ],
+  "fl_fire_step": [
+   ".run",
+   186
+  ],
+  "fl_enc": [
+   ".run",
+   900
+  ]
+ },
+ "exports": [
+  "fill_kv",
+  "fl_draw",
+  "fl_enc",
+  "fl_fire_step",
+  "fl_fire_vel",
+  "fl_gen_trig",
+  "fl_key",
+  "fl_tick"
+ ],
+ "imports": [
+  "fw_fillrect",
+  "fw_font5",
+  "fw_framerect",
+  "fw_op_new",
+  "fw_textf",
+  "sq_clock"
+ ],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   18,
+   "abs32",
+   "sec:.run",
+   1608
+  ],
+  [
+   ".run",
+   30,
+   "abs32",
+   "sym:sq_clock",
+   0
+  ],
+  [
+   ".run",
+   134,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   146,
+   "abs32",
+   "sym:fw_op_new",
+   0
+  ],
+  [
+   ".run",
+   168,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   174,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   192,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   256,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   292,
+   "abs32",
+   "sec:.run",
+   1616
+  ],
+  [
+   ".run",
+   326,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   412,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   464,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   502,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   526,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   542,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   560,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   606,
+   "abs32",
+   "sec:.bss",
+   40
+  ],
+  [
+   ".run",
+   652,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   750,
+   "abs32",
+   "sec:.run",
+   1604
+  ],
+  [
+   ".run",
+   776,
+   "abs32",
+   "sec:.run",
+   1604
+  ],
+  [
+   ".run",
+   796,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   820,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   834,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   840,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   854,
+   "abs32",
+   "sec:.bss",
+   20
+  ],
+  [
+   ".run",
+   862,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   882,
+   "abs32",
+   "sec:.bss",
+   16
+  ],
+  [
+   ".run",
+   888,
+   "abs32",
+   "sec:.run",
+   1608
+  ],
+  [
+   ".run",
+   894,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   902,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   918,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   946,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   954,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   960,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   982,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   1006,
+   "abs32",
+   "sec:.bss",
+   8
+  ],
+  [
+   ".run",
+   1012,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   1030,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   1056,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   1076,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   1200,
+   "abs32",
+   "sym:fw_fillrect",
+   0
+  ],
+  [
+   ".run",
+   1228,
+   "abs32",
+   "sym:fw_framerect",
+   0
+  ],
+  [
+   ".run",
+   1242,
+   "abs32",
+   "sec:.run",
+   1624
+  ],
+  [
+   ".run",
+   1260,
+   "abs32",
+   "sym:fw_font5",
+   0
+  ],
+  [
+   ".run",
+   1268,
+   "abs32",
+   "sym:fw_textf",
+   0
+  ],
+  [
+   ".run",
+   1288,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   1298,
+   "abs32",
+   "sec:.bss",
+   0
+  ],
+  [
+   ".run",
+   1304,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   1310,
+   "abs32",
+   "sec:.bss",
+   4
+  ],
+  [
+   ".run",
+   1316,
+   "abs32",
+   "sec:.bss",
+   28
+  ],
+  [
+   ".run",
+   1322,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   1334,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   1348,
+   "abs32",
+   "sec:.bss",
+   28
+  ],
+  [
+   ".run",
+   1362,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   1442,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   1448,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   1454,
+   "abs32",
+   "sec:.bss",
+   24
+  ],
+  [
+   ".run",
+   1466,
+   "abs32",
+   "sec:.bss",
+   32
+  ],
+  [
+   ".run",
+   1484,
+   "abs32",
+   "sec:.bss",
+   36
+  ],
+  [
+   ".run",
+   1506,
+   "abs32",
+   "sec:.run",
+   1612
+  ],
+  [
+   ".run",
+   1552,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   1558,
+   "abs32",
+   "sec:.bss",
+   12
+  ],
+  [
+   ".run",
+   1578,
+   "abs32",
+   "sec:.bss",
+   104
+  ],
+  [
+   ".run",
+   1590,
+   "abs32",
+   "sec:.bss",
+   12
+  ]
+ ],
+ "sites": [],
+ "collections": {},
+ "contribute": [
+  {
+   "to": "ev_fire_step",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_fire_step",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_gen_trig",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_gen_trig",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_fire_vel",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_fire_vel",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_tick",
+   "order": 85,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_tick",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_key",
+   "order": 2,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_key",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_enc",
+   "order": 2,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_enc",
+     0
+    ]
+   ],
+   "claims": []
+  },
+  {
+   "to": "ev_draw",
+   "order": 92,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:fl_draw",
+     0
+    ]
+   ],
+   "claims": []
+  }
+ ],
+ "copied": [],
+ "resources": {
+  "core": "4.1",
+  "names": [
+   "emmc:0x60048"
+  ]
+ },
+ "requires": [
+  "core",
+  "seq-events"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "fill.c": "d5940ca0befb31b4474e4bd79e94ebbafbf811a10939baf142111b860e4c8684"
+  }
+ },
+ "signature": null
+}

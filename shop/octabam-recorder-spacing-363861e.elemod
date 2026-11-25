@@ -1,0 +1,112 @@
+{
+ "elemod": 2,
+ "id": "octabam-recorder-spacing",
+ "version": "363861e",
+ "title": "RECORDER SPACING",
+ "description": "ColdFire cave: a fixed-RLEN recording is exactly as long as the gap to the next arm, derived from the current arm -- no lane, no stored state. (octabam module recorder-spacing, converted from 363861e)",
+ "category": "Fixes",
+ "author": "sambanks",
+ "license": "MIT",
+ "target": {
+  "device": "octatrack",
+  "product": "Octatrack",
+  "os": "1.40C",
+  "syx_sha256": "0a8d2d2b35c2cc78fa338576adc1af0cbc094cef973255103165c73edd87f2b6",
+  "section3_sha256": "164f31224bf61181e3f50e7dec40df9afcae5b16dbf6e4c0d0cc5e986af0a84e",
+  "section3_len": 1112560
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 148,
+   "parts": [
+    [
+     "hex",
+     "28005284e284"
+    ],
+    [
+     "stock",
+     "0x40092bf4",
+     8
+    ],
+    [
+     "hex",
+     "2239800018146700007220044c010000068000791fd0243c00f23fa04c420000670000584c02000026004c4100006700004a24004c01000096806700002c202f00a4e588"
+    ],
+    [
+     "stock",
+     "0x4000f8ba",
+     8
+    ],
+    [
+     "hex",
+     "08004c4200004c0300002240d08326094c4100004c4130039083d4802002908452800c8000000002620000042802"
+    ],
+    [
+     "stock",
+     "0x40092efe",
+     8
+    ],
+    [
+     "hex",
+     "4e750000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "cave": [
+   ".run",
+   0
+  ],
+  "keep": [
+   ".run",
+   136
+  ],
+  "guard": [
+   ".run",
+   118
+  ],
+  "ob_recorder_spacing_spacing_cave": [
+   ".run",
+   0
+  ]
+ },
+ "exports": [
+  "ob_recorder_spacing_spacing_cave"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [],
+ "sites": [
+  {
+   "addr": "0x40006e0c",
+   "len": 6,
+   "stock_sha256": "3b77fc06791be946482421e53ffef0821264bef53b186b831a0a6505d56d79cb",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:ob_recorder_spacing_spacing_cave",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {},
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "ob_recorder_spacing_spacing_cave.s": "147c6621af5b0943c87779ae30d2127a3cfa44f3f3a27614dd2714f017d579e7"
+  }
+ },
+ "signature": null
+}

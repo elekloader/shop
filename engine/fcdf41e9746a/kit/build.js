@@ -1,0 +1,87 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// What a site's build page does around the builder, the same on every site: load a selection from the catalog and
+// check it, follow a build in three steps, and keep its log as text for a bug report.
+import { coreTakes } from '../elemod.js'
+import { planBuild,                        } from './catalog.js'
+                                          
+                                                                      
+
+                      
+                                                                 
+                                                                
+
+/** The owner's stock file and a selection of catalog mod ids, loaded and checked: the stock file must be the device
+ * and OS asked for, each mod comes from the catalog with what it requires (of a required mod the catalog lists in
+ * several versions, the newest the selection links with: model.ts withRequirements), and the core is the plan's, made
+ * again once the mods are loaded with what each core takes in it (its RAM, and the places it patches), as the engine's
+ * tick takes it (model.ts withCore). */
+export async function prepare(builder         , input                                                                                                          )                    {
+  const plan = planBuild(input.catalog, input.device, input.os, input.ids)
+  if (!plan.core) return { ok: false, error: `The catalog has no core for ${input.device} OS ${input.os}.` }
+  if (plan.missing.length) return { ok: false, error: `Not available for OS ${input.os}: ${plan.missing.join(', ')}.` }
+  await builder.load()
+  const stock = await builder.setStock(input.stock)
+  if (!stock.ok) return { ok: false, error: stock.error }
+  if (stock.dev.key !== input.device || stock.os !== input.os)
+    return { ok: false, error: `This OS file is ${stock.device} ${stock.os}, not the ${input.device} OS ${input.os} chosen.`, device: stock.dev }
+  // the catalog's other versions of a mod the selection requires are added too (not ticked), so the tick takes the
+  // newest that links with the selection: a mod made for an older version of what it requires builds with that one
+  // (model.ts withRequirements)
+  const required = new Set(plan.mods.flatMap(m => m.requires))
+  for (const mod of plan.mods.filter(m => required.has(m.id))) {
+    for (const other of input.catalog.mods.filter(x => x.id === mod.id && x.device === mod.device && x.os === mod.os && x.file !== mod.file)) {
+      const added = await builder.addCatalogMod(other.file)
+      if (!added.ok) return { ok: false, error: added.error, device: stock.dev }
+    }
+  }
+  let enabled           = []
+  for (const mod of plan.mods) {
+    const added = await builder.addCatalogMod(mod.file)
+    if (!added.ok) return { ok: false, error: added.error, device: stock.dev }
+    enabled = await builder.tick(enabled, added.mod.path)
+  }
+  // the plan's core, in place of any other the ticks chose (a build has one core): of those new enough, one that
+  // takes the mods (its RAM holds them, and it patches no place one of them patches), as withCore takes it
+  const listed = await builder.mods()
+  const cores = listed.filter(m => m.builtin && m.id === 'core')
+  const mods = listed.filter(m => m.id !== 'core' && enabled.includes(m.path))
+  const takes = (pin     ) => {
+    const c = cores.find(m => m.file === pin.file)
+    return !c || coreTakes(c, mods)
+  }
+  const pick = planBuild(input.catalog, input.device, input.os, input.ids, takes).core 
+  const core = cores.find(m => m.file === pick.file)
+  if (!core || !core.fits) return { ok: false, error: `${pick.file} does not fit this OS file.`, device: stock.dev }
+  enabled = [...enabled.filter(p => !cores.some(c => c.path === p)), core.path].sort()
+  const check = await builder.check(enabled)
+  return check.ok ? { ok: true, enabled, check, device: stock.dev } : { ok: false, error: check.headline ?? 'These mods cannot be built together.', check, device: stock.dev }
+}
+
+/** The three steps a build page shows (link the mods, pack the OS, verify the file), from the builder's log: its
+ * "linked" line ends the first, "packed" the second. Other lines stay in the step they are in. */
+                                                        
+export function buildStep(line        , step       = 'composing')       {
+  return line.startsWith('linked ') ? 'packing' : line.startsWith('packed ') ? 'verifying' : step
+}
+
+/** The builder, in a line: the engine, the kit's protocol and the catalog, from init's reply. */
+export function describeBuilder(ready       ) {
+  return `elekloader ${ready.engine} (kit protocol ${ready.protocol}), catalog ${ready.catalog.revision}`
+}
+
+/** A build's log as a text file for a bug report: what was built and by which builder, then every line with its
+ * time. It names no stock file and holds no firmware. `title` names the site's report, if it wants. */
+export function buildLogText(input                                                                                                                                   ) {
+  const { result } = input
+  const lines = [
+    `${input.title ?? 'elekloader build log'}: ${input.device}, OS ${input.os}`,
+    `Builder: ${input.builder}`,
+    `Mods: ${result.ok ? result.mods.join(', ') : input.enabled.map(p => p.split('/').pop()).join(', ')}`,
+    `OS version shown: ${input.version}`,
+    result.ok ? `Result: built and verified in ${result.seconds.toFixed(2)} s` : `Result: failed: ${result.error}`,
+    ...(result.ok ? result.files.map(f => `  ${f.name}  ${f.bytes} bytes  sha256 ${f.sha256}`) : []),
+    '',
+    ...(result.log ?? []).map(([seconds, line]) => `${seconds.toFixed(2).padStart(7)} s  ${line}`),
+  ]
+  return lines.join('\n') + '\n'
+}

@@ -1,0 +1,215 @@
+{
+ "elemod": 2,
+ "id": "projlink",
+ "version": "0.1",
+ "title": "PROJECT LINK: lets mods keep their settings with each project",
+ "description": "A helper for other mods: it notes when the Digitakt starts a new project, loads a project, or saves one, and in which slot, so mods can keep their settings with the project (saved when you SAVE PROJECT, back when you load it, defaults for a new one). It does nothing by itself.",
+ "category": "System",
+ "author": "Cere, made with Claude",
+ "license": "GPL-2.0-or-later",
+ "target": {
+  "device": "digitakt-mk1",
+  "product": "Digitakt mk1",
+  "os": "1.54",
+  "syx_sha256": "f78ba80fa7b1da5fb0e1ff61ad61e9e71aafe79f4364fc49679f3651353e3cf6",
+  "section3_sha256": "5c58bf9e3949ef09977c5fc007a61e8d026931f67f1621238379dfb8ee4d31a2",
+  "section3_len": 2479680
+ },
+ "sections": {
+  ".run": {
+   "align": 4,
+   "len": 104,
+   "parts": [
+    [
+     "hex",
+     "74ff23c20000000052b90000000052b900000000243c400148984e75262e000c23c30000000052b90000000052b900000000263c400149fa4e75242e000823c20000000052b900000000280e4e750000504c4e4bffff"
+    ],
+    [
+     "stock",
+     "0x402137f4",
+     8
+    ],
+    [
+     "hex",
+     "00000000000000000000"
+    ]
+   ]
+  }
+ },
+ "symbols": {
+  "proj_magic": [
+   ".run",
+   80
+  ],
+  "pl_new_s": [
+   ".run",
+   0
+  ],
+  "pl_load_s": [
+   ".run",
+   28
+  ],
+  "proj_slot": [
+   ".run",
+   84
+  ],
+  "proj_gen": [
+   ".run",
+   88
+  ],
+  "proj_news": [
+   ".run",
+   96
+  ],
+  "proj_saves": [
+   ".run",
+   100
+  ],
+  "proj_loads": [
+   ".run",
+   92
+  ],
+  "pl_save_s": [
+   ".run",
+   58
+  ]
+ },
+ "exports": [
+  "pl_load_s",
+  "pl_new_s",
+  "pl_save_s",
+  "proj_gen",
+  "proj_loads",
+  "proj_news",
+  "proj_saves",
+  "proj_slot"
+ ],
+ "imports": [],
+ "weak": [],
+ "relocs": [
+  [
+   ".run",
+   4,
+   "abs32",
+   "sec:.run",
+   84
+  ],
+  [
+   ".run",
+   10,
+   "abs32",
+   "sec:.run",
+   88
+  ],
+  [
+   ".run",
+   16,
+   "abs32",
+   "sec:.run",
+   96
+  ],
+  [
+   ".run",
+   34,
+   "abs32",
+   "sec:.run",
+   84
+  ],
+  [
+   ".run",
+   40,
+   "abs32",
+   "sec:.run",
+   88
+  ],
+  [
+   ".run",
+   46,
+   "abs32",
+   "sec:.run",
+   92
+  ],
+  [
+   ".run",
+   64,
+   "abs32",
+   "sec:.run",
+   84
+  ],
+  [
+   ".run",
+   70,
+   "abs32",
+   "sec:.run",
+   100
+  ]
+ ],
+ "sites": [
+  {
+   "addr": "0x4001a5f0",
+   "len": 6,
+   "stock_sha256": "7173af2192825d4485d0ade403bfd2e563b226246758814c915e76d6b59b6953",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:pl_new_s",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4001a906",
+   "len": 6,
+   "stock_sha256": "8e691c8690f6f98f78299a0324194451dfcd37185f74a7eb99530d628d42cca6",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:pl_load_s",
+     0
+    ]
+   ]
+  },
+  {
+   "addr": "0x4004f1f2",
+   "len": 6,
+   "stock_sha256": "2f4f3999aa126b9b863002b0599a9f6fe0406aacd923d158e2abb498bd452c63",
+   "new": "4eb900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:pl_save_s",
+     0
+    ]
+   ]
+  }
+ ],
+ "collections": {},
+ "contribute": [],
+ "copied": [],
+ "resources": {
+  "names": [
+   "site:Project::initializeNewProject",
+   "site:Project::loadProjectFromMmc",
+   "site:ProjectManager::interactiveSave"
+  ],
+  "core": "4.2"
+ },
+ "requires": [
+  "core"
+ ],
+ "conflicts": [],
+ "build": {
+  "sources": {
+   "projlink.s": "1f7e032f7eca698c94fb9907c72575a265a15202d14a05380de92e9748238ab5"
+  }
+ },
+ "signature": null
+}
