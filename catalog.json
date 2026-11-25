@@ -1120,18 +1120,18 @@
       "thumb": {"tag": "v0.14", "file": "thumb.png", "sha256": "06f3c2af810d214e4622b5ee792d8b1b20a210c37b607c48a4ed6222270d0136"}
     },
     {
-      "repo": "ceredmeat/FLEXMODS", "tag": "v1.4", "file": "fill-0.1.elemod",
-      "device": "digitakt-mk1", "needs_core": "4.1",
-      "sha256": "50df33427ef0d71bca666af17d79624446438ba3fdcf32a63f7b9a96b9c1fb59",
-      "summary": "Two more flexmods for the Digitakt MKI: FILL (hold YES, then NO, for a random variation of the pattern, new each loop) and MIDI ARP (an in-time arpeggiator on each MIDI track: UP, DOWN, UPDN or RND, 1/16 to 1/4, 1 to 3 octaves).",
-      "on_unit": "Both on a Digitakt MKI, OS 1.54. FILL: the fill while held, a new variation each loop, AMOUNT, and the pattern back to normal on release. MIDI ARP: all its features tested on hardware and working."
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "midiarp-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "d3c073602b5f37195e60806b875c70047ca12813e5876f28d31679520d9f9e52",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
-      "repo": "ceredmeat/FLEXMODS", "tag": "v1.4", "file": "midiarp-0.1.elemod",
-      "device": "digitakt-mk1", "needs_core": "4.2",
-      "sha256": "21f8b833239e3fd7f2fea3223d177bf3d1c80893513b9e9b690b29c6e7c42b76",
-      "summary": "Two more flexmods for the Digitakt MKI: FILL (hold YES, then NO, for a random variation of the pattern, new each loop) and MIDI ARP (an in-time arpeggiator on each MIDI track: UP, DOWN, UPDN or RND, 1/16 to 1/4, 1 to 3 octaves).",
-      "on_unit": "Both on a Digitakt MKI, OS 1.54. FILL: the fill while held, a new variation each loop, AMOUNT, and the pattern back to normal on release. MIDI ARP: all its features tested on hardware and working."
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "fill-0.3.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "9198fb0717c4605b681b7d1275cfedcfeb97c790020aeccb13a7a7919476b736",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/DigiArcade", "tag": "v0.1", "file": "digiarcade-0.1.elemod",
@@ -1160,6 +1160,55 @@
       "sha256": "68fd0233fbf336b39fa7c5f52e16c4171100c5a99e83f5c13b53950c47032005",
       "summary": "A west coast machine after Majella Audio's Implexus and Compax and the Buchla Music Easel: a complex oscillator (FM, AM or both) into a wavefolder, a low pass gate with vactrol-like decay, a pulser, a random voltage and a vibrato.",
       "on_unit": "Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "dash-0.2.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "f0cec253e41fcf03f85ca188d6c34b176e993ca116c13254f55b4d2a4f193db1",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "dice-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "e5e8663b8bebda03b79f61ce4e0fc855049ddadf7ee91d3c51f209e6b0143462",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "geq-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "3d7b94b8d6c7b4adfc1caebc18c4bd568d71ad0e9cd43929af58a55a113f022e",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "glue-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "dccd332cd47fffa0b6dcc9e8a30479b47c2cfd8b391587f7591a32cf1b0bd84e",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "help-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "5025fc4e807b519dd4bc48e0897aa06066fb5a2431dc6e402a6bbf3d1a214f75",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "maximizer-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "e0964a1074b853d03efde0a66db5f1f2053f916a584bb7003949659d81e326cb",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "projlink-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "576516ddba30161d7682d9fd9de62d7552201b5be2cdaf92062bea9cf65ae4be",
+      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
