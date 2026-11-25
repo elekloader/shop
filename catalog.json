@@ -551,6 +551,14 @@
       "thumb": null
     },
     {
+      "repo": "morriess/Digitone-Drum-Mode", "tag": "v0.10.6", "file": "drummode-0.10.6.elemod",
+      "device": "digitone-mk1", "needs_core": "5.3",
+      "sha256": "2f803cbac0a44f8274bba1c3403530e61b4fa7c7bed3d4bb449f75c51174b03d",
+      "summary": "Turns a MIDI track into an 8-voice drum sequencer for an external drum machine: trig keys 1–8 become pads, each voice with its own note and velocity, live and grid recording per voice, mutes, and settings per pattern. OS 1.44, beta.",
+      "on_unit": "Digitone mk1, OS 1.44, by the author (2026-11-22 and 2026-11-24): pads, live and grid recording, held-step locks, running light, DRUM page, mutes, settings per pattern, pattern/bank select and chains, SCALE length, save/load. Not yet: Digitone Keys; running together with other mods on a unit. MUTE mode and step recording behave differently from the stock (see the manual).",
+      "thumb": {"tag": "v0.10.6", "file": "thumb.png", "sha256": "2275535ba5c761816f1cbc9d2e54231b4f3279eea8001304c5bdbd409577ff74"}
+    },
+    {
       "repo": "irpina/digineighbor", "tag": "v0.6", "file": "digineighbor-0.6.elemod",
       "device": "digitakt-mk1", "needs_core": "2.1", "title": "digineighbor", "version": "0.6",
       "sha256": "380837f86c05cf6d0aba2dfc930a4309cc6b2e99b2e8c6a450f0abe6e844dccd",
