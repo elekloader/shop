@@ -1120,6 +1120,20 @@
       "thumb": {"tag": "v0.14", "file": "thumb.png", "sha256": "06f3c2af810d214e4622b5ee792d8b1b20a210c37b607c48a4ed6222270d0136"}
     },
     {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.4", "file": "fill-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.1",
+      "sha256": "50df33427ef0d71bca666af17d79624446438ba3fdcf32a63f7b9a96b9c1fb59",
+      "summary": "Two more flexmods for the Digitakt MKI: FILL (hold YES, then NO, for a random variation of the pattern, new each loop) and MIDI ARP (an in-time arpeggiator on each MIDI track: UP, DOWN, UPDN or RND, 1/16 to 1/4, 1 to 3 octaves).",
+      "on_unit": "Both on a Digitakt MKI, OS 1.54. FILL: the fill while held, a new variation each loop, AMOUNT, and the pattern back to normal on release. MIDI ARP: all its features tested on hardware and working."
+    },
+    {
+      "repo": "ceredmeat/FLEXMODS", "tag": "v1.4", "file": "midiarp-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "21f8b833239e3fd7f2fea3223d177bf3d1c80893513b9e9b690b29c6e7c42b76",
+      "summary": "Two more flexmods for the Digitakt MKI: FILL (hold YES, then NO, for a random variation of the pattern, new each loop) and MIDI ARP (an in-time arpeggiator on each MIDI track: UP, DOWN, UPDN or RND, 1/16 to 1/4, 1 to 3 octaves).",
+      "on_unit": "Both on a Digitakt MKI, OS 1.54. FILL: the fill while held, a new variation each loop, AMOUNT, and the pattern back to normal on release. MIDI ARP: all its features tested on hardware and working."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
