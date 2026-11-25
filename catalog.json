@@ -1141,6 +1141,13 @@
       "on_unit": "Digitakt MKI, OS 1.54, with LED COLORS for the trig lights."
     },
     {
+      "repo": "ceredmeat/ZIBENS", "tag": "v0.7", "file": "zibens-0.7.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.4",
+      "sha256": "194882d8d9883b6d8fb82e95b2f9088985d4b11484fe036381153475a2c27d78",
+      "summary": "A Perkons HD-01-style drum-synth machine for the Digitakt MKI, with a delay and compressor on its second page.",
+      "on_unit": "Digitakt MKI, OS 1.54."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
