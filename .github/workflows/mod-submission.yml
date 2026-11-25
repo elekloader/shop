@@ -102,7 +102,21 @@ jobs:
         if: steps.check.outputs.status == '0'
         run: |
           branch="mod-submission/$ISSUE"
-          title=$(python -c "import json, os; r = json.load(open(os.environ['RUNNER_TEMP'] + '/result.json')); print(('The shop: remove %s (%s)' % (', '.join(r['titles']) or 'a mod', r['repo'])) if r['removal'] else ('The shop: %s (%s %s)' % (', '.join(r['titles']) or 'a mod', r['repo'], r['tag'])))")
+          # GitHub refuses PR titles over 256 characters: past that, count the mods.
+          title=$(python - <<'PY'
+          import json, os
+          r = json.load(open(os.environ['RUNNER_TEMP'] + '/result.json'))
+          def make(names):
+              if r['removal']:
+                  return 'The shop: remove %s (%s)' % (names, r['repo'])
+              return 'The shop: %s (%s %s)' % (names, r['repo'], r['tag'])
+          title = make(', '.join(r['titles']) or 'a mod')
+          if len(title) > 256:
+              n = len(r['titles'])
+              title = make('%d mods' % n if n != 1 else 'a mod')
+          print(title[:256])
+          PY
+          )
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -B "$branch"
