@@ -109,7 +109,20 @@ jobs:
               fi
               continue
             fi
-            title=$(python -c "import json, sys; r = json.load(open(sys.argv[1])); print('The shop: %s from %s (%s)' % (', '.join(r['titles']) or 'updates', r['repo'], ', '.join(r['tags'])))" "$result")
+            # GitHub refuses PR titles over 256 characters: past that, count the mods.
+            # (the heredoc sits at the block's own indent so PY ends up in column 0)
+            title=$(python - "$result" <<'PY'
+          import json, sys
+          r = json.load(open(sys.argv[1]))
+          def make(names):
+              return 'The shop: %s from %s (%s)' % (names, r['repo'], ', '.join(r['tags']))
+          title = make(', '.join(r['titles']) or 'updates')
+          if len(title) > 256:
+              n = len(r['titles'])
+              title = make('%d mods' % n if n != 1 else 'updates')
+          print(title[:256])
+          PY
+            )
             same=$(python -c "import json, sys; print('yes' if json.load(open(sys.argv[1]))['same_repo_update'] else '')" "$result")
             git add catalog.json
             printf '%s\n\nFound and checked by the shop-updates workflow (packaging/shop_updates.py, elekloader).\n' "$title" > "$RUNNER_TEMP/message.txt"
