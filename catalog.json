@@ -926,63 +926,63 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "ctrlall-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "a89cb867879b5f0b6eec7d6ff6314bd1398cbe80b5815cb7397665bb181ae77d",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Ctrl All, after the Analog Rytm mod: TRK + YES turns it on, and a parameter lock you set with a knob is then set on the same step of every other track that has a trig there (audio tracks from an audio track, MIDI from MIDI).",
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "humanise-0.3.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "e20d807fba2432c4b3bc0ece337587e096bc66f996754098d326a944a739bd01",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Velocity Humanise, after the Analog Rytm mod: every note trig plays a little louder or softer at random, by up to an amount you set per track in SETTINGS (HUMAN T1-T8 for the audio tracks, HUMAN MIDI for the MIDI tracks: OFF, 2-32). The pattern itself never changes. Settings are saved.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "lfoplus-0.6.elemod",
       "device": "digitakt-mk1", "needs_core": "4.3",
       "sha256": "c1b7b2b1b566bed554f98ff37ad90bfecd0d32b03b8cfaa07a795aaa76853174",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "29 new LFO waves after RND, each drawn on the LFO page: Jomox Alphabase shapes, chaos (logistic, Henon, Lorenz), an envelope follower for sidechain-style ducking and Deja Vu random loops. Four slower MULT speeds and an LFO 3/3 page. Replaces the separate Deja Vu mod.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "mutesnap-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "1f07324278d6e9d8a9ea1ad470c5a6ae66fb5cc5a82b87040c63c64814cc5664",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Four mute snapshots, after the Octatrack's mute scenes. Hold YES and press trig 1-4 to save the 16 tracks' mutes as snapshot 1-4; hold NO and press trig 1-4 to recall it at the end of the bar (at once when stopped). The same keys again before the bar cancel it.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "euclidacc-0.3.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "e2217877bd1f09f90d6307c731a9dd28bbad002d510cfbefe8c253396b128621",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Euclid Accents, after the Analog Rytm mod: a Euclidean rhythm accents the trigs you already have instead of adding new ones.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "kitab-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "e19f3c2fcba07a6f645be1e9ca1d0511900f1188f2c9ad4fc59b2f1e0549ad65",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Kit A/B, after the Analog Rytm mod: hold TRK and press NO to hear the active pattern's temp-saved kit (B, what FUNC+NO would bring back) while your edited kit (A) is kept aside; TRK+NO again brings your edits back. The temp copy is never overwritten, so FUNC+YES and FUNC+NO work as before.",
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "modsettings-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "5083f4d00706384f31f360d5b680d449857c66a181c14c7fac31e70efaa28067",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "One MOD SETTINGS row in SETTINGS that opens and closes the rows of Deja Vu, Velocity Humanise and Euclid Accents, so SETTINGS stays short: select it (or turn right) to show them, again (or turn left) to hide them. Starts closed. Without this mod those rows simply show as before.",
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "realunits-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "57ccb6c50a89528ccad0c3bc68ad04b9ee75ced1c2b146173b66a42cfa5213d2",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Knob values in real units: the filter's FREQ in hertz, the envelopes' times in milliseconds or seconds, and the LFO SPD and MULT pop-ups with the cycle length in bars, note values, steps or Hz. Every number comes from the sound engine's own tables.",
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.0", "file": "tracksolo-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "2fca50ade29f2942e47cb0151484a58995996fd753d489a09011b2fe4ccaada5",
-      "summary": "Ten Digitakt MKI mods: new LFO waves with pictures, a looping random LFO, Kit A/B, Ctrl All, real units, mute snapshots, track solo, velocity humanise and Euclidean accents.",
+      "summary": "Track Solo, after the Octatrack mod: hold TRK, then hold UP, and the active track plays alone until you let go of UP; TRK + DOWN latches the solo (again to unlatch, or on another track to move it).",
       "on_unit": "All ten tested together on a real Digitakt MKI (OS 1.54) with core and seq-events: LFO waves and pictures, Deja Vu loops and destinations, Kit A/B, Ctrl All, real-unit displays, mute snapshots, track solo, humanise, Euclid accents and the MOD SETTINGS row. OS 1.53 not supported."
     },
     {
@@ -1017,21 +1017,21 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "scenes-0.3.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "c51a0d45fd0a2f79e9440c80e83599456c90f099e28fd90a16d87010909765f8",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "Two scenes, A and B, and a crossfader between them, after the Octatrack. TRK + FUNC opens the SCENES page. LEFT (or RIGHT) records scene A (or B): turn knobs on any audio track, then TRK + FUNC again; the sounds go back to how they were and the turned values are the scene.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "visuals-0.5.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "5dc1aaf21c719804ff07d3e2b31605013245f3c4e1d624bcaf75287a6cb41dc7",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "Eye candy on master pages: a beat radar, a pet that lives on your music, screen effects, screensavers, a clock and tap meter, a scope, XY view and spectrum, and live art. With LED COLORS 1.0+ the trig keys follow the screensaver.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "reverse-0.5.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "3ce186ba654bb65cb664aadf6cae2e5028741ec04787f902e5dbfa794c399430",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "A master page (FUNC + LFO) where knobs A-H set, for tracks 1-8, the chance that a trig plays its sample backwards (a PLAY lock, flipped from the sound's). The page flashes an arrow as a track plays one backwards. Saved. Needs seq-events.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
@@ -1045,7 +1045,7 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "multitrig-0.6.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "d71edd12849a3a45b90e51e1c44c4540b74bc7bcf1f395781f79b09ef79b31f4",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "In GRID RECORDING: hold a trig and tap PAGE (every trig on its page) or TRK (every trig on the track), then turn a knob to edit them all. SETTINGS > MULTI EDIT: REL keeps each trig's own value and moves them together (transpose a page or a track); ABS gives them all the held trig's value.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
@@ -1059,28 +1059,28 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "density-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "ec2580d627728a38f8307dd638e1e71cba883c00832d6e245227e30f22f31e95",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "A master page (FUNC + LFO) with one density knob for the whole pattern: the middle plays it as it is, left drops trigs out, right adds ghost notes on empty steps.",
       "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "polymeter-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "096513b65b7f43c2a1b0df84fc7f17035d078ae3b8220cb386afa8200aed5bea",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "A master page (FUNC + LFO, PLY): tracks 1-8 as lanes as long as their lengths, with moving playheads; knobs for the active track's length and speed, the pattern's scale mode and master length, and one-turn polymeter presets (16, DWN, PRM, 3V4).",
       "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.2", "file": "trigmodes-0.5.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "074bbe289634f0df2d755761d77f62f0699af004898b6efbc9ce8b057e5e5e47",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "The Digitakt II's trig modes on the Digitakt: NO + PAGE steps through TRKS (the keys play the tracks), VEL (16 velocities), RTRG (hold a key for a roll in time) and RTRK (keys roll their own tracks). A chip in the top corner shows the mode.",
       "on_unit": "All ten tested on a real Digitakt MKI (OS 1.54) with core and seq-events: every trig mode including RTRK, density thinning and filling, all drive types and saving, reverse playback, polymeter lengths, speeds and presets, the DJ filter with tempo sync, all FREQSEQ sequencers including roulette and scatter, the radar, pet, Snake, Pong and screen effects, MULTITRIG's page and track-wide lock editing, and SCENES' recording and crossfading. OS 1.53 not supported."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "freqseq-0.6.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "7358d69175290c27c8d2e649a3a67d2428293e6ed7fe53dbdde7bed2df5c462c",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "FREQSEQ: each of the 16 tracks can run its own generative sequencer: polyrhythms, Turing Machine loops, Markov chains, Game of Life, Grids drum maps, canons, Morse and more, with a FEEL page for scale, root, humanise and groove. The pattern never changes.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
@@ -1101,14 +1101,14 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "drive-0.6.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "2da59a709ee95f5f0c828faf85d7cc93c571e13b833839650896415a563182a3",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "A master page (FUNC + LFO) that gives the active audio track a drive of its own before its filter: TAPE, TUBE, FUZZ or FOLD, with amount, tone, mix and level; and (0.5) a low pass gate after it, after VILNIS's: LP, VCA or both, struck by every hit on the track, with decay and resonance.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "djfilter-0.8.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "9e11e221f01982c2ba74aa6e40d3ba844ef1f522980588faee2c944753c88bca",
-      "summary": "Ten Digitakt MKI mods: Digitakt II-style trig modes with retrig, Octatrack-style scenes with a crossfader, a density knob, per-track drive, reverse chance, a polymeter page, a tempo-synced DJ filter, generative sequencers, visuals with games, and multi-trig lock editing.",
+      "summary": "A stereo master filter for the whole mix on its own master page, after the Electrix FilterFactory: a DJ knob (low pass left, high pass right) or eight filter types, resonance, BUZZ drive and an LFO, free or synced to the sequencer, with an effect mix.",
       "on_unit": "all the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
@@ -1123,14 +1123,14 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "midiarp-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "d3c073602b5f37195e60806b875c70047ca12813e5876f28d31679520d9f9e52",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "An arpeggiator on each MIDI track, in time with the sequencer. SETTINGS: ARP TRACK (M1-M8) picks the track the next rows show; ARP MODE (OFF, UP, DOWN, UPDN, RND), ARP RATE (1/16, 1/8, 1/4), ARP OCT (1-3).",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "fill-0.3.elemod",
       "device": "digitakt-mk1", "needs_core": "4.1",
       "sha256": "9198fb0717c4605b681b7d1275cfedcfeb97c790020aeccb13a7a7919476b736",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "Hold YES, then hold NO: while NO is held the pattern plays a random variation of itself, new each loop: steps shuffled with their neighbours, ghost notes on empty steps, some trigs left out (never the first of each half bar), velocities moved. Let go and it plays as it is; the pattern never changes.",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
@@ -1165,49 +1165,49 @@
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "dash-0.2.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "f0cec253e41fcf03f85ca188d6c34b176e993ca116c13254f55b4d2a4f193db1",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "One master page (DSH) showing the active audio track's SRC knobs, its LFO and its filter and amp values together, as bars, with the last value that moved named along the bottom (a slot finder). Made to be read at a glance, on the unit or in a screen dump (DigiWall, Elek View).",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "dice-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "e5e8663b8bebda03b79f61ce4e0fc855049ddadf7ee91d3c51f209e6b0143462",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "One master page (DCE). Per track: DICE rolls a random rhythm (weighted toward the downbeats; replace your trigs or add to them) with YES, and AUTOPILOT flips a step or two every 1, 2, 4 or 8 loops so the pattern slowly evolves, with a HOME knob pulling it back toward what you programmed.",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "geq-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "3d7b94b8d6c7b4adfc1caebc18c4bd568d71ad0e9cd43929af58a55a113f022e",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "A master page (FUNC + LFO) with a four-band EQ for the whole mix modelled on the SSL G-series channel EQ, on every output (main, headphones, USB), in stereo. LF 30-450 Hz, LMF 200 Hz - 2.5 kHz, HMF 600 Hz - 7 kHz, HF 1.5 - 16 kHz, each -15 to +15 dB: the knobs are gain and frequency in pairs.",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "glue-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "dccd332cd47fffa0b6dcc9e8a30479b47c2cfd8b391587f7591a32cf1b0bd84e",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "A master page (FUNC + LFO) that runs the whole mix through a stereo-linked bus compressor modelled on the SSL G-series console's centre-section compressor, on every output (main, headphones, USB).",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "help-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "5025fc4e807b519dd4bc48e0897aa06066fb5a2431dc6e402a6bbf3d1a214f75",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "A master page (FUNC + LFO, HLP) listing the mods in this build, each with a short card of its keys and knobs. It looks for each mod's code, so only the mods you built in show. UP / DOWN or any knob choose and scroll, YES or a trig key opens a card, NO goes back to the list.",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "maximizer-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "e0964a1074b853d03efde0a66db5f1f2053f916a584bb7003949659d81e326cb",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "A master page (FUNC + LFO, after DJ FILTER) that runs the whole mix through an enhancer modelled on the BBE 822A Sonic Maximizer, on every output (main, headphones, USB), in stereo.",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
       "repo": "ceredmeat/FLEXMODS", "tag": "v1.5", "file": "projlink-0.1.elemod",
       "device": "digitakt-mk1", "needs_core": "4.2",
       "sha256": "576516ddba30161d7682d9fd9de62d7552201b5be2cdaf92062bea9cf65ae4be",
-      "summary": "28 mods for the Digitakt MKI: Digitakt II-style trig modes, Octatrack-style scenes, generative sequencers, FILL, MIDI ARP, DICE + AUTOPILOT, a DJ filter, master EQ, compressor and enhancer, per-track drive, new LFO waves with Deja Vu, Kit A/B, DASH, an in-device HELP manual and more.",
+      "summary": "A helper for other mods: it notes when the Digitakt starts a new project, loads a project, or saves one, and in which slot, so mods can keep their settings with the project (saved when you SAVE PROJECT, back when you load it, defaults for a new one). It does nothing by itself.",
       "on_unit": "All the mods above, on a Digitakt MKI, OS 1.54."
     },
     {
