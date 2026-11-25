@@ -1134,6 +1134,13 @@
       "on_unit": "Both on a Digitakt MKI, OS 1.54. FILL: the fill while held, a new variation each loop, AMOUNT, and the pattern back to normal on release. MIDI ARP: all its features tested on hardware and working."
     },
     {
+      "repo": "ceredmeat/DigiArcade", "tag": "v0.1", "file": "digiarcade-0.1.elemod",
+      "device": "digitakt-mk1", "needs_core": "4.2",
+      "sha256": "8b872261a4123a1248f79b1c4352d34a452c0304259006effe9f64a36703538c",
+      "summary": "21 games on one master page for the Digitakt MKI, many playing along with your pattern and your track sounds: rhythm game, Tetris, Space Invaders, Pinball, a raycaster maze shooter and more. With LED COLORS the trig keys light up for every game.",
+      "on_unit": "Digitakt MKI, OS 1.54, with LED COLORS for the trig lights."
+    },
+    {
       "repo": "irpina/elekloader", "tag": "core-ot-v0.3.1", "file": "core-ot-0.3.1.elemod", "kind": "core",
       "device": "octatrack",
       "sha256": "bd466e036022e78f22ad786906edce457f9ebb4934dde6a9775c483141032c06"
